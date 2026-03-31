@@ -1,4 +1,4 @@
-itable link
+new
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,6 +61,7 @@ itable link
         .navbar {
             background: rgba(109, 144, 220, 0.9);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .nav-link {
@@ -74,60 +75,54 @@ itable link
         }
 
         .hero {
-            \n min-height: 100vh;
-            \n display: flex;
-            \n align-items: center;
-            \n justify-content: center;
-            \n text-align: center;
-            \n padding-top: 120px;
-            \n padding-bottom: 5rem;
-            \n
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 120px;
+            padding-bottom: 5rem;
         }
 
-        \n\n .hero-content {
-            \n display: flex;
-            \n align-items: center;
-            \n gap: 2rem;
-            \n flex-wrap: wrap;
-            \n justify-content: center;
-            \n
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        \n\n .profile-img {
-            \n width: 150px;
-            \n height: 150px;
-            \n max-width: 100%;
-            \n height: auto;
-            \n border-radius: 50%;
-            \n border: 4px solid var(--primary);
-            \n flex-shrink: 0;
-            \n
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            flex-shrink: 0;
         }
 
-        \n\n @keyframes wishBlink {
+        @keyframes wishBlink {
 
-            \n 0%,
+            0%,
             100% {
                 opacity: 1;
             }
 
-            \n 50% {
+            50% {
                 opacity: 0.5;
             }
-
-            \n
         }
 
-        \n\n .wish-badge {
-            \n background: linear-gradient(45deg, var(--primary), #ff00ff);
-            \n color: black;
-            \n padding: 5px 12px;
-            \n border-radius: 20px;
-            \n font-size: 0.8rem;
-            \n font-weight: 600;
-            \n animation: wishBlink 2s infinite;
-            \n box-shadow: 0 0 10px var(--primary);
-            \n
+        .wish-badge {
+            background: linear-gradient(45deg, var(--primary), #ff00ff);
+            color: black;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            animation: wishBlink 2s infinite;
+            box-shadow: 0 0 10px var(--primary);
         }
 
         .hero h1 {
@@ -173,10 +168,14 @@ itable link
 
         .skill-card {
             background: var(--card-bg);
-            padding: 3rem 1rem;
+            padding: 2.5rem 1rem;
             border-radius: 15px;
             text-align: center;
             transition: 0.3s;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .skill-card:hover {
@@ -196,6 +195,9 @@ itable link
             padding: 2rem;
             transition: 0.3s;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .project-card:hover {
@@ -212,13 +214,6 @@ itable link
             margin-top: 80px;
         }
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-        }
-
         footer {
             padding: 2rem;
             text-align: center;
@@ -227,11 +222,24 @@ itable link
 
         @media (max-width: 768px) {
             .hero {
-                padding: 120px 1rem 2rem;
+                padding: 120px 1rem 5rem !important;
             }
 
             .profile-section {
-                height: 40vh;
+                height: auto;
+                min-height: 50vh;
+            }
+
+            .skill-card,
+            .project-card {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -258,29 +266,34 @@ itable link
     </nav>
 
     <!-- Profile -->
-    <section class="profile-section hero" id="hero">\n <div class="container">\n <div class="row h-100">\n <div
-                    class="col-md-12">\n <div class="hero-content">\n <img src="./images/IMG_20220403_233444_172.jpg"
-                            alt="Belintan Profile" \n class="profile-img img-fluid">\n <div>
-                            <div class="col-md-9">
-                                <h1 class="display-4 fw-bold mb-3">Belintan <span class="wish-badge">11:11</span></h1>
-                                <h2 class="fs-3 mb-3">Frontend Developer</h2>
-                                <p class="lead mb-4">Tuticorin, India | belintan07@gmail.com</p>
-                                <div>
-                                    <a href="https://github.com/belintan07" class="btn btn-glow me-3 mb-2"
-                                        rel="noopener"><i class="fab fa-github"></i> GitHub</a>
-                                    <a href="https://www.linkedin.com/in/belintanben" class="btn btn-glow mb-2"
-                                        rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                                    <a href="./images/Belintan_B_Developer_Resume.pdf" class="btn btn-glow mb-2"
-                                        download>Resume
-                                        PDF</a>
-                                </div>
+    <section class="profile-section hero" id="hero">
+        <div class="container">
+            <div class="row h-100">
+                <div class="col-12">
+                    <div class="hero-content">
+                        <img src="./images/IMG_20220403_233444_172.jpg" alt="Belintan Profile"
+                            class="profile-img img-fluid">
+                        <div>
+                            <h1 class="display-4 fw-bold mb-3">Belintan <span class="wish-badge">11:11</span></h1>
+                            <h2 class="fs-3 mb-3">Frontend Developer</h2>
+                            <p class="lead mb-4">Tuticorin, India | belintan07@gmail.com</p>
+                            <div>
+                                <a href="https://github.com/belintan07" class="btn btn-glow me-3 mb-2" rel="noopener"><i
+                                        class="fab fa-github"></i> GitHub</a>
+                                <a href="https://www.linkedin.com/in/belintanben" class="btn btn-glow mb-2"
+                                    rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                                <a href="./images/Belintan_B_Developer_Resume.pdf" class="btn btn-glow mb-2"
+                                    download>Resume PDF</a>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="py-5">
+    <section id="about" class="py-5 pb-5">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">About Me</h2>
             <div class="row" data-aos="fade-up">
@@ -302,30 +315,30 @@ itable link
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="py-5 bg-dark">
+    <section id="skills" class="py-5 pb-5 bg-dark">
         <div class="container">
             <h2 class="section-title text-light" data-aos="zoom-in">Skills</h2>
-            <div class="row g-4" data-aos="fade-up">
+            <div class="row g-4 h-100 align-items-stretch" data-aos="fade-up">
                 <div class="col-md-3">
-                    <div class="skill-card">
+                    <div class="skill-card h-100">
                         <div class="skill-icon"><i class="fab fa-html5"></i></div>
                         <h4>HTML5</h4>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="skill-card">
+                    <div class="skill-card h-100">
                         <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
                         <h4>CSS3</h4>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="skill-card">
+                    <div class="skill-card h-100">
                         <div class="skill-icon"><i class="fab fa-bootstrap"></i></div>
                         <h4>Bootstrap</h4>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="skill-card">
+                    <div class="skill-card h-100">
                         <div class="skill-icon"><i class="fab fa-js-square"></i></div>
                         <h4>JavaScript</h4>
                     </div>
@@ -335,12 +348,12 @@ itable link
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="py-5">
+    <section id="projects" class="py-5 pb-5">
         <div class="container">
             <h2 class="section-title" data-aos="fade-right">Featured Projects</h2>
-            <div class="row g-4" data-aos="fade-up">
+            <div class="row g-4 h-100 align-items-stretch" data-aos="fade-up">
                 <div class="col-md-4">
-                    <div class="project-card">
+                    <div class="project-card h-100">
                         <h4>Portfolio Website</h4>
                         <p>Cosmic-themed responsive portfolio built with HTML, CSS, Bootstrap & JS animations.</p>
                         <a href="https://belintan07.github.io/-Portfolio-personal" class="btn btn-glow mt-3"
@@ -348,14 +361,14 @@ itable link
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="project-card">
+                    <div class="project-card h-100">
                         <h4>Habit Tracker</h4>
                         <p>Track your daily habits and build positive routines with this interactive app.</p>
                         <a href="#" class="btn btn-glow mt-3">View Code</a>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="project-card">
+                    <div class="project-card h-100">
                         <h4>Interactive Quiz App</h4>
                         <p>Dynamic quiz application with score tracking and responsive design.</p>
                         <a href="#" class="btn btn-glow mt-3">View Code</a>
@@ -366,22 +379,22 @@ itable link
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-5 bg-dark">
+    <section id="contact" class="py-5 pb-5 bg-dark">
 
         <div class="container">
             <h2 class="section-title text-light" data-aos="fade-left">Get In Touch</h2>
             <div class="row justify-content-center" data-aos="fade-up">
                 <div class="col-md-8 text-center">
                     <p class="lead mb-4">belintan07@gmail.com | Tuticorin, Tamil Nadu, India</p>
-                    <div class="mb-4">
-                        <a href="mailto:belintan07@gmail.com" class="btn btn-glow me-3 mb-2 fs-5"><i
-                                class="fas fa-envelope"></i></a>
-                        <a href="https://github.com/belintan07" class="btn btn-glow me-3 mb-2 fs-5" rel="noopener"><i
-                                class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/belintanben" class="btn btn-glow me-3 mb-2 fs-5"
-                            rel="noopener"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/d_freakyy_boy/" class="btn btn-glow mb-2 fs-5"
-                            rel="noopener"><i class="fab fa-instagram"></i></a>
+                    <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
+                        <a href="mailto:belintan07@gmail.com" class="btn btn-glow fs-5 p-3 rounded-circle" title="Email"
+                            rel="noopener"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/belintan07" class="btn btn-glow fs-5 p-3 rounded-circle"
+                            title="GitHub" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/belintanben" class="btn btn-glow fs-5 p-3 rounded-circle"
+                            title="LinkedIn" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/d_freakyy_boy/" class="btn btn-glow fs-5 p-3 rounded-circle"
+                            title="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -399,7 +412,7 @@ itable link
     <script>
         AOS.init({ duration: 1200 });
         // Smooth scroll
-        document.querySelectorAll('a[href^=\"#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
