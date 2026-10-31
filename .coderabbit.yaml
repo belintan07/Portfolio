@@ -1,0 +1,98 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+
+# ==============================================================================
+# CodeRabbit AI Code Review Configuration
+# Repository: Belintan B. Portfolio & Web Applications Suite (belintan07)
+# Documentation: https://coderabbit.ai/docs
+# ==============================================================================
+
+# --- General Settings ---
+language: "en-US"
+tone_instructions: >-
+  You are an experienced senior front-end architect and UI/UX engineering lead reviewing
+  code for Belintan B. (MBA + CS). Provide constructive, high-signal, accessible, and
+  performance-focused feedback. Prioritize semantic HTML5, WCAG AA/AAA accessibility,
+  responsive layouts (tested for 375px mobile viewport with zero horizontal scroll),
+  efficient CSS transitions, clean ES6+ JavaScript, and enterprise-grade security.
+early_access: false
+
+# --- Code Review Behavior ---
+reviews:
+  # "chill" focuses on critical bugs, runtime errors, and performance while reducing noise.
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  high_level_summary_placeholder: "@coderabbitai summary"
+  auto_title_placeholder: "@coderabbitai"
+  poem: true
+  review_status: true
+  review_details: false
+  collapse_walkthrough: false
+  sequence_diagrams: true
+  changed_files_summary: true
+
+  # Automatic Review Triggers
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - ".*"
+    auto_incremental_review: true
+
+  # Path Filters (ignore binary media assets and generated files)
+  path_filters:
+    - "!assets/**"
+    - "!**/*.jpg"
+    - "!**/*.jpeg"
+    - "!**/*.png"
+    - "!**/*.webp"
+    - "!**/*.svg"
+    - "!**/*.pdf"
+    - "!**/*.log"
+    - "!node_modules/**"
+    - "!dist/**"
+    - "!.gemini/**"
+
+  # Path-Specific Review Instructions
+  path_instructions:
+    - path: "index.html"
+      instructions: >-
+        Verify semantic HTML5 tags, accessible ARIA roles, label associations,
+        valid keyboard navigation, proper meta tags, and ensure that scripts
+        handle form submissions and modals without uncaught exceptions.
+    - path: "app.js"
+      instructions: >-
+        Verify modern ES6+ best practices, robust error handling on network/API requests,
+        safe DOM manipulation, secure localStorage usage, and avoid blocking the main thread.
+    - path: "styles.css"
+      instructions: >-
+        Check CSS custom properties (design tokens), dark/light mode contrast ratios,
+        clean flexbox/grid alignments, proper media query breakpoints, and
+        prefers-reduced-motion accessibility rules.
+    - path: "*.ps1"
+      instructions: >-
+        Ensure secure PowerShell scripting standards, proper error handling ($ErrorActionPreference),
+        and correct resource disposal (e.g. closing network streams and HTTP listeners).
+
+  # Third-Party Static Analysis & Security Scanners
+  tools:
+    github-checks:
+      enabled: true
+      timeout_ms: 900000
+    gitleaks:
+      enabled: true # Automatically detect accidentally committed secrets or tokens
+    presidio:
+      enabled: true # Scan for sensitive personal identification data
+    eslint:
+      enabled: true
+
+# --- Interactive Chat ---
+chat:
+  auto_reply: true # Automatically reply to user comments tagged with @coderabbitai
+
+# --- Finishing Touches ---
+finishing_touches:
+  docstrings:
+    enabled: true
+  unit_tests:
+    enabled: false
