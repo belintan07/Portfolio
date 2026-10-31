@@ -4,7 +4,8 @@ import { sound } from '../utils/sound';
 
 export function useRealTimeSales() {
   const [sales, setSales] = useState([]);
-  const [speed, setSpeed] = useState('normal'); // 'normal' (3s), 'surge' (1s), 'paused'
+  const [filterType, setFilterType] = useState('all'); // 'all', 'business', 'personal'
+  const [speed, setSpeed] = useState('normal'); // 'normal' (3.5s), 'surge' (1.2s), 'paused'
   const [totalRevenue, setTotalRevenue] = useState(148520.00);
   const [totalOrders, setTotalOrders] = useState(1284);
   const [activeShoppers, setActiveShoppers] = useState(84);
@@ -32,6 +33,7 @@ export function useRealTimeSales() {
       id: `sale-${nextId.current++}`,
       product: product.name,
       category: product.category,
+      type: product.type || 'business',
       icon: product.icon,
       buyer: buyer.name,
       city: buyer.city,
@@ -53,10 +55,8 @@ export function useRealTimeSales() {
     setTotalRevenue(prev => prev + amount);
     setTotalOrders(prev => prev + 1);
 
-    // Fluctuate active visitors
     setActiveShoppers(prev => Math.max(30, prev + Math.floor(Math.random() * 5) - 2));
 
-    // Append to activity log
     const logItem = {
       id: `log-${Date.now()}-${Math.random()}`,
       text: `${buyer.flag} ${buyer.name} bought ${qty > 1 ? `${qty}x ` : ''}${product.name} ($${amount.toFixed(2)})`,
@@ -65,7 +65,6 @@ export function useRealTimeSales() {
     };
     setActivityLogs(prev => [logItem, ...prev.slice(0, 15)]);
 
-    // Update velocity graph
     setVelocityPoints(prev => {
       const copy = [...prev];
       const last = copy[copy.length - 1];
@@ -90,6 +89,7 @@ export function useRealTimeSales() {
         id: `init-${i}`,
         product: product.name,
         category: product.category,
+        type: product.type || 'business',
         icon: product.icon,
         buyer: buyer.name,
         city: buyer.city,
@@ -108,7 +108,6 @@ export function useRealTimeSales() {
     setSales(initialSales);
   }, []);
 
-  // Auto-generator loop based on speed setting
   useEffect(() => {
     if (speed === 'paused') return;
 
@@ -120,8 +119,15 @@ export function useRealTimeSales() {
     return () => clearInterval(timer);
   }, [speed, triggerSale]);
 
+  const filteredSales = filterType === 'all'
+    ? sales
+    : sales.filter(s => s.type === filterType);
+
   return {
-    sales,
+    sales: filteredSales,
+    rawSalesCount: sales.length,
+    filterType,
+    setFilterType,
     totalRevenue,
     totalOrders,
     activeShoppers,
@@ -132,4 +138,3 @@ export function useRealTimeSales() {
     triggerSale
   };
 }
-

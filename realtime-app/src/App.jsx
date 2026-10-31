@@ -12,6 +12,8 @@ import ActivityLog from './components/ActivityLog';
 export default function App() {
   const {
     sales,
+    filterType,
+    setFilterType,
     totalRevenue,
     totalOrders,
     activeShoppers,
@@ -53,7 +55,11 @@ export default function App() {
           
           {/* Left Column (7 cols on desktop): Live Sales Feed & Throughput */}
           <div className="lg:col-span-7 space-y-6">
-            <LiveSalesStream sales={sales} />
+            <LiveSalesStream
+              sales={sales}
+              filterType={filterType}
+              setFilterType={setFilterType}
+            />
             <SalesVelocityChart velocityPoints={velocityPoints} />
           </div>
 
@@ -78,10 +84,9 @@ export default function App() {
             <span>WebSocket Gateway: Connected (Latency: 14ms)</span>
           </div>
           <span>&copy; {new Date().getFullYear()} SalesPulse Live &middot; Engineered by Belintan B.</span>
-          <span className="font-mono text-[11px] text-zinc-600">Built with React + Vite + Tailwind CSS</span>
+          <span className="font-mono text-[11px] text-zinc-600">Separated: Business SaaS &amp; Personal Commerce Tracks</span>
         </div>
       </footer>
     </div>
   );
 }
-

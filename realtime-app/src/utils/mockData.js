@@ -1,12 +1,12 @@
 export const PRODUCTS = [
-  { id: 'p1', name: 'ResumeAI Pro Yearly', category: 'SaaS Software', price: 149.00, icon: '⚡' },
-  { id: 'p2', name: 'Framer Template Bundle (Auditly + Foldex)', category: 'Design Systems', price: 89.00, icon: '🎨' },
-  { id: 'p3', name: 'Royal Vivaha Custom E-Invite Suite', category: 'Wedding Studio', price: 299.00, icon: '🪔' },
-  { id: 'p4', name: 'Enterprise Cloud Architecture Review', category: 'Consulting', price: 1450.00, icon: '🛡️' },
-  { id: 'p5', name: 'UI/UX Design Sprint (2-Week Retainer)', category: 'Product Design', price: 2400.00, icon: '✨' },
-  { id: 'p6', name: 'Simpolio Minimalist Portfolio Theme', category: 'Templates', price: 49.00, icon: '📱' },
-  { id: 'p7', name: 'Rivage Luxury Architecture Theme', category: 'Templates', price: 79.00, icon: '🏛️' },
-  { id: 'p8', name: 'Next.js + Java API Production Starter', category: 'Developer Tools', price: 119.00, icon: '💻' }
+  { id: 'p1', name: 'ResumeAI Pro Yearly', category: 'SaaS Software', type: 'business', price: 149.00, icon: '⚡' },
+  { id: 'p2', name: 'Framer Template Bundle (Auditly + Foldex)', category: 'Design Systems', type: 'personal', price: 89.00, icon: '🎨' },
+  { id: 'p3', name: 'Royal Vivaha Custom E-Invite Suite', category: 'Wedding Studio', type: 'personal', price: 299.00, icon: '🪔' },
+  { id: 'p4', name: 'Enterprise Cloud Architecture Review', category: 'Consulting', type: 'business', price: 1450.00, icon: '🛡️' },
+  { id: 'p5', name: 'UI/UX Design Sprint (2-Week Retainer)', category: 'Product Design', type: 'business', price: 2400.00, icon: '✨' },
+  { id: 'p6', name: 'Simpolio Minimalist Portfolio Theme', category: 'Templates', type: 'personal', price: 49.00, icon: '📱' },
+  { id: 'p7', name: 'Rivage Luxury Architecture Theme', category: 'Templates', type: 'personal', price: 79.00, icon: '🏛️' },
+  { id: 'p8', name: 'Next.js + Java API Production Starter', category: 'Developer Tools', type: 'business', price: 119.00, icon: '💻' }
 ];
 
 export const BUYERS = [
@@ -28,4 +28,3 @@ export const PAYMENT_METHODS = [
   { name: 'Visa / MC', icon: '💳', color: 'bg-blue-600 text-white border-blue-500' },
   { name: 'PayPal', icon: 'P', color: 'bg-sky-600 text-white border-sky-500' }
 ];
-

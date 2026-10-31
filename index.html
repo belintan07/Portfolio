@@ -204,7 +204,143 @@
       border-color: #2D303D;
     }
 
-    /* ==========================================================================
+        /* ==========================================================================
+       PERSONA MODE SWITCHER (BUSINESS VS PERSONAL SEPARATION)
+       ========================================================================== */
+    .persona-segmented-control {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.05);
+      border: 1.5px solid var(--border-light);
+      border-radius: 9999px;
+      padding: 3px;
+      gap: 3px;
+    }
+
+    [data-theme="dark"] .persona-segmented-control {
+      background: #171822;
+      border-color: #2F3244;
+    }
+
+    .persona-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .persona-tab-btn:hover {
+      color: var(--text);
+    }
+
+    .persona-tab-btn.active {
+      background: var(--text);
+      color: var(--bg) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    [data-theme="dark"] .persona-tab-btn.active {
+      background: #FF5A1F;
+      color: #FFFFFF !important;
+      box-shadow: 0 2px 10px rgba(255, 90, 31, 0.35);
+    }
+
+    /* Chapter Separation Banners */
+    .chapter-banner {
+      width: 100%;
+      padding: 26px 0;
+      background: linear-gradient(135deg, rgba(234, 88, 12, 0.06) 0%, rgba(0, 0, 0, 0.02) 100%);
+      border-top: 2px dashed var(--border-light);
+      border-bottom: 2px dashed var(--border-light);
+      margin: 40px 0 20px 0;
+      transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] .chapter-banner {
+      background: linear-gradient(135deg, rgba(255, 90, 31, 0.08) 0%, rgba(20, 22, 32, 0.5) 100%);
+      border-color: #2D3042;
+    }
+
+    .chapter-banner-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .chapter-tag {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-orange);
+      background: var(--accent-orange-subtle);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      border: 1px solid var(--border-light);
+    }
+
+    .chapter-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .chapter-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 580px;
+    }
+
+    /* Filter Rules for Body Mode */
+    body.mode-business [data-track="personal"] {
+      display: none !important;
+    }
+
+    body.mode-personal [data-track="business"] {
+      display: none !important;
+    }
+
+    /* Mode Switch Notice Banner */
+    .mode-switch-notice {
+      display: none;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      border: 2px dashed var(--accent-orange);
+      margin: 32px 0 16px 0;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      box-shadow: var(--sketch-shadow);
+    }
+
+    body.mode-business .mode-switch-notice.for-personal {
+      display: flex;
+    }
+
+    body.mode-personal .mode-switch-notice.for-business {
+      display: flex;
+    }
+
+/* ==========================================================================
        APPLE GLOBAL RIBBON & FROSTED NAV COMPONENTS
        ========================================================================== */
     .apple-ribbon {
@@ -3517,6 +3653,18 @@
 
       <!-- Nav Action Buttons -->
       <div class="nav-actions">
+        <!-- Persona Mode Switcher: All vs Business vs Personal -->
+        <div class="persona-segmented-control" role="tablist" aria-label="Select portfolio view">
+          <button class="persona-tab-btn active" data-mode="all" role="tab" aria-selected="true" title="View Full Combined Portfolio">
+            <span>âœ¦ All</span>
+          </button>
+          <button class="persona-tab-btn" data-mode="business" role="tab" aria-selected="false" title="Enterprise SaaS, Web Apps &amp; Architecture">
+            <span>ðŸ’¼ Business</span>
+          </button>
+          <button class="persona-tab-btn" data-mode="personal" role="tab" aria-selected="false" title="Wedding E-Invites, Albums &amp; Creative Craft">
+            <span>ðŸŽ¨ Personal</span>
+          </button>
+        </div>
         <!-- Apple Dark/Light Theme Toggle -->
         <button class="apple-theme-toggle" id="theme-toggle" aria-label="Toggle Dark / Light Mode" title="Toggle dark / light theme">
           <span class="theme-icon-sun" aria-hidden="true">â˜€ï¸</span>
@@ -3561,7 +3709,22 @@
     <!-- ========================================================================
          HERO SECTION (BUSINESS / SAAS TYPED — MATCHING KELVIQ.COM SCREENSHOT 1)
          ======================================================================== -->
-    <section class="section hero-section business-hero" id="hero" aria-labelledby="hero-heading">
+        <!-- ========================================================================
+         CHAPTER I: BUSINESS & ENGINEERING (SAAS & ARCHITECTURE)
+         ======================================================================== -->
+    <div class="chapter-banner" data-track="business">
+      <div class="container chapter-banner-inner">
+        <div>
+          <span class="chapter-tag">Track 01 &middot; Enterprise Software</span>
+          <h2 class="chapter-title">ðŸ’¼ Business, SaaS &amp; Full-Stack Engineering</h2>
+          <p class="chapter-desc">Production web apps, Java/Spring Boot enterprise backends, and commercial digital systems.</p>
+        </div>
+        <button onclick="switchPortfolioMode('personal')" class="biz-btn-secondary" style="font-size: 0.85rem; padding: 8px 16px;">
+          View Personal &amp; E-Invites Track &rarr;
+        </button>
+      </div>
+    </div>
+    <section class="section hero-section business-hero" id="hero" data-track="business" aria-labelledby="hero-heading">
       <div class="container hero-grid">
 
         <!-- Left Narrative & Business Proposition Column -->
@@ -3595,6 +3758,16 @@
           </p>
 
           <!-- Dual High-Impact Action Buttons (One Obvious Main Action Above Fold) -->
+          <!-- Persona Quick Jump Badges -->
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+            <button onclick="switchPortfolioMode('business')" class="persona-tab-btn" style="border: 1px solid var(--border-ink); background: var(--surface); color: var(--text); padding: 5px 12px; font-size: 0.8rem; cursor: pointer;">
+              <span>ðŸ’¼ Track 1: Business &amp; Engineering</span>
+            </button>
+            <button onclick="switchPortfolioMode('personal')" class="persona-tab-btn" style="border: 1px solid var(--border-ink); background: var(--surface); color: var(--text); padding: 5px 12px; font-size: 0.8rem; cursor: pointer;">
+              <span>ðŸŽ¨ Track 2: Personal E-Invitations &amp; Studio</span>
+            </button>
+          </div>
+
           <div class="biz-cta-group">
             <a href="#contact" class="biz-btn-primary" aria-label="Book a consultation with Belintan">
               <span>Book a Consultation</span>
@@ -3703,7 +3876,22 @@
     <!-- ========================================================================
          COMMUNITY TEMPLATES & WEB APPS SHOWCASE SECTION (AFTER MY PROFILE)
          ======================================================================== -->
-    <section class="section community-showcase-section" id="community-templates" aria-labelledby="showcase-heading">
+        <!-- ========================================================================
+         CHAPTER II: PERSONAL CRAFT & E-INVITATION STUDIO
+         ======================================================================== -->
+    <div class="chapter-banner" data-track="personal">
+      <div class="container chapter-banner-inner">
+        <div>
+          <span class="chapter-tag">Track 02 &middot; Personal Craft &amp; Lifestyle</span>
+          <h2 class="chapter-title">ðŸŽ¨ Personal Studio, Bespoke E-Invitations &amp; Creative Albums</h2>
+          <p class="chapter-desc">Customizable Indian wedding suites, Holy Matrimony, Griha Pravesham, and designer Framer albums.</p>
+        </div>
+        <button onclick="switchPortfolioMode('business')" class="biz-btn-secondary" style="font-size: 0.85rem; padding: 8px 16px;">
+          View Business &amp; Engineering Track &rarr;
+        </button>
+      </div>
+    </div>
+    <section class="section community-showcase-section" id="community-templates" data-track="personal" aria-labelledby="showcase-heading">
       <div class="container" style="display: flex; flex-direction: column; align-items: center;">
 
         <div class="sketch-chapter-badge" style="margin-bottom: 12px;">[ FREELANCE &amp; COMMUNITY WORK ]</div>
@@ -4385,7 +4573,7 @@
     <!-- ========================================================================
          ABOUT SECTION
          ======================================================================== -->
-    <section class="section about-section" id="about" aria-labelledby="about-heading">
+    <section class="section about-section" id="about" data-track="personal" aria-labelledby="about-heading">
       <div class="container">
 
         <div class="sketch-chapter-badge">[ 01 · ABOUT THE CREATOR ]</div>
@@ -4460,7 +4648,7 @@
     <!-- ========================================================================
          SKILLS SECTION
          ======================================================================== -->
-    <section class="section skills-section" id="skills" aria-labelledby="skills-heading">
+    <section class="section skills-section" id="skills" data-track="business" aria-labelledby="skills-heading">
       <div class="container">
 
         <div class="sketch-chapter-badge">[ 02 · PROFICIENCY MATRIX ]</div>
@@ -4645,7 +4833,7 @@
     <!-- ========================================================================
          SELECTED PROJECTS SECTION
          ======================================================================== -->
-    <section class="section projects-section" id="projects" aria-labelledby="projects-heading">
+    <section class="section projects-section" id="projects" data-track="business" aria-labelledby="projects-heading">
       <div class="container">
 
         <div class="sketch-chapter-badge">[ 03 · COMMERCIAL WORK ]</div>
@@ -4985,7 +5173,7 @@
     <!-- ========================================================================
          MARRIAGE & FUNCTIONS E-INVITATION CARDS STUDIO & SHOWABLE ALBUMS
          ======================================================================== -->
-    <section class="section e-invites-section" id="e-invitations" aria-labelledby="einvites-heading">
+    <section class="section e-invites-section" id="e-invitations" data-track="personal" aria-labelledby="einvites-heading">
       <div class="container">
 
         <div class="sketch-chapter-badge">[ 04 · CELEBRATION SUITE &amp; E-INVITES ]</div>
@@ -5452,7 +5640,7 @@
         <!-- ========================================================================
          APPLE-STYLE "COMPARE MODELS" TECH SPECS MATRIX
          ======================================================================== -->
-    <section class="section apple-compare-section" id="compare" aria-labelledby="compare-heading">
+    <section class="section apple-compare-section" id="compare" data-track="business" aria-labelledby="compare-heading">
       <div class="container">
         <div class="sketch-chapter-badge">[ SPECS &amp; COMPARISON ]</div>
         <h2 class="section-title" id="compare-heading">
@@ -5518,7 +5706,7 @@
       </div>
     </section>
 
-    <section class="section experience-section" id="experience" aria-labelledby="experience-heading">
+    <section class="section experience-section" id="experience" data-track="business" aria-labelledby="experience-heading">
       <div class="container">
 
         <div class="sketch-chapter-badge">[ 05 · CAREER HISTORY ]</div>
@@ -5600,7 +5788,7 @@
     <!-- ========================================================================
          EDUCATION & CREDENTIALS SECTION
          ======================================================================== -->
-    <section class="section education-section" id="education" aria-labelledby="education-heading">
+    <section class="section education-section" id="education" data-track="personal" aria-labelledby="education-heading">
       <div class="container">
 
         <div class="sketch-chapter-badge">[ 06 · ACADEMICS &amp; CERTIFICATIONS ]</div>
@@ -5674,7 +5862,28 @@
     <!-- ========================================================================
          CONTACT SECTION & INTERACTIVE SUBMISSION
          ======================================================================== -->
-    <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+        <div class="container">
+      <div class="mode-switch-notice for-personal">
+        <div>
+          <strong style="color: var(--accent-orange); font-size: 1rem;">Looking for Wedding &amp; Celebration E-Invitations?</strong>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">Belintan B. also crafts bespoke digital wedding cards and interactive celebration suites.</p>
+        </div>
+        <button onclick="switchPortfolioMode('personal')" class="biz-btn-primary" style="padding: 9px 18px; font-size: 0.85rem;">
+          Explore E-Invite Studio &rarr;
+        </button>
+      </div>
+
+      <div class="mode-switch-notice for-business">
+        <div>
+          <strong style="color: var(--accent-orange); font-size: 1rem;">Looking for Production B2B Software &amp; Full-Stack Code?</strong>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">Explore enterprise web apps, Spring Boot backends, and full-stack engineering work.</p>
+        </div>
+        <button onclick="switchPortfolioMode('business')" class="biz-btn-primary" style="padding: 9px 18px; font-size: 0.85rem;">
+          Explore Business Track &rarr;
+        </button>
+      </div>
+    </div>
+    <section class="section contact-section" id="contact" data-track="both" aria-labelledby="contact-heading">
       <div class="container">
 
         <div class="sketch-chapter-badge">[ 07 · INQUIRIES &amp; ENGAGEMENTS ]</div>
@@ -5978,6 +6187,40 @@
       /* ------------------------------------------------------------------------
          1. Apple Dark / Light Theme Controller with Persistence
          ------------------------------------------------------------------------ */
+            /* ------------------------------------------------------------------------
+         0. Persona Mode Switcher (All vs Business vs Personal)
+         ------------------------------------------------------------------------ */
+      window.switchPortfolioMode = function(mode) {
+        document.body.classList.remove('mode-business', 'mode-personal');
+        if (mode === 'business') {
+          document.body.classList.add('mode-business');
+        } else if (mode === 'personal') {
+          document.body.classList.add('mode-personal');
+        }
+        localStorage.setItem('belintan_persona_mode', mode);
+
+        document.querySelectorAll('.persona-tab-btn').forEach(btn => {
+          const match = btn.getAttribute('data-mode') === mode;
+          btn.classList.toggle('active', match);
+          btn.setAttribute('aria-selected', match ? 'true' : 'false');
+        });
+
+        // Smooth scroll to top of content when switched
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      const savedMode = localStorage.getItem('belintan_persona_mode') || 'all';
+      if (savedMode !== 'all') {
+        switchPortfolioMode(savedMode);
+      }
+
+      document.querySelectorAll('.persona-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const mode = btn.getAttribute('data-mode');
+          if (mode) switchPortfolioMode(mode);
+        });
+      });
+
       const themeToggleBtn = document.getElementById('theme-toggle');
 
       function initTheme() {
