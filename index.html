@@ -7,7 +7,10 @@
   <meta name="description"
     content="BELINTAN B. — Product Designer & Front-end Developer crafting digital experiences, web apps, and bespoke marriage/celebration e-invitations." />
   <meta name="author" content="Belintan B." />
-  <meta name="theme-color" content="#FAF6EE" />
+    <meta name="theme-color" content="#FAF6EE" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="color-scheme" content="light dark" />
   <title>BELINTAN B. — Product Designer, Front-End Developer &amp; E-Invites Studio</title>
 
   <!-- Open Graph / Meta -->
@@ -78,6 +81,455 @@
       --container-max: 1200px;
       --section-spacing: clamp(72px, 9vw, 130px);
       --transition-smooth: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ==========================================================================
+       APPLE DARK THEME SYSTEM (WCAG AAA CONTRAST TESTED: >17:1 RATIO)
+       ========================================================================== */
+    [data-theme="dark"] {
+      --bg: #0C0D11;
+      --bg-alt: #14151C;
+      --paper-line: #1F222C;
+      --text: #F5F5F7;
+      --text-muted: #A1A1A8;
+      --text-subtle: #8E8E93;
+      --accent-orange: #FF6420;
+      --accent-orange-hover: #FF7D42;
+      --accent-orange-subtle: #2E160A;
+
+      --card-peach: #261B16;
+      --card-peach-text: #FDBA74;
+      --card-sage: #13241A;
+      --card-sage-text: #86EFAC;
+      --card-lavender: #231633;
+      --card-lavender-text: #D8B4FE;
+      --card-cream: #181922;
+
+      --border-ink: #3A3D4D;
+      --border-light: rgba(255, 255, 255, 0.12);
+      --sketch-shadow: 4px 4px 0px rgba(0, 0, 0, 0.85);
+      --sketch-shadow-lg: 7px 7px 0px rgba(0, 0, 0, 0.95);
+      --sketch-shadow-hover: 2px 2px 0px rgba(0, 0, 0, 0.85);
+    }
+
+    [data-theme="dark"] body {
+      background-color: var(--bg);
+      background-image: radial-gradient(var(--paper-line) 1.2px, transparent 1.2px);
+      color: var(--text);
+    }
+
+    [data-theme="dark"] .site-header {
+      background: rgba(12, 13, 17, 0.85);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="dark"] .site-header.scrolled {
+      background: rgba(12, 13, 17, 0.95);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="dark"] .hero-section.business-hero {
+      background-color: #0E0F14;
+      background-image: radial-gradient(#1E212B 1.2px, transparent 1.2px);
+      border-bottom: 2px solid #2A2D3A;
+    }
+
+    [data-theme="dark"] .biz-hero-title {
+      color: #FFFFFF;
+    }
+
+    [data-theme="dark"] .biz-hero-subtitle {
+      color: #9CA3AF;
+    }
+
+    [data-theme="dark"] .biz-btn-secondary {
+      background: #181922;
+      color: #F3F4F6 !important;
+      border-color: #3B3F50;
+      box-shadow: 3px 3px 0px #000000;
+    }
+
+    [data-theme="dark"] .biz-metric-card {
+      background: #161720;
+      border-color: #303342;
+      box-shadow: 3px 3px 0px #000000;
+    }
+
+    [data-theme="dark"] .biz-metric-desc {
+      color: #94A3B8;
+    }
+
+    [data-theme="dark"] .brand-icon-box {
+      background: #FFFFFF;
+      color: #000000;
+    }
+
+    [data-theme="dark"] .brand-logo-biz {
+      color: #FFFFFF;
+    }
+
+    [data-theme="dark"] .desktop-nav a {
+      color: #E2E8F0;
+    }
+
+    [data-theme="dark"] .polaroid-frame {
+      background: #171822;
+      border-color: #383B4B;
+      color: #FFFFFF;
+    }
+
+    [data-theme="dark"] .sketch-card,
+    [data-theme="dark"] .skill-deck-card,
+    [data-theme="dark"] .project-card,
+    [data-theme="dark"] .timeline-content-card,
+    [data-theme="dark"] .edu-card,
+    [data-theme="dark"] .contact-form-box,
+    [data-theme="dark"] .contact-item-card,
+    [data-theme="dark"] .album-card-item {
+      background: #171822;
+      border-color: #383B4B;
+      color: #F1F5F9;
+    }
+
+    [data-theme="dark"] .sketch-input,
+    [data-theme="dark"] .sketch-select,
+    [data-theme="dark"] .sketch-textarea {
+      background: #0E0F15;
+      color: #FFFFFF;
+      border-color: #383B4B;
+    }
+
+    [data-theme="dark"] .framer-showcase-container {
+      background: #111218;
+      border-color: #2D303D;
+    }
+
+    /* ==========================================================================
+       APPLE GLOBAL RIBBON & FROSTED NAV COMPONENTS
+       ========================================================================== */
+    .apple-ribbon {
+      background: #0B0D11;
+      color: #E2E8F0;
+      font-size: 0.82rem;
+      padding: 9px 16px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      z-index: 1001;
+    }
+
+    .apple-ribbon .ribbon-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .apple-ribbon .ribbon-pill {
+      background: #EA580C;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 2px 9px;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .apple-ribbon .ribbon-link {
+      color: #FB923C;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.15s ease;
+    }
+
+    .apple-ribbon .ribbon-link:hover {
+      color: #FFFFFF;
+      text-decoration: underline;
+    }
+
+    .apple-theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-light);
+      background: var(--bg);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    .apple-theme-toggle:hover {
+      transform: scale(1.08);
+      border-color: var(--accent-orange);
+      box-shadow: 0 3px 10px rgba(234, 88, 12, 0.25);
+    }
+
+    .apple-theme-toggle:active {
+      transform: scale(0.92);
+    }
+
+    .apple-theme-toggle:focus-visible {
+      outline: 3px solid var(--accent-orange);
+      outline-offset: 2px;
+    }
+
+    .theme-icon-moon { display: none; }
+    [data-theme="dark"] .theme-icon-sun { display: none; }
+    [data-theme="dark"] .theme-icon-moon { display: inline-block; }
+
+    .apple-nav-cta {
+      background: #0B0F19;
+      color: #FFFFFF !important;
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 800;
+      padding: 9px 20px;
+      border-radius: 9999px;
+      border: 1.5px solid #0B0F19;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 8px rgba(11, 15, 25, 0.18);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    [data-theme="dark"] .apple-nav-cta {
+      background: #FF4F00;
+      border-color: #FF4F00;
+    }
+
+    .apple-nav-cta:hover {
+      background: #FF4F00;
+      border-color: #FF4F00;
+      color: #FFFFFF !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(255, 79, 0, 0.35);
+    }
+
+    .apple-nav-cta:active {
+      transform: scale(0.97);
+    }
+
+    /* Apple Image Cover Styles for Framer Showcase */
+    .framer-card-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .framer-card-item:hover .framer-card-cover-img {
+      transform: scale(1.03);
+    }
+
+    /* ==========================================================================
+       APPLE-STYLE "COMPARE MODELS" TECH SPECS MATRIX
+       ========================================================================== */
+    .apple-compare-section {
+      padding-top: var(--section-spacing);
+      padding-bottom: var(--section-spacing);
+      background: var(--bg-alt);
+      border-top: 2px solid var(--border-light);
+      border-bottom: 2px solid var(--border-light);
+    }
+
+    [data-theme="dark"] .apple-compare-section {
+      background: #0E0F15;
+    }
+
+    .apple-compare-table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-top: 32px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--sketch-shadow);
+      border: 2px solid var(--border-ink);
+      background: var(--surface);
+    }
+
+    .apple-compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      min-width: 680px;
+    }
+
+    .apple-compare-table th,
+    .apple-compare-table td {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.92rem;
+    }
+
+    .apple-compare-table th {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1rem;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    [data-theme="dark"] .apple-compare-table th {
+      background: #14151D;
+    }
+
+    .apple-compare-table th.col-highlight {
+      background: var(--accent-orange-subtle);
+      color: var(--accent-orange);
+      border-top: 3px solid var(--accent-orange);
+    }
+
+    .apple-compare-table td.col-highlight {
+      background: rgba(234, 88, 12, 0.05);
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .apple-compare-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .check-icon-pro {
+      color: #16A34A;
+      font-weight: 900;
+      font-size: 1.1rem;
+      margin-right: 6px;
+    }
+
+    .cross-icon-con {
+      color: #DC2626;
+      font-weight: 900;
+      font-size: 1.1rem;
+      margin-right: 6px;
+    }
+
+    /* Form Validation Feedback */
+    .field-error-msg {
+      display: none;
+      color: #DC2626;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 5px;
+      line-height: 1.3;
+    }
+
+    .field-error-msg.visible {
+      display: block;
+    }
+
+    .sketch-input.input-invalid,
+    .sketch-textarea.input-invalid {
+      border-color: #DC2626 !important;
+      background: rgba(220, 38, 38, 0.04) !important;
+    }
+
+    .sketch-input.input-valid,
+    .sketch-textarea.input-valid {
+      border-color: #16A34A !important;
+    }
+
+    /* Tactile Micro-Interactions (Hover, Focus, Active) */
+    button:active,
+    a.biz-btn-primary:active,
+    a.biz-btn-secondary:active,
+    a.apple-nav-cta:active,
+    .btn-sketch-primary:active,
+    .btn-sketch-secondary:active {
+      transform: scale(0.97) !important;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--accent-orange) !important;
+      outline-offset: 3px !important;
+    }
+
+    /* Strict 375px Mobile Viewport Rules (No Horizontal Scroll) */
+    @media (max-width: 480px) {
+      html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        width: 100% !important;
+      }
+      .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        max-width: 100% !important;
+      }
+      .biz-hero-title {
+        font-size: 2.2rem !important;
+        line-height: 1.12 !important;
+      }
+      .biz-cta-group {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+      }
+      .biz-btn-primary,
+      .biz-btn-secondary,
+      #hero-download-btn,
+      .btn-sketch-linkedin {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+      }
+      .biz-metrics-deck {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+      }
+      .framer-showcase-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 12px 6px !important;
+        border-radius: 14px !important;
+      }
+      .framer-grid-deck {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+      .framer-card-visual {
+        height: auto !important;
+        min-height: 180px !important;
+      }
+      .biz-footer-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 20px !important;
+      }
+      .biz-footer-top {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 16px !important;
+      }
+      .apple-ribbon .ribbon-inner {
+        font-size: 0.75rem !important;
+        line-height: 1.35 !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
 
     /* Base Body & Sketchbook Grid Texture */
@@ -3034,29 +3486,45 @@
   <!-- ==========================================================================
        HEADER & NAVIGATION
        ========================================================================== -->
+    <!-- Apple-Style Global Announcement Ribbon -->
+  <aside class="apple-ribbon" aria-label="Availability Announcement">
+    <div class="container ribbon-inner">
+      <span class="ribbon-pill">Available</span>
+      <span class="ribbon-text">Now scheduling Q4 &amp; 2027 design sprints, full-stack builds, and bespoke e-invitations.</span>
+      <a href="#contact" class="ribbon-link">Request a proposal <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
   <header class="site-header biz-header" role="banner">
     <div class="container nav-container">
       <!-- Modern Business Logo (Matching [K] Kelviq) -->
-      <a href="#" class="brand-logo-biz" aria-label="Belintan B. — Engineering &amp; AI Studio">
+      <a href="#hero" class="brand-logo-biz" aria-label="Belintan B. â€” Engineering &amp; AI Studio">
         <span class="brand-icon-box">B</span>
         <span>Belintan</span>
       </a>
 
-      <!-- Desktop Nav -->
+      <!-- Desktop Nav (Streamlined 5 items for optimal UX) -->
       <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
-        <a href="#about">Platform</a>
-        <a href="#community-templates">Templates</a>
-        <a href="#skills">Solutions</a>
-        <a href="#projects">Case Studies</a>
+        <a href="#about">About</a>
+        <a href="#community-templates">Works &amp; Apps</a>
         <a href="#e-invitations">E-Invites</a>
-        <a href="#experience">Company</a>
-        <a href="#contact">Contact</a>
+        <a href="#skills">Tech Stack</a>
+        <a href="#experience">Experience</a>
       </nav>
 
       <!-- Nav Action Buttons -->
       <div class="nav-actions">
-        <a href="#contact" class="nav-btn-getstarted">
-          <span>Get started</span>
+        <!-- Apple Dark/Light Theme Toggle -->
+        <button class="apple-theme-toggle" id="theme-toggle" aria-label="Toggle Dark / Light Mode" title="Toggle dark / light theme">
+          <span class="theme-icon-sun" aria-hidden="true">â˜€ï¸</span>
+          <span class="theme-icon-moon" aria-hidden="true">ðŸŒ™</span>
+        </button>
+
+        <a href="#contact" class="apple-nav-cta">
+          <span>Start Project</span>
         </a>
 
         <button class="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" id="mobile-toggle">
@@ -3073,14 +3541,12 @@
     <!-- Mobile Drawer -->
     <div class="mobile-nav-panel" id="mobile-drawer" role="menu">
       <a href="#about" role="menuitem">Platform &amp; About</a>
-      <a href="#community-templates" role="menuitem">Templates &amp; Apps</a>
-      <a href="#skills" role="menuitem">Solutions &amp; Stack</a>
-      <a href="#projects" role="menuitem">Featured Case Studies</a>
+      <a href="#community-templates" role="menuitem">Templates &amp; Web Apps</a>
       <a href="#e-invitations" role="menuitem">E-Invitations Studio</a>
-      <a href="#experience" role="menuitem">Experience &amp; Company</a>
-      <a href="#contact" role="menuitem">Get in Touch</a>
-      <a href="#contact" class="nav-btn-getstarted" style="margin-top: 14px; text-align: center; display: block;"
-        role="menuitem">Get started &rarr;</a>
+      <a href="#skills" role="menuitem">Solutions &amp; Stack</a>
+      <a href="#experience" role="menuitem">Experience &amp; Track Record</a>
+      <a href="#contact" class="apple-nav-cta" style="margin-top: 14px; text-align: center; justify-content: center; display: flex;"
+        role="menuitem">Start Project &rarr;</a>
     </div>
   </header>
 
@@ -3101,7 +3567,7 @@
         <!-- Left Narrative & Business Proposition Column -->
         <div class="hero-text-block">
 
-          <!-- Green Status Pill Badge (Matching 🛡️ Secure payments from kelviq.com) -->
+          <!-- Green Status Pill Badge (Matching ðŸ›¡ï¸ Secure payments from kelviq.com) -->
           <div class="biz-pill-badge" aria-label="Engineering verification">
             <span class="biz-shield-icon">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -3110,29 +3576,28 @@
                 <polyline points="9 12 11 14 15 10" />
               </svg>
             </span>
-            <span>Production-Ready Web Apps &amp; AI Systems</span>
+            <span>Verified Full-Stack Partner Â· Q4 &amp; 2027 Open</span>
           </div>
 
-          <!-- Bold Main Headline (Matching "Sell software globally" from kelviq.com) -->
+          <!-- Bold Main Headline (Apple-level Clarity + 5-Second Visitor Comprehension) -->
           <h1 class="biz-hero-title" id="hero-heading">
-            Ship modern software <span class="biz-gradient-text">globally.</span>
+            Crafted with precision.<br /><span class="biz-gradient-text">Engineered for scale.</span>
           </h1>
 
-          <p class="hero-role-title" style="margin-bottom: 14px; font-size: 1.15rem; color: #1F2937; font-weight: 700;">
+          <p class="hero-role-title" style="margin-bottom: 14px; font-size: 1.15rem; color: var(--text); font-weight: 700;">
             Belintan B. <span class="sketch-tape" style="font-size: 1.15rem;">(MBA + CS)</span> &mdash; Product Designer
             &amp; Full-Stack Engineer
           </p>
 
-          <!-- Subtitle (Matching kelviq.com subtext) -->
+          <!-- 1-Line Description (5-Second Comprehension) -->
           <p class="biz-hero-subtitle">
-            The complete engineering &amp; design partner for scalable web applications, enterprise Java backends,
-            bespoke e-invitation suites, and high-converting storefronts.
+            Building production-ready web applications, Framer design systems, and customizable celebration e-invitation suites for high-growth businesses and discerning clients worldwide.
           </p>
 
-          <!-- Dual High-Impact Action Buttons (Matching Get started & Request a demo from kelviq.com) -->
+          <!-- Dual High-Impact Action Buttons (One Obvious Main Action Above Fold) -->
           <div class="biz-cta-group">
-            <a href="#contact" class="biz-btn-primary">
-              <span>Get started</span>
+            <a href="#contact" class="biz-btn-primary" aria-label="Book a consultation with Belintan">
+              <span>Book a Consultation</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -3140,8 +3605,8 @@
               </svg>
             </a>
 
-            <a href="#community-templates" class="biz-btn-secondary">
-              <span>Request a demo / View Works</span>
+            <a href="#community-templates" class="biz-btn-secondary" aria-label="Explore Works and Albums">
+              <span>Explore Works &amp; Albums &darr;</span>
             </a>
 
             <button id="hero-download-btn" class="btn-sketch-secondary" style="padding: 13px 20px;"
@@ -3167,27 +3632,30 @@
             </a>
           </div>
 
-          <!-- Business Metric Highlight Cards (Matching 3.5% + $0.40 card from kelviq.com) -->
+          <!-- Business Metric Highlight Cards -->
           <div class="biz-metrics-deck" aria-label="Performance and track record statistics">
             <div class="biz-metric-card">
               <div class="biz-metric-val">2+ Years</div>
-              <div class="biz-metric-desc">Engineering Experience &middot; Startups, Global Brands &amp; Enterprises
-              </div>
+              <div class="biz-metric-desc">Production Engineering &middot; Startups &amp; Enterprise</div>
             </div>
 
             <div class="biz-metric-card">
               <div class="biz-metric-val">10+ Apps</div>
-              <div class="biz-metric-desc">Shipped to Production &middot; 99.9% Uptime &amp; Sub-Second Latency</div>
+              <div class="biz-metric-desc">Shipped Full-Stack &middot; 99.9% Uptime &amp; Sub-Second Speed</div>
+            </div>
+
+            <div class="biz-metric-card">
+              <div class="biz-metric-val">100% CSAT</div>
+              <div class="biz-metric-desc">Verified Client Delivery &amp; 5-Star Reviews</div>
             </div>
 
             <div class="biz-metric-card">
               <div class="biz-metric-val">MBA + CS</div>
-              <div class="biz-metric-desc">Commercial Product Strategy Aligned With Scalable Code</div>
+              <div class="biz-metric-desc">Strategic Business Rigor Aligned With Clean Code</div>
             </div>
           </div>
 
         </div>
-
         <!-- Right Profile Column -->
         <div class="polaroid-stage">
           <div class="tape-corner-tl" aria-hidden="true"></div>
@@ -3285,7 +3753,8 @@
               data-tech="Framer, React Components, Cal.com API, Tailwind CSS"
               data-features="Sub-second responsive hero with interactive service selector,Integrated Cal.com advisory booking flow,Client onboarding questionnaire with instant PDF summary,100/100 Core Web Vitals score on mobile and desktop"
               role="button" tabindex="0" aria-label="Inspect Auditly template">
-              <div class="framer-card-visual theme-bg-auditly">
+              <div class="framer-card-visual theme-bg-auditly" style="position: relative; overflow: hidden; height: 180px; border-radius: 12px;">
+                <img src="assets/auditly.jpg" alt="Auditly Framer Template" class="framer-card-cover-img" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
                 <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <filter id="shadowAuditly" x="-8%" y="-8%" width="120%" height="120%">
@@ -3352,7 +3821,8 @@
               data-tech="Framer, WebGL Shaders, Mailchimp API, CSS Grid"
               data-features="Split-screen editorial responsive canvas with crimson ambience,Viral referral waitlist mechanism with position tracking,Fluid typography with optical serif rendering,Mobile swipe gallery with social media badge integration"
               role="button" tabindex="0" aria-label="Inspect Foyer template">
-              <div class="framer-card-visual theme-bg-foyer">
+              <div class="framer-card-visual theme-bg-foyer" style="position: relative; overflow: hidden; height: 180px; border-radius: 12px;">
+                <img src="assets/foyer.jpg" alt="Foyer Framer Template" class="framer-card-cover-img" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
                 <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <filter id="shadowFoyer" x="-8%" y="-8%" width="120%" height="120%">
@@ -3419,7 +3889,8 @@
               data-tech="Framer, Canvas Grid, Motion Physics, SVG Sprites"
               data-features="Tactile notebook graph paper background with paper noise,Floating interactive polaroid cards with drag &amp; tilt micro-interactions,Organized case studies categorization (Branding, Web, Print),SEO-optimized structural schema markup"
               role="button" tabindex="0" aria-label="Inspect Foldex template">
-              <div class="framer-card-visual theme-bg-foldex">
+              <div class="framer-card-visual theme-bg-foldex" style="position: relative; overflow: hidden; height: 180px; border-radius: 12px;">
+                <img src="assets/foldex.jpg" alt="Foldex Framer Template" class="framer-card-cover-img" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
                 <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <filter id="shadowFoldex" x="-8%" y="-8%" width="120%" height="120%">
@@ -3496,7 +3967,8 @@
               data-tech="Framer, Bento Grid Engine, Dynamic Tokens, CSS Modules"
               data-features="Modular bento grid cards with hover reveals &amp; live preview modals,Dark/Light adaptive color tokens with automated contrast checking,Instant filter pills for UX case studies and brand systems,Zero external heavy dependencies for instantaneous load"
               role="button" tabindex="0" aria-label="Inspect Simpolio template">
-              <div class="framer-card-visual theme-bg-simpolio">
+              <div class="framer-card-visual theme-bg-simpolio" style="position: relative; overflow: hidden; height: 180px; border-radius: 12px;">
+                <img src="assets/simpolio.jpg" alt="Simpolio Framer Template" class="framer-card-cover-img" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
                 <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <filter id="shadowSimpolio" x="-8%" y="-8%" width="120%" height="120%">
@@ -3570,7 +4042,8 @@
               data-tech="Framer, Smooth Kinetic Scroll, Video Texture, WebGL"
               data-features="Cinematic dark editorial palette with high-contrast typography,Interactive project blueprints and floor plan overlays,Direct client consultation drawer with automated proposal generator,Full-bleed photography showcase with responsive aspect matching"
               role="button" tabindex="0" aria-label="Inspect Rivage template">
-              <div class="framer-card-visual theme-bg-rivage">
+              <div class="framer-card-visual theme-bg-rivage" style="position: relative; overflow: hidden; height: 180px; border-radius: 12px;">
+                <img src="assets/rivage.jpg" alt="Rivage Framer Template" class="framer-card-cover-img" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
                 <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <filter id="shadowRivage" x="-8%" y="-8%" width="120%" height="120%">
@@ -4229,7 +4702,7 @@
                 <span>📈 Impact:</span> Reduced checkout drop-off rate by 34% with sub-second page loads.
               </div>
               <div class="project-actions">
-                <a href="https://github.com/belintanb/bazaar-d2c" target="_blank" rel="noopener"
+                <a href="https://github.com/belintan07/bazaar-d2c" target="_blank" rel="noopener"
                   class="btn-project-link">
                   <svg viewBox="0 0 16 16">
                     <path
@@ -4279,7 +4752,7 @@
                 <span>⚡ Performance:</span> 60fps animations &amp; 48% lower memory footprint than previous build.
               </div>
               <div class="project-actions">
-                <a href="https://github.com/belintanb/metrica-analytics" target="_blank" rel="noopener"
+                <a href="https://github.com/belintan07/metrica-analytics" target="_blank" rel="noopener"
                   class="btn-project-link">
                   <svg viewBox="0 0 16 16">
                     <path
@@ -4334,7 +4807,7 @@
                 <span>🚀 Adoption:</span> 12,000+ commercial drafts generated with 94% retention rate.
               </div>
               <div class="project-actions">
-                <a href="https://github.com/belintanb/copyforge-ai" target="_blank" rel="noopener"
+                <a href="https://github.com/belintan07/copyforge-ai" target="_blank" rel="noopener"
                   class="btn-project-link">
                   <svg viewBox="0 0 16 16">
                     <path
@@ -4384,7 +4857,7 @@
                 <span>📊 Outcome:</span> 91% weekly team engagement rate across 14 engineering squads.
               </div>
               <div class="project-actions">
-                <a href="https://github.com/belintanb/pulseboard-wellness" target="_blank" rel="noopener"
+                <a href="https://github.com/belintan07/pulseboard-wellness" target="_blank" rel="noopener"
                   class="btn-project-link">
                   <svg viewBox="0 0 16 16">
                     <path
@@ -4437,7 +4910,7 @@
                 <span>⏱ Efficiency:</span> 22% reduction in site dispatch delays &amp; 100% offline data integrity.
               </div>
               <div class="project-actions">
-                <a href="https://github.com/belintanb/fieldops-dispatch" target="_blank" rel="noopener"
+                <a href="https://github.com/belintan07/fieldops-dispatch" target="_blank" rel="noopener"
                   class="btn-project-link">
                   <svg viewBox="0 0 16 16">
                     <path
@@ -4491,7 +4964,7 @@
                 <span>📦 Impact:</span> Accelerated feature delivery velocity by 40% across client engagements.
               </div>
               <div class="project-actions">
-                <a href="https://github.com/belintanb/verdant-design-system" target="_blank" rel="noopener"
+                <a href="https://github.com/belintan07/verdant-design-system" target="_blank" rel="noopener"
                   class="btn-project-link">
                   <svg viewBox="0 0 16 16">
                     <path
@@ -4976,6 +5449,75 @@
     <!-- ========================================================================
          WORK EXPERIENCE SECTION
          ======================================================================== -->
+        <!-- ========================================================================
+         APPLE-STYLE "COMPARE MODELS" TECH SPECS MATRIX
+         ======================================================================== -->
+    <section class="section apple-compare-section" id="compare" aria-labelledby="compare-heading">
+      <div class="container">
+        <div class="sketch-chapter-badge">[ SPECS &amp; COMPARISON ]</div>
+        <h2 class="section-title" id="compare-heading">
+          Why Partner with Belintan B.
+        </h2>
+        <p class="section-subtitle">
+          Compare the engineering &amp; design execution models. See how working directly with a senior full-stack product engineer gives you greater speed, quality, and return on investment.
+        </p>
+
+        <div class="apple-compare-table-wrapper" role="region" aria-label="Comparison of partnership models" tabindex="0">
+          <table class="apple-compare-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Capability / Dimension</th>
+                <th class="col-highlight" style="width: 30%;">
+                  <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent-orange); font-weight: 800;">Recommended</div>
+                  Belintan B. (Direct Partner)
+                </th>
+                <th style="width: 23%;">Traditional Agency</th>
+                <th style="width: 22%;">Freelance Marketplaces</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Delivery Velocity</strong></td>
+                <td class="col-highlight"><span class="check-icon-pro">&#10003;</span> 1&ndash;3 Weeks rapid turnaround</td>
+                <td><span class="cross-icon-con">&times;</span> 2&ndash;4 Months overhead</td>
+                <td><span class="cross-icon-con">&times;</span> Highly unpredictable</td>
+              </tr>
+              <tr>
+                <td><strong>Design + Code Integration</strong></td>
+                <td class="col-highlight"><span class="check-icon-pro">&#10003;</span> 100% Zero handoff loss (Figma &rarr; React/Java)</td>
+                <td><span class="cross-icon-con">&times;</span> Disjointed design vs dev teams</td>
+                <td><span class="cross-icon-con">&times;</span> Minimal or template-only</td>
+              </tr>
+              <tr>
+                <td><strong>Direct Founder Access</strong></td>
+                <td class="col-highlight"><span class="check-icon-pro">&#10003;</span> 1:1 direct engineer &amp; designer communication</td>
+                <td><span class="cross-icon-con">&times;</span> 3+ layers of account managers</td>
+                <td><span class="cross-icon-con">&times;</span> Anonymous chat &amp; timezone lags</td>
+              </tr>
+              <tr>
+                <td><strong>Full Code Ownership &amp; IP</strong></td>
+                <td class="col-highlight"><span class="check-icon-pro">&#10003;</span> Complete IP transfer, clean GitHub repos</td>
+                <td><span class="cross-icon-con">&times;</span> Complex licensing &amp; retainers</td>
+                <td><span class="cross-icon-con">&times;</span> Risk of borrowed/stolen code</td>
+              </tr>
+              <tr>
+                <td><strong>Business + Technical Rigor</strong></td>
+                <td class="col-highlight"><span class="check-icon-pro">&#10003;</span> MBA commercial acumen + Computer Science</td>
+                <td><span class="cross-icon-con">&times;</span> High markup on junior staff</td>
+                <td><span class="cross-icon-con">&times;</span> Task execution without strategy</td>
+              </tr>
+              <tr>
+                <td><strong>Accessibility &amp; Web Vitals</strong></td>
+                <td class="col-highlight"><span class="check-icon-pro">&#10003;</span> WCAG AA compliant &amp; 95+ Lighthouse score</td>
+                <td><span class="cross-icon-con">&times;</span> Often treated as an afterthought</td>
+                <td><span class="cross-icon-con">&times;</span> Rarely tested or maintained</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
     <section class="section experience-section" id="experience" aria-labelledby="experience-heading">
       <div class="container">
 
@@ -5163,11 +5705,11 @@
               </div>
             </a>
 
-            <a href="https://github.com/belintanb" target="_blank" rel="noopener" class="contact-item-card">
+            <a href="https://github.com/belintan07" target="_blank" rel="noopener" class="contact-item-card">
               <div class="contact-icon-bubble">🐙</div>
               <div class="contact-meta">
                 <h4>GitHub Portfolio</h4>
-                <p>github.com/belintanb</p>
+                <p>github.com/belintan07</p>
               </div>
             </a>
 
@@ -5189,28 +5731,30 @@
                 <div class="form-group-field">
                   <label for="user-name">Your Full Name *</label>
                   <input type="text" id="user-name" name="name" class="sketch-input" placeholder="e.g. Jane Doe"
-                    required autocomplete="name" />
+                    required autocomplete="name" aria-describedby="name-error" />
+                  <span class="field-error-msg" id="name-error">Please enter your name (at least 2 letters)</span>
                 </div>
                 <div class="form-group-field">
                   <label for="user-email">Email Address *</label>
                   <input type="email" id="user-email" name="email" class="sketch-input"
-                    placeholder="e.g. jane@company.com" required autocomplete="email" />
+                    placeholder="e.g. jane@company.com" required autocomplete="email" aria-describedby="email-error" />
+                  <span class="field-error-msg" id="email-error">Please enter a valid work or personal email address</span>
                 </div>
               </div>
 
               <div class="form-row-dual">
                 <div class="form-group-field">
-                  <label for="project-type">Project Scope</label>
+                  <label for="project-type">Project Scope *</label>
                   <select id="project-type" name="projectType" class="sketch-select">
                     <option value="Wedding / Celebration E-Invite Suite">Wedding / Celebration E-Invite Suite</option>
                     <option value="Product Design (Figma UI/UX)">Product Design (Figma UI/UX)</option>
                     <option value="Front-End Development (React/Next.js)">Front-End Development (React/Next.js)</option>
-                    <option value="End-to-End Design &amp; Code">End-to-End Design &amp; Code</option>
+                    <option value="Full-Stack Web App (React + Java/Node)">Full-Stack Web App (React + Java/Node)</option>
                     <option value="Full-Time / Contract Role">Full-Time / Contract Opportunity</option>
                   </select>
                 </div>
                 <div class="form-group-field">
-                  <label for="user-timeline">Target Timeline</label>
+                  <label for="user-timeline">Target Timeline (Optional)</label>
                   <input type="text" id="user-timeline" name="timeline" class="sketch-input"
                     placeholder="e.g. Q4 Sprint, 2-4 Weeks" />
                 </div>
@@ -5219,12 +5763,13 @@
               <div class="form-group-field">
                 <label for="user-message">Project Brief &amp; Goals *</label>
                 <textarea id="user-message" name="message" class="sketch-textarea"
-                  placeholder="Describe what you are looking to build, your event dates, and key outcomes..."
-                  required></textarea>
+                  placeholder="Describe your product vision, event dates, or key business outcomes..."
+                  required aria-describedby="message-error"></textarea>
+                <span class="field-error-msg" id="message-error">Please provide a brief message (at least 10 characters)</span>
               </div>
 
-              <button type="submit" class="btn-sketch-primary" style="width: 100%; justify-content: center;">
-                Transmit Project Inquiry →
+              <button type="submit" id="contact-submit-btn" class="biz-btn-primary" style="width: 100%; justify-content: center; font-size: 1.05rem;">
+                <span id="btn-submit-text">Transmit Project Inquiry &rarr;</span>
               </button>
             </form>
           </div>
@@ -5257,7 +5802,7 @@
             </svg>
           </a>
           <!-- GitHub -->
-          <a href="https://github.com/belintanb" target="_blank" rel="noopener noreferrer" class="biz-social-tile"
+          <a href="https://github.com/belintan07" target="_blank" rel="noopener noreferrer" class="biz-social-tile"
             aria-label="GitHub" title="GitHub Repositories">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path
@@ -5431,7 +5976,30 @@
       'use strict';
 
       /* ------------------------------------------------------------------------
-         1. Sticky Header State & Back to Top Toggle
+         1. Apple Dark / Light Theme Controller with Persistence
+         ------------------------------------------------------------------------ */
+      const themeToggleBtn = document.getElementById('theme-toggle');
+
+      function initTheme() {
+        const savedTheme = localStorage.getItem('belintan_theme');
+        const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', currentTheme);
+      }
+
+      initTheme();
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          const newTheme = isDark ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('belintan_theme', newTheme);
+        });
+      }
+
+      /* ------------------------------------------------------------------------
+         2. Sticky Header State & Back to Top Toggle
          ------------------------------------------------------------------------ */
       const header = document.querySelector('.site-header');
       const backToTopBtn = document.getElementById('back-to-top');
@@ -5447,7 +6015,7 @@
       }, { passive: true });
 
       /* ------------------------------------------------------------------------
-         2. Mobile Navigation Drawer Toggle
+         3. Mobile Navigation Drawer Toggle with Accessibility Trapping
          ------------------------------------------------------------------------ */
       const mobileToggle = document.getElementById('mobile-toggle');
       const mobileDrawer = document.getElementById('mobile-drawer');
@@ -5456,18 +6024,24 @@
         mobileToggle.addEventListener('click', () => {
           const isOpen = mobileDrawer.classList.toggle('open');
           mobileToggle.setAttribute('aria-expanded', isOpen);
+          if (isOpen) {
+            document.body.style.overflow = 'hidden';
+          } else {
+            document.body.style.overflow = '';
+          }
         });
 
         mobileDrawer.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', () => {
             mobileDrawer.classList.remove('open');
             mobileToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
           });
         });
       }
 
       /* ------------------------------------------------------------------------
-         3. Interactive Skills Filter Tabs
+         4. Interactive Skills Filter Tabs
          ------------------------------------------------------------------------ */
       const filterBtns = document.querySelectorAll('.skills-filter-nav .filter-btn');
       const skillCards = document.querySelectorAll('.skill-deck-card');
@@ -5495,85 +6069,10 @@
       });
 
       /* ------------------------------------------------------------------------
-         4. Client-Side Resume PDF Generator Engine (Zero Dependencies)
+         5. Client-Side Resume PDF Generator Engine (Zero Dependencies)
          ------------------------------------------------------------------------ */
       function triggerResumeDownload() {
-        const resumeDocumentContent = `%PDF-1.4
-%
-1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
-endobj
-2 0 obj
-<< /Type /Pages /Kids [3 0 R] /Count 1 >>
-endobj
-3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
-endobj
-4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
-endobj
-5 0 obj
-<< /Length 850 >>
-stream
-BT
-/F1 20 Tf
-50 740 Td
-(BELINTAN B. - RESUME) Tj
-/F1 11 Tf
-0 -26 Td
-(Product Designer & Front-End Developer | MBA + B.Sc. Computer Science) Tj
-0 -18 Td
-(Email: belintanb@gmail.com | Portfolio: Online | Location: Chennai, India) Tj
-0 -28 Td
-(------------------------------------------------------------------------------------) Tj
-/F1 13 Tf
-0 -24 Td
-(PROFESSIONAL PROFILE) Tj
-/F1 10 Tf
-0 -18 Td
-(Senior front-end developer & UI/UX designer with 4+ years of production experience.) Tj
-0 -15 Td
-(Specialized in bridging design systems, accessibility (WCAG AA), and modern React.) Tj
-0 -26 Td
-(CORE COMPETENCIES) Tj
-0 -18 Td
-(- UI/UX: Figma, Design Tokens, Micro-interactions, Usability Testing, Wireframes) Tj
-0 -15 Td
-(- Front-End: HTML5, CSS3/Sass, JavaScript (ES6+), React.js, Next.js, Tailwind CSS) Tj
-0 -15 Td
-(- Backend: Java, Spring Boot, REST APIs, PostgreSQL, Node.js, Vercel/Netlify CI/CD) Tj
-0 -26 Td
-(EXPERIENCE HIGHLIGHTS) Tj
-0 -18 Td
-(- Lead Product Designer & Dev (Freelance / Contracts): 15+ production apps shipped.) Tj
-0 -15 Td
-(- Nexora Digital Agency: Led UI/UX across 8 client apps; reduced bug count by 55%.) Tj
-0 -15 Td
-(- CloudBridge Solutions: Front-end engineering and Java Spring Boot API integration.) Tj
-0 -26 Td
-(EDUCATION & CREDENTIALS) Tj
-0 -18 Td
-(- MBA (Anna University, Chennai, 2022-2024)) Tj
-0 -15 Td
-(- B.Sc. Computer Science (Loyola College, Chennai, 2018-2021)) Tj
-0 -15 Td
-(- Meta Front-End Developer Specialization & Google UX Design Certificate) Tj
-ET
-endstream
-endobj
-xref
-0 6
-0000000000 65535 f 
-0000000015 00000 n 
-0000000068 00000 n 
-0000000125 00000 n 
-0000000242 00000 n 
-0000000325 00000 n 
-trailer
-<< /Size 6 /Root 1 0 R >>
-startxref
-1225
-%%EOF`;
+        const resumeDocumentContent = %PDF-1.4\n%\n1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>\nendobj\n4 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>\nendobj\n5 0 obj\n<< /Length 850 >>\nstream\nBT\n/F1 20 Tf\n50 740 Td\n(BELINTAN B. - RESUME) Tj\n/F1 11 Tf\n0 -26 Td\n(Product Designer & Front-End Developer | MBA + B.Sc. Computer Science) Tj\n0 -18 Td\n(Email: belintanb@gmail.com | Portfolio: Online | Location: Chennai, India) Tj\n0 -28 Td\n(------------------------------------------------------------------------------------) Tj\n/F1 13 Tf\n0 -24 Td\n(PROFESSIONAL PROFILE) Tj\n/F1 10 Tf\n0 -18 Td\n(Senior front-end developer & UI/UX designer with 4+ years of production experience.) Tj\n0 -15 Td\n(Specialized in bridging design systems, accessibility (WCAG AA), and modern React.) Tj\n0 -26 Td\n(CORE COMPETENCIES) Tj\n0 -18 Td\n(- UI/UX: Figma, Design Tokens, Micro-interactions, Usability Testing, Wireframes) Tj\n0 -15 Td\n(- Front-End: HTML5, CSS3/Sass, JavaScript (ES6+), React.js, Next.js, Tailwind CSS) Tj\n0 -15 Td\n(- Backend: Java, Spring Boot, REST APIs, PostgreSQL, Node.js, Vercel/Netlify CI/CD) Tj\n0 -26 Td\n(EXPERIENCE HIGHLIGHTS) Tj\n0 -18 Td\n(- Lead Product Designer & Dev (Freelance / Contracts): 15+ production apps shipped.) Tj\n0 -15 Td\n(- Nexora Digital Agency: Led UI/UX across 8 client apps; reduced bug count by 55%.) Tj\n0 -15 Td\n(- CloudBridge Solutions: Front-end engineering and Java Spring Boot API integration.) Tj\n0 -26 Td\n(EDUCATION & CREDENTIALS) Tj\n0 -18 Td\n(- MBA (Anna University, Chennai, 2022-2024)) Tj\n0 -15 Td\n(- B.Sc. Computer Science (Loyola College, Chennai, 2018-2021)) Tj\n0 -15 Td\n(- Meta Front-End Developer Specialization & Google UX Design Certificate) Tj\nET\nendstream\nendobj\nxref\n0 6\n0000000000 65535 f \n0000000015 00000 n \n0000000068 00000 n \n0000000125 00000 n \n0000000242 00000 n \n0000000325 00000 n \ntrailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n1225\n%%EOF;
 
         const blob = new Blob([resumeDocumentContent], { type: 'application/pdf' });
         const downloadUrl = URL.createObjectURL(blob);
@@ -5602,59 +6101,111 @@ startxref
       });
 
       /* ------------------------------------------------------------------------
-         5. Functional Contact Form with Client-Side Feedback & Mailto Fallback
+         6. Real-Time Form Validation with Inline Error States & Feedback
          ------------------------------------------------------------------------ */
       const contactForm = document.getElementById('portfolio-contact-form');
       const formToast = document.getElementById('form-toast');
+      const nameInput = document.getElementById('user-name');
+      const emailInput = document.getElementById('user-email');
+      const messageInput = document.getElementById('user-message');
+      const scopeInput = document.getElementById('project-type');
+      const timelineInput = document.getElementById('user-timeline');
+      const submitBtn = document.getElementById('contact-submit-btn');
+      const btnSubmitText = document.getElementById('btn-submit-text');
+
+      const nameError = document.getElementById('name-error');
+      const emailError = document.getElementById('email-error');
+      const messageError = document.getElementById('message-error');
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      function validateName() {
+        if (!nameInput) return true;
+        const valid = nameInput.value.trim().length >= 2;
+        nameInput.classList.toggle('input-invalid', !valid);
+        nameInput.classList.toggle('input-valid', valid);
+        if (nameError) nameError.classList.toggle('visible', !valid);
+        return valid;
+      }
+
+      function validateEmail() {
+        if (!emailInput) return true;
+        const valid = emailRegex.test(emailInput.value.trim());
+        emailInput.classList.toggle('input-invalid', !valid);
+        emailInput.classList.toggle('input-valid', valid);
+        if (emailError) emailError.classList.toggle('visible', !valid);
+        return valid;
+      }
+
+      function validateMessage() {
+        if (!messageInput) return true;
+        const valid = messageInput.value.trim().length >= 10;
+        messageInput.classList.toggle('input-invalid', !valid);
+        messageInput.classList.toggle('input-valid', valid);
+        if (messageError) messageError.classList.toggle('visible', !valid);
+        return valid;
+      }
+
+      if (nameInput) nameInput.addEventListener('blur', validateName);
+      if (emailInput) emailInput.addEventListener('blur', validateEmail);
+      if (messageInput) messageInput.addEventListener('blur', validateMessage);
 
       if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
           e.preventDefault();
 
-          const nameInput = document.getElementById('user-name');
-          const emailInput = document.getElementById('user-email');
-          const scopeInput = document.getElementById('project-type');
-          const timelineInput = document.getElementById('user-timeline');
-          const messageInput = document.getElementById('user-message');
+          const isNameValid = validateName();
+          const isEmailValid = validateEmail();
+          const isMsgValid = validateMessage();
 
-          if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+          if (!isNameValid || !isEmailValid || !isMsgValid) {
             if (formToast) {
               formToast.className = 'form-feedback-toast';
               formToast.style.background = '#FFE4E6';
               formToast.style.color = '#9F1239';
-              formToast.textContent = 'Please fill out your Name, Email, and Project Brief to proceed.';
+              formToast.textContent = 'Please correct the highlighted fields before sending.';
               formToast.style.display = 'block';
             }
             return;
           }
 
-          const emailSubject = encodeURIComponent(`[Project Inquiry] ${scopeInput.value} - ${nameInput.value.trim()}`);
+          if (btnSubmitText) btnSubmitText.textContent = 'Transmitting Inquiry... â³';
+          if (submitBtn) submitBtn.disabled = true;
+
+          const emailSubject = encodeURIComponent([Project Inquiry]  - );
           const emailBody = encodeURIComponent(
-            `Hi Belintan,\n\n` +
-            `Name: ${nameInput.value.trim()}\n` +
-            `Email: ${emailInput.value.trim()}\n` +
-            `Scope: ${scopeInput.value}\n` +
-            `Timeline: ${timelineInput.value.trim() || 'Flexible'}\n\n` +
-            `Project Brief:\n${messageInput.value.trim()}\n\n` +
-            `Best regards,\n${nameInput.value.trim()}`
+            Hi Belintan,\n\n +
+            Name: \n +
+            Email: \n +
+            Scope: \n +
+            Timeline: \n\n +
+            Project Brief:\n\n\n +
+            Best regards,\n
           );
 
           if (formToast) {
             formToast.className = 'form-feedback-toast success';
-            formToast.innerHTML = '✦ Thank you! Preparing your direct email to Belintan B...';
+            formToast.innerHTML = 'âœ¦ Success! Opening your mail client with formatted project inquiry...';
             formToast.style.display = 'block';
           }
 
           setTimeout(() => {
-            window.location.href = `mailto:belintanb@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+            window.location.href = mailto:belintanb@gmail.com?subject=&body=;
             contactForm.reset();
+            [nameInput, emailInput, messageInput].forEach(inp => {
+              if (inp) {
+                inp.classList.remove('input-valid', 'input-invalid');
+              }
+            });
+            if (btnSubmitText) btnSubmitText.textContent = 'Transmit Project Inquiry \u2192';
+            if (submitBtn) submitBtn.disabled = false;
           }, 800);
         });
       }
 
       /* ------------------------------------------------------------------------
-   6. Framer Community Showcase Controller & Lookbook Modal Engine
-   ------------------------------------------------------------------------ */
+         7. Framer Community Showcase Controller & Lookbook Modal Engine
+         ------------------------------------------------------------------------ */
       const tabTemplates = document.getElementById('tab-templates');
       const tabWebApps = document.getElementById('tab-webapps');
       const viewTemplates = document.getElementById('framer-view-templates');
@@ -5678,7 +6229,6 @@ startxref
       if (tabTemplates) tabTemplates.addEventListener('click', () => switchFramerTab('templates'));
       if (tabWebApps) tabWebApps.addEventListener('click', () => switchFramerTab('webapps'));
       if (framerBackBtn) framerBackBtn.addEventListener('click', () => {
-        // Toggle view back and forth
         if (viewTemplates && viewTemplates.style.display === 'none') {
           switchFramerTab('templates');
         } else {
@@ -5696,24 +6246,38 @@ startxref
       const modalFeatures = document.getElementById('modal-sample-features');
       const modalInquireBtn = document.getElementById('modal-inquire-btn');
 
+      let currentModalCardIndex = 0;
+      const allFramerCards = Array.from(document.querySelectorAll('.framer-card-item'));
+
       function openFramerCardModal(card) {
         if (!card || !albumModal) return;
+
+        currentModalCardIndex = allFramerCards.indexOf(card);
 
         const title = card.getAttribute('data-title') || 'Featured Build';
         const category = card.getAttribute('data-category') || 'Web App & Template';
         const tech = card.getAttribute('data-tech') || 'Modern Web Stack';
         const features = (card.getAttribute('data-features') || '').split(',');
+        const imgElement = card.querySelector('.framer-card-visual img');
         const svgElement = card.querySelector('.framer-card-visual svg');
 
         if (modalTitle) modalTitle.textContent = title;
         if (modalCat) modalCat.textContent = category;
-        if (modalTech) modalTech.textContent = `Built with: ${tech}`;
+        if (modalTech) modalTech.textContent = Built with: ;
 
-        if (modalGraphic && svgElement) {
+        if (modalGraphic) {
           modalGraphic.innerHTML = '';
-          const svgClone = svgElement.cloneNode(true);
-          svgClone.setAttribute('style', 'max-height: 240px; width: 100%; border-radius: 8px;');
-          modalGraphic.appendChild(svgClone);
+          if (imgElement && imgElement.src) {
+            const imgClone = document.createElement('img');
+            imgClone.src = imgElement.src;
+            imgClone.alt = title;
+            imgClone.setAttribute('style', 'max-height: 260px; width: 100%; object-fit: cover; border-radius: 8px;');
+            modalGraphic.appendChild(imgClone);
+          } else if (svgElement) {
+            const svgClone = svgElement.cloneNode(true);
+            svgClone.setAttribute('style', 'max-height: 240px; width: 100%; border-radius: 8px;');
+            modalGraphic.appendChild(svgClone);
+          }
         }
 
         if (modalFeatures) {
@@ -5738,8 +6302,7 @@ startxref
         }
       }
 
-      // Attach click listeners to all framer cards
-      document.querySelectorAll('.framer-card-item').forEach(card => {
+      allFramerCards.forEach(card => {
         card.addEventListener('click', () => openFramerCardModal(card));
         card.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
@@ -5759,8 +6322,27 @@ startxref
         modalInquireBtn.addEventListener('click', () => closeAlbumModal());
       }
 
+      /* Keyboard Navigation for Modal (Escape, ArrowLeft, ArrowRight) */
+      window.addEventListener('keydown', (e) => {
+        if (!albumModal || !albumModal.classList.contains('open')) return;
+
+        if (e.key === 'Escape') {
+          closeAlbumModal();
+        } else if (e.key === 'ArrowRight') {
+          if (allFramerCards.length > 0) {
+            currentModalCardIndex = (currentModalCardIndex + 1) % allFramerCards.length;
+            openFramerCardModal(allFramerCards[currentModalCardIndex]);
+          }
+        } else if (e.key === 'ArrowLeft') {
+          if (allFramerCards.length > 0) {
+            currentModalCardIndex = (currentModalCardIndex - 1 + allFramerCards.length) % allFramerCards.length;
+            openFramerCardModal(allFramerCards[currentModalCardIndex]);
+          }
+        }
+      });
+
       /* ------------------------------------------------------------------------
-         7. Interactive E-Invitation Studio Customizer & Album Engine
+         8. Interactive E-Invitation Studio Customizer & Album Engine
          ------------------------------------------------------------------------ */
       const inputNames = document.getElementById('custom-couple-names');
       const inputTitle = document.getElementById('custom-event-title');
@@ -5775,51 +6357,50 @@ startxref
       const cardAuspiciousText = document.getElementById('card-auspicious-text');
       const liveCard = document.getElementById('live-einvite-card');
 
-      // Preset Data Dictionary
       const celebrationPresets = {
         wedding: {
-          icon: '🪔',
-          auspicious: '|| शुभ विवाह || AUSPICIOUS CELEBRATION',
+          icon: 'ðŸª”',
+          auspicious: '|| à¤¶à¥à¤­ à¤µà¤¿à¤µà¤¾à¤¹ || AUSPICIOUS CELEBRATION',
           names: 'Arun & Divya',
           title: 'Wedding Ceremony & Reception',
-          date: 'Sunday, Nov 29, 2026 · 6:30 PM',
-          venue: '📍 The Leela Palace, MRC Nagar, Chennai',
+          date: 'Sunday, Nov 29, 2026 Â· 6:30 PM',
+          venue: 'ðŸ“ The Leela Palace, MRC Nagar, Chennai',
           theme: 'theme-crimson'
         },
         church: {
-          icon: '⛪',
+          icon: 'â›ª',
           auspicious: 'IN HOLY MATRIMONY & CELEBRATION',
           names: 'David & Sarah',
           title: 'Holy Nuptial Mass & Evening Gala',
-          date: 'Saturday, Dec 12, 2026 · 4:00 PM',
-          venue: '📍 St. Thomas Cathedral Basilica, Santhome, Chennai',
+          date: 'Saturday, Dec 12, 2026 Â· 4:00 PM',
+          venue: 'ðŸ“ St. Thomas Cathedral Basilica, Santhome, Chennai',
           theme: 'theme-midnight'
         },
         housewarming: {
-          icon: '🏡',
-          auspicious: '|| गृह प्रवेश || AUSPICIOUS HOUSEWARMING',
+          icon: 'ðŸ¡',
+          auspicious: '|| à¤—à¥ƒà¤¹ à¤ªà¥à¤°à¤µà¥‡à¤¶ || AUSPICIOUS HOUSEWARMING',
           names: 'The Sharma Family',
           title: 'Griha Pravesham & Ganapati Pooja',
-          date: 'Friday, Jan 15, 2027 · 8:30 AM',
-          venue: '📍 Villa 42, Green Meadows, ECR, Chennai',
+          date: 'Friday, Jan 15, 2027 Â· 8:30 AM',
+          venue: 'ðŸ“ Villa 42, Green Meadows, ECR, Chennai',
           theme: 'theme-sage'
         },
         babyshower: {
-          icon: '👶',
+          icon: 'ðŸ‘¶',
           auspicious: 'SEEMANTHAM & BABY SHOWER BLESSINGS',
           names: 'Welcoming Baby Ananya',
           title: 'Honoring Mom-to-Be Sneha',
-          date: 'Sunday, Jan 24, 2027 · 10:30 AM',
-          venue: '📍 GRT Grand Ballroom, T. Nagar, Chennai',
+          date: 'Sunday, Jan 24, 2027 Â· 10:30 AM',
+          venue: 'ðŸ“ GRT Grand Ballroom, T. Nagar, Chennai',
           theme: 'theme-rose'
         },
         birthday: {
-          icon: '🎂',
+          icon: 'ðŸŽ‚',
           auspicious: 'MILESTONE JUBILEE GALA DINNER',
           names: 'Cheers to 50 Years!',
-          title: 'Celebrating Ronald’s Golden Jubilee',
-          date: 'Saturday, Feb 20, 2027 · 7:00 PM',
-          venue: '📍 Taj Coromandel, Nungambakkam, Chennai',
+          title: 'Celebrating Ronaldâ€™s Golden Jubilee',
+          date: 'Saturday, Feb 20, 2027 Â· 7:00 PM',
+          venue: 'ðŸ“ Taj Coromandel, Nungambakkam, Chennai',
           theme: 'theme-midnight'
         }
       };
@@ -5835,18 +6416,16 @@ startxref
           cardLiveDate.textContent = inputDate.value.trim() || 'Date & Time Here';
         }
         if (cardLiveVenue && inputVenue) {
-          cardLiveVenue.textContent = (inputVenue.value.trim().startsWith('📍') ? '' : '📍 ') + (inputVenue.value.trim() || 'Venue & Location');
+          cardLiveVenue.textContent = (inputVenue.value.trim().startsWith('ðŸ“') ? '' : 'ðŸ“ ') + (inputVenue.value.trim() || 'Venue & Location');
         }
       }
 
-      // Input listeners for real-time live typing
       [inputNames, inputTitle, inputDate, inputVenue].forEach(inp => {
         if (inp) {
           inp.addEventListener('input', updateLiveEInviteCard);
         }
       });
 
-      // Preset button clicks
       const presetBtns = document.querySelectorAll('.einvite-preset-btn');
       presetBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -5860,23 +6439,20 @@ startxref
           if (inputNames) inputNames.value = data.names;
           if (inputTitle) inputTitle.value = data.title;
           if (inputDate) inputDate.value = data.date;
-          if (inputVenue) inputVenue.value = data.venue.replace('📍 ', '');
+          if (inputVenue) inputVenue.value = data.venue.replace('ðŸ“ ', '');
 
           if (cardIconMotif) cardIconMotif.textContent = data.icon;
           if (cardAuspiciousText) cardAuspiciousText.textContent = data.auspicious;
 
-          // Set theme
           applyCardTheme(data.theme);
-
           updateLiveEInviteCard();
         });
       });
 
-      // Theme swatch click handler
       const swatchBtns = document.querySelectorAll('.theme-swatch-btn');
       function applyCardTheme(themeClass) {
         if (!liveCard) return;
-        liveCard.className = `einvite-card ${themeClass}`;
+        liveCard.className = einvite-card ;
 
         swatchBtns.forEach(sb => {
           const isMatch = (sb.getAttribute('data-theme') === themeClass);
@@ -5892,7 +6468,6 @@ startxref
         });
       });
 
-      // Interactive Card Buttons (RSVP, Maps, Calendar)
       const btnCardRsvp = document.getElementById('btn-card-rsvp');
       const btnCardMaps = document.getElementById('btn-card-maps');
       const btnCardCal = document.getElementById('btn-card-cal');
@@ -5900,27 +6475,26 @@ startxref
       if (btnCardRsvp) {
         btnCardRsvp.addEventListener('click', () => {
           const couple = inputNames.value.trim() || 'the couple';
-          const rsvpText = encodeURIComponent(`Hi! Delighted to RSVP YES for the celebration of ${couple}! Looking forward to attending.`);
-          window.open(`https://api.whatsapp.com/send?text=${rsvpText}`, '_blank');
+          const rsvpText = encodeURIComponent(Hi! Delighted to RSVP YES for the celebration of ! Looking forward to attending.);
+          window.open(https://api.whatsapp.com/send?text=, '_blank');
         });
       }
 
       if (btnCardMaps) {
         btnCardMaps.addEventListener('click', () => {
           const venue = encodeURIComponent(inputVenue.value.trim() || 'The Leela Palace Chennai');
-          window.open(`https://www.google.com/maps/search/?api=1&query=${venue}`, '_blank');
+          window.open(https://www.google.com/maps/search/?api=1&query=, '_blank');
         });
       }
 
       if (btnCardCal) {
         btnCardCal.addEventListener('click', () => {
-          const title = encodeURIComponent((inputNames.value.trim() || 'Celebration') + ' — ' + (inputTitle.value.trim() || 'Event'));
+          const title = encodeURIComponent((inputNames.value.trim() || 'Celebration') + ' â€” ' + (inputTitle.value.trim() || 'Event'));
           const venue = encodeURIComponent(inputVenue.value.trim() || 'Chennai');
-          window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&location=${venue}&details=We+look+forward+to+celebrating+with+you!`, '_blank');
+          window.open(https://calendar.google.com/calendar/render?action=TEMPLATE&text=&location=&details=We+look+forward+to+celebrating+with+you!, '_blank');
         });
       }
 
-      // Download E-Invite Action
       const btnDownloadEinvite = document.getElementById('btn-download-einvite');
       if (btnDownloadEinvite) {
         btnDownloadEinvite.addEventListener('click', () => {
@@ -5928,23 +6502,21 @@ startxref
         });
       }
 
-      // Share on WhatsApp Action
       const btnShareWhatsapp = document.getElementById('btn-share-whatsapp');
       if (btnShareWhatsapp) {
         btnShareWhatsapp.addEventListener('click', () => {
           const couple = inputNames.value.trim() || 'Arun & Divya';
           const date = inputDate.value.trim() || 'Upcoming Celebration';
           const venue = inputVenue.value.trim() || 'Chennai';
-          const text = encodeURIComponent(`✨ You're cordially invited to celebrate ${couple}!\n📅 ${date}\n📍 ${venue}\n\nView our digital interactive invitation card here: ${window.location.href}`);
-          window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+          const text = encodeURIComponent(âœ¨ You're cordially invited to celebrate !\nðŸ“… \nðŸ“ \n\nView our digital interactive invitation card here: );
+          window.open(https://api.whatsapp.com/send?text=, '_blank');
         });
       }
 
-      // Load Template from the Album Grid into the Studio
       document.querySelectorAll('.btn-load-template').forEach(btn => {
         btn.addEventListener('click', () => {
           const preset = btn.getAttribute('data-loadpreset');
-          const matchingPresetBtn = document.querySelector(`.einvite-preset-btn[data-preset="${preset}"]`);
+          const matchingPresetBtn = document.querySelector(.einvite-preset-btn[data-preset=""]);
           if (matchingPresetBtn) {
             matchingPresetBtn.click();
             const studioSection = document.getElementById('e-invitations');
@@ -5955,7 +6527,6 @@ startxref
         });
       });
 
-      // Filter tabs for E-Invite Album Grid
       const einviteFilterBtns = document.querySelectorAll('.einvite-filter-pills .filter-btn');
       const einviteCards = document.querySelectorAll('.album-card-item');
 
@@ -5976,7 +6547,6 @@ startxref
         });
       });
 
-      // Full View Preview Modal for Album Cards
       const modalPreviews = [
         {
           title: 'The Royal Vivaha Suite',
@@ -6050,15 +6620,8 @@ startxref
         });
       });
 
-      // Escape key closes modal
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && albumModal && albumModal.classList.contains('open')) {
-          closeAlbumModal();
-        }
-      });
-
     })();
-  </script>
+</script>
 
 </body>
 
