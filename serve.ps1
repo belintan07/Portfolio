@@ -28,6 +28,7 @@ try {
                     ".jpeg" { $response.ContentType = "image/jpeg" }
                     ".png"  { $response.ContentType = "image/png" }
                     ".svg"  { $response.ContentType = "image/svg+xml" }
+                    ".pdf"  { $response.ContentType = "application/pdf" }
                     default { $response.ContentType = "application/octet-stream" }
                 }
                 $response.ContentLength64 = $bytes.Length
