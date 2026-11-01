@@ -66,13 +66,14 @@ export function useRealTimeSales() {
     setActivityLogs(prev => [logItem, ...prev.slice(0, 15)]);
 
     setVelocityPoints(prev => {
-      const copy = [...prev];
-      const last = copy[copy.length - 1];
-      if (last) {
-        last.count += 1;
-        last.revenue += amount;
-      }
-      return copy;
+      if (!prev || prev.length === 0) return prev;
+      const lastIdx = prev.length - 1;
+      const updatedLast = {
+        ...prev[lastIdx],
+        count: prev[lastIdx].count + 1,
+        revenue: Math.round(prev[lastIdx].revenue + amount)
+      };
+      return [...prev.slice(0, lastIdx), updatedLast];
     });
 
     return newSale;

@@ -54,7 +54,11 @@ export default function LiveRevenueTicker({ totalRevenue, totalOrders }) {
 
           <div className="flex items-center justify-between text-[11px] text-zinc-400 font-medium mt-2">
             <span>{totalOrders.toLocaleString()} Orders Shipped</span>
-            <span>${(dailyTarget - totalRevenue).toLocaleString('en-US', { maximumFractionDigits: 0 })} remaining</span>
+            {totalRevenue >= dailyTarget ? (
+              <span className="text-emerald-400 font-bold">Goal Met! (+${(totalRevenue - dailyTarget).toLocaleString('en-US', { maximumFractionDigits: 0 })} surplus)</span>
+            ) : (
+              <span>${(dailyTarget - totalRevenue).toLocaleString('en-US', { maximumFractionDigits: 0 })} remaining</span>
+            )}
           </div>
         </div>
 

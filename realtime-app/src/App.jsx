@@ -12,6 +12,7 @@ import ActivityLog from './components/ActivityLog';
 export default function App() {
   const {
     sales,
+    rawSalesCount,
     filterType,
     setFilterType,
     totalRevenue,
@@ -57,6 +58,7 @@ export default function App() {
           <div className="lg:col-span-7 space-y-6">
             <LiveSalesStream
               sales={sales}
+              rawSalesCount={rawSalesCount}
               filterType={filterType}
               setFilterType={setFilterType}
             />

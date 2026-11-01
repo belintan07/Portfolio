@@ -2,7 +2,11 @@ import React from 'react';
 import { Activity } from 'lucide-react';
 
 export default function SalesVelocityChart({ velocityPoints }) {
-  const maxRevenue = Math.max(...velocityPoints.map(p => p.revenue), 4500);
+  const validPoints = Array.isArray(velocityPoints) && velocityPoints.length > 0
+    ? velocityPoints
+    : [{ time: 'Now', count: 0, revenue: 0 }];
+
+  const maxRevenue = Math.max(...validPoints.map(p => p.revenue), 4500);
 
   // Generate SVG path for the area chart
   const width = 600;
@@ -12,8 +16,9 @@ export default function SalesVelocityChart({ velocityPoints }) {
   const chartW = width - paddingX * 2;
   const chartH = height - paddingY * 2;
 
-  const points = velocityPoints.map((pt, idx) => {
-    const x = paddingX + (idx / (velocityPoints.length - 1)) * chartW;
+  const points = validPoints.map((pt, idx, arr) => {
+    const divisor = arr.length > 1 ? arr.length - 1 : 1;
+    const x = paddingX + (idx / divisor) * chartW;
     const y = height - paddingY - (pt.revenue / maxRevenue) * chartH;
     return { x, y, pt };
   });

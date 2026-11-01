@@ -20,7 +20,7 @@ class SoundFx {
       this.init();
       if (!this.ctx) return;
       if (this.ctx.state === 'suspended') {
-        this.ctx.resume();
+        this.ctx.resume().catch(() => {});
       }
 
       const now = this.ctx.currentTime;

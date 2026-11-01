@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShoppingCart, ExternalLink, ShieldCheck } from 'lucide-react';
 
-export default function LiveSalesStream({ sales, filterType, setFilterType }) {
+export default function LiveSalesStream({ sales, rawSalesCount = sales.length, filterType, setFilterType }) {
   return (
     <div className="rounded-xl bg-[#14151F] border border-[#262838] p-5 shadow-lg flex flex-col h-[520px]">
       
@@ -22,7 +22,7 @@ export default function LiveSalesStream({ sales, filterType, setFilterType }) {
                 : 'text-zinc-400 hover:text-white'
             }`}
           >
-            All ({sales.length})
+            All ({rawSalesCount})
           </button>
           <button
             onClick={() => setFilterType('business')}

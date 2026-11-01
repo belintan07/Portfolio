@@ -3637,7 +3637,7 @@
   <header class="site-header biz-header" role="banner">
     <div class="container nav-container">
       <!-- Modern Business Logo (Matching [K] Kelviq) -->
-      <a href="#hero" class="brand-logo-biz" aria-label="Belintan B. â€” Engineering &amp; AI Studio">
+      <a href="#hero" class="brand-logo-biz" aria-label="Belintan B. — Engineering &amp; AI Studio">
         <span class="brand-icon-box">B</span>
         <span>Belintan</span>
       </a>
@@ -3656,19 +3656,19 @@
         <!-- Persona Mode Switcher: All vs Business vs Personal -->
         <div class="persona-segmented-control" role="tablist" aria-label="Select portfolio view">
           <button class="persona-tab-btn active" data-mode="all" role="tab" aria-selected="true" title="View Full Combined Portfolio">
-            <span>âœ¦ All</span>
+            <span>✦ All</span>
           </button>
           <button class="persona-tab-btn" data-mode="business" role="tab" aria-selected="false" title="Enterprise SaaS, Web Apps &amp; Architecture">
-            <span>ðŸ’¼ Business</span>
+            <span>💼 Business</span>
           </button>
           <button class="persona-tab-btn" data-mode="personal" role="tab" aria-selected="false" title="Wedding E-Invites, Albums &amp; Creative Craft">
-            <span>ðŸŽ¨ Personal</span>
+            <span>🎨 Personal</span>
           </button>
         </div>
         <!-- Apple Dark/Light Theme Toggle -->
         <button class="apple-theme-toggle" id="theme-toggle" aria-label="Toggle Dark / Light Mode" title="Toggle dark / light theme">
-          <span class="theme-icon-sun" aria-hidden="true">â˜€ï¸</span>
-          <span class="theme-icon-moon" aria-hidden="true">ðŸŒ™</span>
+          <span class="theme-icon-sun" aria-hidden="true">☀️</span>
+          <span class="theme-icon-moon" aria-hidden="true">🌙</span>
         </button>
 
         <a href="#contact" class="apple-nav-cta">
@@ -3716,7 +3716,7 @@
       <div class="container chapter-banner-inner">
         <div>
           <span class="chapter-tag">Track 01 &middot; Enterprise Software</span>
-          <h2 class="chapter-title">ðŸ’¼ Business, SaaS &amp; Full-Stack Engineering</h2>
+          <h2 class="chapter-title">💼 Business, SaaS &amp; Full-Stack Engineering</h2>
           <p class="chapter-desc">Production web apps, Java/Spring Boot enterprise backends, and commercial digital systems.</p>
         </div>
         <button onclick="switchPortfolioMode('personal')" class="biz-btn-secondary" style="font-size: 0.85rem; padding: 8px 16px;">
@@ -3730,7 +3730,7 @@
         <!-- Left Narrative & Business Proposition Column -->
         <div class="hero-text-block">
 
-          <!-- Green Status Pill Badge (Matching ðŸ›¡ï¸ Secure payments from kelviq.com) -->
+          <!-- Green Status Pill Badge (Matching 🛡️ Secure payments from kelviq.com) -->
           <div class="biz-pill-badge" aria-label="Engineering verification">
             <span class="biz-shield-icon">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -3739,7 +3739,7 @@
                 <polyline points="9 12 11 14 15 10" />
               </svg>
             </span>
-            <span>Verified Full-Stack Partner Â· Q4 &amp; 2027 Open</span>
+            <span>Verified Full-Stack Partner · Q4 &amp; 2027 Open</span>
           </div>
 
           <!-- Bold Main Headline (Apple-level Clarity + 5-Second Visitor Comprehension) -->
@@ -3760,10 +3760,10 @@
           <!-- Persona Quick Jump Badges -->
           <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
             <button onclick="switchPortfolioMode('business')" class="persona-tab-btn" style="border: 1px solid var(--border-ink); background: var(--surface); color: var(--text); padding: 5px 12px; font-size: 0.8rem; cursor: pointer;">
-              <span>ðŸ’¼ Track 1: Business &amp; Engineering</span>
+              <span>💼 Track 1: Business &amp; Engineering</span>
             </button>
             <button onclick="switchPortfolioMode('personal')" class="persona-tab-btn" style="border: 1px solid var(--border-ink); background: var(--surface); color: var(--text); padding: 5px 12px; font-size: 0.8rem; cursor: pointer;">
-              <span>ðŸŽ¨ Track 2: Personal E-Invitations &amp; Studio</span>
+              <span>🎨 Track 2: Personal E-Invitations &amp; Studio</span>
             </button>
           </div>
 
@@ -3882,7 +3882,7 @@
       <div class="container chapter-banner-inner">
         <div>
           <span class="chapter-tag">Track 02 &middot; Personal Craft &amp; Lifestyle</span>
-          <h2 class="chapter-title">ðŸŽ¨ Personal Studio, Bespoke E-Invitations &amp; Creative Albums</h2>
+          <h2 class="chapter-title">🎨 Personal Studio, Bespoke E-Invitations &amp; Creative Albums</h2>
           <p class="chapter-desc">Customizable Indian wedding suites, Holy Matrimony, Griha Pravesham, and designer Framer albums.</p>
         </div>
         <button onclick="switchPortfolioMode('business')" class="biz-btn-secondary" style="font-size: 0.85rem; padding: 8px 16px;">
@@ -6382,28 +6382,34 @@
             return;
           }
 
-          if (btnSubmitText) btnSubmitText.textContent = 'Transmitting Inquiry... â³';
+          if (btnSubmitText) btnSubmitText.textContent = 'Transmitting Inquiry... ⏳';
           if (submitBtn) submitBtn.disabled = true;
 
-          const emailSubject = encodeURIComponent([Project Inquiry]  - );
+          const scopeVal = scopeInput ? scopeInput.value : 'Project';
+          const nameVal = nameInput ? nameInput.value.trim() : 'Prospective Client';
+          const emailVal = emailInput ? emailInput.value.trim() : '';
+          const timelineVal = timelineInput ? timelineInput.value : 'Flexible';
+          const msgVal = messageInput ? messageInput.value.trim() : '';
+
+          const emailSubject = encodeURIComponent(`[Project Inquiry] ${scopeVal} - ${nameVal}`);
           const emailBody = encodeURIComponent(
-            Hi Belintan,\n\n +
-            Name: \n +
-            Email: \n +
-            Scope: \n +
-            Timeline: \n\n +
-            Project Brief:\n\n\n +
-            Best regards,\n
+            `Hi Belintan,\n\n` +
+            `Name: ${nameVal}\n` +
+            `Email: ${emailVal}\n` +
+            `Scope: ${scopeVal}\n` +
+            `Timeline: ${timelineVal}\n\n` +
+            `Project Brief:\n${msgVal}\n\n` +
+            `Best regards,\n${nameVal}`
           );
 
           if (formToast) {
             formToast.className = 'form-feedback-toast success';
-            formToast.innerHTML = 'âœ¦ Success! Opening your mail client with formatted project inquiry...';
+            formToast.innerHTML = '✦ Success! Opening your mail client with formatted project inquiry...';
             formToast.style.display = 'block';
           }
 
           setTimeout(() => {
-            window.location.href = mailto:belintan07@gmail.com?subject=&body=;
+            window.location.href = `mailto:belintan07@gmail.com?subject=${emailSubject}&body=${emailBody}`;
             contactForm.reset();
             [nameInput, emailInput, messageInput].forEach(inp => {
               if (inp) {
@@ -6476,7 +6482,7 @@
 
         if (modalTitle) modalTitle.textContent = title;
         if (modalCat) modalCat.textContent = category;
-        if (modalTech) modalTech.textContent = Built with: ;
+        if (modalTech) modalTech.textContent = `Built with: ${tech}`;
 
         if (modalGraphic) {
           modalGraphic.innerHTML = '';
@@ -6572,21 +6578,21 @@
 
       const celebrationPresets = {
         wedding: {
-          icon: 'ðŸª”',
+          icon: '🪔',
           auspicious: '|| à¤¶à¥à¤­ à¤µà¤¿à¤µà¤¾à¤¹ || AUSPICIOUS CELEBRATION',
           names: 'Arun & Divya',
           title: 'Wedding Ceremony & Reception',
-          date: 'Sunday, Nov 29, 2026 Â· 6:30 PM',
-          venue: 'ðŸ“ The Leela Palace, MRC Nagar, Chennai',
+          date: 'Sunday, Nov 29, 2026 · 6:30 PM',
+          venue: '📍 The Leela Palace, MRC Nagar, Chennai',
           theme: 'theme-crimson'
         },
         church: {
-          icon: 'â›ª',
+          icon: '⛪',
           auspicious: 'IN HOLY MATRIMONY & CELEBRATION',
           names: 'David & Sarah',
           title: 'Holy Nuptial Mass & Evening Gala',
-          date: 'Saturday, Dec 12, 2026 Â· 4:00 PM',
-          venue: 'ðŸ“ St. Thomas Cathedral Basilica, Santhome, Chennai',
+          date: 'Saturday, Dec 12, 2026 · 4:00 PM',
+          venue: '📍 St. Thomas Cathedral Basilica, Santhome, Chennai',
           theme: 'theme-midnight'
         },
         housewarming: {
@@ -6594,26 +6600,26 @@
           auspicious: '|| à¤—à¥ƒà¤¹ à¤ªà¥à¤°à¤µà¥‡à¤¶ || AUSPICIOUS HOUSEWARMING',
           names: 'The Sharma Family',
           title: 'Griha Pravesham & Ganapati Pooja',
-          date: 'Friday, Jan 15, 2027 Â· 8:30 AM',
-          venue: 'ðŸ“ Villa 42, Green Meadows, ECR, Chennai',
+          date: 'Friday, Jan 15, 2027 · 8:30 AM',
+          venue: '📍 Villa 42, Green Meadows, ECR, Chennai',
           theme: 'theme-sage'
         },
         babyshower: {
-          icon: 'ðŸ‘¶',
+          icon: '👶',
           auspicious: 'SEEMANTHAM & BABY SHOWER BLESSINGS',
           names: 'Welcoming Baby Ananya',
           title: 'Honoring Mom-to-Be Sneha',
-          date: 'Sunday, Jan 24, 2027 Â· 10:30 AM',
-          venue: 'ðŸ“ GRT Grand Ballroom, T. Nagar, Chennai',
+          date: 'Sunday, Jan 24, 2027 · 10:30 AM',
+          venue: '📍 GRT Grand Ballroom, T. Nagar, Chennai',
           theme: 'theme-rose'
         },
         birthday: {
-          icon: 'ðŸŽ‚',
+          icon: '🎂',
           auspicious: 'MILESTONE JUBILEE GALA DINNER',
           names: 'Cheers to 50 Years!',
-          title: 'Celebrating Ronaldâ€™s Golden Jubilee',
-          date: 'Saturday, Feb 20, 2027 Â· 7:00 PM',
-          venue: 'ðŸ“ Taj Coromandel, Nungambakkam, Chennai',
+          title: "Celebrating Ronald's Golden Jubilee",
+          date: 'Saturday, Feb 20, 2027 · 7:00 PM',
+          venue: '📍 Taj Coromandel, Nungambakkam, Chennai',
           theme: 'theme-midnight'
         }
       };
@@ -6629,7 +6635,7 @@
           cardLiveDate.textContent = inputDate.value.trim() || 'Date & Time Here';
         }
         if (cardLiveVenue && inputVenue) {
-          cardLiveVenue.textContent = (inputVenue.value.trim().startsWith('ðŸ“') ? '' : 'ðŸ“ ') + (inputVenue.value.trim() || 'Venue & Location');
+          cardLiveVenue.textContent = (inputVenue.value.trim().startsWith('📍') ? '' : '📍 ') + (inputVenue.value.trim() || 'Venue & Location');
         }
       }
 
@@ -6652,7 +6658,7 @@
           if (inputNames) inputNames.value = data.names;
           if (inputTitle) inputTitle.value = data.title;
           if (inputDate) inputDate.value = data.date;
-          if (inputVenue) inputVenue.value = data.venue.replace('ðŸ“ ', '');
+          if (inputVenue) inputVenue.value = data.venue.replace('📍 ', '');
 
           if (cardIconMotif) cardIconMotif.textContent = data.icon;
           if (cardAuspiciousText) cardAuspiciousText.textContent = data.auspicious;
@@ -6687,24 +6693,26 @@
 
       if (btnCardRsvp) {
         btnCardRsvp.addEventListener('click', () => {
-          const couple = inputNames.value.trim() || 'the couple';
-          const rsvpText = encodeURIComponent(Hi! Delighted to RSVP YES for the celebration of ! Looking forward to attending.);
-          window.open(https://api.whatsapp.com/send?text=, '_blank');
+          const couple = inputNames && inputNames.value.trim() ? inputNames.value.trim() : 'the couple';
+          const rsvpText = encodeURIComponent(`Hi! Delighted to RSVP YES for the celebration of ${couple}! Looking forward to attending.`);
+          window.open(`https://api.whatsapp.com/send?text=${rsvpText}`, '_blank');
         });
       }
 
       if (btnCardMaps) {
         btnCardMaps.addEventListener('click', () => {
-          const venue = encodeURIComponent(inputVenue.value.trim() || 'The Leela Palace Chennai');
-          window.open(https://www.google.com/maps/search/?api=1&query=, '_blank');
+          const venue = encodeURIComponent(inputVenue && inputVenue.value.trim() ? inputVenue.value.trim() : 'The Leela Palace Chennai');
+          window.open(`https://www.google.com/maps/search/?api=1&query=${venue}`, '_blank');
         });
       }
 
       if (btnCardCal) {
         btnCardCal.addEventListener('click', () => {
-          const title = encodeURIComponent((inputNames.value.trim() || 'Celebration') + ' â€” ' + (inputTitle.value.trim() || 'Event'));
-          const venue = encodeURIComponent(inputVenue.value.trim() || 'Chennai');
-          window.open(https://calendar.google.com/calendar/render?action=TEMPLATE&text=&location=&details=We+look+forward+to+celebrating+with+you!, '_blank');
+          const namesVal = inputNames && inputNames.value.trim() ? inputNames.value.trim() : 'Celebration';
+          const titleVal = inputTitle && inputTitle.value.trim() ? inputTitle.value.trim() : 'Event';
+          const title = encodeURIComponent(`${namesVal} — ${titleVal}`);
+          const venue = encodeURIComponent(inputVenue && inputVenue.value.trim() ? inputVenue.value.trim() : 'Chennai');
+          window.open(`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&location=${venue}&details=We+look+forward+to+celebrating+with+you!`, '_blank');
         });
       }
 
@@ -6718,18 +6726,18 @@
       const btnShareWhatsapp = document.getElementById('btn-share-whatsapp');
       if (btnShareWhatsapp) {
         btnShareWhatsapp.addEventListener('click', () => {
-          const couple = inputNames.value.trim() || 'Arun & Divya';
-          const date = inputDate.value.trim() || 'Upcoming Celebration';
-          const venue = inputVenue.value.trim() || 'Chennai';
-          const text = encodeURIComponent(âœ¨ You're cordially invited to celebrate !\nðŸ“… \nðŸ“ \n\nView our digital interactive invitation card here: );
-          window.open(https://api.whatsapp.com/send?text=, '_blank');
+          const couple = inputNames && inputNames.value.trim() ? inputNames.value.trim() : 'Arun & Divya';
+          const date = inputDate && inputDate.value.trim() ? inputDate.value.trim() : 'Upcoming Celebration';
+          const venue = inputVenue && inputVenue.value.trim() ? inputVenue.value.trim() : 'Chennai';
+          const text = encodeURIComponent(`✨ You're cordially invited to celebrate ${couple}!\n📅 ${date}\n📍 ${venue}\n\nView our digital interactive invitation card here: ${window.location.href}`);
+          window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
         });
       }
 
       document.querySelectorAll('.btn-load-template').forEach(btn => {
         btn.addEventListener('click', () => {
           const preset = btn.getAttribute('data-loadpreset');
-          const matchingPresetBtn = document.querySelector(.einvite-preset-btn[data-preset=""]);
+          const matchingPresetBtn = document.querySelector(`.einvite-preset-btn[data-preset="${preset}"]`);
           if (matchingPresetBtn) {
             matchingPresetBtn.click();
             const studioSection = document.getElementById('e-invitations');
