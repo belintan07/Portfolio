@@ -670,9 +670,9 @@
     }
 
     /* ==========================================================================
-       APPLE-STYLE "COMPARE MODELS" TECH SPECS MATRIX
+       CORE VALUE & STRENGTHS SECTION (COMPACT & MODERN)
        ========================================================================== */
-    .apple-compare-section {
+    .core-value-section {
       padding-top: var(--section-spacing);
       padding-bottom: var(--section-spacing);
       background: var(--bg-alt);
@@ -680,75 +680,101 @@
       border-bottom: 2px solid var(--border-light);
     }
 
-    [data-theme="dark"] .apple-compare-section {
+    [data-theme="dark"] .core-value-section {
       background: #0E0F15;
+      border-color: #2D303D;
     }
 
-    .apple-compare-table-wrapper {
-      width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      margin-top: 32px;
+    .value-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 36px;
+    }
+
+    .value-pillar-card {
+      background: var(--card-cream);
+      border: 2px solid var(--text);
       border-radius: var(--radius-md);
-      box-shadow: var(--sketch-shadow);
-      border: 2px solid var(--border-ink);
-      background: var(--surface);
+      padding: 26px 22px;
+      box-shadow: 3px 3px 0px var(--shadow-ink);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-smooth);
     }
 
-    .apple-compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-      min-width: 680px;
+    .value-pillar-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px var(--shadow-ink);
+      border-color: var(--accent-orange);
     }
 
-    .apple-compare-table th,
-    .apple-compare-table td {
-      padding: 18px 22px;
-      border-bottom: 1px solid var(--border-light);
-      font-size: 0.92rem;
+    [data-theme="dark"] .value-pillar-card {
+      background: #171822;
+      border-color: #383B4B;
+      color: #F1F5F9;
+      box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.85);
     }
 
-    .apple-compare-table th {
-      font-family: var(--font-display);
+    [data-theme="dark"] .value-pillar-card:hover {
+      box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.85);
+      border-color: var(--accent-orange);
+    }
+
+    .value-pillar-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      border: 1.5px solid var(--text);
+      background: var(--card-peach);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+      box-shadow: 1.5px 1.5px 0px var(--shadow-ink);
+    }
+
+    [data-theme="dark"] .value-pillar-icon-box {
+      border-color: #383B4B;
+      background: #231C18;
+      box-shadow: 1.5px 1.5px 0px rgba(0, 0, 0, 0.85);
+    }
+
+    .value-pillar-title {
+      font-size: 1.12rem;
       font-weight: 800;
-      font-size: 1rem;
-      background: var(--bg);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
       color: var(--text);
     }
 
-    [data-theme="dark"] .apple-compare-table th {
-      background: #14151D;
+    .value-pillar-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 18px;
     }
 
-    .apple-compare-table th.col-highlight {
-      background: var(--accent-orange-subtle);
+    .value-pillar-tag {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       color: var(--accent-orange);
-      border-top: 3px solid var(--accent-orange);
+      background: var(--accent-orange-subtle);
+      border: 1px solid var(--accent-orange);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      width: fit-content;
     }
 
-    .apple-compare-table td.col-highlight {
-      background: rgba(234, 88, 12, 0.05);
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .apple-compare-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .check-icon-pro {
-      color: #16A34A;
-      font-weight: 900;
-      font-size: 1.1rem;
-      margin-right: 6px;
-    }
-
-    .cross-icon-con {
-      color: #DC2626;
-      font-weight: 900;
-      font-size: 1.1rem;
-      margin-right: 6px;
+    [data-theme="dark"] .value-pillar-tag {
+      background: #2E160A;
+      border-color: #FF6420;
+      color: #FF8A50;
     }
 
     /* Form Validation Feedback */
@@ -988,6 +1014,8 @@
 
     /* Brand Logo (Matching [K] Kelviq) */
     .brand-logo-biz {
+      margin-right: 14px;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -1417,6 +1445,7 @@
       align-items: center;
       justify-content: space-between;
       height: 74px;
+      gap: clamp(16px, 2.5vw, 32px);
     }
 
     .brand-logo {
@@ -6576,71 +6605,59 @@
     <!-- ========================================================================
          WORK EXPERIENCE SECTION
          ======================================================================== -->
-        <!-- ========================================================================
-         APPLE-STYLE "COMPARE MODELS" TECH SPECS MATRIX
+    <!-- ========================================================================
+         CORE VALUE & COMPETENCIES SECTION (CONCISE & RESUME-ALIGNED)
          ======================================================================== -->
-    <section class="section apple-compare-section" id="compare" data-track="business" aria-labelledby="compare-heading">
+    <section class="section core-value-section" id="core-strengths" data-track="business" aria-labelledby="value-heading">
       <div class="container">
-        <div class="sketch-chapter-badge">[ SPECS &amp; COMPARISON ]</div>
-        <h2 class="section-title" id="compare-heading">
-          Why Partner with Belintan B.
+        <div class="sketch-chapter-badge">[ CORE VALUE ]</div>
+        <h2 class="section-title" id="value-heading">
+          Why Work With Me
         </h2>
         <p class="section-subtitle">
-          Compare the engineering &amp; design execution models. See how working directly with a senior full-stack product engineer gives you greater speed, quality, and return on investment.
+          A focused blend of business management education, modern software development skills, and dedicated customer support experience.
         </p>
 
-        <div class="apple-compare-table-wrapper" role="region" aria-label="Comparison of partnership models" tabindex="0">
-          <table class="apple-compare-table">
-            <thead>
-              <tr>
-                <th style="width: 25%;">Capability / Dimension</th>
-                <th class="col-highlight" style="width: 30%;">
-                  <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--accent-orange); font-weight: 800;">Recommended</div>
-                  Belintan B. (Direct Partner)
-                </th>
-                <th style="width: 23%;">Traditional Agency</th>
-                <th style="width: 22%;">Freelance Marketplaces</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Delivery Velocity</strong></td>
-                <td class="col-highlight"><span class="check-icon-pro">&#10003;</span> 1&ndash;3 Weeks rapid turnaround</td>
-                <td><span class="cross-icon-con">&times;</span> 2&ndash;4 Months overhead</td>
-                <td><span class="cross-icon-con">&times;</span> Highly unpredictable</td>
-              </tr>
-              <tr>
-                <td><strong>Design + Code Integration</strong></td>
-                <td class="col-highlight"><span class="check-icon-pro">&#10003;</span> 100% Zero handoff loss (Figma &rarr; React/Java)</td>
-                <td><span class="cross-icon-con">&times;</span> Disjointed design vs dev teams</td>
-                <td><span class="cross-icon-con">&times;</span> Minimal or template-only</td>
-              </tr>
-              <tr>
-                <td><strong>Direct Founder Access</strong></td>
-                <td class="col-highlight"><span class="check-icon-pro">&#10003;</span> 1:1 direct engineer &amp; designer communication</td>
-                <td><span class="cross-icon-con">&times;</span> 3+ layers of account managers</td>
-                <td><span class="cross-icon-con">&times;</span> Anonymous chat &amp; timezone lags</td>
-              </tr>
-              <tr>
-                <td><strong>Full Code Ownership &amp; IP</strong></td>
-                <td class="col-highlight"><span class="check-icon-pro">&#10003;</span> Complete IP transfer, clean GitHub repos</td>
-                <td><span class="cross-icon-con">&times;</span> Complex licensing &amp; retainers</td>
-                <td><span class="cross-icon-con">&times;</span> Risk of borrowed/stolen code</td>
-              </tr>
-              <tr>
-                <td><strong>Business + Technical Rigor</strong></td>
-                <td class="col-highlight"><span class="check-icon-pro">&#10003;</span> MBA commercial acumen + Computer Science</td>
-                <td><span class="cross-icon-con">&times;</span> High markup on junior staff</td>
-                <td><span class="cross-icon-con">&times;</span> Task execution without strategy</td>
-              </tr>
-              <tr>
-                <td><strong>Accessibility &amp; Web Vitals</strong></td>
-                <td class="col-highlight"><span class="check-icon-pro">&#10003;</span> WCAG AA compliant &amp; 95+ Lighthouse score</td>
-                <td><span class="cross-icon-con">&times;</span> Often treated as an afterthought</td>
-                <td><span class="cross-icon-con">&times;</span> Rarely tested or maintained</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="value-pillars-grid">
+          <!-- Pillar 1: Business & Strategy -->
+          <div class="value-pillar-card">
+            <div class="value-pillar-icon-box">📊</div>
+            <h3 class="value-pillar-title">Business &amp; Strategic Focus</h3>
+            <p class="value-pillar-desc">
+              MBA graduate (Alagappa University) and BBA graduate (Kamaraj College), aligning technical solutions with real-world business objectives, cost-efficiency, and user needs.
+            </p>
+            <div class="value-pillar-tag">MBA · Business Acumen</div>
+          </div>
+
+          <!-- Pillar 2: Full-Stack & Frontend -->
+          <div class="value-pillar-card">
+            <div class="value-pillar-icon-box">💻</div>
+            <h3 class="value-pillar-title">Full-Stack &amp; Frontend Craft</h3>
+            <p class="value-pillar-desc">
+              Proficient in building secure backend services with Java, Spring Boot, and PostgreSQL, along with modern, responsive React user interfaces and accessible CSS.
+            </p>
+            <div class="value-pillar-tag">Java · Spring Boot · React</div>
+          </div>
+
+          <!-- Pillar 3: Quality & Reliability -->
+          <div class="value-pillar-card">
+            <div class="value-pillar-icon-box">🛡️</div>
+            <h3 class="value-pillar-title">Quality &amp; Defect Prevention</h3>
+            <p class="value-pillar-desc">
+              Strong emphasis on code stability, using JUnit and Mockito to write thorough unit tests, investigate root causes, and catch issues before deployment.
+            </p>
+            <div class="value-pillar-tag">JUnit · Mockito · Clean Code</div>
+          </div>
+
+          <!-- Pillar 4: Customer Care & Troubleshooting -->
+          <div class="value-pillar-card">
+            <div class="value-pillar-icon-box">🤝</div>
+            <h3 class="value-pillar-title">Customer-Centric Mindset</h3>
+            <p class="value-pillar-desc">
+              2 years of customer support experience at TICFIBER, combining empathy, active listening, and rapid problem resolution to deliver dependable results for clients and teams.
+            </p>
+            <div class="value-pillar-tag">TICFIBER · 2 Yrs Support</div>
+          </div>
         </div>
       </div>
     </section>
