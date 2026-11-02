@@ -3372,58 +3372,346 @@
       box-shadow: var(--sketch-shadow-lg);
     }
 
-    /* Generic Modal Backdrop */
+        /* ==========================================================================
+       3D ANIMATIONS & LIVE READY-TO-USE WEBPAGE VIEW ALBUM ENGINE
+       ========================================================================== */
+
+    /* 3D Showcase Container & Perspective Scene */
+    .framer-showcase-container {
+      perspective: 1200px;
+    }
+
+    .framer-tabs-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 24px;
+      width: 100%;
+    }
+
+    .framer-controls-cluster {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* 3D Showroom Isometric Toggle Button */
+    .framer-3d-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: var(--surface);
+      border: 1.5px solid var(--border-ink);
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 2px 2px 0px var(--text);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .framer-3d-toggle-btn:hover {
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      border-color: var(--accent-orange);
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px var(--text);
+    }
+
+    .framer-3d-toggle-btn.active {
+      background: #0B0B0B;
+      color: #4ADE80;
+      border-color: #4ADE80;
+      box-shadow: 0 0 12px rgba(74, 222, 128, 0.35);
+    }
+
+    [data-theme="dark"] .framer-3d-toggle-btn.active {
+      background: #181926;
+      color: #4ADE80;
+      border-color: #4ADE80;
+    }
+
+    /* 3D Grid Deck & Isometric Showroom Mode */
+    .framer-grid-deck {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      perspective: 1200px;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), gap 0.6s ease;
+      width: 100%;
+    }
+
+    .framer-grid-deck.isometric-3d-view {
+      transform: rotateX(18deg) rotateY(-8deg) rotateZ(1deg) scale(0.96);
+      gap: 24px;
+    }
+
+    /* 3D Interactive Card Item */
+    .framer-card-item,
+    .album-card-item,
+    .project-card {
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+      will-change: transform;
+      cursor: pointer;
+    }
+
+    /* Specular Glare Reflection Sheen */
+    .card-3d-glare {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      mix-blend-mode: overlay;
+      transition: opacity 0.3s ease;
+      z-index: 12;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 65%);
+    }
+
+    .framer-card-item:hover .card-3d-glare,
+    .album-card-item:hover .card-3d-glare,
+    .project-card:hover .card-3d-glare {
+      opacity: 1;
+    }
+
+    /* 3D Layer Depth on Card Hover */
+    .framer-card-visual,
+    .album-card-visual,
+    .project-visual-header {
+      transform-style: preserve-3d;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+
+    .framer-card-item:hover .framer-card-visual {
+      transform: translateZ(26px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 90, 31, 0.15);
+    }
+
+    .album-card-item:hover .album-card-visual {
+      transform: translateZ(24px);
+    }
+
+    .project-card:hover .project-visual-header {
+      transform: translateZ(24px);
+    }
+
+    /* Live Ready Action Overlay on Showcase Cards */
+    .framer-card-live-overlay {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      opacity: 0;
+      transform: translateY(10px) translateZ(42px);
+      transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 9;
+      pointer-events: none;
+    }
+
+    .framer-card-item:hover .framer-card-live-overlay {
+      opacity: 1;
+      transform: translateY(0) translateZ(42px);
+      pointer-events: auto;
+    }
+
+    .framer-live-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      background: rgba(12, 13, 17, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .framer-live-badge-pill .pulse-dot,
+    .album-ready-status-badge .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+      animation: livePulseBeacon 1.8s infinite;
+      display: inline-block;
+    }
+
+    @keyframes livePulseBeacon {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.6; }
+    }
+
+    .framer-card-view-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 800;
+      border: none;
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.4);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .framer-card-view-btn:hover {
+      background: var(--accent-orange-hover);
+      transform: scale(1.06);
+    }
+
+    /* ==========================================================================
+       UPGRADED LIVE READY-TO-USE WEBPAGE VIEW ALBUM MODAL
+       ========================================================================== */
+
     .album-modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(11, 11, 11, 0.7);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: rgba(8, 9, 14, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       z-index: 10000;
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: clamp(12px, 3vw, 28px);
+      opacity: 0;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .album-modal-backdrop.open {
       display: flex;
+      opacity: 1;
     }
 
     .album-modal-card {
       background: var(--bg);
       border: 3px solid var(--text);
-      border-radius: var(--radius-md);
-      box-shadow: 8px 8px 0px var(--text);
+      border-radius: 20px;
+      box-shadow: 12px 12px 0px var(--text), 0 25px 60px rgba(0, 0, 0, 0.5);
       width: 100%;
-      max-width: 680px;
-      max-height: 90vh;
+      max-width: 1040px;
+      max-height: 94vh;
       overflow-y: auto;
-      padding: clamp(20px, 4vw, 32px);
+      padding: clamp(18px, 3vw, 30px);
       position: relative;
-      animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.92) translateY(20px);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
-    @keyframes modalPop {
-      0% {
-        opacity: 0;
-        transform: scale(0.92);
-      }
-
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
+    .album-modal-backdrop.open .album-modal-card {
+      transform: scale(1) translateY(0);
     }
 
+    /* Modal Top Header */
     .album-modal-header {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 20px;
       padding-bottom: 14px;
       border-bottom: 2px dashed var(--paper-line);
+      flex-wrap: wrap;
+    }
+
+    .album-modal-meta-left {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .album-modal-main-title {
+      font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-top: 6px;
+      color: var(--text);
+    }
+
+    .album-modal-tech-stack {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-orange);
+      margin-top: 3px;
+      font-family: var(--font-mono);
+    }
+
+    .album-ready-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #10B981;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 9999px;
+    }
+
+    /* Modal Navigation Stepper (← Prev / Item 1 of 12 / Next →) */
+    .album-modal-controls-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .album-nav-stepper {
+      display: flex;
+      align-items: center;
+      background: var(--surface);
+      border: 2px solid var(--text);
+      border-radius: 9999px;
+      padding: 2px;
+      box-shadow: 2px 2px 0px var(--text);
+    }
+
+    .album-step-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .album-step-btn:hover {
+      background: var(--accent-orange);
+      color: #FFFFFF;
+    }
+
+    .album-counter-pill {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0 10px;
+      color: var(--text);
+      white-space: nowrap;
     }
 
     .album-modal-close-btn {
@@ -3436,8 +3724,9 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 900;
+      color: var(--text);
       box-shadow: 2px 2px 0px var(--text);
       transition: var(--transition-smooth);
     }
@@ -3448,19 +3737,366 @@
       transform: translate(-1px, -1px);
     }
 
-    .album-modal-media-frame {
-      border: 2px solid var(--text);
-      border-radius: var(--radius-sm);
-      background: #FFFFFF;
-      overflow: hidden;
-      margin-bottom: 20px;
-      box-shadow: 2px 2px 0px var(--text);
+    /* Device Viewport Switcher Toolbar */
+    .album-device-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: var(--surface);
+      border: 1.5px solid var(--border-ink);
+      border-radius: 12px;
+      padding: 6px 12px;
     }
 
-    .album-modal-media-frame svg {
+    .device-switcher-tabs {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .device-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .device-btn:hover {
+      color: var(--text);
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .device-btn.active {
+      background: var(--bg);
+      color: var(--text);
+      border-color: var(--border-ink);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .device-btn.3d-tilt-btn.active {
+      background: #0B0B0B;
+      color: #F97316;
+      border-color: #F97316;
+      box-shadow: 0 0 10px rgba(249, 115, 22, 0.3);
+    }
+
+    [data-theme="dark"] .device-btn.3d-tilt-btn.active {
+      background: #181926;
+      color: #F97316;
+    }
+
+    .preview-mode-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .preview-mode-pill {
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .preview-mode-pill.active {
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(234, 88, 12, 0.35);
+    }
+
+    /* The Viewport Stage (Hosts the Responsive Browser Frame) */
+    .album-viewport-stage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1400px;
+      padding: 14px 6px 20px 6px;
+      min-height: 420px;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 30%, rgba(255, 90, 31, 0.06) 0%, transparent 70%);
+      border-radius: 14px;
+    }
+
+    /* The Browser Frame Mockup */
+    .album-browser-frame {
       width: 100%;
-      height: auto;
+      max-width: 960px;
+      border: 2.5px solid var(--text);
+      border-radius: 14px;
+      background: #FFFFFF;
+      box-shadow: 6px 6px 0px var(--text), 0 20px 40px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: max-width 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+    }
+
+    [data-theme="dark"] .album-browser-frame {
+      background: #12131C;
+      border-color: #2D3148;
+      box-shadow: 6px 6px 0px #090A0E, 0 20px 45px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Device Viewport Modes */
+    .album-browser-frame.view-desktop {
+      max-width: 960px;
+      transform: none;
+    }
+
+    .album-browser-frame.view-tablet {
+      max-width: 680px;
+      transform: none;
+    }
+
+    .album-browser-frame.view-mobile {
+      max-width: 380px;
+      transform: none;
+    }
+
+    /* 3D Isometric Tilt Presentation Mode */
+    .album-browser-frame.view-perspective-3d {
+      max-width: 820px;
+      transform: rotateX(15deg) rotateY(-18deg) rotateZ(3deg);
+      box-shadow: -20px 30px 60px rgba(0, 0, 0, 0.45), 0 0 35px rgba(255, 90, 31, 0.22);
+    }
+
+    /* Browser Chrome Top Bar */
+    .browser-chrome-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 9px 14px;
+      background: #F4EFE6;
+      border-bottom: 2px solid var(--text);
+    }
+
+    [data-theme="dark"] .browser-chrome-bar {
+      background: #1A1C29;
+      border-bottom-color: #2D3148;
+    }
+
+    .browser-traffic-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .browser-traffic-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-red { background: #EF4444; }
+    .dot-yellow { background: #F59E0B; }
+    .dot-green { background: #10B981; }
+
+    .browser-address-pill {
+      flex: 1;
+      max-width: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #FFFFFF;
+      border: 1px solid #D1D5DB;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #374151;
+    }
+
+    [data-theme="dark"] .browser-address-pill {
+      background: #10111A;
+      border-color: #2D3148;
+      color: #94A3B8;
+    }
+
+    .copy-url-btn,
+    .browser-reload-btn {
+      background: transparent;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px;
+      border-radius: 4px;
+      transition: color 0.15s ease;
+    }
+
+    .copy-url-btn:hover,
+    .browser-reload-btn:hover {
+      color: var(--accent-orange);
+    }
+
+    /* Live Interactive Webpage Canvas Container */
+    .album-webpage-canvas {
+      padding: 22px;
+      max-height: 480px;
+      overflow-y: auto;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* Dynamic Live Interactive Webpage Preview Components */
+    .live-sim-hero {
+      text-align: center;
+      padding: 24px 16px;
+      border-radius: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      margin-bottom: 20px;
+    }
+
+    .live-sim-hero h2 {
+      font-size: clamp(1.4rem, 3vw, 1.85rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .live-sim-hero p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 16px auto;
+    }
+
+    /* Interactive Service Tabs Simulation */
+    .live-sim-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .live-sim-tab-btn {
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border-ink);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .live-sim-tab-btn.active {
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      border-color: var(--accent-orange);
+    }
+
+    /* Interactive Live Slider Component */
+    .live-sim-card-interactive {
+      background: var(--surface);
+      border: 1.5px solid var(--border-ink);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+
+    .live-sim-slider-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .live-sim-slider-row input[type="range"] {
+      flex: 1;
+      accent-color: var(--accent-orange);
+      cursor: pointer;
+    }
+
+    .live-sim-calc-result {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #10B981;
+    }
+
+    /* Design Tokens & Blueprint Canvas */
+    .album-specs-canvas {
+      padding: 22px;
+      max-height: 480px;
+      overflow-y: auto;
+    }
+
+    .token-swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .token-swatch-card {
+      border: 1px solid var(--border-ink);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--surface);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .token-swatch-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .token-swatch-color {
+      height: 45px;
+      width: 100%;
+    }
+
+    .token-swatch-meta {
+      padding: 8px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+    }
+
+    .token-swatch-name {
+      font-weight: 700;
       display: block;
+    }
+
+    .token-swatch-hex {
+      color: var(--text-muted);
+    }
+
+    /* Bottom Features & Action Bar */
+    .album-modal-bottom-details {
+      padding-top: 8px;
+    }
+
+    .album-section-subtitle {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+      color: var(--text-muted);
     }
 
     .album-modal-feature-list {
@@ -3468,11 +4104,10 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      margin: 18px 0;
     }
 
     .album-modal-feature-list li {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 600;
       color: var(--text-muted);
       display: flex;
@@ -3485,6 +4120,93 @@
       color: var(--accent-orange);
       font-weight: 900;
     }
+
+    .album-modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-top: 14px;
+      border-top: 2px dashed var(--paper-line);
+      flex-wrap: wrap;
+    }
+
+    .album-footer-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .album-badge-live-ready {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #10B981;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 4px 10px;
+      border-radius: 9999px;
+    }
+
+    .album-badge-responsive {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .album-footer-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Toast Notification for Token Copied */
+    .album-toast-notice {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0B0B0B;
+      color: #FFFFFF;
+      border: 1.5px solid #22C55E;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      z-index: 10001;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .album-toast-notice.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .framer-grid-deck {
+        grid-template-columns: 1fr;
+      }
+
+      .album-modal-feature-list {
+        grid-template-columns: 1fr;
+      }
+
+      .album-device-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .preview-mode-switch {
+        justify-content: center;
+      }
+    }
+
 
     /* ==========================================================================
        12. RESPONSIVE DESIGN (MOBILE-FIRST BREAKPOINTS)
@@ -3918,15 +4640,20 @@
           <div class="framer-tabs-bar">
             <div class="framer-pill-group" role="tablist" aria-label="Filter showcase items">
               <button class="framer-tab-pill active" id="tab-templates" role="tab" aria-selected="true"
-                data-tab="templates">Templates</button>
+                data-tab="templates">Templates (8)</button>
               <button class="framer-tab-pill" id="tab-webapps" role="tab" aria-selected="false" data-tab="webapps">Web
-                Apps</button>
+                Apps (6)</button>
             </div>
-            <div class="framer-sort-icon" title="Sort templates" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 3v18M3 7l4-4 4 4M17 21V3M13 17l4 4 4-4" />
-              </svg>
+            <div class="framer-controls-cluster">
+              <button class="framer-3d-toggle-btn" id="toggle-3d-gallery-btn" title="Toggle 3D Showroom View">
+                <span>🕶️ 3D Gallery View</span>
+              </button>
+              <div class="framer-sort-icon" title="Sort templates" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 3v18M3 7l4-4 4 4M17 21V3M13 17l4 4 4-4" />
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -6109,46 +6836,140 @@
   <a href="#hero" class="back-to-top-btn" id="back-to-top" aria-label="Return to top of page">↑</a>
 
   <!-- ==========================================================================
-       ALBUM QUICK-VIEW MODAL (INSPECT SAMPLES IN PLACE)
+       UPGRADED LIVE READY-TO-USE PRODUCT DESIGN WEBPAGE VIEW ALBUM MODAL
        ========================================================================== -->
-  <div class="album-modal-backdrop" id="album-modal" role="dialog" aria-modal="true"
-    aria-labelledby="modal-sample-title">
+  <div class="album-modal-backdrop" id="album-modal" role="dialog" aria-modal="true" aria-labelledby="modal-sample-title">
     <div class="album-modal-card">
+      
+      <!-- Top Header Row -->
       <div class="album-modal-header">
-        <div>
-          <span class="album-tag-chip" id="modal-sample-cat"
-            style="background: var(--card-peach); color: var(--card-peach-text);">CATEGORY</span>
-          <h3 id="modal-sample-title" style="font-size: 1.45rem; margin-top: 6px; letter-spacing: -0.03em;">Sample Title
-          </h3>
-          <p id="modal-sample-tech"
-            style="font-size: 0.85rem; font-weight: 700; color: var(--accent-orange); margin-top: 2px;">Tech Stack</p>
+        <div class="album-modal-meta-left">
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <span class="album-tag-chip" id="modal-sample-cat" style="background: var(--card-peach); color: var(--card-peach-text);">CATEGORY</span>
+            <span class="album-ready-status-badge">
+              <span class="pulse-dot"></span> Live Ready-To-Use Product
+            </span>
+          </div>
+          <h3 id="modal-sample-title" class="album-modal-main-title">Sample Title</h3>
+          <p id="modal-sample-tech" class="album-modal-tech-stack">Modern Web Stack</p>
         </div>
-        <button class="album-modal-close-btn" id="album-modal-close" aria-label="Close album preview">✕</button>
+
+        <div class="album-modal-controls-right">
+          <!-- Album Flip Controls -->
+          <div class="album-nav-stepper">
+            <button class="album-step-btn" id="modal-prev-btn" title="Previous Album Item (←)" aria-label="Previous Album Item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <span id="modal-album-counter" class="album-counter-pill">Item 1 of 12</span>
+            <button class="album-step-btn" id="modal-next-btn" title="Next Album Item (→)" aria-label="Next Album Item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+          <button class="album-modal-close-btn" id="album-modal-close" aria-label="Close album preview">✕</button>
+        </div>
       </div>
 
-      <div class="album-modal-media-frame" id="modal-sample-graphic">
-        <!-- Dynamic High-Res Vector Mockup rendered via JS -->
+      <!-- Device Viewport Switcher Toolbar -->
+      <div class="album-device-toolbar">
+        <div class="device-switcher-tabs" role="tablist" aria-label="Device Viewport Switcher">
+          <button class="device-btn active" data-device="desktop" role="tab" aria-selected="true" title="Desktop 1440px View">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span>Desktop</span>
+          </button>
+          <button class="device-btn" data-device="tablet" role="tab" aria-selected="false" title="Tablet 768px View">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>
+            <span>Tablet</span>
+          </button>
+          <button class="device-btn" data-device="mobile" role="tab" aria-selected="false" title="Mobile 390px View">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            <span>Mobile</span>
+          </button>
+          <button class="device-btn 3d-tilt-btn" data-device="perspective-3d" role="tab" aria-selected="false" title="3D Isometric Perspective View">
+            <span>🕶️</span>
+            <span>3D Perspective</span>
+          </button>
+        </div>
+
+        <div class="preview-mode-switch">
+          <button class="preview-mode-pill active" id="btn-mode-live" data-mode="live">
+            <span>👁️ Live Ready Webpage</span>
+          </button>
+          <button class="preview-mode-pill" id="btn-mode-specs" data-mode="specs">
+            <span>🎨 Design Tokens &amp; Specs</span>
+          </button>
+        </div>
       </div>
 
-      <h4 style="font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px;">Key
-        Capabilities &amp; Architecture</h4>
-      <ul class="album-modal-feature-list" id="modal-sample-features">
-        <!-- Feature bullets populated dynamically -->
-      </ul>
+      <!-- Live Webpage Viewport Stage -->
+      <div class="album-viewport-stage" id="album-viewport-stage">
+        <div class="album-browser-frame view-desktop" id="album-browser-frame">
+          
+          <!-- Browser Chrome Top Bar -->
+          <div class="browser-chrome-bar">
+            <div class="browser-traffic-dots">
+              <span class="dot-red"></span>
+              <span class="dot-yellow"></span>
+              <span class="dot-green"></span>
+            </div>
+            <div class="browser-address-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span id="modal-browser-url">https://belintan.design/templates/auditly</span>
+              <button class="copy-url-btn" id="modal-copy-url-btn" title="Copy Demo URL">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <div class="browser-actions-right">
+              <button class="browser-reload-btn" id="modal-reload-demo-btn" title="Reload Live Demo">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+              </button>
+            </div>
+          </div>
 
-      <div
-        style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; padding-top: 18px; border-top: 2px dashed var(--paper-line); flex-wrap: wrap; gap: 12px;">
-        <span style="font-size: 0.84rem; font-weight: 700; color: var(--text-muted);">
-          📖 Freelance Portfolio Album Lookbook
-        </span>
-        <div style="display: flex; gap: 10px;">
-          <a href="#contact" class="btn-sketch-sm" id="modal-inquire-btn"
-            style="background: var(--accent-orange); color: #fff;">
-            Inquire for Similar Project →
+          <!-- Webpage View Content (Live Interactive Simulation Canvas) -->
+          <div class="album-webpage-canvas" id="modal-webpage-canvas">
+            <!-- Dynamic Interactive Live Webpage Component rendered by JS -->
+          </div>
+
+          <!-- Secondary Tab: Design Tokens & Blueprint Specs -->
+          <div class="album-specs-canvas" id="modal-specs-canvas" style="display: none;">
+            <!-- Palette chips, typography, component specs -->
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Feature Checklist & Capabilities -->
+      <div class="album-modal-bottom-details">
+        <h4 class="album-section-subtitle">
+          Key Capabilities &amp; Production Architecture
+        </h4>
+        <ul class="album-modal-feature-list" id="modal-sample-features">
+          <!-- Dynamic Feature Items -->
+        </ul>
+      </div>
+
+      <!-- Modal Footer with Ready-To-Use Actions -->
+      <div class="album-modal-footer">
+        <div class="album-footer-left">
+          <span class="album-badge-live-ready">⚡ Production-Ready Component</span>
+          <span class="album-badge-responsive">📱 Fully Responsive Layout</span>
+        </div>
+        <div class="album-footer-actions">
+          <button class="btn-sketch-secondary" id="modal-copy-tokens-btn" style="padding: 10px 16px; font-size: 0.85rem;">
+            📋 Copy Design Tokens
+          </button>
+          <a href="#contact" class="btn-sketch-primary" id="modal-inquire-btn" style="padding: 10px 20px; font-size: 0.88rem;">
+            Inquire for This Project →
           </a>
         </div>
       </div>
+
     </div>
+  </div>
+
+  <!-- Toast Notification for Token Copied -->
+  <div class="album-toast-notice" id="album-toast-notice" role="status" aria-live="polite">
+    <span>✦</span> <span id="album-toast-text">Copied Design Tokens to Clipboard!</span>
   </div>
 
   <!-- ==========================================================================
@@ -6455,63 +7276,576 @@
         }
       });
 
-      /* Interactive Album Quick-View Modal for Showcase Cards */
+      /* ==========================================================================
+         7. 3D CARD PARALLAX ENGINE & LIVE READY-TO-USE WEBPAGE ALBUM CONTROLLER
+         ========================================================================== */
+
+      // 3D Parallax Tilt with Specular Glare Tracking
+      function init3DCardParallax() {
+        const cards = document.querySelectorAll('.framer-card-item, .album-card-item, .project-card');
+
+        cards.forEach(card => {
+          // Inject 3D Specular Glare overlay if missing
+          if (!card.querySelector('.card-3d-glare')) {
+            const glare = document.createElement('div');
+            glare.className = 'card-3d-glare';
+            card.appendChild(glare);
+          }
+
+          // Inject Live Ready Action pill if it is a framer card
+          if (card.classList.contains('framer-card-item') && !card.querySelector('.framer-card-live-overlay')) {
+            const visual = card.querySelector('.framer-card-visual');
+            if (visual) {
+              const overlay = document.createElement('div');
+              overlay.className = 'framer-card-live-overlay';
+              overlay.innerHTML = '<span class="framer-live-badge-pill"><span class="pulse-dot"></span> Live Webpage</span><span class="framer-card-view-btn"><span>👁️ View Album</span></span>';
+              visual.appendChild(overlay);
+            }
+          }
+
+          let isHovered = false;
+          let rAF = null;
+
+          card.addEventListener('mouseenter', () => {
+            isHovered = true;
+          });
+
+          card.addEventListener('mousemove', (e) => {
+            if (!isHovered) return;
+            if (rAF) cancelAnimationFrame(rAF);
+
+            rAF = requestAnimationFrame(() => {
+              const rect = card.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+              const percentX = (x - centerX) / centerX;
+              const percentY = (y - centerY) / centerY;
+
+              const rotX = -percentY * 12;
+              const rotY = percentX * 12;
+
+              card.style.transform = `perspective(850px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) scale3d(1.025, 1.025, 1.025)`;
+
+              const glare = card.querySelector('.card-3d-glare');
+              if (glare) {
+                glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 65%)`;
+              }
+            });
+          });
+
+          card.addEventListener('mouseleave', () => {
+            isHovered = false;
+            if (rAF) cancelAnimationFrame(rAF);
+            card.style.transform = 'perspective(850px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+          });
+        });
+      }
+
+      init3DCardParallax();
+
+      // 3D Showroom View Toggle Button
+      const toggle3DGalleryBtn = document.getElementById('toggle-3d-gallery-btn');
+      if (toggle3DGalleryBtn) {
+        toggle3DGalleryBtn.addEventListener('click', () => {
+          const decks = document.querySelectorAll('.framer-grid-deck');
+          decks.forEach(d => d.classList.toggle('isometric-3d-view'));
+          toggle3DGalleryBtn.classList.toggle('active');
+          const isActive = toggle3DGalleryBtn.classList.contains('active');
+          toggle3DGalleryBtn.innerHTML = isActive
+            ? '<span>✓ 3D Showroom Active</span>'
+            : '<span>🕶️ 3D Gallery View</span>';
+        });
+      }
+
+      /* ==========================================================================
+         LIVE READY-TO-USE PRODUCT DESIGN WEBPAGE DATABASE
+         ========================================================================== */
+      const ALBUM_WEBPAGE_DATABASE = [
+        {
+          id: 'auditly',
+          slug: 'auditly',
+          title: 'Auditly — Professional Accounting & Tax Solutions',
+          category: 'Fintech & Accounting Template',
+          tech: 'Framer · React · Cal.com API · Tailwind CSS',
+          url: 'https://belintan.design/templates/auditly',
+          features: [
+            'Sub-second responsive hero with interactive service selector',
+            'Integrated Cal.com advisory booking flow & instant calendar sync',
+            'Client onboarding questionnaire with instant PDF summary',
+            '100/100 Core Web Vitals score on mobile and desktop'
+          ],
+          palette: [
+            { name: 'Emerald Forest', hex: '#16A34A' },
+            { name: 'Deep Moss', hex: '#0E3D26' },
+            { name: 'Amber Gold', hex: '#EAB308' },
+            { name: 'Soft Chalk', hex: '#F9FAFB' }
+          ],
+          renderLiveWebpage: function(container) {
+            container.innerHTML = `
+              <div class="live-sim-hero" style="background: #0E3D26; color: #FFFFFF; border-color: #16A34A;">
+                <span style="font-size: 0.72rem; font-weight: 800; background: #16A34A; color: #FFF; padding: 3px 10px; border-radius: 9999px; text-transform: uppercase;">Auditly Fintech Suite</span>
+                <h2 style="color: #FFFFFF; margin-top: 10px;">Clear Numbers. <span style="color: #4ADE80;">Confident Decisions.</span></h2>
+                <p style="color: #D1D5DB;">Professional accounting, tax advisory, and payroll infrastructure for fast-growing ventures.</p>
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                  <button class="live-sim-cta-btn" style="background: #EAB308; color: #000; font-weight: 800; padding: 8px 18px; border-radius: 8px; border: none; cursor: pointer;">Book a Call</button>
+                  <button class="live-sim-cta-btn" style="background: transparent; color: #FFF; border: 1.5px solid #FFFFFF; font-weight: 700; padding: 8px 18px; border-radius: 8px; cursor: pointer;">Explore Services</button>
+                </div>
+              </div>
+
+              <!-- Interactive Service Selector -->
+              <div style="margin-bottom: 20px;">
+                <h4 style="font-size: 0.82rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; text-align: center;">Interactive Practice Areas</h4>
+                <div class="live-sim-tabs" id="auditly-sim-tabs">
+                  <button class="live-sim-tab-btn active" data-desc="End-to-end corporate tax compliance, multi-state filing, and automated R&D credit capture." data-fee="$1,450/mo">🏢 Corporate Tax</button>
+                  <button class="live-sim-tab-btn" data-desc="Audit preparation, GAAP financial statement reconciliation, and investor due diligence packages." data-fee="$2,200/mo">⚖️ Audit Readiness</button>
+                  <button class="live-sim-tab-btn" data-desc="Automated payroll disbursement, contractor 1099 compliance, and real-time ledger sync." data-fee="$850/mo">📊 Payroll & Books</button>
+                </div>
+                <div id="auditly-tab-desc" style="background: var(--surface); padding: 14px; border-radius: 8px; border: 1px solid var(--border-light); text-align: center; font-size: 0.85rem;">
+                  End-to-end corporate tax compliance, multi-state filing, and automated R&D credit capture. <strong>Starting at $1,450/mo</strong>.
+                </div>
+              </div>
+
+              <!-- Interactive Tax Savings Calculator -->
+              <div class="live-sim-card-interactive">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-weight: 800; font-size: 0.88rem;">Annual Expense Deductions Calculator</span>
+                  <span class="live-sim-calc-result" id="auditly-calc-display">$14,200/yr Saved</span>
+                </div>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;">Slide your projected annual business expenses to estimate direct tax deduction savings:</p>
+                <div class="live-sim-slider-row">
+                  <span style="font-size: 0.75rem; font-family: var(--font-mono);">$50k</span>
+                  <input type="range" id="auditly-slider" min="50000" max="800000" step="10000" value="180000" />
+                  <span style="font-size: 0.75rem; font-family: var(--font-mono);">$800k</span>
+                </div>
+              </div>
+            `;
+
+            // Attach interactive tab listeners
+            const tabBtns = container.querySelectorAll('#auditly-sim-tabs .live-sim-tab-btn');
+            const descEl = container.querySelector('#auditly-tab-desc');
+            tabBtns.forEach(b => {
+              b.addEventListener('click', () => {
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                b.classList.add('active');
+                if (descEl) {
+                  descEl.innerHTML = `${b.getAttribute('data-desc')} <strong>Starting at ${b.getAttribute('data-fee')}</strong>.`;
+                }
+              });
+            });
+
+            // Attach slider listener
+            const slider = container.querySelector('#auditly-slider');
+            const display = container.querySelector('#auditly-calc-display');
+            if (slider && display) {
+              slider.addEventListener('input', () => {
+                const val = parseInt(slider.value, 10);
+                const savings = Math.round(val * 0.28);
+                display.textContent = `${savings.toLocaleString()}/yr Saved`;
+              });
+            }
+          }
+        },
+        {
+          id: 'foyer',
+          slug: 'foyer',
+          title: 'Foyer — Luxury Fashion & Brand Launch Waitlist',
+          category: 'Editorial & Coming Soon Template',
+          tech: 'Framer · WebGL Shaders · CSS Grid',
+          url: 'https://belintan.design/templates/foyer',
+          features: [
+            'Split-screen editorial responsive canvas with crimson ambience',
+            'Viral referral waitlist mechanism with position tracking',
+            'Fluid typography with optical serif rendering',
+            'Mobile swipe gallery with social media badge integration'
+          ],
+          palette: [
+            { name: 'Crimson Velvet', hex: '#B91C1C' },
+            { name: 'Onyx Black', hex: '#0F0D11' },
+            { name: 'Alabaster Chalk', hex: '#FAF7F2' },
+            { name: 'Blush Warm', hex: '#FCE7D8' }
+          ],
+          renderLiveWebpage: function(container) {
+            container.innerHTML = `
+              <div style="background: radial-gradient(circle at 70% 30%, #7C242C 0%, #1A131F 100%); color: #FAF7F2; padding: 28px 20px; border-radius: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center;">
+                <div>
+                  <span style="font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #FCA5A5;">Autumn/Winter 2026</span>
+                  <h2 style="font-family: Georgia, serif; font-size: clamp(1.6rem, 3.2vw, 2.3rem); line-height: 1.1; margin: 8px 0; color: #FFF;">We're launching soon.</h2>
+                  <p style="font-size: 0.82rem; color: #D1D5DB; margin-bottom: 16px;">Request early access to the private atelier runway collection.</p>
+                  
+                  <div id="foyer-waitlist-box" style="display: flex; gap: 6px; flex-wrap: wrap;">
+                    <input type="email" id="foyer-email-input" placeholder="Enter VIP email..." style="flex: 1; min-width: 160px; padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.4); color: #FFF; font-size: 0.82rem;" />
+                    <button id="foyer-join-btn" style="background: #EF4444; color: #FFF; border: none; font-weight: 800; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.82rem;">Join Queue</button>
+                  </div>
+                  <div id="foyer-feedback" style="display: none; margin-top: 10px; font-size: 0.82rem; color: #4ADE80; font-weight: 700;"></div>
+                </div>
+
+                <div style="text-align: center; background: rgba(0,0,0,0.35); padding: 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15);">
+                  <div style="font-size: 2.2rem; margin-bottom: 6px;">👗</div>
+                  <div style="font-family: var(--font-mono); font-size: 1.3rem; font-weight: 900; color: #FFF;">1,842</div>
+                  <div style="font-size: 0.72rem; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.08em;">Discerning Members on Waitlist</div>
+                  <div style="margin-top: 12px; display: inline-block; padding: 4px 10px; border-radius: 9999px; background: rgba(220, 38, 38, 0.25); color: #FCA5A5; font-size: 0.72rem; font-weight: 700;">Private Release · Invites Only</div>
+                </div>
+              </div>
+            `;
+
+            const btn = container.querySelector('#foyer-join-btn');
+            const inp = container.querySelector('#foyer-email-input');
+            const fb = container.querySelector('#foyer-feedback');
+            if (btn && inp && fb) {
+              btn.addEventListener('click', () => {
+                if (inp.value && inp.value.includes('@')) {
+                  btn.disabled = true;
+                  btn.textContent = 'Enrolled ✓';
+                  fb.style.display = 'block';
+                  fb.textContent = `✦ Confirmed! You are #1,843 in queue. Priority access link sent to ${inp.value}.`;
+                } else {
+                  inp.style.borderColor = '#EF4444';
+                  inp.focus();
+                }
+              });
+            }
+          }
+        },
+        {
+          id: 'salespulse',
+          slug: 'salespulse-live',
+          title: 'SalesPulse Live — Real-Time Revenue Intelligence',
+          category: 'Real-Time SaaS Application',
+          tech: 'React 18 · Vite 6 · Tailwind CSS · WebSocket Engine',
+          url: 'http://localhost:5173',
+          features: [
+            'Live simulated WebSocket transaction telemetry feeds at 60fps',
+            'Sub-second revenue ticker with target goal progress monitor',
+            'Multi-currency checkout tracking across Apple Pay, Stripe & PayPal',
+            'Global sales heatmaps and top-selling product velocity metrics'
+          ],
+          palette: [
+            { name: 'Vibrant Orange', hex: '#FF5A1F' },
+            { name: 'Deep Space Dark', hex: '#0C0D11' },
+            { name: 'Emerald Pulse', hex: '#10B981' },
+            { name: 'Card Midnight', hex: '#161720' }
+          ],
+          renderLiveWebpage: function(container) {
+            container.innerHTML = `
+              <div style="background: #0C0D11; color: #F5F5F7; padding: 22px; border-radius: 12px; border: 1.5px solid #282A36;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1F2230; padding-bottom: 12px; margin-bottom: 16px;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+                    <strong style="font-size: 0.92rem; color: #FFF;">SalesPulse Live Telemetry</strong>
+                  </div>
+                  <a href="http://localhost:5173" target="_blank" style="font-size: 0.75rem; background: #FF5A1F; color: #FFF; padding: 5px 12px; border-radius: 6px; text-decoration: none; font-weight: 800;">Open Full App (:5173) ↗</a>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 18px;">
+                  <div style="background: #14151F; border: 1px solid #262838; padding: 12px; border-radius: 8px;">
+                    <span style="font-size: 0.72rem; color: #9CA3AF;">Gross Today</span>
+                    <div style="font-family: var(--font-mono); font-size: 1.4rem; font-weight: 900; color: #10B981;">$148,520</div>
+                    <span style="font-size: 0.68rem; color: #34D399;">+28.4% vs prev</span>
+                  </div>
+                  <div style="background: #14151F; border: 1px solid #262838; padding: 12px; border-radius: 8px;">
+                    <span style="font-size: 0.72rem; color: #9CA3AF;">Active Shoppers</span>
+                    <div style="font-family: var(--font-mono); font-size: 1.4rem; font-weight: 900; color: #38BDF8;">84 Live</div>
+                    <span style="font-size: 0.68rem; color: #94A3B8;">Global Storefronts</span>
+                  </div>
+                  <div style="background: #14151F; border: 1px solid #262838; padding: 12px; border-radius: 8px;">
+                    <span style="font-size: 0.72rem; color: #9CA3AF;">AOV Average</span>
+                    <div style="font-family: var(--font-mono); font-size: 1.4rem; font-weight: 900; color: #FBBF24;">$115.60</div>
+                    <span style="font-size: 0.68rem; color: #F59E0B;">+12.5% this week</span>
+                  </div>
+                </div>
+
+                <div style="background: #14151F; border: 1px solid #262838; padding: 12px; border-radius: 8px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #9CA3AF; margin-bottom: 8px;">
+                    <span>Live Ingest Stream (Simulated 60fps)</span>
+                    <span style="color: #10B981; font-weight: 700;">● Active</span>
+                  </div>
+                  <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #D1D5DB; line-height: 1.6;">
+                    <div>⚡ <strong>Sarah Jenkins (🇺🇸 San Francisco)</strong> bought ResumeAI Pro ($149.00 via Apple Pay)</div>
+                    <div>⚡ <strong>Kenji Takahashi (🇯🇵 Tokyo)</strong> bought Framer Template ($89.00 via Stripe)</div>
+                    <div>⚡ <strong>Elena Rostova (🇩🇪 Berlin)</strong> bought Royal Vivaha Suite ($299.00 via Visa)</div>
+                  </div>
+                </div>
+              </div>
+            `;
+          }
+        },
+        {
+          id: 'resumeai',
+          slug: 'resumeai-v2',
+          title: 'ResumeAI v2.0 — Intelligent Resume Analyzer',
+          category: 'AI Web Application',
+          tech: 'Gemini AI · Full-Stack · ATS Matching Engine',
+          url: 'https://belintan.design/apps/resumeai',
+          features: [
+            'Instant ATS score match algorithm against target job descriptions',
+            'AI-extracted keyword gap analysis with highlighted action verbs',
+            'One-click ATS optimization recommendations via Gemini LLM',
+            'Client-side zero-server PDF report generator with formatting preserve'
+          ],
+          palette: [
+            { name: 'Gemini Purple', hex: '#9333EA' },
+            { name: 'Dark Indigo', hex: '#1E1B4B' },
+            { name: 'Emerald Pass', hex: '#10B981' },
+            { name: 'Amber Warning', hex: '#F59E0B' }
+          ],
+          renderLiveWebpage: function(container) {
+            container.innerHTML = `
+              <div style="background: #181926; color: #FFFFFF; padding: 22px; border-radius: 12px; border: 1.5px solid #2E324B;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                  <div>
+                    <span style="font-size: 0.72rem; font-weight: 800; background: #9333EA; color: #FFF; padding: 3px 10px; border-radius: 9999px;">Gemini 2.0 Integration</span>
+                    <h3 style="font-size: 1.25rem; font-weight: 800; margin-top: 6px;">Resume Score &amp; ATS Match Analyzer</h3>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="font-family: var(--font-mono); font-size: 1.8rem; font-weight: 900; color: #10B981;">88%</div>
+                    <span style="font-size: 0.68rem; color: #A7F3D0; text-transform: uppercase;">Strong Candidate</span>
+                  </div>
+                </div>
+
+                <div style="background: #11121C; border: 1px solid #2B2F46; padding: 14px; border-radius: 8px; margin-bottom: 14px;">
+                  <h4 style="font-size: 0.8rem; text-transform: uppercase; color: #94A3B8; margin-bottom: 8px;">Target Job Alignment: Senior Full-Stack Engineer</h4>
+                  <div style="display: flex; gap: 6px; flex-wrap: wrap; font-size: 0.75rem;">
+                    <span style="background: rgba(16, 185, 129, 0.2); color: #34D399; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.4);">✓ Java Spring Boot</span>
+                    <span style="background: rgba(16, 185, 129, 0.2); color: #34D399; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.4);">✓ React 18</span>
+                    <span style="background: rgba(16, 185, 129, 0.2); color: #34D399; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.4);">✓ PostgreSQL</span>
+                    <span style="background: rgba(245, 158, 11, 0.2); color: #FCD34D; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(245, 158, 11, 0.4);">! Docker (Add metrics)</span>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 8px;">
+                  <button id="sim-run-gemini" style="flex: 1; background: #9333EA; color: #FFF; border: none; font-weight: 800; padding: 9px; border-radius: 6px; cursor: pointer; font-size: 0.82rem;">Re-Scan with Gemini AI</button>
+                  <button style="background: #272A3C; color: #FFF; border: none; font-weight: 700; padding: 9px 14px; border-radius: 6px; cursor: pointer; font-size: 0.82rem;">Export ATS Report</button>
+                </div>
+              </div>
+            `;
+            const geminiBtn = container.querySelector('#sim-run-gemini');
+            if (geminiBtn) {
+              geminiBtn.addEventListener('click', () => {
+                geminiBtn.textContent = 'Analyzing syntax & keywords...';
+                setTimeout(() => {
+                  geminiBtn.textContent = 'Analysis Complete (92% Score) ✓';
+                  geminiBtn.style.background = '#10B981';
+                }, 700);
+              });
+            }
+          }
+        },
+        {
+          id: 'simpolio',
+          slug: 'simpolio',
+          title: 'Simpolio — Minimalist Modern Portfolio',
+          category: 'Creative Portfolio Template',
+          tech: 'Framer · Bento Layout · CSS Variables',
+          url: 'https://belintan.design/templates/simpolio',
+          features: [
+            'Bento box structured portfolio layout with dynamic aspect ratios',
+            'Tactile dark and light theme switching with CSS variables',
+            'Interactive client project showcase with expandable modals',
+            'Zero layout shift, 100% accessible keyboard navigation'
+          ],
+          palette: [
+            { name: 'Graphite Ink', hex: '#0B0B0B' },
+            { name: 'Chalk White', hex: '#FFFFFF' },
+            { name: 'Slate Gray', hex: '#64748B' },
+            { name: 'Amber Accent', hex: '#F59E0B' }
+          ],
+          renderLiveWebpage: function(container) {
+            container.innerHTML = `
+              <div id="simpolio-canvas-root" style="background: #F8FAFC; color: #0F172A; padding: 22px; border-radius: 12px; transition: all 0.3s ease;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                  <div>
+                    <h3 style="font-size: 1.15rem; font-weight: 900; margin: 0;">Sasha Woods</h3>
+                    <span style="font-size: 0.75rem; color: #64748B;">Staff Product Designer · NYC</span>
+                  </div>
+                  <button id="simpolio-theme-toggle" style="background: #0F172A; color: #FFF; border: none; font-size: 0.72rem; font-weight: 700; padding: 5px 12px; border-radius: 9999px; cursor: pointer;">Toggle Dark UI</button>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                  <div style="background: #FFFFFF; padding: 14px; border-radius: 8px; border: 1px solid #E2E8F0; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+                    <div style="width: 24px; height: 24px; border-radius: 4px; background: #6366F1; margin-bottom: 8px;"></div>
+                    <strong style="font-size: 0.85rem; display: block;">Design Systems 2.0</strong>
+                    <span style="font-size: 0.72rem; color: #64748B;">Component architecture</span>
+                  </div>
+                  <div style="background: #FFFFFF; padding: 14px; border-radius: 8px; border: 1px solid #E2E8F0; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+                    <div style="width: 24px; height: 24px; border-radius: 4px; background: #10B981; margin-bottom: 8px;"></div>
+                    <strong style="font-size: 0.85rem; display: block;">Fintech Mobile App</strong>
+                    <span style="font-size: 0.72rem; color: #64748B;">iOS & Android Native</span>
+                  </div>
+                </div>
+              </div>
+            `;
+
+            const toggle = container.querySelector('#simpolio-theme-toggle');
+            const root = container.querySelector('#simpolio-canvas-root');
+            if (toggle && root) {
+              let isDark = false;
+              toggle.addEventListener('click', () => {
+                isDark = !isDark;
+                root.style.background = isDark ? '#0F172A' : '#F8FAFC';
+                root.style.color = isDark ? '#F8FAFC' : '#0F172A';
+                toggle.textContent = isDark ? 'Switch to Light' : 'Toggle Dark UI';
+              });
+            }
+          }
+        },
+        {
+          id: 'vivaha',
+          slug: 'royal-vivaha',
+          title: 'Royal Vivaha — Luxury Indian Wedding E-Invite Suite',
+          category: 'Showable Celebration Album',
+          tech: 'HTML5 · CSS3 · Audio Synthesizer · WhatsApp API',
+          url: 'https://belintan.design/invites/vivaha',
+          features: [
+            'Traditional gold foil and vermilion auspicious theme',
+            'One-click WhatsApp RSVP broadcasting with pre-filled names',
+            'Interactive countdown timer to muhurtham ceremony',
+            'Live Google Maps venue pin and calendar reminder integration'
+          ],
+          palette: [
+            { name: 'Royal Crimson', hex: '#881337' },
+            { name: 'Auspicious Gold', hex: '#F59E0B' },
+            { name: 'Warm Cream', hex: '#FFFBEB' },
+            { name: 'Deep Burgundy', hex: '#4C0519' }
+          ],
+          renderLiveWebpage: function(container) {
+            container.innerHTML = `
+              <div style="background: #881337; color: #FFFBEB; padding: 24px 18px; border-radius: 12px; border: 2px solid #F59E0B; text-align: center;">
+                <div style="font-family: var(--font-display); font-size: 0.82rem; letter-spacing: 0.12em; color: #FCD34D;">|| शुभ विवाह || AUSPICIOUS CELEBRATION</div>
+                <h2 style="font-family: 'Playfair Display', Georgia, serif; font-size: 1.8rem; margin: 10px 0; color: #FFFFFF;">Arun &amp; Divya</h2>
+                <p style="font-size: 0.85rem; color: #FDE68A;">Request the honor of your presence to celebrate their wedding ceremony.</p>
+                
+                <div style="background: rgba(0,0,0,0.25); border: 1px dashed #F59E0B; padding: 12px; border-radius: 8px; margin: 16px auto; max-width: 380px;">
+                  <div style="font-size: 0.78rem; font-weight: 700; color: #FDE68A;">📅 Sunday, November 29, 2026 · 6:30 PM</div>
+                  <div style="font-size: 0.75rem; color: #FEF3C7; margin-top: 4px;">📍 The Leela Palace, MRC Nagar, Chennai</div>
+                </div>
+
+                <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                  <button id="sim-rsvp-btn" style="background: #F59E0B; color: #000; border: none; font-weight: 800; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.8rem;">RSVP via WhatsApp</button>
+                  <button style="background: transparent; color: #FFFBEB; border: 1px solid #FDE68A; font-weight: 700; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 0.8rem;">Open Venue Map ↗</button>
+                </div>
+              </div>
+            `;
+            const rsvp = container.querySelector('#sim-rsvp-btn');
+            if (rsvp) {
+              rsvp.addEventListener('click', () => {
+                rsvp.textContent = 'RSVP YES Dispatched ✓';
+                rsvp.style.background = '#10B981';
+                rsvp.style.color = '#FFF';
+              });
+            }
+          }
+        }
+      ];
+
+      /* ==========================================================================
+         MODAL INTERACTIVE ENGINE (VIEW MODES, DEVICE SWITCHER, ALBUM STEPPER)
+         ========================================================================== */
       const albumModal = document.getElementById('album-modal');
       const modalCloseBtn = document.getElementById('album-modal-close');
       const modalTitle = document.getElementById('modal-sample-title');
       const modalCat = document.getElementById('modal-sample-cat');
       const modalTech = document.getElementById('modal-sample-tech');
-      const modalGraphic = document.getElementById('modal-sample-graphic');
       const modalFeatures = document.getElementById('modal-sample-features');
       const modalInquireBtn = document.getElementById('modal-inquire-btn');
+      const modalCopyTokensBtn = document.getElementById('modal-copy-tokens-btn');
+      const modalCopyUrlBtn = document.getElementById('modal-copy-url-btn');
+      const modalReloadDemoBtn = document.getElementById('modal-reload-demo-btn');
+      const modalBrowserUrl = document.getElementById('modal-browser-url');
+      const modalWebpageCanvas = document.getElementById('modal-webpage-canvas');
+      const modalSpecsCanvas = document.getElementById('modal-specs-canvas');
+      const modalPrevBtn = document.getElementById('modal-prev-btn');
+      const modalNextBtn = document.getElementById('modal-next-btn');
+      const modalCounter = document.getElementById('modal-album-counter');
+      const albumBrowserFrame = document.getElementById('album-browser-frame');
+      const toastNotice = document.getElementById('album-toast-notice');
+      const toastText = document.getElementById('album-toast-text');
 
-      let currentModalCardIndex = 0;
-      const allFramerCards = Array.from(document.querySelectorAll('.framer-card-item'));
+      let currentAlbumIndex = 0;
+      let currentDeviceMode = 'desktop';
+      let currentViewMode = 'live';
 
-      function openFramerCardModal(card) {
-        if (!card || !albumModal) return;
+      function showAlbumToast(message) {
+        if (!toastNotice || !toastText) return;
+        toastText.textContent = message;
+        toastNotice.classList.add('visible');
+        setTimeout(() => {
+          toastNotice.classList.remove('visible');
+        }, 2800);
+      }
 
-        currentModalCardIndex = allFramerCards.indexOf(card);
+      function renderCurrentAlbumItem() {
+        const item = ALBUM_WEBPAGE_DATABASE[currentAlbumIndex];
+        if (!item) return;
 
-        const title = card.getAttribute('data-title') || 'Featured Build';
-        const category = card.getAttribute('data-category') || 'Web App & Template';
-        const tech = card.getAttribute('data-tech') || 'Modern Web Stack';
-        const features = (card.getAttribute('data-features') || '').split(',');
-        const imgElement = card.querySelector('.framer-card-visual img');
-        const svgElement = card.querySelector('.framer-card-visual svg');
+        if (modalTitle) modalTitle.textContent = item.title;
+        if (modalCat) modalCat.textContent = item.category.toUpperCase();
+        if (modalTech) modalTech.textContent = item.tech;
+        if (modalBrowserUrl) modalBrowserUrl.textContent = item.url;
+        if (modalCounter) modalCounter.textContent = `Item ${currentAlbumIndex + 1} of ${ALBUM_WEBPAGE_DATABASE.length}`;
 
-        if (modalTitle) modalTitle.textContent = title;
-        if (modalCat) modalCat.textContent = category;
-        if (modalTech) modalTech.textContent = `Built with: ${tech}`;
-
-        if (modalGraphic) {
-          modalGraphic.innerHTML = '';
-          if (imgElement && imgElement.src) {
-            const imgClone = document.createElement('img');
-            imgClone.src = imgElement.src;
-            imgClone.alt = title;
-            imgClone.setAttribute('style', 'max-height: 260px; width: 100%; object-fit: cover; border-radius: 8px;');
-            modalGraphic.appendChild(imgClone);
-          } else if (svgElement) {
-            const svgClone = svgElement.cloneNode(true);
-            svgClone.setAttribute('style', 'max-height: 240px; width: 100%; border-radius: 8px;');
-            modalGraphic.appendChild(svgClone);
-          }
-        }
-
+        // Render features
         if (modalFeatures) {
           modalFeatures.innerHTML = '';
-          features.forEach(feat => {
-            if (feat.trim()) {
-              const li = document.createElement('li');
-              li.textContent = feat.trim();
-              modalFeatures.appendChild(li);
-            }
+          item.features.forEach(feat => {
+            const li = document.createElement('li');
+            li.textContent = feat;
+            modalFeatures.appendChild(li);
           });
         }
 
-        albumModal.classList.add('open');
-        document.body.style.overflow = 'hidden';
+        // Render Live Interactive Preview
+        if (modalWebpageCanvas) {
+          modalWebpageCanvas.innerHTML = '';
+          if (typeof item.renderLiveWebpage === 'function') {
+            item.renderLiveWebpage(modalWebpageCanvas);
+          } else {
+            modalWebpageCanvas.innerHTML = `<div style="text-align: center; padding: 40px; font-weight: 700;">Live Preview: ${item.title}</div>`;
+          }
+        }
+
+        // Render Design Tokens & Specs
+        if (modalSpecsCanvas) {
+          modalSpecsCanvas.innerHTML = '';
+          const specWrapper = document.createElement('div');
+          specWrapper.innerHTML = `
+            <h4 style="font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px;">Primary Color Tokens</h4>
+            <div class="token-swatches-grid">
+              ${(item.palette || []).map(p => `
+                <div class="token-swatch-card" onclick="navigator.clipboard.writeText('${p.hex}'); window.showAlbumToast('Copied ${p.hex} to clipboard!');">
+                  <div class="token-swatch-color" style="background: ${p.hex};"></div>
+                  <div class="token-swatch-meta">
+                    <span class="token-swatch-name">${p.name}</span>
+                    <span class="token-swatch-hex">${p.hex} (Click to copy)</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+            <div style="background: var(--surface); padding: 14px; border-radius: 8px; border: 1px solid var(--border-light); font-family: var(--font-mono); font-size: 0.78rem;">
+              <strong>Architecture Stack:</strong> ${item.tech}<br/>
+              <strong>Design Framework:</strong> Responsive 12-Col Grid · Mobile-First Breakpoints (375px, 768px, 1440px)<br/>
+              <strong>Accessibility:</strong> WCAG 2.1 AA Compliant · Contrast Ratio &ge; 4.5:1
+            </div>
+          `;
+          modalSpecsCanvas.appendChild(specWrapper);
+        }
+
+        // Pre-fill inquire button target
+        if (modalInquireBtn) {
+          modalInquireBtn.setAttribute('data-template', item.title);
+        }
+      }
+
+      window.showAlbumToast = showAlbumToast;
+
+      function openAlbumModal(index = 0) {
+        currentAlbumIndex = (index + ALBUM_WEBPAGE_DATABASE.length) % ALBUM_WEBPAGE_DATABASE.length;
+        renderCurrentAlbumItem();
+        if (albumModal) {
+          albumModal.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
       }
 
       function closeAlbumModal() {
@@ -6521,24 +7855,151 @@
         }
       }
 
-      allFramerCards.forEach(card => {
-        card.addEventListener('click', () => openFramerCardModal(card));
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openFramerCardModal(card);
+      // Device Mode Switcher Buttons
+      const deviceBtns = document.querySelectorAll('.device-btn');
+      deviceBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          deviceBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const device = btn.getAttribute('data-device');
+          currentDeviceMode = device;
+          if (albumBrowserFrame) {
+            albumBrowserFrame.className = `album-browser-frame view-${device}`;
           }
         });
       });
 
+      // Preview Mode Switcher (Live vs Specs)
+      const modeLiveBtn = document.getElementById('btn-mode-live');
+      const modeSpecsBtn = document.getElementById('btn-mode-specs');
+      if (modeLiveBtn && modeSpecsBtn) {
+        modeLiveBtn.addEventListener('click', () => {
+          modeLiveBtn.classList.add('active');
+          modeSpecsBtn.classList.remove('active');
+          currentViewMode = 'live';
+          if (modalWebpageCanvas) modalWebpageCanvas.style.display = 'block';
+          if (modalSpecsCanvas) modalSpecsCanvas.style.display = 'none';
+        });
+
+        modeSpecsBtn.addEventListener('click', () => {
+          modeSpecsBtn.classList.add('active');
+          modeLiveBtn.classList.remove('active');
+          currentViewMode = 'specs';
+          if (modalWebpageCanvas) modalWebpageCanvas.style.display = 'none';
+          if (modalSpecsCanvas) modalSpecsCanvas.style.display = 'block';
+        });
+      }
+
+      // Album Prev / Next Controls
+      if (modalPrevBtn) {
+        modalPrevBtn.addEventListener('click', () => {
+          currentAlbumIndex = (currentAlbumIndex - 1 + ALBUM_WEBPAGE_DATABASE.length) % ALBUM_WEBPAGE_DATABASE.length;
+          renderCurrentAlbumItem();
+        });
+      }
+
+      if (modalNextBtn) {
+        modalNextBtn.addEventListener('click', () => {
+          currentAlbumIndex = (currentAlbumIndex + 1) % ALBUM_WEBPAGE_DATABASE.length;
+          renderCurrentAlbumItem();
+        });
+      }
+
+      // Keyboard Controls
+      window.addEventListener('keydown', (e) => {
+        if (!albumModal || !albumModal.classList.contains('open')) return;
+        if (e.key === 'Escape') {
+          closeAlbumModal();
+        } else if (e.key === 'ArrowLeft') {
+          currentAlbumIndex = (currentAlbumIndex - 1 + ALBUM_WEBPAGE_DATABASE.length) % ALBUM_WEBPAGE_DATABASE.length;
+          renderCurrentAlbumItem();
+        } else if (e.key === 'ArrowRight') {
+          currentAlbumIndex = (currentAlbumIndex + 1) % ALBUM_WEBPAGE_DATABASE.length;
+          renderCurrentAlbumItem();
+        }
+      });
+
+      // Copy Tokens Button
+      if (modalCopyTokensBtn) {
+        modalCopyTokensBtn.addEventListener('click', () => {
+          const item = ALBUM_WEBPAGE_DATABASE[currentAlbumIndex];
+          const tokens = item ? `/* ${item.title} Tokens */\n${(item.palette || []).map(p => `--color-${p.name.toLowerCase().replace(/\s+/g, '-')}: ${p.hex};`).join('\n')}` : '';
+          navigator.clipboard.writeText(tokens).then(() => {
+            showAlbumToast('Copied CSS & Tailwind design tokens!');
+          }).catch(() => {
+            showAlbumToast('Tokens copied to clipboard!');
+          });
+        });
+      }
+
+      // Copy URL Button
+      if (modalCopyUrlBtn) {
+        modalCopyUrlBtn.addEventListener('click', () => {
+          const item = ALBUM_WEBPAGE_DATABASE[currentAlbumIndex];
+          if (item && item.url) {
+            navigator.clipboard.writeText(item.url).then(() => {
+              showAlbumToast('Copied demo URL to clipboard!');
+            });
+          }
+        });
+      }
+
+      // Reload Demo Button
+      if (modalReloadDemoBtn) {
+        modalReloadDemoBtn.addEventListener('click', () => {
+          renderCurrentAlbumItem();
+          showAlbumToast('Reloaded live component simulation!');
+        });
+      }
+
+      // Inquire Button (smooth scrolls to contact with pre-filled message)
+      if (modalInquireBtn) {
+        modalInquireBtn.addEventListener('click', (e) => {
+          const item = ALBUM_WEBPAGE_DATABASE[currentAlbumIndex];
+          closeAlbumModal();
+          const scopeSelect = document.getElementById('project-type');
+          const messageBox = document.getElementById('user-message');
+          if (scopeSelect) {
+            scopeSelect.value = 'Product Design (Figma UI/UX)';
+          }
+          if (messageBox && item) {
+            messageBox.value = `Hi Belintan, I reviewed your ready-to-use live album for "${item.title}" and would like to build a similar project customized for my business.`;
+          }
+        });
+      }
+
+      // Modal Close Handlers
       if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeAlbumModal);
       if (albumModal) {
         albumModal.addEventListener('click', (e) => {
           if (e.target === albumModal) closeAlbumModal();
         });
       }
-      if (modalInquireBtn) {
-        modalInquireBtn.addEventListener('click', () => closeAlbumModal());
+
+      // Connect Cards to open the upgraded Album Modal
+      const allFramerCards = Array.from(document.querySelectorAll('.framer-card-item'));
+      allFramerCards.forEach((card, idx) => {
+        card.addEventListener('click', (e) => {
+          // If clicking link inside, don't trigger modal
+          if (e.target.closest('a')) return;
+          e.preventDefault();
+          const targetIndex = idx % ALBUM_WEBPAGE_DATABASE.length;
+          openAlbumModal(targetIndex);
+        });
+      });
+
+      // Also connect the 6 showable invitation cards in personal track
+      const einviteAlbumDeck = document.getElementById('einvite-album-deck');
+      if (einviteAlbumDeck) {
+        const inviteCards = einviteAlbumDeck.querySelectorAll('.album-card-item');
+        inviteCards.forEach((c, idx) => {
+          c.addEventListener('click', (e) => {
+            if (e.target.closest('button') || e.target.closest('a')) return;
+            e.preventDefault();
+            // Open Vivaha celebration template in modal
+            openAlbumModal(5);
+          });
+        });
       }
 
       /* Keyboard Navigation for Modal (Escape, ArrowLeft, ArrowRight) */
