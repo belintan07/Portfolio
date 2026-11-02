@@ -7,7 +7,7 @@
   <meta name="description"
     content="BELINTAN B. — MBA Graduate, Certified Frontend Developer, Network Technical Support (Backend) Engineer, and AI-Powered Web Solutions specialist based in Tuticorin, Tamil Nadu, India." />
   <meta name="author" content="Belintan B." />
-    <meta name="theme-color" content="#FAF6EE" />
+    <meta name="theme-color" content="#FFFFFF" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="color-scheme" content="light dark" />
@@ -40,35 +40,35 @@
     }
 
     :root {
-      /* Sketchbook Palette */
-      --bg: #FAF6EE;
-      --bg-alt: #F4EFE6;
-      --paper-line: #E8E2D5;
-      --text: #0B0B0B;
-      --text-muted: #383431;
-      --text-subtle: #57534E;
+      /* Professional White Design Tokens */
+      --bg: #FFFFFF;
+      --bg-alt: #F8FAFC;
+      --paper-line: #E2E8F0;
+      --text: #0F172A;
+      --text-muted: #334155;
+      --text-subtle: #64748B;
       --accent-orange: #EA580C;
       --accent-orange-hover: #C2410C;
       --accent-orange-subtle: #FFEDD5;
 
-      /* Pastel Sketch Cards */
-      --card-peach: #FFE5D4;
-      --card-peach-text: #9A3412;
-      --card-sage: #D9ECDC;
-      --card-sage-text: #166534;
-      --card-lavender: #E9D5FF;
-      --card-lavender-text: #6B21A8;
+      /* Refined Clean Badges */
+      --card-peach: #FFF7ED;
+      --card-peach-text: #C2410C;
+      --card-sage: #F0FDF4;
+      --card-sage-text: #15803D;
+      --card-lavender: #FAF5FF;
+      --card-lavender-text: #7E22CE;
       --card-cream: #FFFFFF;
 
       --surface: #FFFFFF;
-      --surface-subtle: #F4EFE6;
-      --shadow-ink: #0B0B0B;
+      --surface-subtle: #F8FAFC;
+      --shadow-ink: #0F172A;
       /* Borders & Shadows */
-      --border-ink: #1C1917;
-      --border-light: rgba(11, 11, 11, 0.12);
-      --sketch-shadow: 4px 4px 0px #0B0B0B;
-      --sketch-shadow-lg: 7px 7px 0px #0B0B0B;
-      --sketch-shadow-hover: 2px 2px 0px #0B0B0B;
+      --border-ink: #0F172A;
+      --border-light: #E2E8F0;
+      --sketch-shadow: 3px 3px 0px #0F172A;
+      --sketch-shadow-lg: 6px 6px 0px #0F172A;
+      --sketch-shadow-hover: 1.5px 1.5px 0px #0F172A;
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
@@ -1073,12 +1073,12 @@
     /* Business Hero Section (Matching kelviq.com Screenshot 1) */
     .hero-section.business-hero {
       position: relative;
-      background-color: #FAFAFA;
+      background-color: #FFFFFF;
       background-image: radial-gradient(#E2E8F0 1.2px, transparent 1.2px);
       background-size: 24px 24px;
       padding-top: clamp(60px, 8vw, 100px);
       padding-bottom: clamp(60px, 8vw, 100px);
-      border-bottom: 2px solid var(--text);
+      border-bottom: 1.5px solid #E2E8F0;
     }
 
     .biz-pill-badge {
@@ -1429,10 +1429,10 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(250, 246, 238, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 2px solid var(--text);
+      border-bottom: 1.5px solid #E2E8F0;
       transition: box-shadow 0.25s ease;
     }
 
@@ -2325,8 +2325,8 @@
        ========================================================================== */
     .about-section {
       background: #FFFFFF;
-      border-top: 2.5px solid var(--text);
-      border-bottom: 2.5px solid var(--text);
+      border-top: 1.5px solid #E2E8F0;
+      border-bottom: 1.5px solid #E2E8F0;
     }
 
     .about-layout {
@@ -2356,8 +2356,11 @@
       font-weight: 600;
       font-size: 1.15rem;
       margin: 28px 0;
-      background: var(--bg);
+      background: var(--bg-alt);
       padding-top: 14px;
+      padding-bottom: 14px;
+      padding-right: 18px;
+      border-radius: 0 8px 8px 0;
       padding-bottom: 14px;
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     }
@@ -2560,9 +2563,9 @@
        6. PROJECTS SECTION
        ========================================================================== */
     .projects-section {
-      background: #FFFFFF;
-      border-top: 2.5px solid var(--text);
-      border-bottom: 2.5px solid var(--text);
+      background: var(--bg-alt);
+      border-top: 1.5px solid #E2E8F0;
+      border-bottom: 1.5px solid #E2E8F0;
     }
 
     .projects-grid {
@@ -2726,12 +2729,562 @@
     }
 
     /* ==========================================================================
+       TACTILE MICRO-INTERACTION UPGRADES FOR ALL UI BUTTONS
+       ========================================================================== */
+    .biz-btn-primary,
+    .btn-sketch-primary {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08), 3px 3px 0px var(--shadow-ink);
+      transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.18s ease;
+    }
+
+    .biz-btn-primary::after,
+    .btn-sketch-primary::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+      border-radius: inherit;
+    }
+
+    .biz-btn-secondary,
+    .btn-sketch-secondary {
+      position: relative;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 3px 3px 0px var(--shadow-ink);
+      transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn-project-link {
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.18s ease, color 0.18s ease;
+    }
+
+    .btn-project-link:active {
+      transform: translate(1px, 1px) !important;
+      box-shadow: 0px 0px 0px var(--shadow-ink) !important;
+    }
+
+    /* Backend Interactive Clickable Buttons */
+    .btn-backend-clickable {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1.5px solid var(--text);
+      border-radius: var(--radius-sm);
+      background: #FFFFFF;
+      box-shadow: 2px 2px 0px var(--shadow-ink);
+      cursor: pointer;
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-backend-clickable:hover {
+      background: var(--accent-orange);
+      color: #FFFFFF !important;
+      border-color: var(--accent-orange);
+      transform: translate(-1.5px, -1.5px);
+      box-shadow: 3.5px 3.5px 0px var(--shadow-ink);
+    }
+
+    .btn-backend-clickable:active {
+      transform: translate(1px, 1px);
+      box-shadow: 0px 0px 0px var(--shadow-ink);
+    }
+
+    [data-theme="dark"] .btn-backend-clickable {
+      background: #1E202B;
+      border-color: #4A4E63;
+      color: #F1F5F9;
+      box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.85);
+    }
+
+    [data-theme="dark"] .btn-backend-clickable:hover {
+      background: var(--accent-orange);
+      border-color: var(--accent-orange);
+      color: #FFFFFF !important;
+      box-shadow: 3.5px 3.5px 0px rgba(0, 0, 0, 0.85);
+    }
+
+    /* ==========================================================================
+       MODERN BESPOKE MOUSE CURSOR DESIGN
+       ========================================================================== */
+    @media (hover: hover) and (pointer: fine) {
+      .custom-cursor-dot,
+      .custom-cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        border-radius: 50%;
+        z-index: 999999;
+        transform: translate3d(-100px, -100px, 0);
+        will-change: transform, width, height, opacity;
+      }
+
+      .custom-cursor-dot {
+        width: 6px;
+        height: 6px;
+        background-color: var(--accent-orange);
+        box-shadow: 0 0 10px rgba(234, 88, 12, 0.6);
+        margin-left: -3px;
+        margin-top: -3px;
+        transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background-color 0.2s ease;
+      }
+
+      .custom-cursor-ring {
+        width: 32px;
+        height: 32px;
+        border: 1.5px solid rgba(15, 23, 42, 0.45);
+        background: rgba(234, 88, 12, 0.03);
+        margin-left: -16px;
+        margin-top: -16px;
+        transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                    height 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                    margin 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                    background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                    border-color 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.25s ease;
+      }
+
+      [data-theme="dark"] .custom-cursor-ring {
+        border-color: rgba(255, 255, 255, 0.45);
+        background: rgba(255, 100, 32, 0.04);
+      }
+
+      /* Hover state over clickable elements */
+      body.cursor-hover .custom-cursor-ring {
+        width: 50px;
+        height: 50px;
+        margin-left: -25px;
+        margin-top: -25px;
+        border-color: var(--accent-orange);
+        background-color: rgba(234, 88, 12, 0.12);
+        box-shadow: 0 0 20px rgba(234, 88, 12, 0.25);
+      }
+
+      body.cursor-hover .custom-cursor-dot {
+        transform: scale(1.6);
+        background-color: var(--accent-orange);
+      }
+
+      /* Active click state */
+      body.cursor-active .custom-cursor-ring {
+        width: 24px;
+        height: 24px;
+        margin-left: -12px;
+        margin-top: -12px;
+        background-color: rgba(234, 88, 12, 0.35);
+        border-color: var(--accent-orange);
+      }
+
+      body.cursor-hidden .custom-cursor-dot,
+      body.cursor-hidden .custom-cursor-ring {
+        opacity: 0;
+      }
+    }
+
+    @media (hover: none) or (pointer: coarse) {
+      .custom-cursor-dot,
+      .custom-cursor-ring {
+        display: none !important;
+      }
+    }
+
+    /* ==========================================================================
+       BACKEND REST API & PLAYGROUND MODAL
+       ========================================================================== */
+    .backend-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 100000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(12px, 3vw, 24px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .backend-modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .backend-modal-window {
+      background: #0B0F19;
+      border: 2px solid #334155;
+      border-radius: 16px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 6px 6px 0px var(--accent-orange);
+      width: 100%;
+      max-width: 880px;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      color: #F8FAFC;
+      transform: scale(0.96) translateY(8px);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .backend-modal-backdrop.open .backend-modal-window {
+      transform: scale(1) translateY(0);
+    }
+
+    .backend-modal-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      background: #080C14;
+      border-bottom: 1.5px solid #1E293B;
+      gap: 12px;
+    }
+
+    .backend-terminal-dots {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .term-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .term-dot.red { background: #EF4444; }
+    .term-dot.yellow { background: #F59E0B; }
+    .term-dot.green { background: #10B981; }
+
+    .backend-modal-header-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      flex: 1;
+      margin-left: 8px;
+    }
+
+    .backend-terminal-title {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #F8FAFC;
+      display: flex;
+      align-items: center;
+    }
+
+    .backend-engine-badges {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .badge-pill-tech {
+      font-family: monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      background: #1E293B;
+      color: #94A3B8;
+      border: 1px solid #334155;
+    }
+
+    .badge-pill-tech.spring { color: #86EFAC; border-color: rgba(34, 197, 94, 0.4); background: rgba(34, 197, 94, 0.1); }
+    .badge-pill-tech.pg { color: #93C5FD; border-color: rgba(59, 130, 246, 0.4); background: rgba(59, 130, 246, 0.1); }
+
+    .backend-modal-close-btn {
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .backend-modal-close-btn:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Request Control Bar */
+    .backend-req-bar {
+      display: flex;
+      align-items: center;
+      padding: 10px 18px;
+      background: #0E1422;
+      border-bottom: 1.5px solid #1E293B;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .backend-req-method {
+      background: #15803D;
+      color: #FFFFFF;
+      font-family: monospace;
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    .backend-req-method.get {
+      background: #2563EB;
+    }
+
+    .backend-req-endpoint-wrap {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      align-items: center;
+      background: #080C14;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-family: monospace;
+      font-size: 0.84rem;
+    }
+
+    .backend-endpoint-prefix {
+      color: #64748B;
+      margin-right: 2px;
+    }
+
+    .backend-endpoint-input {
+      background: transparent;
+      border: none;
+      color: #F8FAFC;
+      font-family: inherit;
+      font-size: inherit;
+      width: 100%;
+      outline: none;
+    }
+
+    .backend-latency-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ADE80;
+      font-family: monospace;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+
+    .latency-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22C55E;
+      animation: pulseAnimation 1.6s infinite;
+    }
+
+    .btn-backend-execute {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      border: 1.5px solid var(--accent-orange);
+      border-radius: 8px;
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+      font-weight: 800;
+      padding: 6px 14px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(234, 88, 12, 0.3);
+      transition: all 0.15s ease;
+    }
+
+    .btn-backend-execute:hover {
+      background: #C2410C;
+      transform: translateY(-1px);
+    }
+
+    .btn-backend-execute:active {
+      transform: translateY(1px);
+    }
+
+    /* Endpoint Selector Pills */
+    .backend-endpoint-tabs {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 18px;
+      background: #0B0F19;
+      border-bottom: 1px solid #1E293B;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .backend-endpoint-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .backend-ep-pill {
+      background: #141B2D;
+      border: 1px solid #28334E;
+      color: #94A3B8;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+
+    .backend-ep-pill:hover {
+      background: #1E293B;
+      color: #F8FAFC;
+    }
+
+    .backend-ep-pill.active {
+      background: rgba(234, 88, 12, 0.15);
+      border-color: var(--accent-orange);
+      color: #FF7D42;
+    }
+
+    /* View Selector Tabs */
+    .backend-view-tabs {
+      display: flex;
+      align-items: center;
+      background: #080C14;
+      padding: 0 18px;
+      border-bottom: 1.5px solid #1E293B;
+      position: relative;
+    }
+
+    .backend-view-tab {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: #94A3B8;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .backend-view-tab:hover {
+      color: #F8FAFC;
+    }
+
+    .backend-view-tab.active {
+      color: #F8FAFC;
+      border-bottom-color: var(--accent-orange);
+    }
+
+    .backend-copy-wrap {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .btn-copy-backend-code {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #141B2D;
+      border: 1px solid #28334E;
+      color: #CBD5E1;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-copy-backend-code:hover {
+      background: #1E293B;
+      color: #FFFFFF;
+    }
+
+    /* Code Viewport */
+    .backend-console-viewport {
+      padding: 16px 18px;
+      background: #050810;
+      overflow-y: auto;
+      flex: 1;
+      max-height: 420px;
+      min-height: 240px;
+    }
+
+    .backend-code-block {
+      margin: 0;
+      font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+      font-size: 0.84rem;
+      line-height: 1.6;
+      color: #E2E8F0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* Footer Info */
+    .backend-modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 18px;
+      background: #080C14;
+      border-top: 1.5px solid #1E293B;
+      font-size: 0.78rem;
+      color: #94A3B8;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .backend-status-flag {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .status-indicator-green {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22C55E;
+    }
+
+    /* ==========================================================================
        7. MARRIAGE & FUNCTIONS E-INVITATION CARDS STUDIO & ALBUM
        ========================================================================== */
     .e-invites-section {
-      background: var(--bg);
-      border-top: 2.5px solid var(--text);
-      border-bottom: 2.5px solid var(--text);
+      background: #FFFFFF;
+      border-top: 1.5px solid #E2E8F0;
+      border-bottom: 1.5px solid #E2E8F0;
       position: relative;
     }
 
@@ -3368,8 +3921,8 @@
        10. CONTACT SECTION & INTERACTIVE SUBMISSION
        ========================================================================== */
     .contact-section {
-      background: #FFFFFF;
-      border-top: 2.5px solid var(--text);
+      background: var(--bg-alt);
+      border-top: 1.5px solid #E2E8F0;
     }
 
     .contact-grid {
@@ -5866,6 +6419,9 @@
                   </svg>
                   Repository
                 </a>
+                <button type="button" class="btn-backend-clickable" data-backend="bazaar-api" title="Test Checkout &amp; Stripe Webhook API">
+                  ⚡ Stripe Webhook
+                </button>
                 <a href="#contact" class="btn-project-link">Live Case Study →</a>
               </div>
             </div>
@@ -5916,6 +6472,9 @@
                   </svg>
                   Repository
                 </a>
+                <button type="button" class="btn-backend-clickable" data-backend="metrica-telemetry" title="Test Telemetry Streaming Pipeline">
+                  📊 Test Telemetry
+                </button>
                 <a href="#contact" class="btn-project-link">Live Case Study →</a>
               </div>
             </div>
@@ -6074,6 +6633,12 @@
                   </svg>
                   Repository
                 </a>
+                <button type="button" class="btn-backend-clickable" data-backend="fieldops-api" title="Execute simulated Spring Boot REST API call">
+                  ⚡ Test REST API
+                </button>
+                <button type="button" class="btn-backend-clickable" data-backend="fieldops-sql" title="Inspect PostgreSQL Schema &amp; Indexes">
+                  🗄️ SQL Schema
+                </button>
                 <a href="#contact" class="btn-project-link">Live Case Study →</a>
               </div>
             </div>
@@ -8532,8 +9097,543 @@
         });
       });
 
+      /* ========================================================================
+         CUSTOM INTERACTIVE MOUSE CURSOR IMPLEMENTATION
+         ======================================================================== */
+      function initCustomCursor() {
+        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+          return;
+        }
+
+        const dot = document.getElementById('cursor-dot');
+        const ring = document.getElementById('cursor-ring');
+        if (!dot || !ring) return;
+
+        let mouseX = -100;
+        let mouseY = -100;
+        let ringX = -100;
+        let ringY = -100;
+        let isVisible = false;
+
+        window.addEventListener('mousemove', function(e) {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          if (!isVisible) {
+            ringX = mouseX;
+            ringY = mouseY;
+            isVisible = true;
+            document.body.classList.remove('cursor-hidden');
+          }
+          dot.style.transform = 'translate3d(' + mouseX + 'px, ' + mouseY + 'px, 0)';
+        }, { passive: true });
+
+        function renderRing() {
+          if (isVisible) {
+            ringX += (mouseX - ringX) * 0.18;
+            ringY += (mouseY - ringY) * 0.18;
+            ring.style.transform = 'translate3d(' + ringX + 'px, ' + ringY + 'px, 0)';
+          }
+          requestAnimationFrame(renderRing);
+        }
+        requestAnimationFrame(renderRing);
+
+        document.addEventListener('mouseleave', function() {
+          document.body.classList.add('cursor-hidden');
+          isVisible = false;
+        });
+
+        document.addEventListener('mouseenter', function() {
+          document.body.classList.remove('cursor-hidden');
+        });
+
+        window.addEventListener('mousedown', function() {
+          document.body.classList.add('cursor-active');
+        });
+
+        window.addEventListener('mouseup', function() {
+          document.body.classList.remove('cursor-active');
+        });
+
+        const interactiveSelector = 'a, button, [role="button"], input, select, textarea, .btn-project-link, .btn-backend-clickable, .framer-card-item, .polaroid-frame, .album-card-item, .persona-tab-btn, .apple-theme-toggle, .filter-btn, .term-dot';
+
+        document.addEventListener('mouseover', function(e) {
+          if (e.target && e.target.closest && e.target.closest(interactiveSelector)) {
+            document.body.classList.add('cursor-hover');
+          }
+        });
+
+        document.addEventListener('mouseout', function(e) {
+          if (e.target && e.target.closest && e.target.closest(interactiveSelector)) {
+            document.body.classList.remove('cursor-hover');
+          }
+        });
+      }
+
+      /* ========================================================================
+         BACKEND REST API & PLAYGROUND CONTROLLER
+         ======================================================================== */
+      function initBackendPlayground() {
+        const modal = document.getElementById('backend-modal');
+        const closeBtn = document.getElementById('backend-modal-close-btn');
+        const closeDot = document.getElementById('backend-modal-close-dot');
+        const runBtn = document.getElementById('btn-backend-run-sim');
+        const copyBtn = document.getElementById('btn-copy-backend-code');
+        const copyText = document.getElementById('copy-btn-text');
+        const endpointInput = document.getElementById('backend-endpoint-url');
+        const methodBadge = document.getElementById('backend-req-method');
+        const latencyNum = document.getElementById('backend-latency-num');
+        const codeOutput = document.getElementById('backend-code-output');
+
+        if (!modal || !codeOutput) return;
+
+        const endpoints = {
+          'fieldops-api': {
+            method: 'POST',
+            url: '/api/v1/dispatch/sync',
+            latency: '18ms',
+            data: {
+              response: JSON.stringify({
+                status: "200_OK",
+                timestamp: new Date().toISOString(),
+                service: "fieldops-dispatch-service",
+                runtime: "Java 17 (OpenJDK 64-Bit) / Spring Boot 3.2.0",
+                database: "PostgreSQL 16.2 (PostGIS enabled, HikariCP pool active)",
+                payload: {
+                  dispatch_ticket_id: "DISP-8921-TN",
+                  crew_unit: "SQUAD-ALPHA-TICFIBER",
+                  site_location: {
+                    sector: "Zone 4 - Substation Fiber Feeder",
+                    coordinates: [9.9252, 78.1198],
+                    gis_srid: 4326
+                  },
+                  sync_state: "SYNCHRONIZED",
+                  offline_cached_events: 14,
+                  conflict_resolution: "LAST_WRITE_WINS_SERVER_VERIFIED",
+                  network_telemetry: "TICFIBER Optical Node 14-B (dBm: -18.4, Good)"
+                },
+                diagnostics: {
+                  query_execution_ms: 11.4,
+                  serialization_ms: 2.1,
+                  total_roundtrip_ms: 18.2
+                }
+              }, null, 2),
+              schema: `-- Production Schema: FieldOps Crew & Dispatch Engine
+-- Database: PostgreSQL 16 with PostGIS spatial extensions
+-- Author: Belintan B. (TICFIBER Support & Backend Experience)
+
+CREATE TABLE IF NOT EXISTS crew_dispatch_records (
+    ticket_id VARCHAR(64) PRIMARY KEY,
+    crew_code VARCHAR(32) NOT NULL,
+    status VARCHAR(24) NOT NULL CHECK (status IN ('PENDING', 'DISPATCHED', 'RESOLVED')),
+    coordinates GEOMETRY(Point, 4326),
+    offline_sync_count INT DEFAULT 0,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Composite B-Tree index for squad and status filtering
+CREATE INDEX idx_dispatch_crew_status 
+    ON crew_dispatch_records (crew_code, status);
+
+-- PostGIS GiST index for fast spatial geo-fencing queries
+CREATE INDEX idx_dispatch_spatial_geo 
+    ON crew_dispatch_records USING GIST (coordinates);`,
+              controller: `package com.belintan.fieldops.controller;
+
+import com.belintan.fieldops.dto.CrewSyncPayloadDTO;
+import com.belintan.fieldops.dto.SyncResponseDTO;
+import com.belintan.fieldops.service.DispatchSyncService;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/v1/dispatch")
+@Validated
+public class DispatchSyncController {
+
+    private final DispatchSyncService syncService;
+
+    public DispatchSyncController(DispatchSyncService syncService) {
+        this.syncService = syncService;
+    }
+
+    @PostMapping("/sync")
+    public ResponseEntity<SyncResponseDTO> processCrewSync(
+            @Valid @RequestBody CrewSyncPayloadDTO payload) {
+        
+        // Execute transactional conflict reconciliation
+        SyncResponseDTO response = syncService.reconcileOfflineEvents(payload);
+        
+        return ResponseEntity.ok()
+                .header("X-Server-Timing", "db;dur=11.4, total;dur=18.2")
+                .header("X-Spring-Boot-Version", "3.2.0")
+                .body(response);
+    }
+}`,
+              headers: `HTTP/1.1 200 OK
+Date: Mon, 02 Nov 2026 11:30:15 GMT
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: Spring-Boot/3.2.0 Tomcat/10.1
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: DENY
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+X-PostgreSQL-Hikari-Pool: 10/10 active connections
+Server-Timing: db;dur=11.4, total;dur=18.2`
+            }
+          },
+          'fieldops-sql': {
+            method: 'GET',
+            url: '/api/v1/dispatch/schema',
+            latency: '8ms',
+            data: {
+              response: JSON.stringify({
+                database: "PostgreSQL 16.2",
+                extensions: ["postgis", "uuid-ossp", "pg_stat_statements"],
+                tables: ["crew_dispatch_records", "optical_node_telemetry", "field_engineers"],
+                indexes: ["idx_dispatch_crew_status", "idx_dispatch_spatial_geo", "idx_node_rx_power"],
+                connection_pool: "HikariCP 5.1.0 (min-idle: 5, max-pool: 10)",
+                status: "HEALTHY_OPTIMIZED"
+              }, null, 2),
+              schema: `-- Production Schema: FieldOps Crew & Dispatch Engine
+-- Database: PostgreSQL 16 with PostGIS spatial extensions
+-- Author: Belintan B. (TICFIBER Support & Backend Experience)
+
+CREATE TABLE IF NOT EXISTS crew_dispatch_records (
+    ticket_id VARCHAR(64) PRIMARY KEY,
+    crew_code VARCHAR(32) NOT NULL,
+    status VARCHAR(24) NOT NULL CHECK (status IN ('PENDING', 'DISPATCHED', 'RESOLVED')),
+    coordinates GEOMETRY(Point, 4326),
+    offline_sync_count INT DEFAULT 0,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Composite B-Tree index for squad and status filtering
+CREATE INDEX idx_dispatch_crew_status 
+    ON crew_dispatch_records (crew_code, status);
+
+-- PostGIS GiST index for fast spatial geo-fencing queries
+CREATE INDEX idx_dispatch_spatial_geo 
+    ON crew_dispatch_records USING GIST (coordinates);`,
+              controller: `package com.belintan.fieldops.repository;
+
+import com.belintan.fieldops.model.DispatchRecord;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+
+@Repository
+public interface DispatchRecordRepository extends JpaRepository<DispatchRecord, String> {
+
+    @Query(value = "SELECT d FROM DispatchRecord d WHERE d.crewCode = :crewCode AND d.status = :status")
+    List<DispatchRecord> findActiveByCrew(@Param("crewCode") String crewCode, @Param("status") String status);
+}`,
+              headers: `HTTP/1.1 200 OK
+Content-Type: application/sql;charset=UTF-8
+Database: PostgreSQL 16.2
+Schema-Engine: Flyway Migrations V3`
+            }
+          },
+          'bazaar-api': {
+            method: 'POST',
+            url: '/api/v1/checkout/webhook',
+            latency: '14ms',
+            data: {
+              response: JSON.stringify({
+                event: "checkout.session.completed",
+                status: "200_OK",
+                order_id: "ORD-77492-IN",
+                amount_subtotal: 4999,
+                currency: "inr",
+                payment_status: "paid",
+                customer_email: "client@ticfiber.com",
+                webhook_verified: true,
+                processed_at: new Date().toISOString()
+              }, null, 2),
+              schema: `CREATE TABLE ecommerce_orders (
+    order_id VARCHAR(64) PRIMARY KEY,
+    customer_email VARCHAR(255) NOT NULL,
+    amount_cents BIGINT NOT NULL,
+    currency VARCHAR(3) DEFAULT 'INR',
+    stripe_session_id VARCHAR(128) UNIQUE,
+    status VARCHAR(32) DEFAULT 'PAID',
+    placed_at TIMESTAMPTZ DEFAULT NOW()
+);`,
+              controller: `export async function POST(req: Request) {
+  const payload = await req.text();
+  const signature = req.headers.get("stripe-signature")!;
+  
+  const event = stripe.webhooks.constructEvent(payload, signature, env.STRIPE_WEBHOOK_SECRET);
+  if (event.type === "checkout.session.completed") {
+    await fulfillOrder(event.data.object);
+  }
+  return NextResponse.json({ received: true });
+}`,
+              headers: `HTTP/1.1 200 OK
+Content-Type: application/json
+Stripe-Signature-Verified: true
+Latency: 14ms`
+            }
+          },
+          'metrica-telemetry': {
+            method: 'POST',
+            url: '/api/v1/telemetry/stream',
+            latency: '12ms',
+            data: {
+              response: JSON.stringify({
+                pipeline: "METRICA_INGEST_V2",
+                points_ingested: 50000,
+                compression_ratio: "4.8x",
+                batch_latency_ms: 12.6,
+                buffer_state: "FLUSHED_TO_PERSISTENCE",
+                throughput_events_per_sec: 14200
+              }, null, 2),
+              schema: `CREATE TABLE system_telemetry (
+    time TIMESTAMPTZ NOT NULL,
+    device_id VARCHAR(64) NOT NULL,
+    cpu_percent REAL,
+    memory_used_mb INT,
+    network_rx_dbm REAL
+);
+SELECT create_hypertable('system_telemetry', 'time');`,
+              controller: `app.post('/api/v1/telemetry/stream', async (req, res) => {
+  const points = req.body;
+  await telemetryPipeline.batchInsert(points);
+  res.status(200).json({ status: "BATCH_COMMITTED", count: points.length });
+});`,
+              headers: `HTTP/1.1 200 OK
+Content-Type: application/json
+Server-Timing: redis;dur=2.1, timescale;dur=10.5`
+            }
+          }
+        };
+
+        let currentEpKey = 'fieldops-api';
+        let currentView = 'response';
+
+        function renderCode() {
+          const ep = endpoints[currentEpKey];
+          if (!ep) return;
+
+          methodBadge.textContent = ep.method;
+          if (ep.method === 'GET') {
+            methodBadge.className = 'backend-req-method get';
+          } else {
+            methodBadge.className = 'backend-req-method';
+          }
+
+          endpointInput.value = ep.url;
+          latencyNum.textContent = ep.latency;
+
+          const rawCode = ep.data[currentView] || '';
+          codeOutput.textContent = rawCode;
+        }
+
+        function openModal(epKey, defaultView) {
+          currentEpKey = epKey || 'fieldops-api';
+          currentView = defaultView || (epKey === 'fieldops-sql' ? 'schema' : 'response');
+
+          document.querySelectorAll('.backend-ep-pill').forEach(pill => {
+            pill.classList.toggle('active', pill.getAttribute('data-ep') === currentEpKey);
+          });
+
+          document.querySelectorAll('.backend-view-tab').forEach(tab => {
+            tab.classList.toggle('active', tab.getAttribute('data-view') === currentView);
+          });
+
+          renderCode();
+          modal.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+          modal.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.btn-backend-clickable').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const ep = btn.getAttribute('data-backend') || 'fieldops-api';
+            const defaultView = ep === 'fieldops-sql' ? 'schema' : 'response';
+            openModal(ep, defaultView);
+          });
+        });
+
+        document.querySelectorAll('.backend-ep-pill').forEach(pill => {
+          pill.addEventListener('click', function() {
+            currentEpKey = pill.getAttribute('data-ep');
+            document.querySelectorAll('.backend-ep-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            renderCode();
+          });
+        });
+
+        document.querySelectorAll('.backend-view-tab').forEach(tab => {
+          tab.addEventListener('click', function() {
+            currentView = tab.getAttribute('data-view');
+            document.querySelectorAll('.backend-view-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            renderCode();
+          });
+        });
+
+        if (runBtn) {
+          runBtn.addEventListener('click', function() {
+            runBtn.disabled = true;
+            runBtn.innerHTML = '<span class="latency-dot"></span><span>Executing...</span>';
+            
+            setTimeout(function() {
+              const randLatency = Math.floor(Math.random() * 9) + 14;
+              endpoints[currentEpKey].latency = randLatency + 'ms';
+              if (endpoints[currentEpKey].data.response) {
+                try {
+                  const parsed = JSON.parse(endpoints[currentEpKey].data.response);
+                  parsed.timestamp = new Date().toISOString();
+                  parsed.diagnostics = {
+                    query_execution_ms: (randLatency * 0.6).toFixed(1),
+                    serialization_ms: (randLatency * 0.15).toFixed(1),
+                    total_roundtrip_ms: randLatency
+                  };
+                  endpoints[currentEpKey].data.response = JSON.stringify(parsed, null, 2);
+                } catch(e) {}
+              }
+              renderCode();
+              runBtn.disabled = false;
+              runBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg><span>Send Live Request</span>';
+            }, 300);
+          });
+        }
+
+        if (copyBtn) {
+          copyBtn.addEventListener('click', function() {
+            const text = codeOutput.textContent || '';
+            navigator.clipboard.writeText(text).then(function() {
+              copyText.textContent = 'Copied!';
+              setTimeout(function() {
+                copyText.textContent = 'Copy Code';
+              }, 2000);
+            });
+          });
+        }
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (closeDot) closeDot.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) closeModal();
+        });
+
+        window.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && modal.classList.contains('open')) {
+            closeModal();
+          }
+        });
+      }
+
+      // Initialize cursor and backend playground
+      initCustomCursor();
+      initBackendPlayground();
+
     })();
 </script>
+
+  <!-- Custom Interactive Mouse Cursor -->
+  <div class="custom-cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="custom-cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Backend Architecture & REST API Playground Modal -->
+  <div class="backend-modal-backdrop" id="backend-modal" aria-hidden="true" role="dialog" aria-labelledby="backend-modal-title">
+    <div class="backend-modal-window">
+      <!-- Terminal Topbar -->
+      <div class="backend-modal-topbar">
+        <div class="backend-terminal-dots">
+          <span class="term-dot red" id="backend-modal-close-dot" title="Close Console"></span>
+          <span class="term-dot yellow"></span>
+          <span class="term-dot green"></span>
+        </div>
+        <div class="backend-modal-header-meta">
+          <span class="backend-terminal-title" id="backend-modal-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            Belintan B. — Live Backend Runtime &amp; REST Inspector
+          </span>
+          <div class="backend-engine-badges">
+            <span class="badge-pill-tech spring">Spring Boot 3.2</span>
+            <span class="badge-pill-tech pg">PostgreSQL 16 (Hikari: 10/10)</span>
+            <span class="badge-pill-tech">Java 17</span>
+          </div>
+        </div>
+        <button class="backend-modal-close-btn" id="backend-modal-close-btn" aria-label="Close backend console">×</button>
+      </div>
+
+      <!-- Live Request Bar -->
+      <div class="backend-req-bar">
+        <div class="backend-req-method" id="backend-req-method">POST</div>
+        <div class="backend-req-endpoint-wrap">
+          <span class="backend-endpoint-prefix">https://api.belintan.dev</span>
+          <input type="text" class="backend-endpoint-input" id="backend-endpoint-url" value="/api/v1/dispatch/sync" readonly />
+        </div>
+        <div class="backend-latency-badge" id="backend-latency-display">
+          <span class="latency-dot"></span>
+          <span id="backend-latency-num">18ms</span>
+        </div>
+        <button type="button" class="btn-backend-execute" id="btn-backend-run-sim" title="Run simulated live request">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span>Send Live Request</span>
+        </button>
+      </div>
+
+      <!-- Endpoint Quick Switcher -->
+      <div class="backend-endpoint-tabs">
+        <button class="backend-ep-pill active" data-ep="fieldops-api">⚡ FieldOps Crew Sync (/api/v1/dispatch/sync)</button>
+        <button class="backend-ep-pill" data-ep="fieldops-sql">🗄️ PostgreSQL DDL Schema (crew_dispatch)</button>
+        <button class="backend-ep-pill" data-ep="bazaar-api">🛒 Bazaar Stripe Webhook (/api/v1/checkout/webhook)</button>
+        <button class="backend-ep-pill" data-ep="metrica-telemetry">📊 Metrica Telemetry Stream (/api/v1/telemetry/stream)</button>
+      </div>
+
+      <!-- View Selector Tabs -->
+      <div class="backend-view-tabs">
+        <button class="backend-view-tab active" data-view="response">Response JSON (200 OK)</button>
+        <button class="backend-view-tab" data-view="schema">PostgreSQL Schema &amp; Indexes</button>
+        <button class="backend-view-tab" data-view="controller">Spring Controller (Java 17)</button>
+        <button class="backend-view-tab" data-view="headers">HTTP Headers</button>
+        <div class="backend-copy-wrap">
+          <button class="btn-copy-backend-code" id="btn-copy-backend-code" title="Copy code snippet">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span id="copy-btn-text">Copy Code</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Code Inspector Output -->
+      <div class="backend-console-viewport">
+        <pre class="backend-code-block" id="backend-code-output"><code></code></pre>
+      </div>
+
+      <!-- Footer Info -->
+      <div class="backend-modal-footer">
+        <div class="backend-status-flag">
+          <span class="status-indicator-green"></span>
+          <span>HTTP 200 OK · Transaction Committed · 0 Conflicts Reconciled</span>
+        </div>
+        <div class="backend-support-link">
+          <span>Belintan B. · TICFIBER NOC Experience &amp; Java/Spring/PostgreSQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 
