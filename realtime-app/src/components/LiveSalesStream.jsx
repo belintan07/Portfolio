@@ -19,7 +19,7 @@ export default function LiveSalesStream({ sales, rawSalesCount = sales.length, f
             className={`px-2.5 py-1 rounded-md transition-all ${
               filterType === 'all'
                 ? 'bg-[#FF5A1F] text-white shadow-sm'
-                : 'text-slate-600 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-white'
+                : 'text-slate-700 hover:text-slate-950 dark:text-zinc-300 dark:hover:text-white font-bold'
             }`}
           >
             All ({rawSalesCount})
@@ -50,7 +50,7 @@ export default function LiveSalesStream({ sales, rawSalesCount = sales.length, f
       {/* Scrollable Order Cards Feed */}
       <div className="flex-1 overflow-y-auto space-y-2.5 pr-1">
         {sales.length === 0 ? (
-          <div className="text-slate-400 dark:text-zinc-500 text-xs text-center py-12">
+          <div className="text-slate-600 dark:text-zinc-300 text-xs text-center py-12 font-medium">
             No transactions in this category yet. New orders arriving soon...
           </div>
         ) : (
@@ -81,7 +81,7 @@ export default function LiveSalesStream({ sales, rawSalesCount = sales.length, f
                 <div className="min-w-0">
                   <div className="flex items-center gap-2">
                     <h4 className="font-bold text-xs text-slate-900 dark:text-white truncate">{sale.buyer}</h4>
-                    <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-mono">{sale.timestamp}</span>
+                    <span className="text-[10px] text-slate-600 dark:text-zinc-400 font-mono font-medium">{sale.timestamp}</span>
                     <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded uppercase ${
                       sale.type === 'business'
                         ? 'bg-blue-500/15 text-blue-600 dark:text-blue-300 border border-blue-500/30'
@@ -90,13 +90,13 @@ export default function LiveSalesStream({ sales, rawSalesCount = sales.length, f
                       {sale.type}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-700 dark:text-zinc-300 truncate font-medium">
+                  <p className="text-xs text-slate-800 dark:text-zinc-200 truncate font-semibold">
                     {sale.icon} {sale.product}
                   </p>
-                  <div className="flex items-center gap-2 mt-0.5 text-[10px] text-slate-500 dark:text-zinc-400">
+                  <div className="flex items-center gap-2 mt-0.5 text-[10px] text-slate-600 dark:text-zinc-300 font-medium">
                     <span>{sale.city}, {sale.country}</span>
                     <span>&middot;</span>
-                    <span className="text-slate-400 dark:text-zinc-500 font-mono">{sale.payment}</span>
+                    <span className="text-slate-600 dark:text-zinc-400 font-mono font-medium">{sale.payment}</span>
                   </div>
                 </div>
               </div>
@@ -106,7 +106,7 @@ export default function LiveSalesStream({ sales, rawSalesCount = sales.length, f
                 <div className="font-mono text-sm font-extrabold text-emerald-600 dark:text-emerald-400">
                   +${sale.amount.toFixed(2)}
                 </div>
-                <span className="inline-block text-[10px] font-bold px-1.5 py-0.5 rounded bg-slate-200 text-slate-700 border border-slate-300 dark:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-700/60 mt-1">
+                <span className="inline-block text-[10px] font-bold px-1.5 py-0.5 rounded bg-slate-200 text-slate-800 border border-slate-300 dark:bg-zinc-800 dark:text-zinc-200 dark:border-zinc-700/60 mt-1">
                   Settled ✓
                 </span>
               </div>

@@ -27,14 +27,14 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers,
                 <span>STREAM ACTIVE</span>
               </span>
             </div>
-            <p className="text-xs text-slate-500 dark:text-zinc-400 font-medium">Real-time Global Commerce &amp; Revenue Telemetry</p>
+            <p className="text-xs text-slate-700 dark:text-zinc-300 font-semibold">Real-time Global Commerce &amp; Revenue Telemetry</p>
           </div>
         </div>
 
         {/* Live Controls & Simulation Switcher */}
         <div className="flex items-center flex-wrap gap-2.5">
           {/* Active Shoppers indicator */}
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-[#161722] border border-slate-200 dark:border-[#282B3B] text-xs font-semibold text-slate-700 dark:text-zinc-300">
+          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-[#161722] border border-slate-200 dark:border-[#282B3B] text-xs font-semibold text-slate-800 dark:text-zinc-200">
             <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
             <span><strong className="text-slate-900 dark:text-white">{activeShoppers}</strong> Shoppers Browsing</span>
           </div>
@@ -46,7 +46,7 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers,
               className={`px-3 py-1 rounded-md transition-all ${
                 speed === 'normal'
                   ? 'bg-[#FF5A1F] text-white shadow-sm'
-                  : 'text-slate-600 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-white'
+                  : 'text-slate-700 hover:text-slate-950 dark:text-zinc-300 dark:hover:text-white font-bold'
               }`}
               title="Normal Pace (Sale every ~3.5s)"
             >
@@ -57,7 +57,7 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers,
               className={`flex items-center gap-1 px-3 py-1 rounded-md transition-all ${
                 speed === 'surge'
                   ? 'bg-amber-500 text-black shadow-sm font-extrabold'
-                  : 'text-slate-600 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-white'
+                  : 'text-slate-700 hover:text-slate-950 dark:text-zinc-300 dark:hover:text-white font-bold'
               }`}
               title="Surge / Black Friday Rush (Sale every ~1.2s)"
             >
@@ -69,7 +69,7 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers,
               className={`px-2.5 py-1 rounded-md transition-all ${
                 speed === 'paused'
                   ? 'bg-slate-300 text-slate-900 dark:bg-zinc-700 dark:text-white shadow-sm'
-                  : 'text-slate-600 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-white'
+                  : 'text-slate-700 hover:text-slate-950 dark:text-zinc-300 dark:hover:text-white font-bold'
               }`}
               title="Pause Live Stream"
             >

@@ -44,13 +44,13 @@ export default function GlobalSalesMap({ sales }) {
                 <span className="text-base">{hub.flag}</span>
                 <div>
                   <div className="font-bold text-slate-900 dark:text-white">{hub.city}</div>
-                  <div className="text-[10px] text-slate-500 dark:text-zinc-400">{hub.country}</div>
+                  <div className="text-[10px] text-slate-600 dark:text-zinc-300 font-medium">{hub.country}</div>
                 </div>
               </div>
 
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span className="text-[11px] font-semibold text-slate-700 dark:text-zinc-300">{hub.status}</span>
+                <span className="text-[11px] font-semibold text-slate-800 dark:text-zinc-200">{hub.status}</span>
               </div>
             </div>
           ))}
@@ -59,12 +59,12 @@ export default function GlobalSalesMap({ sales }) {
 
       {/* Top Countries Summary */}
       <div className="mt-5 pt-4 border-t border-slate-200 dark:border-[#262838]">
-        <h4 className="text-xs font-bold text-slate-500 dark:text-zinc-400 mb-2">Live Order Origin Breakdown</h4>
+        <h4 className="text-xs font-bold text-slate-700 dark:text-zinc-300 mb-2">Live Order Origin Breakdown</h4>
         <div className="flex flex-wrap gap-1.5">
           {topCountries.map(([country, count], i) => (
             <span
               key={i}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700 dark:bg-[#1B1D2C] dark:border-[#2E3147] dark:text-zinc-300"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-800 dark:bg-[#1B1D2C] dark:border-[#2E3147] dark:text-zinc-200"
             >
               <span>{country}</span>
               <strong className="text-slate-900 dark:text-white font-mono">{count}</strong>

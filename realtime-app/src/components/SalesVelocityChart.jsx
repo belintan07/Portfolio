@@ -37,9 +37,9 @@ export default function SalesVelocityChart({ velocityPoints }) {
             <Activity className="w-4 h-4 text-[#FF5A1F]" />
             <span>Sales Velocity &amp; Transaction Throughput</span>
           </h3>
-          <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5">Real-time revenue stream per 2-minute rolling window</p>
+          <p className="text-xs text-slate-700 dark:text-zinc-300 font-medium mt-0.5">Real-time revenue stream per 2-minute rolling window</p>
         </div>
-        <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 dark:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-700">
+        <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-800 border border-slate-200 dark:bg-zinc-800 dark:text-zinc-200 font-bold dark:border-zinc-700">
           60 FPS Stream
         </span>
       </div>
@@ -77,7 +77,7 @@ export default function SalesVelocityChart({ velocityPoints }) {
       </div>
 
       {/* X-axis labels */}
-      <div className="flex justify-between text-[11px] text-slate-400 dark:text-zinc-500 font-mono mt-2 px-6">
+      <div className="flex justify-between text-[11px] text-slate-600 dark:text-zinc-300 font-mono font-bold mt-2 px-6">
         <span>-10m</span>
         <span>-8m</span>
         <span>-6m</span>

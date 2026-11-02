@@ -53,7 +53,7 @@ export default function MetricsGrid({ totalRevenue, totalOrders, activeShoppers 
             className="rounded-xl bg-white dark:bg-[#14151F] border border-slate-200 dark:border-[#262838] p-5 shadow-sm hover:shadow dark:shadow-lg hover:border-slate-300 dark:hover:border-[#383B52] transition-all"
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">{item.title}</span>
+              <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">{item.title}</span>
               <span className={`p-2 rounded-lg border ${item.color}`}>
                 <Icon className="w-4 h-4" />
               </span>
@@ -64,7 +64,7 @@ export default function MetricsGrid({ totalRevenue, totalOrders, activeShoppers 
               <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">{item.badge}</span>
             </div>
 
-            <p className="text-xs text-slate-400 dark:text-zinc-500 font-medium">{item.subtext}</p>
+            <p className="text-xs text-slate-600 dark:text-zinc-300 font-semibold">{item.subtext}</p>
           </div>
         );
       })}

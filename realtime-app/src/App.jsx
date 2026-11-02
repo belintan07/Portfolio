@@ -106,14 +106,14 @@ export default function App() {
       </main>
 
       {/* Bottom Technical Footer */}
-      <footer className="border-t border-slate-200 dark:border-[#1C1E2B] bg-white dark:bg-[#0A0B0E] py-4 text-center text-xs text-slate-500 dark:text-zinc-500 font-medium transition-colors">
+      <footer className="border-t border-slate-200 dark:border-[#1C1E2B] bg-white dark:bg-[#0A0B0E] py-4 text-center text-xs text-slate-700 dark:text-zinc-300 font-medium transition-colors">
         <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
             <span>WebSocket Gateway: Connected (Latency: 14ms)</span>
           </div>
           <span>&copy; {new Date().getFullYear()} SalesPulse Live &middot; Engineered by Belintan B.</span>
-          <span className="font-mono text-[11px] text-slate-400 dark:text-zinc-600">Separated: Business SaaS &amp; Personal Commerce Tracks</span>
+          <span className="font-mono text-[11px] text-slate-600 dark:text-zinc-400 font-medium">Separated: Business SaaS &amp; Personal Commerce Tracks</span>
         </div>
       </footer>
     </div>

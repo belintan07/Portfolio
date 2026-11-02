@@ -9,12 +9,12 @@ export default function ActivityLog({ activityLogs }) {
           <Terminal className="w-4 h-4 text-emerald-500" />
           <h3 className="font-extrabold text-sm text-slate-900 dark:text-white">Live Event Log</h3>
         </div>
-        <span className="text-[11px] font-mono text-slate-500 dark:text-zinc-500">Real-time webhook events</span>
+        <span className="text-[11px] font-mono text-slate-600 dark:text-zinc-400 font-semibold">Real-time webhook events</span>
       </div>
 
       <div className="space-y-2 max-h-48 overflow-y-auto pr-1 font-mono text-xs">
         {activityLogs.length === 0 ? (
-          <div className="text-slate-400 dark:text-zinc-600 text-center py-4">Listening for incoming events...</div>
+          <div className="text-slate-600 dark:text-zinc-300 text-center py-4 font-medium">Listening for incoming events...</div>
         ) : (
           activityLogs.map((log) => (
             <div
@@ -22,7 +22,7 @@ export default function ActivityLog({ activityLogs }) {
               className={`p-2 rounded-md border flex items-center justify-between gap-3 text-[11px] transition-colors ${
                 log.type === 'high-value'
                   ? 'bg-amber-500/10 border-amber-500/30 text-amber-800 dark:text-amber-200'
-                  : 'bg-slate-50 border-slate-200 text-slate-700 dark:bg-zinc-900/60 dark:border-zinc-800 dark:text-zinc-300'
+                  : 'bg-slate-50 border-slate-200 text-slate-800 dark:bg-zinc-900/60 dark:border-zinc-800 dark:text-zinc-200'
               }`}
             >
               <div className="flex items-center gap-2 truncate">
@@ -33,7 +33,7 @@ export default function ActivityLog({ activityLogs }) {
                 )}
                 <span className="truncate">{log.text}</span>
               </div>
-              <span className="text-slate-400 dark:text-zinc-500 flex-shrink-0">{log.time}</span>
+              <span className="text-slate-600 dark:text-zinc-400 flex-shrink-0 font-medium">{log.time}</span>
             </div>
           ))
         )}

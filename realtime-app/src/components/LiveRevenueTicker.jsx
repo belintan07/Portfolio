@@ -15,7 +15,7 @@ export default function LiveRevenueTicker({ totalRevenue, totalOrders }) {
         {/* Left Side: Real-Time Revenue Number */}
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-xs font-extrabold uppercase tracking-wider text-slate-500 dark:text-zinc-400">Total Net Revenue Today (Live)</span>
+            <span className="text-xs font-extrabold uppercase tracking-wider text-slate-800 dark:text-zinc-200">Total Net Revenue Today (Live)</span>
             <span className="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
               <TrendingUp className="w-3 h-3" />
               <span>+28.4% vs yesterday</span>
@@ -26,10 +26,10 @@ export default function LiveRevenueTicker({ totalRevenue, totalOrders }) {
             <span className="font-mono text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white transition-all duration-300">
               ${totalRevenue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </span>
-            <span className="text-slate-400 dark:text-zinc-500 font-bold text-sm tracking-wide">USD</span>
+            <span className="text-slate-600 dark:text-zinc-300 font-bold text-sm tracking-wide">USD</span>
           </div>
 
-          <p className="text-xs text-slate-500 dark:text-zinc-400 mt-2 font-medium">
+          <p className="text-xs text-slate-700 dark:text-zinc-300 mt-2 font-medium">
             Aggregated across Stripe, Apple Pay, PayPal &amp; Global Merchant Gateways.
           </p>
         </div>
@@ -52,7 +52,7 @@ export default function LiveRevenueTicker({ totalRevenue, totalOrders }) {
             ></div>
           </div>
 
-          <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-zinc-400 font-medium mt-2">
+          <div className="flex items-center justify-between text-[11px] text-slate-700 dark:text-zinc-300 font-semibold mt-2">
             <span>{totalOrders.toLocaleString()} Orders Shipped</span>
             {totalRevenue >= dailyTarget ? (
               <span className="text-emerald-600 dark:text-emerald-400 font-bold">Goal Met! (+${(totalRevenue - dailyTarget).toLocaleString('en-US', { maximumFractionDigits: 0 })} surplus)</span>

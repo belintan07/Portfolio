@@ -21,7 +21,7 @@ export default function TopSellingProducts({ sales }) {
             <Package className="w-4 h-4 text-amber-500" />
             <h3 className="font-extrabold text-sm text-slate-900 dark:text-white">Top Performing Products</h3>
           </div>
-          <span className="text-[11px] font-mono text-slate-500 dark:text-zinc-400">By Gross Volume</span>
+          <span className="text-[11px] font-mono text-slate-600 dark:text-zinc-300 font-semibold">By Gross Volume</span>
         </div>
 
         <div className="space-y-3">
@@ -34,7 +34,7 @@ export default function TopSellingProducts({ sales }) {
                     <span className="text-sm">{item.icon}</span>
                     <span className="font-bold text-slate-900 dark:text-white truncate">{item.name}</span>
                   </div>
-                  <span className="font-mono font-extrabold text-slate-700 dark:text-zinc-300 ml-2">
+                  <span className="font-mono font-extrabold text-slate-900 dark:text-zinc-100 ml-2">
                     ${item.revenue.toLocaleString()}
                   </span>
                 </div>
@@ -47,7 +47,7 @@ export default function TopSellingProducts({ sales }) {
                   ></div>
                 </div>
 
-                <div className="flex justify-between text-[10px] text-slate-500 dark:text-zinc-500">
+                <div className="flex justify-between text-[10px] text-slate-600 dark:text-zinc-300 font-semibold">
                   <span>{item.category}</span>
                   <span>{item.count} units sold</span>
                 </div>
@@ -57,12 +57,12 @@ export default function TopSellingProducts({ sales }) {
         </div>
       </div>
 
-      <div className="mt-4 pt-3 border-t border-slate-200 dark:border-[#262838] flex items-center justify-between text-xs text-slate-500 dark:text-zinc-400">
+      <div className="mt-4 pt-3 border-t border-slate-200 dark:border-[#262838] flex items-center justify-between text-xs text-slate-700 dark:text-zinc-300 font-medium">
         <span className="flex items-center gap-1 font-medium">
           <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
           <span>99.4% Fulfillment Rate</span>
         </span>
-        <span className="font-mono text-[11px] text-slate-400 dark:text-zinc-500">Global Warehouses</span>
+        <span className="font-mono text-[11px] text-slate-600 dark:text-zinc-400 font-medium">Global Warehouses</span>
       </div>
     </div>
   );
