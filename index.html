@@ -5147,26 +5147,22 @@
         <span>Belintan</span>
       </a>
 
-      <!-- Desktop Nav (Streamlined 5 items for optimal UX) -->
+      <!-- Desktop Nav (Clean, essential 4 links without unnecessary tags) -->
       <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
         <a href="#about">About</a>
-        <a href="#community-templates">Works &amp; Apps</a>
-        <a href="#e-invitations">E-Invites</a>
-        <a href="#skills">Tech Stack</a>
+        <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
       </nav>
 
       <!-- Nav Action Buttons -->
       <div class="nav-actions">
-        <!-- Persona Mode Switcher: All vs Business vs Personal -->
-        <div class="persona-segmented-control" role="tablist" aria-label="Select portfolio view">
-          <button class="persona-tab-btn active" data-mode="all" role="tab" aria-selected="true" title="View Full Combined Portfolio">
-            <span>✦ All</span>
-          </button>
-          <button class="persona-tab-btn" data-mode="business" role="tab" aria-selected="false" title="Enterprise SaaS, Web Apps &amp; Architecture">
+        <!-- Persona Track Switcher: Business vs Personal (Removed unnecessary 'All' tag) -->
+        <div class="persona-segmented-control" role="tablist" aria-label="Select portfolio track">
+          <button class="persona-tab-btn active" data-mode="business" role="tab" aria-selected="true" title="Enterprise SaaS &amp; Architecture">
             <span>💼 Business</span>
           </button>
-          <button class="persona-tab-btn" data-mode="personal" role="tab" aria-selected="false" title="Wedding E-Invites, Albums &amp; Creative Craft">
+          <button class="persona-tab-btn" data-mode="personal" role="tab" aria-selected="false" title="Wedding E-Invites &amp; Creative Studio">
             <span>🎨 Personal</span>
           </button>
         </div>
@@ -5203,13 +5199,20 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer -->
+    <!-- Mobile Drawer (Streamlined navigation) -->
     <div class="mobile-nav-panel" id="mobile-drawer" role="menu">
-      <a href="#about" role="menuitem">Platform &amp; About</a>
-      <a href="#community-templates" role="menuitem">Templates &amp; Web Apps</a>
-      <a href="#e-invitations" role="menuitem">E-Invitations Studio</a>
-      <a href="#skills" role="menuitem">Solutions &amp; Stack</a>
-      <a href="#experience" role="menuitem">Experience &amp; Track Record</a>
+      <a href="#about" role="menuitem">About</a>
+      <a href="#projects" role="menuitem">Projects</a>
+      <a href="#experience" role="menuitem">Experience</a>
+      <a href="#contact" role="menuitem">Contact</a>
+      <div style="display: flex; gap: 8px; margin-top: 12px; padding: 4px 0;">
+        <button onclick="switchPortfolioMode('business')" class="persona-tab-btn" style="flex: 1; text-align: center; justify-content: center; border: 1.5px solid var(--border-light); background: var(--surface); color: var(--text); padding: 8px 12px; font-size: 0.82rem; border-radius: var(--radius-sm); cursor: pointer;">
+          <span>💼 Business</span>
+        </button>
+        <button onclick="switchPortfolioMode('personal')" class="persona-tab-btn" style="flex: 1; text-align: center; justify-content: center; border: 1.5px solid var(--border-light); background: var(--surface); color: var(--text); padding: 8px 12px; font-size: 0.82rem; border-radius: var(--radius-sm); cursor: pointer;">
+          <span>🎨 Personal</span>
+        </button>
+      </div>
       <a href="#contact" class="apple-nav-cta" style="margin-top: 14px; text-align: center; justify-content: center; display: flex;"
         role="menuitem">Start Project &rarr;</a>
     </div>
@@ -7781,16 +7784,13 @@
          0. Persona Mode Switcher (All vs Business vs Personal)
          ------------------------------------------------------------------------ */
       window.switchPortfolioMode = function(mode) {
+        const targetMode = mode === 'personal' ? 'personal' : 'business';
         document.body.classList.remove('mode-business', 'mode-personal');
-        if (mode === 'business') {
-          document.body.classList.add('mode-business');
-        } else if (mode === 'personal') {
-          document.body.classList.add('mode-personal');
-        }
-        localStorage.setItem('belintan_persona_mode', mode);
+        document.body.classList.add(targetMode === 'personal' ? 'mode-personal' : 'mode-business');
+        localStorage.setItem('belintan_persona_mode', targetMode);
 
         document.querySelectorAll('.persona-tab-btn').forEach(btn => {
-          const match = btn.getAttribute('data-mode') === mode;
+          const match = btn.getAttribute('data-mode') === targetMode;
           btn.classList.toggle('active', match);
           btn.setAttribute('aria-selected', match ? 'true' : 'false');
         });
@@ -7799,10 +7799,8 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       };
 
-      const savedMode = localStorage.getItem('belintan_persona_mode') || 'all';
-      if (savedMode !== 'all') {
-        switchPortfolioMode(savedMode);
-      }
+      const savedMode = localStorage.getItem('belintan_persona_mode');
+      switchPortfolioMode(savedMode === 'personal' ? 'personal' : 'business');
 
       document.querySelectorAll('.persona-tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
