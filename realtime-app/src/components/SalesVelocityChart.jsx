@@ -30,16 +30,16 @@ export default function SalesVelocityChart({ velocityPoints }) {
   const areaD = `${pathD} L ${points[points.length - 1].x} ${height - paddingY} L ${points[0].x} ${height - paddingY} Z`;
 
   return (
-    <div className="rounded-xl bg-[#14151F] border border-[#262838] p-5 shadow-lg">
+    <div className="rounded-xl bg-white dark:bg-[#14151F] border border-slate-200 dark:border-[#262838] p-5 shadow-sm dark:shadow-lg transition-colors">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 className="font-extrabold text-sm text-white flex items-center gap-2">
+          <h3 className="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
             <Activity className="w-4 h-4 text-[#FF5A1F]" />
             <span>Sales Velocity &amp; Transaction Throughput</span>
           </h3>
-          <p className="text-xs text-zinc-400 mt-0.5">Real-time revenue stream per 2-minute rolling window</p>
+          <p className="text-xs text-slate-500 dark:text-zinc-400 mt-0.5">Real-time revenue stream per 2-minute rolling window</p>
         </div>
-        <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700">
+        <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 dark:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-700">
           60 FPS Stream
         </span>
       </div>
@@ -54,9 +54,9 @@ export default function SalesVelocityChart({ velocityPoints }) {
           </defs>
 
           {/* Grid lines */}
-          <line x1={paddingX} y1={paddingY} x2={width - paddingX} y2={paddingY} stroke="#272A3C" strokeDasharray="3 3" />
-          <line x1={paddingX} y1={height / 2} x2={width - paddingX} y2={height / 2} stroke="#272A3C" strokeDasharray="3 3" />
-          <line x1={paddingX} y1={height - paddingY} x2={width - paddingX} y2={height - paddingY} stroke="#272A3C" />
+          <line x1={paddingX} y1={paddingY} x2={width - paddingX} y2={paddingY} className="stroke-slate-200 dark:stroke-[#272A3C]" strokeDasharray="3 3" />
+          <line x1={paddingX} y1={height / 2} x2={width - paddingX} y2={height / 2} className="stroke-slate-200 dark:stroke-[#272A3C]" strokeDasharray="3 3" />
+          <line x1={paddingX} y1={height - paddingY} x2={width - paddingX} y2={height - paddingY} className="stroke-slate-200 dark:stroke-[#272A3C]" />
 
           {/* Area Fill */}
           <path d={areaD} fill="url(#velocityGrad)" />
@@ -67,7 +67,7 @@ export default function SalesVelocityChart({ velocityPoints }) {
           {/* Data Points */}
           {points.map((p, idx) => (
             <g key={idx}>
-              <circle cx={p.x} cy={p.y} r="4" fill="#0C0D11" stroke="#FF5A1F" strokeWidth="2" />
+              <circle cx={p.x} cy={p.y} r="4" className="fill-white dark:fill-[#0C0D11] stroke-[#FF5A1F]" strokeWidth="2" />
               {idx === points.length - 1 && (
                 <circle cx={p.x} cy={p.y} r="8" fill="none" stroke="#FF5A1F" strokeWidth="1.5" className="animate-ping" />
               )}
@@ -77,12 +77,14 @@ export default function SalesVelocityChart({ velocityPoints }) {
       </div>
 
       {/* X-axis labels */}
-      <div className="flex justify-between text-[11px] text-zinc-500 font-mono mt-2 px-6">
-        {velocityPoints.map((pt, idx) => (
-          <span key={idx}>{pt.time}</span>
-        ))}
+      <div className="flex justify-between text-[11px] text-slate-400 dark:text-zinc-500 font-mono mt-2 px-6">
+        <span>-10m</span>
+        <span>-8m</span>
+        <span>-6m</span>
+        <span>-4m</span>
+        <span>-2m</span>
+        <span className="text-[#FF5A1F] font-bold">Now</span>
       </div>
     </div>
   );
 }
-

@@ -12,7 +12,7 @@ export default function MetricsGrid({ totalRevenue, totalOrders, activeShoppers 
       badgePositive: true,
       subtext: 'Across all active currencies',
       icon: ShoppingBag,
-      color: 'text-amber-400 bg-amber-400/10 border-amber-400/20'
+      color: 'text-amber-500 bg-amber-500/10 border-amber-500/20'
     },
     {
       title: 'Completed Transactions',
@@ -21,7 +21,7 @@ export default function MetricsGrid({ totalRevenue, totalOrders, activeShoppers 
       badgePositive: true,
       subtext: 'Zero failed settlements',
       icon: Activity,
-      color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20'
+      color: 'text-emerald-500 bg-emerald-500/10 border-emerald-500/20'
     },
     {
       title: 'Live Storefront Visitors',
@@ -30,7 +30,7 @@ export default function MetricsGrid({ totalRevenue, totalOrders, activeShoppers 
       badgePositive: true,
       subtext: '48% on Mobile Devices',
       icon: Users,
-      color: 'text-blue-400 bg-blue-400/10 border-blue-400/20'
+      color: 'text-blue-500 bg-blue-500/10 border-blue-500/20'
     },
     {
       title: 'Global Checkout Conversion',
@@ -39,7 +39,7 @@ export default function MetricsGrid({ totalRevenue, totalOrders, activeShoppers 
       badgePositive: true,
       subtext: 'Above industry benchmark (3.2%)',
       icon: TrendingUp,
-      color: 'text-purple-400 bg-purple-400/10 border-purple-400/20'
+      color: 'text-purple-500 bg-purple-500/10 border-purple-500/20'
     }
   ];
 
@@ -50,29 +50,24 @@ export default function MetricsGrid({ totalRevenue, totalOrders, activeShoppers 
         return (
           <div
             key={idx}
-            className="rounded-xl bg-[#14151F] border border-[#262838] p-5 shadow-lg hover:border-[#383B52] transition-all"
+            className="rounded-xl bg-white dark:bg-[#14151F] border border-slate-200 dark:border-[#262838] p-5 shadow-sm hover:shadow dark:shadow-lg hover:border-slate-300 dark:hover:border-[#383B52] transition-all"
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-semibold text-zinc-400">{item.title}</span>
+              <span className="text-xs font-semibold text-slate-500 dark:text-zinc-400">{item.title}</span>
               <span className={`p-2 rounded-lg border ${item.color}`}>
                 <Icon className="w-4 h-4" />
               </span>
             </div>
 
-            <div className="flex items-baseline gap-2">
-              <span className="font-mono text-2xl lg:text-3xl font-extrabold text-white tracking-tight">
-                {item.value}
-              </span>
-              <span className="text-[11px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                {item.badge}
-              </span>
+            <div className="flex items-baseline gap-2 mb-1">
+              <span className="text-2xl font-black tracking-tight text-slate-900 dark:text-white">{item.value}</span>
+              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">{item.badge}</span>
             </div>
 
-            <p className="text-[11px] text-zinc-500 mt-2 font-medium">{item.subtext}</p>
+            <p className="text-xs text-slate-400 dark:text-zinc-500 font-medium">{item.subtext}</p>
           </div>
         );
       })}
     </div>
   );
 }
-

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Zap, Activity, Volume2, VolumeX, Pause, Play, Flame, PlusCircle } from 'lucide-react';
+import { Zap, Activity, Volume2, VolumeX, Pause, Play, Flame, PlusCircle, Sun, Moon } from 'lucide-react';
 import { sound } from '../utils/sound';
 
-export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers }) {
+export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers, theme, toggleTheme }) {
   const [isMuted, setIsMuted] = useState(sound.muted);
 
   const toggleSound = () => {
@@ -11,7 +11,7 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers 
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#0C0D11]/90 backdrop-blur-xl border-b border-[#242633] px-4 lg:px-8 py-3.5 transition-colors">
+    <header className="sticky top-0 z-40 bg-white/90 dark:bg-[#0C0D11]/90 backdrop-blur-xl border-b border-slate-200 dark:border-[#242633] px-4 lg:px-8 py-3.5 transition-colors">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
         
         {/* Brand & Live Pulse Badge */}
@@ -21,32 +21,32 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers 
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-lg tracking-tight text-white">SalesPulse Live</span>
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+              <span className="font-extrabold text-lg tracking-tight text-slate-900 dark:text-white">SalesPulse Live</span>
+              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
                 <span>STREAM ACTIVE</span>
               </span>
             </div>
-            <p className="text-xs text-zinc-400 font-medium">Real-time Global Commerce &amp; Revenue Telemetry</p>
+            <p className="text-xs text-slate-500 dark:text-zinc-400 font-medium">Real-time Global Commerce &amp; Revenue Telemetry</p>
           </div>
         </div>
 
         {/* Live Controls & Simulation Switcher */}
         <div className="flex items-center flex-wrap gap-2.5">
           {/* Active Shoppers indicator */}
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#161722] border border-[#282B3B] text-xs font-semibold text-zinc-300">
+          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-[#161722] border border-slate-200 dark:border-[#282B3B] text-xs font-semibold text-slate-700 dark:text-zinc-300">
             <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-            <span><strong className="text-white">{activeShoppers}</strong> Shoppers Browsing</span>
+            <span><strong className="text-slate-900 dark:text-white">{activeShoppers}</strong> Shoppers Browsing</span>
           </div>
 
           {/* Speed Selector (Segmented Pill) */}
-          <div className="flex items-center bg-[#161722] border border-[#282B3B] rounded-lg p-1 text-xs font-bold">
+          <div className="flex items-center bg-slate-100 dark:bg-[#161722] border border-slate-200 dark:border-[#282B3B] rounded-lg p-1 text-xs font-bold">
             <button
               onClick={() => setSpeed('normal')}
               className={`px-3 py-1 rounded-md transition-all ${
                 speed === 'normal'
                   ? 'bg-[#FF5A1F] text-white shadow-sm'
-                  : 'text-zinc-400 hover:text-white'
+                  : 'text-slate-600 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-white'
               }`}
               title="Normal Pace (Sale every ~3.5s)"
             >
@@ -57,7 +57,7 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers 
               className={`flex items-center gap-1 px-3 py-1 rounded-md transition-all ${
                 speed === 'surge'
                   ? 'bg-amber-500 text-black shadow-sm font-extrabold'
-                  : 'text-zinc-400 hover:text-white'
+                  : 'text-slate-600 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-white'
               }`}
               title="Surge / Black Friday Rush (Sale every ~1.2s)"
             >
@@ -68,8 +68,8 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers 
               onClick={() => setSpeed('paused')}
               className={`px-2.5 py-1 rounded-md transition-all ${
                 speed === 'paused'
-                  ? 'bg-zinc-700 text-white shadow-sm'
-                  : 'text-zinc-400 hover:text-white'
+                  ? 'bg-slate-300 text-slate-900 dark:bg-zinc-700 dark:text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-white'
               }`}
               title="Pause Live Stream"
             >
@@ -77,18 +77,32 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers 
             </button>
           </div>
 
-          {/* Sound Toggle */}
+          {/* Audio Sound Toggle */}
           <button
             onClick={toggleSound}
             className={`p-2 rounded-lg border transition-all ${
               isMuted
-                ? 'bg-[#161722] border-[#282B3B] text-zinc-500 hover:text-zinc-300'
-                : 'bg-[#161722] border-[#FF5A1F]/40 text-[#FF5A1F] hover:bg-[#FF5A1F]/10'
+                ? 'bg-slate-100 border-slate-200 text-slate-400 hover:text-slate-600 dark:bg-[#161722] dark:border-[#282B3B] dark:text-zinc-500 dark:hover:text-zinc-300'
+                : 'bg-orange-50 border-orange-200 text-[#FF5A1F] dark:bg-[#161722] dark:border-[#FF5A1F]/40 hover:bg-orange-100 dark:hover:bg-[#FF5A1F]/10'
             }`}
             title={isMuted ? 'Unmute Sale Chimes' : 'Mute Sale Chimes'}
             aria-label="Toggle Audio Chimes"
           >
             {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+          </button>
+
+          {/* Theme Switcher Toggle (Light / Dark Mode) */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg border transition-all bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-700 dark:bg-[#161722] dark:border-[#282B3B] dark:text-zinc-300 dark:hover:text-white"
+            title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            aria-label="Toggle Theme Mode"
+          >
+            {theme === 'dark' ? (
+              <Sun className="w-4 h-4 text-amber-400" />
+            ) : (
+              <Moon className="w-4 h-4 text-slate-700" />
+            )}
           </button>
 
           {/* Instant Trigger Sale Button */}
@@ -106,4 +120,3 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers 
     </header>
   );
 }
-
