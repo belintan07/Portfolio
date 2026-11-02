@@ -9,7 +9,11 @@ class SoundFx {
     if (!this.ctx && typeof window !== 'undefined') {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       if (AudioCtx) {
-        this.ctx = new AudioCtx();
+        try {
+          this.ctx = new AudioCtx();
+        } catch {
+          this.ctx = null;
+        }
       }
     }
   }
@@ -21,7 +25,9 @@ class SoundFx {
       if (!this.ctx) return;
       if (this.ctx.state === 'suspended') {
         this.ctx.resume().catch(() => {});
+        return; // wait for next cycle after user interaction
       }
+      if (this.ctx.state !== 'running') return;
 
       const now = this.ctx.currentTime;
       

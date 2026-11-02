@@ -8322,44 +8322,20 @@
           ],
           renderLiveWebpage: function(container) {
             container.innerHTML = `
-              <div style="background: #0C0D11; color: #F5F5F7; padding: 22px; border-radius: 12px; border: 1.5px solid #282A36;">
-                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1F2230; padding-bottom: 12px; margin-bottom: 16px;">
+              <div style="background: #0C0D11; border-radius: 12px; border: 1.5px solid #282A36; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 12px 16px; background: #14151F; border-bottom: 1px solid #232535; gap: 8px;">
                   <div style="display: flex; align-items: center; gap: 8px;">
                     <span style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
-                    <strong style="font-size: 0.92rem; color: #FFF;">SalesPulse Live Telemetry</strong>
+                    <strong style="font-size: 0.88rem; color: #FFF;">SalesPulse Live Telemetry Engine</strong>
+                    <span style="font-size: 0.7rem; font-weight: 700; background: rgba(16, 185, 129, 0.15); color: #34D399; padding: 2px 8px; border-radius: 9999px; border: 1px solid rgba(16, 185, 129, 0.3);">● Live React 18 Stream</span>
                   </div>
-                  <a href="http://localhost:5173" target="_blank" style="font-size: 0.75rem; background: #FF5A1F; color: #FFF; padding: 5px 12px; border-radius: 6px; text-decoration: none; font-weight: 800;">Open Full App (:5173) ↗</a>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 18px;">
-                  <div style="background: #14151F; border: 1px solid #262838; padding: 12px; border-radius: 8px;">
-                    <span style="font-size: 0.72rem; color: #9CA3AF;">Gross Today</span>
-                    <div style="font-family: var(--font-mono); font-size: 1.4rem; font-weight: 900; color: #10B981;">$148,520</div>
-                    <span style="font-size: 0.68rem; color: #34D399;">+28.4% vs prev</span>
-                  </div>
-                  <div style="background: #14151F; border: 1px solid #262838; padding: 12px; border-radius: 8px;">
-                    <span style="font-size: 0.72rem; color: #9CA3AF;">Active Shoppers</span>
-                    <div style="font-family: var(--font-mono); font-size: 1.4rem; font-weight: 900; color: #38BDF8;">84 Live</div>
-                    <span style="font-size: 0.68rem; color: #94A3B8;">Global Storefronts</span>
-                  </div>
-                  <div style="background: #14151F; border: 1px solid #262838; padding: 12px; border-radius: 8px;">
-                    <span style="font-size: 0.72rem; color: #9CA3AF;">AOV Average</span>
-                    <div style="font-family: var(--font-mono); font-size: 1.4rem; font-weight: 900; color: #FBBF24;">$115.60</div>
-                    <span style="font-size: 0.68rem; color: #F59E0B;">+12.5% this week</span>
+                  <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
+                    <a href="http://localhost:5173" target="_blank" rel="noopener noreferrer" style="font-size: 0.74rem; background: #FF5A1F; color: #FFF; padding: 5px 11px; border-radius: 6px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;"><span>Dev Server (:5173)</span> ↗</a>
+                    <a href="http://127.0.0.1:5173" target="_blank" rel="noopener noreferrer" style="font-size: 0.74rem; background: #26293B; color: #F1F5F9; padding: 5px 11px; border-radius: 6px; text-decoration: none; font-weight: 700; border: 1px solid #3B405A; display: inline-flex; align-items: center; gap: 4px;"><span>IPv4 Loopback</span> ↗</a>
+                    <a href="/realtime-app/dist/index.html" target="_blank" rel="noopener noreferrer" style="font-size: 0.74rem; background: #15803D; color: #DCFCE7; padding: 5px 11px; border-radius: 6px; text-decoration: none; font-weight: 700; border: 1px solid #22C55E; display: inline-flex; align-items: center; gap: 4px;"><span>Standalone (:8000)</span> ↗</a>
                   </div>
                 </div>
-
-                <div style="background: #14151F; border: 1px solid #262838; padding: 12px; border-radius: 8px;">
-                  <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #9CA3AF; margin-bottom: 8px;">
-                    <span>Live Ingest Stream (Simulated 60fps)</span>
-                    <span style="color: #10B981; font-weight: 700;">● Active</span>
-                  </div>
-                  <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #D1D5DB; line-height: 1.6;">
-                    <div>⚡ <strong>Sarah Jenkins (🇺🇸 San Francisco)</strong> bought ResumeAI Pro ($149.00 via Apple Pay)</div>
-                    <div>⚡ <strong>Kenji Takahashi (🇯🇵 Tokyo)</strong> bought Framer Template ($89.00 via Stripe)</div>
-                    <div>⚡ <strong>Elena Rostova (🇩🇪 Berlin)</strong> bought Royal Vivaha Suite ($299.00 via Visa)</div>
-                  </div>
-                </div>
+                <iframe src="/realtime-app/dist/index.html" style="width: 100%; height: 560px; border: none; display: block; background: #0C0D11;" title="SalesPulse Live App Interactive Preview"></iframe>
               </div>
             `;
           }
