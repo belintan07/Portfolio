@@ -537,16 +537,7 @@
 /* ==========================================================================
        APPLE GLOBAL RIBBON & FROSTED NAV COMPONENTS
        ========================================================================== */
-    .apple-ribbon {
-      background: #0B0D11;
-      color: #E2E8F0;
-      font-size: 0.82rem;
-      padding: 9px 16px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      position: relative;
-      z-index: 1001;
-    }
+    .apple-ribbon { display: none !important; }
 
     .apple-ribbon .ribbon-inner {
       display: flex;
@@ -1589,7 +1580,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 0.92fr 1.08fr;
       gap: clamp(40px, 6vw, 80px);
       align-items: center;
     }
@@ -4800,6 +4791,23 @@
       font-weight: 900;
       letter-spacing: -0.02em;
     }
+      .hero-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(36px, 5vw, 64px);
+      align-items: center;
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .polaroid-stage {
+        order: -1;
+        margin: 0 auto 32px auto;
+      }
+    }
   </style>
 </head>
 
@@ -4811,14 +4819,7 @@
   <!-- ==========================================================================
        HEADER & NAVIGATION
        ========================================================================== -->
-    <!-- Apple-Style Global Announcement Ribbon -->
-  <aside class="apple-ribbon" aria-label="Availability Announcement">
-    <div class="container ribbon-inner">
-      <span class="ribbon-pill">Available</span>
-      <span class="ribbon-text">Now building real-time full-stack web applications, Java/Spring Boot backends, and low-latency React engines.</span>
-      <a href="#contact" class="ribbon-link">Request a proposal <span aria-hidden="true">&rarr;</span></a>
-    </div>
-  </aside>
+    
 
   <!-- ==========================================================================
        HEADER & NAVIGATION
@@ -4833,6 +4834,7 @@
 
       <!-- Desktop Nav (Clean, essential 4 links without unnecessary tags) -->
       <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
+        <a href="#hero">Profile</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Real-Time Projects</a>
@@ -4877,6 +4879,7 @@
 
     <!-- Mobile Drawer (Streamlined navigation) -->
     <div class="mobile-nav-panel" id="mobile-drawer" role="menu">
+      <a href="#hero" role="menuitem">Profile</a>
       <a href="#about" role="menuitem">About</a>
       <a href="#skills" role="menuitem">Skills</a>
       <a href="#projects" role="menuitem">Real-Time Projects</a>
@@ -4894,7 +4897,48 @@
   <main id="main-content"><section class="section hero-section business-hero" id="hero" data-track="both" aria-labelledby="hero-heading">
       <div class="container hero-grid">
 
-        <!-- Left Narrative & Business Proposition Column -->
+        <!-- Column 1: Profile & Verified Identity (Arranged First) -->
+        <div class="polaroid-stage">
+          <div class="tape-corner-tl" aria-hidden="true"></div>
+
+          <div class="polaroid-frame">
+            <div class="polaroid-image-container">
+              <img src="belintan-hero.jpg"
+                alt="Belintan B. — Product Designer and Front-End Developer dressed in lilac shirt" width="390"
+                height="440" loading="eager"
+                onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'390\' height=\'440\' viewBox=\'0 0 390 440\'><rect width=\'390\' height=\'440\' fill=\'%23D9ECDC\'/><text x=\'50%25\' y=\'45%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'48\' font-weight=\'bold\' fill=\'%23166534\'>BB</text><text x=\'50%25\' y=\'55%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'16\' font-weight=\'600\' fill=\'%23166534\'>BELINTAN B.</text></svg>';" />
+            </div>
+
+            <div class="polaroid-caption">
+              <span>Belintan B.</span>
+              <span class="polaroid-badge-pill">Tuticorin, Tamil Nadu, India</span>
+            </div>
+
+            <!-- Clickable LinkedIn Profile Tag -->
+            <a href="https://linkedin.com/in/belintanben" target="_blank" rel="noopener noreferrer"
+              class="polaroid-linkedin-tag" aria-label="Connect with Belintan B. on LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+              <span>linkedin.com/in/belintanben</span>
+              <span class="tag-arrow">&#8599;</span>
+            </a>
+
+            <!-- Blue Pill "+ OPEN FOR PROJECTS" as seen in Screenshot 2 -->
+            <div class="open-projects-pill"
+              onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})" role="button"
+              tabindex="0" aria-label="Open for projects - go to contact section">
+              <span class="plus-icon">+</span> OPEN FOR PROJECTS
+            </div>
+          </div>
+
+          <div class="floating-note-sticker" aria-hidden="true">
+            <span>✦</span> Open to Projects &amp; Contract Work
+          </div>
+        </div>
+
+        <!-- Column 2: Narrative, Core Credentials & Real-Time Telemetry -->
         <div class="hero-text-block">
 
           <!-- Green Status Pill Badge (Matching 🛡️ Secure payments from kelviq.com) -->
@@ -4985,51 +5029,10 @@
               <div class="biz-metric-desc">Strategic Management &middot; Alagappa Univ.</div>
             </div>
           </div>
-              <div class="biz-metric-desc">Strategic Business Rigor Aligned With Tech</div>
-            </div>
-          </div>
+              
 
         </div>
         <!-- Right Profile Column -->
-        <div class="polaroid-stage">
-          <div class="tape-corner-tl" aria-hidden="true"></div>
-
-          <div class="polaroid-frame">
-            <div class="polaroid-image-container">
-              <img src="belintan-hero.jpg"
-                alt="Belintan B. — Product Designer and Front-End Developer dressed in lilac shirt" width="390"
-                height="440" loading="eager"
-                onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'390\' height=\'440\' viewBox=\'0 0 390 440\'><rect width=\'390\' height=\'440\' fill=\'%23D9ECDC\'/><text x=\'50%25\' y=\'45%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'48\' font-weight=\'bold\' fill=\'%23166534\'>BB</text><text x=\'50%25\' y=\'55%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'sans-serif\' font-size=\'16\' font-weight=\'600\' fill=\'%23166534\'>BELINTAN B.</text></svg>';" />
-            </div>
-
-            <div class="polaroid-caption">
-              <span>Belintan B.</span>
-              <span class="polaroid-badge-pill">Tuticorin, Tamil Nadu, India</span>
-            </div>
-
-            <!-- Clickable LinkedIn Profile Tag -->
-            <a href="https://linkedin.com/in/belintanben" target="_blank" rel="noopener noreferrer"
-              class="polaroid-linkedin-tag" aria-label="Connect with Belintan B. on LinkedIn">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-              </svg>
-              <span>linkedin.com/in/belintanben</span>
-              <span class="tag-arrow">&#8599;</span>
-            </a>
-
-            <!-- Blue Pill "+ OPEN FOR PROJECTS" as seen in Screenshot 2 -->
-            <div class="open-projects-pill"
-              onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})" role="button"
-              tabindex="0" aria-label="Open for projects - go to contact section">
-              <span class="plus-icon">+</span> OPEN FOR PROJECTS
-            </div>
-          </div>
-
-          <div class="floating-note-sticker" aria-hidden="true">
-            <span>✦</span> Open to Projects &amp; Contract Work
-          </div>
-        </div>
 
       </div>
     </section>
