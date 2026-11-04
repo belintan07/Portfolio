@@ -80,9 +80,9 @@
       --font-serif: 'Playfair Display', Georgia, serif;
       --font-sketch: 'Caveat', cursive, sans-serif;
 
-      /* Layout */
-      --container-max: 1200px;
-      --section-spacing: clamp(72px, 9vw, 130px);
+      /* Layout - Enhanced Responsive Spacing & Padding */
+      --container-max: 1280px;
+      --section-spacing: clamp(84px, 10vw, 150px);
       --transition-smooth: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -816,8 +816,8 @@
         width: 100% !important;
       }
       .container {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
         max-width: 100% !important;
       }
       .biz-hero-title {
@@ -934,8 +934,8 @@
       max-width: var(--container-max);
       margin-left: auto;
       margin-right: auto;
-      padding-left: clamp(20px, 4vw, 40px);
-      padding-right: clamp(20px, 4vw, 40px);
+      padding-left: clamp(20px, 5vw, 48px);
+      padding-right: clamp(20px, 5vw, 48px);
     }
 
     .section {
@@ -1064,8 +1064,8 @@
       background-color: #FFFFFF;
       background-image: radial-gradient(#E2E8F0 1.2px, transparent 1.2px);
       background-size: 24px 24px;
-      padding-top: clamp(60px, 8vw, 100px);
-      padding-bottom: clamp(60px, 8vw, 100px);
+      padding-top: clamp(100px, 12vw, 160px);
+      padding-bottom: clamp(70px, 9vw, 130px);
       border-bottom: 1.5px solid #E2E8F0;
     }
 
@@ -4610,13 +4610,23 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .desktop-nav {
-        display: none;
+        display: none !important;
       }
 
       .mobile-menu-btn {
-        display: block;
+        display: flex !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none !important;
+      }
+
+      .mobile-menu-btn {
+        display: flex !important;
       }
 
       .sketch-cards-quad {
@@ -5243,6 +5253,120 @@
       background: #1EBE5D;
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+    }
+
+  
+    /* ==========================================================================
+       RESPONSIVE & PADDING ENHANCEMENTS (TOUCH TARGETS & BREATHING ROOM)
+       ========================================================================== */
+    .biz-btn-primary,
+    .btn-sketch-secondary,
+    .btn-whatsapp-cta,
+    .btn-sketch-linkedin {
+      min-height: 48px;
+      padding: 13px 22px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sketch-input,
+    .sketch-select,
+    .sketch-textarea {
+      padding: 15px 18px;
+      font-size: 0.95rem;
+      border-radius: 12px;
+      line-height: 1.5;
+    }
+
+    .sketch-textarea {
+      min-height: 120px;
+    }
+
+    .contact-info-panel {
+      padding: clamp(28px, 4vw, 40px);
+      border-radius: var(--radius-md);
+    }
+
+    .contact-form-box {
+      padding: clamp(28px, 4vw, 44px);
+      border-radius: var(--radius-md);
+    }
+
+    .value-pillar-card {
+      padding: clamp(26px, 4vw, 36px);
+      border-radius: var(--radius-md);
+    }
+
+    .polaroid-frame {
+      padding: clamp(16px, 3vw, 24px);
+    }
+
+    .biz-metrics-deck {
+      gap: clamp(14px, 2.5vw, 20px);
+      margin-top: 32px;
+    }
+
+    .biz-metric-card {
+      padding: clamp(16px, 2.5vw, 22px) clamp(16px, 2.5vw, 22px);
+      border-radius: var(--radius-sm);
+    }
+
+    .project-card .project-content-block {
+      padding: clamp(26px, 4vw, 38px);
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: clamp(36px, 6vw, 56px);
+        text-align: center;
+      }
+      .hero-text-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .biz-cta-group {
+        justify-content: center;
+      }
+      .capabilities-strip {
+        text-align: left;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .biz-hero-title {
+        font-size: clamp(2.2rem, 9vw, 3.2rem) !important;
+      }
+      .biz-cta-group {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important;
+      }
+      .biz-cta-group > * {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+      }
+      .capabilities-strip {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+      .estimator-footer-bar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        text-align: center !important;
+      }
+      .estimator-footer-bar .btn-whatsapp-cta {
+        width: 100% !important;
+      }
     }
 
   </style>

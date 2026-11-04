@@ -64,7 +64,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 lg:px-8 py-6 space-y-6">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         
         {/* Real-Time Revenue Ticker Hero */}
         <LiveRevenueTicker
@@ -105,7 +105,7 @@ export default function App() {
         <ActivityLog activityLogs={activityLogs} />
 
         {/* System Architect & Engineer Profile Card Spotlight */}
-        <section className="rounded-2xl border border-slate-200 dark:border-[#222436] bg-white/80 dark:bg-[#10121A]/80 backdrop-blur-md p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm dark:shadow-2xl transition-colors">
+        <section className="rounded-2xl border border-slate-200 dark:border-[#222436] bg-white/80 dark:bg-[#10121A]/80 backdrop-blur-md p-6 sm:p-8 lg:p-10 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-sm dark:shadow-2xl transition-colors">
           <div className="space-y-3 max-w-xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-[#FF5A1F]/10 text-[#FF5A1F] border border-[#FF5A1F]/20">
               <span>✦</span>
