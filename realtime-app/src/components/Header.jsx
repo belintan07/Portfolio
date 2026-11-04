@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Zap, Activity, Volume2, VolumeX, Pause, Play, Flame, PlusCircle, Sun, Moon } from 'lucide-react';
 import { sound } from '../utils/sound';
+import RotatingText from './RotatingText';
 
 export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers, theme, toggleTheme }) {
   const [isMuted, setIsMuted] = useState(sound.muted);
@@ -27,7 +28,20 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers,
                 <span>STREAM ACTIVE</span>
               </span>
             </div>
-            <p className="text-xs text-slate-700 dark:text-zinc-300 font-semibold">Real-time Global Commerce &amp; Revenue Telemetry</p>
+            <div className="flex items-center gap-1.5 text-xs text-slate-700 dark:text-zinc-300 font-semibold">
+              <span>Real-time Telemetry:</span>
+              <RotatingText
+                texts={['Stripe Webhooks', 'WebSocket Streams', 'Sub-15ms Latency', 'PostgreSQL Pipeline', 'Kafka Event Bus']}
+                effect="flip"
+                direction="up"
+                highlight={true}
+                highlightColor="#FF5A1F"
+                staggerDuration={0.02}
+                rotationInterval={2200}
+                splitLevelClassName="overflow-hidden"
+                mainClassName="text-[11px] font-black uppercase tracking-wider px-2 py-0.5 rounded shadow-sm inline-flex"
+              />
+            </div>
           </div>
         </div>
 
