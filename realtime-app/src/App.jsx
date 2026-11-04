@@ -8,6 +8,7 @@ import LiveSalesStream from './components/LiveSalesStream';
 import GlobalSalesMap from './components/GlobalSalesMap';
 import TopSellingProducts from './components/TopSellingProducts';
 import ActivityLog from './components/ActivityLog';
+import ProfileCard from './components/ProfileCard';
 
 export default function App() {
   const {
@@ -102,6 +103,65 @@ export default function App() {
 
         {/* Operational Real-Time Webhook Activity Log */}
         <ActivityLog activityLogs={activityLogs} />
+
+        {/* System Architect & Engineer Profile Card Spotlight */}
+        <section className="rounded-2xl border border-slate-200 dark:border-[#222436] bg-white/80 dark:bg-[#10121A]/80 backdrop-blur-md p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm dark:shadow-2xl transition-colors">
+          <div className="space-y-3 max-w-xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-[#FF5A1F]/10 text-[#FF5A1F] border border-[#FF5A1F]/20">
+              <span>✦</span>
+              <span>SYSTEM ARCHITECT &amp; LEAD ENGINEER</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-white">
+              Engineered by Belintan B.
+            </h2>
+            <p className="text-sm text-slate-600 dark:text-zinc-300 leading-relaxed font-medium">
+              Architected with high-frequency WebSocket event pipelines, distributed state synchronization, and reactive UI components. Tilt or hover over the holographic verification card to inspect contact credentials.
+            </p>
+            <div className="flex items-center gap-3 pt-2">
+              <a
+                href="mailto:belintan07@gmail.com"
+                className="px-4 py-2 rounded-lg bg-[#FF5A1F] hover:bg-[#E0470E] text-white font-bold text-xs shadow-md shadow-[#FF5A1F]/20 transition-all inline-flex items-center gap-1.5"
+              >
+                <span>Get in Touch</span>
+                <span>&rarr;</span>
+              </a>
+              <a
+                href="https://linkedin.com/in/belintanben"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-lg border border-slate-300 dark:border-zinc-700 hover:border-slate-400 dark:hover:border-zinc-500 text-slate-800 dark:text-zinc-200 font-bold text-xs transition-all inline-flex items-center gap-1.5"
+              >
+                <span>LinkedIn</span>
+                <span className="text-xs">&#8599;</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center p-2">
+            <ProfileCard
+              name="Belintan B."
+              title="Lead Full-Stack &amp; Systems Engineer"
+              handle="belintanben"
+              status="Available for Hire"
+              statusColor="#22c55e"
+              contactText="Email Me"
+              avatarUrl="/belintan-hero.jpg"
+              miniAvatarUrl="/belintan-hero.jpg"
+              holo={0.85}
+              glare={0.6}
+              tiltStrength={14}
+              parallax={10}
+              radius={16}
+              enableTilt={true}
+              intro={true}
+              showUserInfo={true}
+              theme={theme === 'dark' ? 'dark' : 'light'}
+              onContactClick={() => {
+                window.location.href = 'mailto:belintan07@gmail.com';
+              }}
+            />
+          </div>
+        </section>
 
       </main>
 
