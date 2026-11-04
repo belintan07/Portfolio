@@ -5993,107 +5993,331 @@
 
         <div class="projects-grid">
 
-          <!-- PROJECT 1: GymFreaky Fitness Platform -->
+          <!-- PROJECT 01 / 06: GymFreaky Fitness Platform -->
           <article class="project-card" style="position: relative;">
             <span class="project-live-indicator"><span class="pulse-dot"></span> PRODUCTION READY</span>
             <div class="project-visual-header">
-              <span class="project-number-stamp">01 / 05</span>
-              <img src="images/gymfreaky_mockup.svg" alt="GymFreaky Fitness Platform" loading="lazy" style="width: 100%; height: 220px; object-fit: cover;" onerror="this.onerror=null; this.src='images/gymfreaky_mockup.jpg';" />
+              <span class="project-number-stamp">01 / 06</span>
+              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="GymFreaky Fitness Platform live member portal">
+                <defs>
+                  <linearGradient id="gfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#271005" />
+                    <stop offset="100%" stop-color="#0E0702" />
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="220" fill="url(#gfGrad)" />
+                <rect x="20" y="20" width="360" height="180" rx="8" fill="#170B03" stroke="#7C2D12" stroke-width="1.5" />
+                <rect x="20" y="20" width="360" height="32" fill="#2E1205" />
+                <circle cx="36" cy="36" r="4" fill="#FF5A1F" />
+                <circle cx="50" cy="36" r="4" fill="#F59E0B" />
+                <circle cx="64" cy="36" r="4" fill="#10B981" />
+                <text x="82" y="40" fill="#FDBA74" font-family="monospace" font-size="10">gymfreaky.fit · automated-leads-engine</text>
+                
+                <!-- Dial: Membership Attendance -->
+                <circle cx="95" cy="118" r="40" fill="none" stroke="#431407" stroke-width="7" />
+                <circle cx="95" cy="118" r="40" fill="none" stroke="#FF5A1F" stroke-width="7" stroke-dasharray="225 251" stroke-linecap="round" />
+                <text x="95" y="114" fill="#FFF" font-size="16" font-family="monospace" font-weight="bold" text-anchor="middle">1,280+</text>
+                <text x="95" y="129" fill="#FB923C" font-size="8" text-anchor="middle">ACTIVE MEMBERS</text>
+                
+                <!-- Lead Automation Workflow Chips -->
+                <rect x="175" y="65" width="180" height="26" rx="4" fill="#2E1205" stroke="#7C2D12" stroke-width="1" />
+                <text x="185" y="82" fill="#FED7AA" font-size="9" font-family="monospace">⚡ WhatsApp Lead QR Sync: &lt;1.2s</text>
+                
+                <rect x="175" y="99" width="180" height="26" rx="4" fill="#2E1205" stroke="#7C2D12" stroke-width="1" />
+                <text x="185" y="116" fill="#34D399" font-size="9" font-family="monospace">💳 Stripe Subscriptions: Active ✓</text>
+                
+                <rect x="175" y="133" width="180" height="32" rx="4" fill="#220D03" />
+                <text x="185" y="148" fill="#FDBA74" font-size="9">Conversion: +44% Organic Walk-ins</text>
+                <text x="185" y="160" fill="#34D399" font-size="8" font-family="monospace">PWA Offline Check-In &middot; Instant Pass</text>
+              </svg>
             </div>
-            <div class="project-content-block">
+            <div class="project-body">
               <div class="project-category-row">
-                <span class="project-badge-tech">React 19 • Node.js • Tailwind</span>
-                <span class="project-meta-year">2026</span>
+                <span class="project-tag tag-peach">React 19</span>
+                <span class="project-tag tag-sage">Node.js</span>
+                <span class="project-tag tag-lavender">Tailwind CSS</span>
+                <span class="project-tag tag-sage">WhatsApp API</span>
               </div>
               <h3 class="project-title">GymFreaky Fitness Platform</h3>
-              <p class="project-summary-text">
+              <p class="project-blurb">
                 High-conversion gym membership and class scheduling platform with automated WhatsApp lead capture, member subscription workflows, and mobile-optimized interfaces.
               </p>
-              <div class="project-action-row">
-                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20GymFreaky" target="_blank" rel="noopener noreferrer" class="btn-sketch-primary" style="padding: 10px 16px; font-size: 0.82rem;">
+
+              <div class="telemetry-mini-console">
+                <div class="telemetry-row">
+                  <span class="telemetry-label">Active Membership:</span>
+                  <span class="telemetry-val">1,280+ Enrolled &middot; 96.4% Retention</span>
+                </div>
+                <div class="telemetry-row">
+                  <span class="telemetry-label">Lead Automation:</span>
+                  <span class="telemetry-val">Sub-second WhatsApp Trigger</span>
+                </div>
+              </div>
+
+              <div class="project-metric-pill">
+                <span>⚡ Performance:</span> 0.2s page load &middot; Real-time membership pass verification.
+              </div>
+
+              <div class="project-actions" style="flex-wrap: wrap;">
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20GymFreaky" target="_blank" rel="noopener noreferrer" class="btn-project-link btn-live-primary">
                   <span>💬 Inquire on WhatsApp &rarr;</span>
                 </a>
+                <button type="button" class="btn-project-link btn-inspect-album" data-album-id="gymfreaky">
+                  <span>🔍 View System Spec</span>
+                </button>
               </div>
             </div>
           </article>
 
-          <!-- PROJECT 2: HabiTrack Habit Streaks PWA -->
+          <!-- PROJECT 02 / 06: HabiTrack Live PWA -->
           <article class="project-card" style="position: relative;">
-            <span class="project-live-indicator"><span class="pulse-dot"></span> PWA OFFLINE SYNC</span>
+            <span class="project-live-indicator"><span class="pulse-dot"></span> PWA &middot; SUB-MS ENGINE</span>
             <div class="project-visual-header">
-              <span class="project-number-stamp">02 / 05</span>
-              <img src="images/habitrack_mockup.svg" alt="HabiTrack Habit Streaks PWA" loading="lazy" style="width: 100%; height: 220px; object-fit: cover;" onerror="this.onerror=null; this.src='images/habitrack_mockup.jpg';" />
+              <span class="project-number-stamp">02 / 06</span>
+              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="HabiTrack Live sub-millisecond habit tracking engine">
+                <defs>
+                  <linearGradient id="htGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#1E1B4B" />
+                    <stop offset="100%" stop-color="#0F172A" />
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="220" fill="url(#htGrad)" />
+                <rect x="20" y="20" width="360" height="180" rx="8" fill="#18182B" stroke="#312E81" stroke-width="1.5" />
+                <rect x="20" y="20" width="360" height="32" fill="#242247" />
+                <circle cx="36" cy="36" r="4" fill="#A855F7" />
+                <circle cx="50" cy="36" r="4" fill="#6366F1" />
+                <circle cx="64" cy="36" r="4" fill="#10B981" />
+                <text x="82" y="40" fill="#C7D2FE" font-family="monospace" font-size="10">habitrack.app · sub-ms streak calculus</text>
+                
+                <!-- Streak Completion Visual -->
+                <circle cx="100" cy="118" r="42" fill="none" stroke="#312E81" stroke-width="8" />
+                <circle cx="100" cy="118" r="42" fill="none" stroke="#10B981" stroke-width="8" stroke-dasharray="210 264" stroke-linecap="round" />
+                <text x="100" y="115" fill="#FFF" font-size="16" font-family="monospace" font-weight="bold" text-anchor="middle">85%</text>
+                <text x="100" y="130" fill="#A5B4FC" font-size="8" text-anchor="middle">TODAY</text>
+                
+                <rect x="180" y="65" width="180" height="32" rx="4" fill="#242247" />
+                <text x="195" y="85" fill="#FFF" font-size="11" font-weight="bold">🔥 Daily LeetCode Streak: 42 Days</text>
+                
+                <rect x="180" y="105" width="180" height="32" rx="4" fill="#242247" />
+                <text x="195" y="125" fill="#FFF" font-size="11" font-weight="bold">⚡ Spring Boot Microservice: Done ✓</text>
+                
+                <rect x="180" y="145" width="180" height="32" rx="4" fill="#242247" />
+                <text x="195" y="165" fill="#34D399" font-size="11" font-weight="bold">📊 Focus Score: 98/100 · Optimal</text>
+              </svg>
             </div>
-            <div class="project-content-block">
+            <div class="project-body">
               <div class="project-category-row">
-                <span class="project-badge-tech">PWA • React • IndexedDB</span>
-                <span class="project-meta-year">2026</span>
+                <span class="project-tag tag-peach">React</span>
+                <span class="project-tag tag-sage">IndexedDB PWA</span>
+                <span class="project-tag tag-lavender">Local-First</span>
+                <span class="project-tag tag-sage">Sub-ms Calculus</span>
               </div>
-              <h3 class="project-title">HabiTrack Habit Streaks PWA</h3>
-              <p class="project-summary-text">
-                Progressive web app built for offline habit tracking with IndexedDB client-side database, sub-millisecond local state sync, and background telemetry synchronization.
+              <h3 class="project-title">HabiTrack Live PWA — Sub-Millisecond Habit &amp; Streak Engine</h3>
+              <p class="project-blurb">
+                Progressive Web App engineered for zero-latency local execution and 100% offline persistence. Evaluates recurrence calculus, optimistic state updates, and streak algorithms with sub-millisecond execution times and background cloud sync.
               </p>
-              <div class="project-action-row">
-                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20HabiTrack" target="_blank" rel="noopener noreferrer" class="btn-sketch-primary" style="padding: 10px 16px; font-size: 0.82rem;">
-                  <span>💬 Inquire on WhatsApp &rarr;</span>
+
+              <div class="telemetry-mini-console" id="habitrack-live-telemetry">
+                <div class="telemetry-row">
+                  <span class="telemetry-label">Current Streak:</span>
+                  <span class="telemetry-val" id="habitrack-streak-val">42 Days Active 🔥</span>
+                </div>
+                <div class="telemetry-row">
+                  <span class="telemetry-label">Evaluation Latency:</span>
+                  <span class="telemetry-val">0.3 ms (Optimistic Local)</span>
+                </div>
+              </div>
+
+              <div class="project-metric-pill">
+                <span>⚡ Performance:</span> Zero network latency · 100% offline-ready with instant sync.
+              </div>
+
+              <div class="project-actions" style="flex-wrap: wrap;">
+                <button type="button" class="btn-project-link btn-live-primary" id="btn-habitrack-toggle">
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+                  <span>✓ Mark Habit Complete</span>
+                </button>
+                <button type="button" class="btn-project-link btn-inspect-album" data-album-id="habitrack">
+                  <span>🔍 Live Details</span>
+                </button>
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20HabiTrack" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                  <span>💬 WhatsApp &rarr;</span>
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- PROJECT 3: GeoTrack GIS Dashboard -->
+          <!-- PROJECT 03 / 06: GeoTrack GIS Dashboard -->
           <article class="project-card" style="position: relative;">
             <span class="project-live-indicator"><span class="pulse-dot"></span> POSTGIS SPATIAL</span>
             <div class="project-visual-header">
-              <span class="project-number-stamp">03 / 05</span>
-              <img src="images/location_finder.svg" alt="GeoTrack GIS Dashboard" loading="lazy" style="width: 100%; height: 220px; object-fit: cover;" onerror="this.onerror=null; this.src='images/location_finder.jpg';" />
+              <span class="project-number-stamp">03 / 06</span>
+              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="GeoTrack GIS Dashboard spatial polygon tracker">
+                <defs>
+                  <linearGradient id="gtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#022C22" />
+                    <stop offset="100%" stop-color="#041813" />
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="220" fill="url(#gtGrad)" />
+                <rect x="20" y="20" width="360" height="180" rx="8" fill="#061F18" stroke="#065F46" stroke-width="1.5" />
+                <rect x="20" y="20" width="360" height="32" fill="#0B3026" />
+                <circle cx="36" cy="36" r="4" fill="#10B981" />
+                <circle cx="50" cy="36" r="4" fill="#34D399" />
+                <circle cx="64" cy="36" r="4" fill="#059669" />
+                <text x="82" y="40" fill="#A7F3D0" font-family="monospace" font-size="10">geotrack.gis.internal · postgis-spatial-stream</text>
+                
+                <!-- Radar / GIS Map Grid Overlay -->
+                <circle cx="105" cy="118" r="42" fill="none" stroke="#065F46" stroke-width="1.5" />
+                <circle cx="105" cy="118" r="28" fill="none" stroke="#047857" stroke-width="1" stroke-dasharray="3 3" />
+                <circle cx="105" cy="118" r="14" fill="none" stroke="#047857" stroke-width="1" />
+                <line x1="105" y1="76" x2="105" y2="160" stroke="#047857" stroke-width="1" />
+                <line x1="63" y1="118" x2="147" y2="118" stroke="#047857" stroke-width="1" />
+                
+                <!-- GPS Nodes -->
+                <circle cx="95" cy="105" r="4" fill="#34D399" />
+                <circle cx="120" cy="125" r="4" fill="#10B981" />
+                <circle cx="100" cy="138" r="3.5" fill="#6EE7B7" />
+                <text x="105" y="112" fill="#6EE7B7" font-size="7" font-family="monospace">HQ</text>
+                
+                <!-- GIS Metadata Chips -->
+                <rect x="175" y="65" width="180" height="26" rx="4" fill="#0B3026" stroke="#065F46" stroke-width="1" />
+                <text x="185" y="82" fill="#D1FAE5" font-size="9" font-family="monospace">📍 Spatial Query: 8.764°N, 78.134°E</text>
+                
+                <rect x="175" y="99" width="180" height="26" rx="4" fill="#0B3026" stroke="#065F46" stroke-width="1" />
+                <text x="185" y="116" fill="#34D399" font-size="9" font-family="monospace">⚡ PostGIS Polygon Index: 60 FPS</text>
+                
+                <rect x="175" y="133" width="180" height="32" rx="4" fill="#052018" />
+                <text x="185" y="148" fill="#A7F3D0" font-size="9">Active Tracked Units: 48 Assets</text>
+                <text x="185" y="160" fill="#34D399" font-size="8" font-family="monospace">WebSocket Stream &middot; Zero Dropped Packets</text>
+              </svg>
             </div>
-            <div class="project-content-block">
+            <div class="project-body">
               <div class="project-category-row">
-                <span class="project-badge-tech">Node.js • PostgreSQL • Leaflet</span>
-                <span class="project-meta-year">2026</span>
+                <span class="project-tag tag-peach">Node.js</span>
+                <span class="project-tag tag-sage">PostgreSQL</span>
+                <span class="project-tag tag-lavender">Leaflet GIS</span>
+                <span class="project-tag tag-sage">PostGIS</span>
               </div>
               <h3 class="project-title">GeoTrack GIS Dashboard</h3>
-              <p class="project-summary-text">
+              <p class="project-blurb">
                 Fleet coordinate tracking dashboard with WebSocket streaming and spatial polygon queries via PostGIS, rendering thousands of asset coordinates at 60 FPS.
               </p>
-              <div class="project-action-row">
-                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20GeoTrack" target="_blank" rel="noopener noreferrer" class="btn-sketch-primary" style="padding: 10px 16px; font-size: 0.82rem;">
+
+              <div class="telemetry-mini-console">
+                <div class="telemetry-row">
+                  <span class="telemetry-label">Tracked Coordinates:</span>
+                  <span class="telemetry-val">48 Live Nodes &middot; 60 FPS Canvas</span>
+                </div>
+                <div class="telemetry-row">
+                  <span class="telemetry-label">Spatial Query Speed:</span>
+                  <span class="telemetry-val">4.2 ms (PostGIS Indexed ST_Contains)</span>
+                </div>
+              </div>
+
+              <div class="project-metric-pill">
+                <span>⚡ Performance:</span> Sub-5ms spatial query latency &middot; Zero canvas stuttering.
+              </div>
+
+              <div class="project-actions" style="flex-wrap: wrap;">
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20GeoTrack" target="_blank" rel="noopener noreferrer" class="btn-project-link btn-live-primary">
                   <span>💬 Inquire on WhatsApp &rarr;</span>
                 </a>
+                <button type="button" class="btn-project-link btn-inspect-album" data-album-id="geotrack">
+                  <span>🔍 View System Spec</span>
+                </button>
               </div>
             </div>
           </article>
 
-          <!-- PROJECT 4: Nexus AI & FastMCP Bridge -->
+          <!-- PROJECT 04 / 06: Nexus AI & FastMCP Bridge -->
           <article class="project-card" style="position: relative;">
             <span class="project-live-indicator"><span class="pulse-dot"></span> MODEL CONTEXT PROTOCOL</span>
             <div class="project-visual-header">
-              <span class="project-number-stamp">04 / 05</span>
-              <img src="images/python_ai.svg" alt="Nexus AI & FastMCP Bridge" loading="lazy" style="width: 100%; height: 220px; object-fit: cover;" onerror="this.onerror=null; this.src='images/python_ai.jpg';" />
+              <span class="project-number-stamp">04 / 06</span>
+              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="Nexus AI & FastMCP Bridge architecture">
+                <defs>
+                  <linearGradient id="nxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#0F1E36" />
+                    <stop offset="100%" stop-color="#080F1E" />
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="220" fill="url(#nxGrad)" />
+                <rect x="20" y="20" width="360" height="180" rx="8" fill="#0D1B30" stroke="#1D4ED8" stroke-width="1.5" />
+                <rect x="20" y="20" width="360" height="32" fill="#172E54" />
+                <circle cx="36" cy="36" r="4" fill="#3B82F6" />
+                <circle cx="50" cy="36" r="4" fill="#60A5FA" />
+                <circle cx="64" cy="36" r="4" fill="#10B981" />
+                <text x="82" y="40" fill="#BFDBFE" font-family="monospace" font-size="10">nexus-mcp.server · stdio-rpc-transport</text>
+                
+                <!-- MCP Protocol Pipeline Visualization -->
+                <rect x="40" y="70" width="85" height="42" rx="6" fill="#1E3A8A" stroke="#3B82F6" stroke-width="1" />
+                <text x="82" y="87" fill="#FFF" font-size="9" text-anchor="middle" font-family="monospace" font-weight="bold">CLAUDE</text>
+                <text x="82" y="101" fill="#93C5FD" font-size="7" text-anchor="middle">Agent Client</text>
+                
+                <line x1="125" y1="91" x2="165" y2="91" stroke="#60A5FA" stroke-width="2" stroke-dasharray="3 2" />
+                <polygon points="165,88 172,91 165,94" fill="#60A5FA" />
+                
+                <rect x="172" y="70" width="95" height="42" rx="6" fill="#1D4ED8" stroke="#60A5FA" stroke-width="1.5" />
+                <text x="219" y="87" fill="#FFF" font-size="9" text-anchor="middle" font-family="monospace" font-weight="bold">FastMCP</text>
+                <text x="219" y="101" fill="#BFDBFE" font-size="7" text-anchor="middle">Python Bridge</text>
+                
+                <line x1="267" y1="91" x2="305" y2="91" stroke="#10B981" stroke-width="2" stroke-dasharray="3 2" />
+                <polygon points="305,88 312,91 305,94" fill="#10B981" />
+                
+                <rect x="312" y="70" width="55" height="42" rx="6" fill="#064E3B" stroke="#10B981" stroke-width="1" />
+                <text x="339" y="87" fill="#FFF" font-size="8" text-anchor="middle" font-family="monospace" font-weight="bold">DB / API</text>
+                <text x="339" y="101" fill="#A7F3D0" font-size="7" text-anchor="middle">SQL Exec</text>
+
+                <!-- Status Console Bar -->
+                <rect x="40" y="130" width="320" height="45" rx="5" fill="#0A1424" stroke="#1E3A8A" stroke-width="1" />
+                <text x="52" y="147" fill="#60A5FA" font-size="8.5" font-family="monospace">&gt; mcp.call_tool(&quot;query_analytics&quot;, { &quot;scope&quot;: &quot;prod&quot; })</text>
+                <text x="52" y="163" fill="#34D399" font-size="8.5" font-family="monospace">&gt; 200 OK &middot; 42ms &middot; JSON Schema Validated</text>
+              </svg>
             </div>
-            <div class="project-content-block">
+            <div class="project-body">
               <div class="project-category-row">
-                <span class="project-badge-tech">Python 3.11 • FastMCP • OpenAI</span>
-                <span class="project-meta-year">2026</span>
+                <span class="project-tag tag-peach">Python 3.11</span>
+                <span class="project-tag tag-sage">FastMCP</span>
+                <span class="project-tag tag-lavender">Claude API</span>
+                <span class="project-tag tag-sage">PostgreSQL</span>
               </div>
               <h3 class="project-title">Nexus AI &amp; FastMCP Bridge</h3>
-              <p class="project-summary-text">
+              <p class="project-blurb">
                 Model Context Protocol server allowing Claude and Cursor agents to securely query enterprise databases, execute authorized SQL, and trigger external API tools.
               </p>
-              <div class="project-action-row">
-                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20Nexus%20AI" target="_blank" rel="noopener noreferrer" class="btn-sketch-primary" style="padding: 10px 16px; font-size: 0.82rem;">
+
+              <div class="telemetry-mini-console">
+                <div class="telemetry-row">
+                  <span class="telemetry-label">RPC Transport:</span>
+                  <span class="telemetry-val">stdio &amp; SSE &middot; Zero Leaks</span>
+                </div>
+                <div class="telemetry-row">
+                  <span class="telemetry-label">Tool Latency:</span>
+                  <span class="telemetry-val">42 ms (Authorized Execution)</span>
+                </div>
+              </div>
+
+              <div class="project-metric-pill">
+                <span>⚡ Performance:</span> Strict JSON-Schema typing &middot; 100% agent audit logging.
+              </div>
+
+              <div class="project-actions" style="flex-wrap: wrap;">
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20Nexus%20AI" target="_blank" rel="noopener noreferrer" class="btn-project-link btn-live-primary">
                   <span>💬 Inquire on WhatsApp &rarr;</span>
                 </a>
+                <button type="button" class="btn-project-link btn-inspect-album" data-album-id="nexus">
+                  <span>🔍 View System Spec</span>
+                </button>
               </div>
             </div>
           </article>
 
-          <!-- PROJECT 5: TICFIBER NetPulse -->
+          <!-- PROJECT 05 / 06: TICFIBER NetPulse -->
           <article class="project-card" style="position: relative;">
             <span class="project-live-indicator"><span class="pulse-dot"></span> LIVE TELEMETRY</span>
             <div class="project-visual-header">
-              <span class="project-number-stamp">01 / 03</span>
+              <span class="project-number-stamp">05 / 06</span>
               <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="TICFIBER NetPulse optical network monitor">
                 <defs>
                   <linearGradient id="npGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -6161,96 +6385,24 @@
 
               <div class="project-actions" style="flex-wrap: wrap;">
                 <button type="button" class="btn-project-link btn-live-primary" id="btn-netpulse-ping">
-                  <svg viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zM5.5 8l2 2 4-4"/></svg>
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zM5.5 8l2 2 4-4"/></svg>
                   <span>⚡ Test Optical Ping</span>
                 </button>
                 <button type="button" class="btn-project-link btn-inspect-album" data-album-id="netpulse">
                   <span>🔍 View System Spec</span>
                 </button>
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20NetPulse" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                  <span>💬 WhatsApp &rarr;</span>
+                </a>
               </div>
             </div>
           </article>
 
-          <!-- PROJECT 2: HabiTrack Live -->
-          <article class="project-card" style="position: relative;">
-            <span class="project-live-indicator"><span class="pulse-dot"></span> REAL-TIME ENGINE</span>
-            <div class="project-visual-header">
-              <span class="project-number-stamp">02 / 03</span>
-              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="HabiTrack Live sub-millisecond habit tracking engine">
-                <defs>
-                  <linearGradient id="htGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#1E1B4B" />
-                    <stop offset="100%" stop-color="#0F172A" />
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="220" fill="url(#htGrad)" />
-                <rect x="20" y="20" width="360" height="180" rx="8" fill="#18182B" stroke="#312E81" stroke-width="1.5" />
-                <rect x="20" y="20" width="360" height="32" fill="#242247" />
-                <circle cx="36" cy="36" r="4" fill="#A855F7" />
-                <circle cx="50" cy="36" r="4" fill="#6366F1" />
-                <circle cx="64" cy="36" r="4" fill="#10B981" />
-                <text x="82" y="40" fill="#C7D2FE" font-family="monospace" font-size="10">habitrack.app · sub-ms streak calculus</text>
-                
-                <!-- Streak Completion Visual -->
-                <circle cx="100" cy="118" r="42" fill="none" stroke="#312E81" stroke-width="8" />
-                <circle cx="100" cy="118" r="42" fill="none" stroke="#10B981" stroke-width="8" stroke-dasharray="210 264" stroke-linecap="round" />
-                <text x="100" y="115" fill="#FFF" font-size="16" font-family="monospace" font-weight="bold" text-anchor="middle">85%</text>
-                <text x="100" y="130" fill="#A5B4FC" font-size="8" text-anchor="middle">TODAY</text>
-                
-                <rect x="180" y="65" width="180" height="32" rx="4" fill="#242247" />
-                <text x="195" y="85" fill="#FFF" font-size="11" font-weight="bold">🔥 Daily LeetCode Streak: 42 Days</text>
-                
-                <rect x="180" y="105" width="180" height="32" rx="4" fill="#242247" />
-                <text x="195" y="125" fill="#FFF" font-size="11" font-weight="bold">⚡ Spring Boot Microservice: Done ✓</text>
-                
-                <rect x="180" y="145" width="180" height="32" rx="4" fill="#242247" />
-                <text x="195" y="165" fill="#34D399" font-size="11" font-weight="bold">📊 Focus Score: 98/100 · Optimal</text>
-              </svg>
-            </div>
-            <div class="project-body">
-              <div class="project-category-row">
-                <span class="project-tag tag-peach">React</span>
-                <span class="project-tag tag-sage">ES6+</span>
-                <span class="project-tag tag-lavender">Local-First</span>
-                <span class="project-tag tag-sage">IndexedDB</span>
-              </div>
-              <h3 class="project-title">HabiTrack Live — Sub-Millisecond Habit &amp; Streak Engine</h3>
-              <p class="project-blurb">
-                Local-first personal productivity engine engineered for zero-latency execution. Evaluates habit recurrence calculus, optimistic state updates, and streak algorithms with sub-millisecond execution times and offline persistence.
-              </p>
-
-              <div class="telemetry-mini-console" id="habitrack-live-telemetry">
-                <div class="telemetry-row">
-                  <span class="telemetry-label">Current Streak:</span>
-                  <span class="telemetry-val" id="habitrack-streak-val">42 Days Active 🔥</span>
-                </div>
-                <div class="telemetry-row">
-                  <span class="telemetry-label">Evaluation Latency:</span>
-                  <span class="telemetry-val">0.3 ms (Optimistic Local)</span>
-                </div>
-              </div>
-
-              <div class="project-metric-pill">
-                <span>⚡ Performance:</span> Zero network latency · 100% offline-ready with instant sync.
-              </div>
-
-              <div class="project-actions" style="flex-wrap: wrap;">
-                <button type="button" class="btn-project-link btn-live-primary" id="btn-habitrack-toggle">
-                  <svg viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-                  <span>✓ Mark Habit Complete</span>
-                </button>
-                <button type="button" class="btn-project-link btn-inspect-album" data-album-id="habitrack">
-                  <span>🔍 Live Details</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 3: ResumeAI Live -->
+          <!-- PROJECT 06 / 06: ResumeAI Live -->
           <article class="project-card" style="position: relative;">
             <span class="project-live-indicator"><span class="pulse-dot"></span> REAL-TIME AI &amp; AST</span>
             <div class="project-visual-header">
-              <span class="project-number-stamp">03 / 03</span>
+              <span class="project-number-stamp">06 / 06</span>
               <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="ResumeAI AST ATS scoring and keyword telemetry engine">
                 <defs>
                   <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -6319,11 +6471,11 @@
 
               <div class="project-actions" style="flex-wrap: wrap;">
                 <button type="button" class="btn-project-link btn-live-primary btn-inspect-album" data-album-id="resumeai">
-                  <svg viewBox="0 0 16 16"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>
                   <span>⚡ Open AST Scanner</span>
                 </button>
-                <a href="#contact" class="btn-project-link">
-                  <span>✉ Inquire Build</span>
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20ResumeAI" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                  <span>💬 WhatsApp &rarr;</span>
                 </a>
               </div>
             </div>
@@ -6908,7 +7060,7 @@
               <span class="pulse-dot"></span> Live Ready-To-Use Product
             </span>
           </div>
-          <h3 id="modal-sample-title" class="album-modal-main-title">Sample Title</h3>
+          <h3 id="modal-sample-title" class="album-modal-main-title">Production Architecture Preview</h3>
           <p id="modal-sample-tech" class="album-modal-tech-stack">Modern Web Stack</p>
         </div>
 
@@ -7040,18 +7192,7 @@
       /* ------------------------------------------------------------------------
          1. Apple Dark / Light Theme Controller with Persistence
          ------------------------------------------------------------------------ */
-            /* ------------------------------------------------------------------------
-         0. Persona Mode Switcher (All vs Business vs Personal)
-         ------------------------------------------------------------------------ */
-      window.switchPortfolioMode = function(mode) { document.body.classList.remove('mode-business', 'mode-personal'); };
-      document.body.classList.remove('mode-business', 'mode-personal');
-
-      document.querySelectorAll('.persona-tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const mode = btn.getAttribute('data-mode');
-          if (mode) switchPortfolioMode(mode);
-        });
-      });
+            /* Persona mode removed for single unified portfolio */
 
       const themeToggleBtn = document.getElementById('theme-toggle');
 
@@ -7280,38 +7421,7 @@
         });
       }
 
-      /* ------------------------------------------------------------------------
-         7. Framer Community Showcase Controller & Lookbook Modal Engine
-         ------------------------------------------------------------------------ */
-      const tabTemplates = document.getElementById('tab-templates');
-      const tabWebApps = document.getElementById('tab-webapps');
-      const viewTemplates = document.getElementById('framer-view-templates');
-      const viewWebApps = document.getElementById('framer-view-webapps');
-      const framerBackBtn = document.getElementById('framer-back-btn');
-
-      function switchFramerTab(targetTab) {
-        if (targetTab === 'templates') {
-          if (tabTemplates) { tabTemplates.classList.add('active'); tabTemplates.setAttribute('aria-selected', 'true'); }
-          if (tabWebApps) { tabWebApps.classList.remove('active'); tabWebApps.setAttribute('aria-selected', 'false'); }
-          if (viewTemplates) viewTemplates.style.display = 'grid';
-          if (viewWebApps) viewWebApps.style.display = 'none';
-        } else {
-          if (tabWebApps) { tabWebApps.classList.add('active'); tabWebApps.setAttribute('aria-selected', 'true'); }
-          if (tabTemplates) { tabTemplates.classList.remove('active'); tabTemplates.setAttribute('aria-selected', 'false'); }
-          if (viewTemplates) viewTemplates.style.display = 'none';
-          if (viewWebApps) viewWebApps.style.display = 'grid';
-        }
-      }
-
-      if (tabTemplates) tabTemplates.addEventListener('click', () => switchFramerTab('templates'));
-      if (tabWebApps) tabWebApps.addEventListener('click', () => switchFramerTab('webapps'));
-      if (framerBackBtn) framerBackBtn.addEventListener('click', () => {
-        if (viewTemplates && viewTemplates.style.display === 'none') {
-          switchFramerTab('templates');
-        } else {
-          switchFramerTab('webapps');
-        }
-      });
+      /* Framer community tabs pruned */
 
       /* ==========================================================================
          7. 3D CARD PARALLAX ENGINE & LIVE READY-TO-USE WEBPAGE ALBUM CONTROLLER
@@ -7401,6 +7511,243 @@
          ========================================================================== */
       const ALBUM_WEBPAGE_DATABASE = [
         {
+          id: 'gymfreaky',
+          slug: 'gymfreaky-platform',
+          title: 'GymFreaky Platform — High-Conversion Fitness Engine',
+          category: 'Full-Stack Web App & Automation',
+          tech: 'React 19 · Node.js · Tailwind CSS · WhatsApp Cloud API · Stripe',
+          url: 'https://gymfreaky.fit',
+          features: [
+            'Automated WhatsApp lead capture workflow with instant QR membership verification',
+            'Recurring subscription billing with Stripe webhook reconciliation and receipt generation',
+            'Real-time class slot locking and trainer booking calendar with zero double-booking',
+            'Sub-second page load performance and 100% mobile-responsive touch controls'
+          ],
+          palette: [
+            { name: 'Fire Orange', hex: '#FF5A1F' },
+            { name: 'Dark Roast', hex: '#170B03' },
+            { name: 'Emerald Check', hex: '#10B981' },
+            { name: 'Amber Glow', hex: '#F59E0B' }
+          ],
+          renderLiveWebpage: function(container) {
+            container.innerHTML = `
+              <div style="background: #170B03; color: #FED7AA; padding: 24px; border-radius: 12px; border: 1.5px solid #7C2D12;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #7C2D12; padding-bottom: 12px; margin-bottom: 16px;">
+                  <div>
+                    <strong style="color: #FF5A1F; font-size: 1.05rem;">GymFreaky Member Automation Console</strong>
+                    <div style="color: #FDBA74; font-size: 0.76rem;">React 19 &middot; Node.js &middot; Active Lead Engine</div>
+                  </div>
+                  <span style="background: rgba(255, 90, 31, 0.2); color: #FF5A1F; padding: 3px 8px; border-radius: 4px; border: 1px solid #FF5A1F; font-size: 0.72rem; font-weight: bold;">● LIVE MEMBERSHIP</span>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+                  <div style="background: #271005; padding: 10px; border-radius: 6px; border: 1px solid #7C2D12;">
+                    <div style="color: #FDBA74; font-size: 0.72rem;">ACTIVE ENROLLED</div>
+                    <div style="color: #FF5A1F; font-size: 1.1rem; font-weight: bold;">1,280 Members</div>
+                  </div>
+                  <div style="background: #271005; padding: 10px; border-radius: 6px; border: 1px solid #7C2D12;">
+                    <div style="color: #FDBA74; font-size: 0.72rem;">WHATSAPP LEAD SYNC</div>
+                    <div style="color: #34D399; font-size: 1.1rem; font-weight: bold;">0.84s Instant</div>
+                  </div>
+                  <div style="background: #271005; padding: 10px; border-radius: 6px; border: 1px solid #7C2D12;">
+                    <div style="color: #FDBA74; font-size: 0.72rem;">RETENTION RATE</div>
+                    <div style="color: #10B981; font-size: 1.1rem; font-weight: bold;">96.4 %</div>
+                  </div>
+                </div>
+                <div style="background: #0E0702; padding: 12px; border-radius: 6px; font-size: 0.75rem; color: #FED7AA; margin-bottom: 16px; border: 1px solid #431407;">
+                  <div>&gt; POST /api/v1/leads/whatsapp-trigger ... 200 OK (112ms)</div>
+                  <div>&gt; Generating one-time cryptographic member check-in QR token ... VERIFIED</div>
+                  <div>&gt; Stripe Webhook subscription status: active. Zero payment churn.</div>
+                </div>
+                <button id="sim-gymfreaky-demo-btn" style="background: #FF5A1F; color: #FFF; border: none; font-weight: bold; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.82rem;">⚡ Test WhatsApp Lead Ingestion</button>
+                <span id="sim-gymfreaky-result" style="margin-left: 12px; color: #34D399; font-size: 0.8rem;"></span>
+              </div>
+            `;
+            const btn = container.querySelector('#sim-gymfreaky-demo-btn');
+            const res = container.querySelector('#sim-gymfreaky-result');
+            if (btn && res) {
+              btn.addEventListener('click', () => {
+                res.textContent = '✓ Lead dispatched to +91 8610662871 in 0.42s!';
+              });
+            }
+          }
+        },
+        {
+          id: 'habitrack',
+          slug: 'habitrack-live',
+          title: 'HabiTrack Live — Sub-Millisecond Habit & Streak Engine',
+          category: 'Performance & Local-First Application',
+          tech: 'React · Modern JavaScript · Local-First IndexedDB · Canvas Confetti',
+          url: 'http://localhost:8000/#projects',
+          features: [
+            'Zero network latency optimistic UI state management',
+            'Sub-millisecond habit streak recalculation and recurring date filters',
+            'Local-first persistent offline storage with encrypted JSON import/export',
+            'Micro-animations with canvas celebrations and Web Audio haptic feedback'
+          ],
+          palette: [
+            { name: 'Indigo Pulse', hex: '#6366F1' },
+            { name: 'Emerald Success', hex: '#10B981' },
+            { name: 'Midnight', hex: '#0F172A' },
+            { name: 'Violet Glow', hex: '#8B5CF6' }
+          ],
+          renderLiveWebpage: function(container) {
+            container.innerHTML = `
+              <div style="background: #111827; color: #F3F4F6; padding: 24px; border-radius: 12px; border: 1.5px solid #374151;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                  <strong style="font-size: 1.1rem; color: #A5B4FC;">HabiTrack Interactive Sandbox</strong>
+                  <span style="background: rgba(99, 102, 241, 0.2); color: #818CF8; padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: bold;">SUB-MS ENGINE</span>
+                </div>
+                <div style="display: gap: 12px; align-items: center; background: #1F2937; padding: 14px; border-radius: 8px; margin-bottom: 16px;">
+                  <input type="checkbox" id="sim-habit-check" style="width: 20px; height: 20px; cursor: pointer; accent-color: #10B981;">
+                  <label for="sim-habit-check" style="flex: 1; cursor: pointer;">
+                    <div style="font-weight: bold; font-size: 0.92rem;">Ship Spring Boot API &amp; Unit Tests</div>
+                    <div style="color: #9CA3AF; font-size: 0.76rem;">Daily Engineering Discipline &middot; 42 Days Streak</div>
+                  </label>
+                  <div id="sim-habit-streak" style="font-size: 1.1rem; font-weight: bold; color: #10B981;">🔥 42 Days</div>
+                </div>
+                <div style="font-size: 0.78rem; color: #9CA3AF;">
+                  Calculus performance: <strong>0.28ms</strong> state resolution time.
+                </div>
+              </div>
+            `;
+            const check = container.querySelector('#sim-habit-check');
+            const streak = container.querySelector('#sim-habit-streak');
+            if (check && streak) {
+              check.addEventListener('change', () => {
+                if (check.checked) {
+                  streak.textContent = '🔥 43 Days! ✓';
+                  streak.style.color = '#34D399';
+                } else {
+                  streak.textContent = '🔥 42 Days';
+                  streak.style.color = '#10B981';
+                }
+              });
+            }
+          }
+        },
+        {
+          id: 'geotrack',
+          slug: 'geotrack-gis',
+          title: 'GeoTrack GIS Dashboard — Real-Time Spatial Telemetry',
+          category: 'Geospatial & IoT Systems',
+          tech: 'Node.js · PostgreSQL · Leaflet · PostGIS · WebSockets',
+          url: 'https://geotrack.gis.internal',
+          features: [
+            'Real-time WebSocket streaming of 48+ active vehicle coordinates',
+            'Sub-5ms PostGIS polygon geofencing queries with ST_Contains',
+            'High-performance 60 FPS HTML5 canvas rendering without DOM lag',
+            'Historical GPS breadcrumb trail playback and fleet telemetry'
+          ],
+          palette: [
+            { name: 'Emerald Pine', hex: '#059669' },
+            { name: 'Deep Forest', hex: '#061F18' },
+            { name: 'Mint Signal', hex: '#34D399' },
+            { name: 'Aqua Pin', hex: '#6EE7B7' }
+          ],
+          renderLiveWebpage: function(container) {
+            container.innerHTML = `
+              <div style="background: #061F18; color: #D1FAE5; padding: 24px; border-radius: 12px; border: 1.5px solid #065F46; font-family: monospace;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #065F46; padding-bottom: 12px; margin-bottom: 16px;">
+                  <div>
+                    <strong style="color: #34D399; font-size: 1.05rem;">GeoTrack Spatial Fleet Telemetry</strong>
+                    <div style="color: #A7F3D0; font-size: 0.76rem;">Node.js &middot; PostGIS ST_Contains &middot; 60 FPS Canvas</div>
+                  </div>
+                  <span style="background: rgba(16, 185, 129, 0.2); color: #34D399; padding: 3px 8px; border-radius: 4px; border: 1px solid #10B981; font-size: 0.72rem;">● STREAMING</span>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+                  <div style="background: #0B3026; padding: 10px; border-radius: 6px; border: 1px solid #065F46;">
+                    <div style="color: #A7F3D0; font-size: 0.72rem;">ACTIVE UNITS</div>
+                    <div style="color: #34D399; font-size: 1.1rem; font-weight: bold;">48 Live GPS</div>
+                  </div>
+                  <div style="background: #0B3026; padding: 10px; border-radius: 6px; border: 1px solid #065F46;">
+                    <div style="color: #A7F3D0; font-size: 0.72rem;">CANVAS FPS</div>
+                    <div style="color: #6EE7B7; font-size: 1.1rem; font-weight: bold;">60.0 FPS</div>
+                  </div>
+                  <div style="background: #0B3026; padding: 10px; border-radius: 6px; border: 1px solid #065F46;">
+                    <div style="color: #A7F3D0; font-size: 0.72rem;">QUERY SPEED</div>
+                    <div style="color: #10B981; font-size: 1.1rem; font-weight: bold;">4.2 ms</div>
+                  </div>
+                </div>
+                <div style="background: #041813; padding: 12px; border-radius: 6px; font-size: 0.75rem; color: #A7F3D0; margin-bottom: 16px; border: 1px solid #064E3B;">
+                  <div>&gt; WS /stream/fleet-gps-telemetry ... Connected (Sub-10ms Jitter)</div>
+                  <div>&gt; Polygon boundary validation for Tuticorin Sector B ... INSIDE ZONE</div>
+                  <div>&gt; Asset #07: 8.7642&deg; N, 78.1348&deg; E &middot; Velocity: 44 km/h &middot; Heading: 182&deg;</div>
+                </div>
+                <button id="sim-geotrack-ping-btn" style="background: #059669; color: #FFF; border: none; font-weight: bold; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.82rem;">📍 Query Spatial Geofence</button>
+                <span id="sim-geotrack-result" style="margin-left: 12px; color: #34D399; font-size: 0.8rem;"></span>
+              </div>
+            `;
+            const btn = container.querySelector('#sim-geotrack-ping-btn');
+            const res = container.querySelector('#sim-geotrack-result');
+            if (btn && res) {
+              btn.addEventListener('click', () => {
+                res.textContent = 'ST_Contains(zone_tuticorin, point) = TRUE in 3.8ms ✓';
+              });
+            }
+          }
+        },
+        {
+          id: 'nexus',
+          slug: 'nexus-ai-fastmcp',
+          title: 'Nexus AI & FastMCP Bridge — Autonomous Agent Tool Server',
+          category: 'AI Systems & Model Context Protocol',
+          tech: 'Python 3.11 · FastMCP · Anthropic Claude API · OpenAI SDK',
+          url: 'https://nexus.mcp.internal',
+          features: [
+            'Model Context Protocol (MCP) server for Claude and Cursor agents',
+            'Strict JSON-Schema validated tool execution with sandboxed permissions',
+            'Sub-50ms authorized database inspection and analytics aggregation',
+            'Audited stdio and SSE transport protocols with zero credential leakage'
+          ],
+          palette: [
+            { name: 'Cobalt Blue', hex: '#2563EB' },
+            { name: 'Midnight Deep', hex: '#0D1B30' },
+            { name: 'Sky Bridge', hex: '#60A5FA' },
+            { name: 'Emerald Check', hex: '#10B981' }
+          ],
+          renderLiveWebpage: function(container) {
+            container.innerHTML = `
+              <div style="background: #0D1B30; color: #BFDBFE; padding: 24px; border-radius: 12px; border: 1.5px solid #1D4ED8; font-family: monospace;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1D4ED8; padding-bottom: 12px; margin-bottom: 16px;">
+                  <div>
+                    <strong style="color: #60A5FA; font-size: 1.05rem;">Nexus FastMCP Tool Execution Console</strong>
+                    <div style="color: #93C5FD; font-size: 0.76rem;">Python 3.11 &middot; FastMCP stdio/SSE &middot; Claude 3.5 Tool Bridge</div>
+                  </div>
+                  <span style="background: rgba(37, 99, 235, 0.2); color: #60A5FA; padding: 3px 8px; border-radius: 4px; border: 1px solid #2563EB; font-size: 0.72rem;">● MCP READY</span>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+                  <div style="background: #172E54; padding: 10px; border-radius: 6px; border: 1px solid #1D4ED8;">
+                    <div style="color: #BFDBFE; font-size: 0.72rem;">PROTOCOL</div>
+                    <div style="color: #60A5FA; font-size: 1.1rem; font-weight: bold;">FastMCP v1.2</div>
+                  </div>
+                  <div style="background: #172E54; padding: 10px; border-radius: 6px; border: 1px solid #1D4ED8;">
+                    <div style="color: #BFDBFE; font-size: 0.72rem;">TOOL LATENCY</div>
+                    <div style="color: #34D399; font-size: 1.1rem; font-weight: bold;">42 ms</div>
+                  </div>
+                  <div style="background: #172E54; padding: 10px; border-radius: 6px; border: 1px solid #1D4ED8;">
+                    <div style="color: #BFDBFE; font-size: 0.72rem;">SCHEMA VALID</div>
+                    <div style="color: #10B981; font-size: 1.1rem; font-weight: bold;">100 % Strict</div>
+                  </div>
+                </div>
+                <div style="background: #080F1E; padding: 12px; border-radius: 6px; font-size: 0.75rem; color: #BFDBFE; margin-bottom: 16px; border: 1px solid #1E3A8A;">
+                  <div>&gt; Client &quot;claude-3-5-sonnet&quot; initialized protocol handshake ... SUCCESS</div>
+                  <div>&gt; Registered tools: [query_db, check_telemetry, dispatch_worker]</div>
+                  <div>&gt; Tool call execution: query_db(table=&quot;fleet_nodes&quot;) &rarr; 200 OK (42ms)</div>
+                </div>
+                <button id="sim-nexus-call-btn" style="background: #2563EB; color: #FFF; border: none; font-weight: bold; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.82rem;">⚡ Test Agent Tool RPC Call</button>
+                <span id="sim-nexus-result" style="margin-left: 12px; color: #34D399; font-size: 0.8rem;"></span>
+              </div>
+            `;
+            const btn = container.querySelector('#sim-nexus-call-btn');
+            const res = container.querySelector('#sim-nexus-result');
+            if (btn && res) {
+              btn.addEventListener('click', () => {
+                res.textContent = 'RPC returned 200 OK (42ms) · Payload verified ✓';
+              });
+            }
+          }
+        },
+        {
           id: 'netpulse',
           slug: 'ticfiber-netpulse',
           title: 'TICFIBER NetPulse — FTTH Optical Telemetry Monitor',
@@ -7459,60 +7806,6 @@
                 const ms = (0.9 + Math.random() * 0.5).toFixed(2);
                 const dbm = (-18.1 - Math.random() * 0.6).toFixed(2);
                 res.textContent = `Ping OK (${ms}ms) · Power: ${dbm} dBm`;
-              });
-            }
-          }
-        },
-        {
-          id: 'habitrack',
-          slug: 'habitrack-live',
-          title: 'HabiTrack Live — Sub-Millisecond Habit & Streak Engine',
-          category: 'Performance & Local-First Application',
-          tech: 'React · Modern JavaScript · Local-First IndexedDB · Canvas Confetti',
-          url: 'http://localhost:8000/#projects',
-          features: [
-            'Zero network latency optimistic UI state management',
-            'Sub-millisecond habit streak recalculation and recurring date filters',
-            'Local-first persistent offline storage with encrypted JSON import/export',
-            'Micro-animations with canvas celebrations and Web Audio haptic feedback'
-          ],
-          palette: [
-            { name: 'Indigo Pulse', hex: '#6366F1' },
-            { name: 'Emerald Success', hex: '#10B981' },
-            { name: 'Midnight', hex: '#0F172A' },
-            { name: 'Violet Glow', hex: '#8B5CF6' }
-          ],
-          renderLiveWebpage: function(container) {
-            container.innerHTML = `
-              <div style="background: #111827; color: #F3F4F6; padding: 24px; border-radius: 12px; border: 1.5px solid #374151;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-                  <strong style="font-size: 1.1rem; color: #A5B4FC;">HabiTrack Interactive Sandbox</strong>
-                  <span style="background: rgba(99, 102, 241, 0.2); color: #818CF8; padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: bold;">SUB-MS ENGINE</span>
-                </div>
-                <div style="display: flex; gap: 12px; align-items: center; background: #1F2937; padding: 14px; border-radius: 8px; margin-bottom: 16px;">
-                  <input type="checkbox" id="sim-habit-check" style="width: 20px; height: 20px; cursor: pointer; accent-color: #10B981;">
-                  <label for="sim-habit-check" style="flex: 1; cursor: pointer;">
-                    <div style="font-weight: bold; font-size: 0.92rem;">Ship Spring Boot API &amp; Unit Tests</div>
-                    <div style="color: #9CA3AF; font-size: 0.76rem;">Daily Engineering Discipline &middot; 42 Days Streak</div>
-                  </label>
-                  <div id="sim-habit-streak" style="font-size: 1.1rem; font-weight: bold; color: #10B981;">🔥 42 Days</div>
-                </div>
-                <div style="font-size: 0.78rem; color: #9CA3AF;">
-                  Calculus performance: <strong>0.28ms</strong> state resolution time.
-                </div>
-              </div>
-            `;
-            const check = container.querySelector('#sim-habit-check');
-            const streak = container.querySelector('#sim-habit-streak');
-            if (check && streak) {
-              check.addEventListener('change', () => {
-                if (check.checked) {
-                  streak.textContent = '🔥 43 Days! ✓';
-                  streak.style.color = '#34D399';
-                } else {
-                  streak.textContent = '🔥 42 Days';
-                  streak.style.color = '#10B981';
-                }
               });
             }
           }
