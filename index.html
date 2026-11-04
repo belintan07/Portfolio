@@ -4825,7 +4825,445 @@
         margin: 0 auto 32px auto;
       }
     }
+  
+    /* ==========================================================================
+       SERVICES & CAPABILITIES SECTION
+       ========================================================================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 2px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-orange);
+      box-shadow: var(--sketch-shadow);
+    }
+
+    [data-theme="dark"] .service-card {
+      background: #141722;
+      border-color: #272B3C;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .service-card:hover {
+      border-color: var(--accent-orange);
+      box-shadow: 0 8px 24px rgba(255, 90, 31, 0.15);
+    }
+
+    .service-num-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--bg-alt);
+      border: 1.5px solid var(--border-light);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+
+    [data-theme="dark"] .service-num-badge {
+      background: #1A1E2C;
+      border-color: #2E3347;
+      color: #FFF;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .service-tech-pill {
+      margin-top: 20px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-light);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent-orange);
+    }
+
+    [data-theme="dark"] .service-tech-pill {
+      border-top-color: #262A3B;
+    }
+
+    /* ==========================================================================
+       PRICING PACKAGES SECTION
+       ========================================================================== */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: var(--surface);
+      border: 2px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 32px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sketch-shadow);
+    }
+
+    [data-theme="dark"] .pricing-card {
+      background: #141722;
+      border-color: #272B3C;
+    }
+
+    .pricing-card.featured-card {
+      border: 2.5px solid var(--accent-orange);
+      box-shadow: var(--sketch-shadow);
+    }
+
+    [data-theme="dark"] .pricing-card.featured-card {
+      box-shadow: 0 8px 30px rgba(255, 90, 31, 0.2);
+    }
+
+    .pricing-card-badge {
+      position: absolute;
+      top: -13px;
+      left: 24px;
+      background: var(--accent-orange);
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: 6px;
+    }
+
+    .pricing-tagline {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pricing-tier-name {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--text);
+      margin-top: 4px;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .pricing-amount-box {
+      margin-bottom: 20px;
+    }
+
+    .pricing-price-main {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+
+    .pricing-price-sub {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-subtle);
+      margin-top: 2px;
+    }
+
+    .pricing-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px 0;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    [data-theme="dark"] .pricing-features-list {
+      border-top-color: #262A3B;
+    }
+
+    .pricing-features-list li {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pricing-features-list li::before {
+      content: '✓';
+      color: var(--accent-orange);
+      font-weight: bold;
+    }
+
+    .btn-pricing-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      background: var(--bg-alt);
+      color: var(--text);
+      border: 1.5px solid var(--border-light);
+    }
+
+    .btn-pricing-cta:hover {
+      background: var(--text);
+      color: var(--bg) !important;
+      border-color: var(--text);
+    }
+
+    .btn-pricing-cta.featured {
+      background: var(--accent-orange);
+      color: #FFFFFF !important;
+      border-color: var(--accent-orange);
+    }
+
+    .btn-pricing-cta.featured:hover {
+      background: var(--accent-orange-hover);
+      border-color: var(--accent-orange-hover);
+    }
+
+    /* ==========================================================================
+       PROJECT COST ESTIMATOR SECTION
+       ========================================================================== */
+    .estimator-container {
+      max-width: 860px;
+      margin: 40px auto 0;
+      background: var(--surface);
+      border: 2.5px solid var(--border-ink);
+      border-radius: var(--radius-md);
+      padding: clamp(24px, 4vw, 42px);
+      box-shadow: var(--sketch-shadow-lg);
+    }
+
+    [data-theme="dark"] .estimator-container {
+      background: #141722;
+      border-color: #2E3347;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+    }
+
+    .estimator-group-title {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-subtle);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .estimator-select {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      border: 2px solid var(--border-light);
+      background: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    [data-theme="dark"] .estimator-select {
+      background: #0E1018;
+      border-color: #272B3C;
+    }
+
+    .estimator-select:focus {
+      border-color: var(--accent-orange);
+    }
+
+    .estimator-addons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .estimator-addon-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border-light);
+      background: var(--bg-alt);
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    [data-theme="dark"] .estimator-addon-label {
+      background: #191D2B;
+      border-color: #2A2F42;
+    }
+
+    .estimator-addon-label:hover {
+      border-color: var(--accent-orange);
+      transform: translateY(-1px);
+    }
+
+    .estimator-addon-label input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent-orange);
+      cursor: pointer;
+    }
+
+    .estimator-footer-bar {
+      padding-top: 24px;
+      border-top: 1.5px solid var(--border-light);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    [data-theme="dark"] .estimator-footer-bar {
+      border-top-color: #262A3B;
+    }
+
+    .estimator-output-val {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+
+    /* Capabilities Strip in Hero */
+    .capabilities-strip {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1.5px solid var(--border-light);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      width: 100%;
+    }
+
+    @media (min-width: 640px) {
+      .capabilities-strip {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    [data-theme="dark"] .capabilities-strip {
+      border-top-color: #262A3B;
+    }
+
+    .cap-item-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .cap-item-sub {
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      color: var(--text-subtle);
+      margin-top: 2px;
+    }
+
+    /* Direct WhatsApp button style */
+    .btn-whatsapp-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: #FFFFFF !important;
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 800;
+      padding: 13px 22px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-whatsapp-cta:hover {
+      background: #1EBE5D;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+    }
+
   </style>
+
+  <!-- Schema.org JSON-LD Structured Data for Full-Stack Freelance Software Engineer -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Belintan B.",
+    "url": "https://belintan.dev",
+    "jobTitle": "Full-Stack Freelance Software Engineer",
+    "telephone": "+918610662871",
+    "email": "belintan07@gmail.com",
+    "sameAs": [
+      "https://github.com/belintan07",
+      "https://www.linkedin.com/in/belintanben"
+    ]
+  }
+  </script>
+
 </head>
 
 <body>
@@ -4853,10 +5291,11 @@
       <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
         <a href="#hero">Profile</a>
         <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Real-Time Projects</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#estimator">Estimator</a>
         <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -4883,6 +5322,9 @@
           <span>Start Project</span>
         </a>
 
+        <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" class="apple-nav-cta" style="background: #25D366; border-color: #25D366; color: #FFF !important; display: inline-flex; align-items: center; gap: 6px;" title="Chat directly with Belintan on WhatsApp">
+          <span>WhatsApp &rarr;</span>
+        </a>
         <button class="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" id="mobile-toggle">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
             stroke-linejoin="round">
@@ -4973,7 +5415,7 @@
 
           <!-- Bold Main Headline (Apple-level Clarity + 5-Second Visitor Comprehension) -->
           <h1 class="biz-hero-title" id="hero-heading">
-            Crafted with precision.<br /><span class="biz-gradient-text">Engineered for scale.</span>
+            Brands with a pulse,<br /><span class="biz-gradient-text">not just a logo.</span>
           </h1>
 
           <p class="hero-role-title" style="margin-bottom: 14px; font-size: 1.15rem; color: var(--text); font-weight: 700;">
@@ -4982,7 +5424,7 @@
 
           <!-- 1-Line Description (5-Second Comprehension) -->
           <p class="biz-hero-subtitle">
-            MBA graduate and certified frontend developer combining business understanding with hands-on technical skills. Building reliable applications with Java, Spring Boot, and PostgreSQL, responsive React interfaces, and AI-powered web solutions.
+            Hi, I'm <strong style="color: var(--text);">Belintan</strong> &mdash; an MBA graduate, certified frontend developer, and backend software engineer. Combining business strategy with technical execution, I build conversion-focused web applications, Node.js/Java APIs, and Python AI &amp; Model Context Protocol (MCP) tooling that scale businesses.
           </p>
 
           <!-- Dual High-Impact Action Buttons (One Obvious Main Action Above Fold) -->
@@ -4996,6 +5438,14 @@
                 <line x1="12" y1="5" x2="12" y2="19"></line>
                 <polyline points="19 12 12 19 5 12"></polyline>
               </svg>
+            </a>
+
+            <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-cta" aria-label="Book Call on WhatsApp">
+              <span>💬 Book Call on WhatsApp</span>
+            </a>
+
+            <a href="#estimator" class="btn-sketch-secondary" style="padding: 13px 20px; text-decoration: none;" aria-label="Calculate Project Quote">
+              <span>📊 Calculate Quote</span>
             </a>
 
             
@@ -5045,7 +5495,26 @@
               <div class="biz-metric-desc">Strategic Management &middot; Alagappa Univ.</div>
             </div>
           </div>
-              
+
+          <!-- Honest Capabilities Strip -->
+          <div class="capabilities-strip" aria-label="Core Technical Capabilities">
+            <div>
+              <div class="cap-item-title">Full-Stack Web</div>
+              <div class="cap-item-sub">React 19 &amp; Vite</div>
+            </div>
+            <div>
+              <div class="cap-item-title">Node &amp; Python</div>
+              <div class="cap-item-sub">APIs &amp; MCP Servers</div>
+            </div>
+            <div>
+              <div class="cap-item-title">MBA Strategy</div>
+              <div class="cap-item-sub">Conversion Focused</div>
+            </div>
+            <div>
+              <div class="cap-item-title" style="color: var(--accent-orange);">Clean Delivery</div>
+              <div class="cap-item-sub">Git &amp; CI/CD Pipelines</div>
+            </div>
+          </div>
 
         </div>
         <!-- Right Profile Column -->
@@ -5106,6 +5575,104 @@
         </div>
       </div>
     </section>
+
+    <!-- ==========================================================================
+         SERVICES & CAPABILITIES SECTION
+         ========================================================================== -->
+    <section class="section services-section" id="services" data-track="both" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="sketch-chapter-badge">[ 02 · SERVICES &amp; CAPABILITIES ]</div>
+        <h2 class="section-title" id="services-heading">
+          Web Engineering &amp; Growth Services
+        </h2>
+        <p class="section-subtitle">
+          From high-performance web applications to custom MCP AI servers, marketing creatives, and search engine authority.
+        </p>
+
+        <div class="services-grid">
+          <!-- 01 Modern Web Apps -->
+          <div class="service-card">
+            <div>
+              <div class="service-num-badge">01</div>
+              <h3>Modern Web Apps</h3>
+              <p>High-performance React 19 and Tailwind web applications. Accessible, mobile-first, and ultra-fast.</p>
+            </div>
+            <div class="service-tech-pill">React 19 • Vite • Tailwind</div>
+          </div>
+
+          <!-- 02 Node.js Backends -->
+          <div class="service-card">
+            <div>
+              <div class="service-num-badge">02</div>
+              <h3>Node.js Backends &amp; APIs</h3>
+              <p>RESTful endpoints, PostgreSQL database schemas, JWT token authentication, and microservices.</p>
+            </div>
+            <div class="service-tech-pill">Node.js • Express • PostgreSQL</div>
+          </div>
+
+          <!-- 03 Python AI & Custom MCPs -->
+          <div class="service-card">
+            <div>
+              <div class="service-num-badge">03</div>
+              <h3>Python AI &amp; Custom MCPs</h3>
+              <p>Model Context Protocol servers, Claude and Cursor tool calling integrations, and automated pipelines.</p>
+            </div>
+            <div class="service-tech-pill">FastMCP • Python • Tooling</div>
+          </div>
+
+          <!-- 04 10 Advertising Posters -->
+          <div class="service-card">
+            <div>
+              <div class="service-num-badge">04</div>
+              <h3>10 Advertising Posters</h3>
+              <p>10 High-impact advertising creatives and promotional banners formatted for digital and print media.</p>
+            </div>
+            <div class="service-tech-pill">Print &amp; Digital Ready</div>
+          </div>
+
+          <!-- 05 10 Video Reels -->
+          <div class="service-card">
+            <div>
+              <div class="service-num-badge">05</div>
+              <h3>10 Social Video Reels</h3>
+              <p>10 Vertical 9:16 reels with animated typography, audio sound design, and retention-focused hooks.</p>
+            </div>
+            <div class="service-tech-pill">Instagram Reels • Shorts</div>
+          </div>
+
+          <!-- 06 2 Meta Campaigns -->
+          <div class="service-card">
+            <div>
+              <div class="service-num-badge">06</div>
+              <h3>2 Meta Ad Campaigns</h3>
+              <p>Targeted Facebook and Instagram advertising campaigns with audience modeling and Pixel tracking.</p>
+            </div>
+            <div class="service-tech-pill">Meta Ads • Conversion Setup</div>
+          </div>
+
+          <!-- 07 1 Month Off-Site SEO -->
+          <div class="service-card">
+            <div>
+              <div class="service-num-badge">07</div>
+              <h3>1 Month Off-Site SEO</h3>
+              <p>High-DA contextual link acquisition, local business citations, and Google Map Pack ranking boosts.</p>
+            </div>
+            <div class="service-tech-pill">Backlinks • Google Map Pack</div>
+          </div>
+
+          <!-- 08 API Integrations & Webhooks -->
+          <div class="service-card">
+            <div>
+              <div class="service-num-badge">08</div>
+              <h3>API Integrations &amp; Webhooks</h3>
+              <p>Third-party integrations with Stripe payments, Supabase databases, webhooks, and enterprise SaaS APIs.</p>
+            </div>
+            <div class="service-tech-pill">Stripe • Webhooks • Cloud</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
 <section class="section skills-section" id="skills" data-track="both" aria-labelledby="skills-heading">
       <div class="container">
@@ -5302,7 +5869,103 @@
 
         <div class="projects-grid">
 
-          <!-- PROJECT 1: TICFIBER NetPulse -->
+          <!-- PROJECT 1: GymFreaky Fitness Platform -->
+          <article class="project-card" style="position: relative;">
+            <span class="project-live-indicator"><span class="pulse-dot"></span> PRODUCTION READY</span>
+            <div class="project-visual-header">
+              <span class="project-number-stamp">01 / 05</span>
+              <img src="images/gymfreaky_mockup.svg" alt="GymFreaky Fitness Platform" loading="lazy" style="width: 100%; height: 220px; object-fit: cover;" onerror="this.onerror=null; this.src='images/gymfreaky_mockup.jpg';" />
+            </div>
+            <div class="project-content-block">
+              <div class="project-category-row">
+                <span class="project-badge-tech">React 19 • Node.js • Tailwind</span>
+                <span class="project-meta-year">2026</span>
+              </div>
+              <h3 class="project-title">GymFreaky Fitness Platform</h3>
+              <p class="project-summary-text">
+                High-conversion gym membership and class scheduling platform with automated WhatsApp lead capture, member subscription workflows, and mobile-optimized interfaces.
+              </p>
+              <div class="project-action-row">
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20GymFreaky" target="_blank" rel="noopener noreferrer" class="btn-sketch-primary" style="padding: 10px 16px; font-size: 0.82rem;">
+                  <span>💬 Inquire on WhatsApp &rarr;</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: HabiTrack Habit Streaks PWA -->
+          <article class="project-card" style="position: relative;">
+            <span class="project-live-indicator"><span class="pulse-dot"></span> PWA OFFLINE SYNC</span>
+            <div class="project-visual-header">
+              <span class="project-number-stamp">02 / 05</span>
+              <img src="images/habitrack_mockup.svg" alt="HabiTrack Habit Streaks PWA" loading="lazy" style="width: 100%; height: 220px; object-fit: cover;" onerror="this.onerror=null; this.src='images/habitrack_mockup.jpg';" />
+            </div>
+            <div class="project-content-block">
+              <div class="project-category-row">
+                <span class="project-badge-tech">PWA • React • IndexedDB</span>
+                <span class="project-meta-year">2026</span>
+              </div>
+              <h3 class="project-title">HabiTrack Habit Streaks PWA</h3>
+              <p class="project-summary-text">
+                Progressive web app built for offline habit tracking with IndexedDB client-side database, sub-millisecond local state sync, and background telemetry synchronization.
+              </p>
+              <div class="project-action-row">
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20HabiTrack" target="_blank" rel="noopener noreferrer" class="btn-sketch-primary" style="padding: 10px 16px; font-size: 0.82rem;">
+                  <span>💬 Inquire on WhatsApp &rarr;</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: GeoTrack GIS Dashboard -->
+          <article class="project-card" style="position: relative;">
+            <span class="project-live-indicator"><span class="pulse-dot"></span> POSTGIS SPATIAL</span>
+            <div class="project-visual-header">
+              <span class="project-number-stamp">03 / 05</span>
+              <img src="images/location_finder.svg" alt="GeoTrack GIS Dashboard" loading="lazy" style="width: 100%; height: 220px; object-fit: cover;" onerror="this.onerror=null; this.src='images/location_finder.jpg';" />
+            </div>
+            <div class="project-content-block">
+              <div class="project-category-row">
+                <span class="project-badge-tech">Node.js • PostgreSQL • Leaflet</span>
+                <span class="project-meta-year">2026</span>
+              </div>
+              <h3 class="project-title">GeoTrack GIS Dashboard</h3>
+              <p class="project-summary-text">
+                Fleet coordinate tracking dashboard with WebSocket streaming and spatial polygon queries via PostGIS, rendering thousands of asset coordinates at 60 FPS.
+              </p>
+              <div class="project-action-row">
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20GeoTrack" target="_blank" rel="noopener noreferrer" class="btn-sketch-primary" style="padding: 10px 16px; font-size: 0.82rem;">
+                  <span>💬 Inquire on WhatsApp &rarr;</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: Nexus AI & FastMCP Bridge -->
+          <article class="project-card" style="position: relative;">
+            <span class="project-live-indicator"><span class="pulse-dot"></span> MODEL CONTEXT PROTOCOL</span>
+            <div class="project-visual-header">
+              <span class="project-number-stamp">04 / 05</span>
+              <img src="images/python_ai.svg" alt="Nexus AI & FastMCP Bridge" loading="lazy" style="width: 100%; height: 220px; object-fit: cover;" onerror="this.onerror=null; this.src='images/python_ai.jpg';" />
+            </div>
+            <div class="project-content-block">
+              <div class="project-category-row">
+                <span class="project-badge-tech">Python 3.11 • FastMCP • OpenAI</span>
+                <span class="project-meta-year">2026</span>
+              </div>
+              <h3 class="project-title">Nexus AI &amp; FastMCP Bridge</h3>
+              <p class="project-summary-text">
+                Model Context Protocol server allowing Claude and Cursor agents to securely query enterprise databases, execute authorized SQL, and trigger external API tools.
+              </p>
+              <div class="project-action-row">
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20Nexus%20AI" target="_blank" rel="noopener noreferrer" class="btn-sketch-primary" style="padding: 10px 16px; font-size: 0.82rem;">
+                  <span>💬 Inquire on WhatsApp &rarr;</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 5: TICFIBER NetPulse -->
           <article class="project-card" style="position: relative;">
             <span class="project-live-indicator"><span class="pulse-dot"></span> LIVE TELEMETRY</span>
             <div class="project-visual-header">
@@ -5547,6 +6210,180 @@
       </div>
     </section>
 
+    <!-- ==========================================================================
+         TRANSPARENT FREELANCE PACKAGES SECTION
+         ========================================================================== -->
+    <section class="section pricing-section" id="pricing" data-track="both" aria-labelledby="pricing-heading">
+      <div class="container">
+        <div class="sketch-chapter-badge">[ 05 · PACKAGES &amp; INVESTMENT ]</div>
+        <h2 class="section-title" id="pricing-heading">
+          Transparent Freelance Packages
+        </h2>
+        <p class="section-subtitle">
+          Web design, software engineering, and digital growth marketing packages with clear deliverables.
+        </p>
+
+        <div class="pricing-grid">
+          <!-- Tier 1 -->
+          <div class="pricing-card">
+            <div>
+              <span class="pricing-tagline">Fast Launch</span>
+              <h3 class="pricing-tier-name">Starter Landing Page</h3>
+              <div class="pricing-amount-box">
+                <span class="pricing-price-main">₹4,999</span>
+                <span class="pricing-price-sub">(~$60 USD)</span>
+              </div>
+              <ul class="pricing-features-list">
+                <li>1 High-Converting Page</li>
+                <li>WhatsApp Lead Triggers</li>
+                <li>Mobile Responsive</li>
+                <li>3-5 Days Turnaround</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Starter%20Landing%20Page" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta">
+              <span>Book Starter Page &rarr;</span>
+            </a>
+          </div>
+
+          <!-- Tier 2 -->
+          <div class="pricing-card">
+            <div>
+              <span class="pricing-tagline">Multi-Page</span>
+              <h3 class="pricing-tier-name">Business Website</h3>
+              <div class="pricing-amount-box">
+                <span class="pricing-price-main">₹9,999</span>
+                <span class="pricing-price-sub">(~$120 USD)</span>
+              </div>
+              <ul class="pricing-features-list">
+                <li>Up to 6 Custom Pages</li>
+                <li>Complete On-Page SEO</li>
+                <li>Contact &amp; Quote Forms</li>
+                <li>7-10 Days Turnaround</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Business%20Website" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta">
+              <span>Book Business Site &rarr;</span>
+            </a>
+          </div>
+
+          <!-- Tier 3: Growth Bundle -->
+          <div class="pricing-card featured-card">
+            <div class="pricing-card-badge">GROWTH BUNDLE</div>
+            <div>
+              <span class="pricing-tagline" style="color: var(--accent-orange);">Complete Promotion</span>
+              <h3 class="pricing-tier-name">Marketing &amp; SEO Bundle</h3>
+              <div class="pricing-amount-box">
+                <span class="pricing-price-main">₹14,999</span>
+                <span class="pricing-price-sub">(~$180 USD • 1 Month)</span>
+              </div>
+              <ul class="pricing-features-list">
+                <li>10 Advertising Posters</li>
+                <li>10 Video Reels (9:16)</li>
+                <li>2 Meta Ad Campaigns</li>
+                <li>1 Month Off-Site SEO</li>
+                <li>Weekly Rank Reports</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Marketing%20and%20Growth%20Bundle" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta featured">
+              <span>Book Growth Bundle &rarr;</span>
+            </a>
+          </div>
+
+          <!-- Tier 4 -->
+          <div class="pricing-card">
+            <div>
+              <span class="pricing-tagline">Enterprise &amp; AI</span>
+              <h3 class="pricing-tier-name">Full-Stack &amp; AI Suite</h3>
+              <div class="pricing-amount-box">
+                <span class="pricing-price-main">Custom</span>
+                <span class="pricing-price-sub">(From ₹19,999 / ~$240 USD)</span>
+              </div>
+              <ul class="pricing-features-list">
+                <li>React and Node.js Backend</li>
+                <li>Custom Python MCP Server</li>
+                <li>Database &amp; Auth Architecture</li>
+                <li>Stripe &amp; Cloud Webhook Setup</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I'd%20like%20to%20discuss%20an%20Enterprise%20Retainer" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta">
+              <span>Discuss Custom Scope &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PROJECT COST ESTIMATOR SECTION
+         ========================================================================== -->
+    <section class="section estimator-section" id="estimator" data-track="both" aria-labelledby="estimator-heading">
+      <div class="container">
+        <div style="text-align: center; max-width: 640px; margin: 0 auto 30px;">
+          <div class="sketch-chapter-badge">[ 06 · CALCULATOR &amp; SCOPE ]</div>
+          <h2 class="section-title" id="estimator-heading" style="margin-top: 10px;">
+            Project Cost Estimator
+          </h2>
+          <p class="section-subtitle" style="margin: 0 auto;">
+            Select your requirements and calculate an immediate investment range.
+          </p>
+        </div>
+
+        <div class="estimator-container">
+          <div>
+            <label class="estimator-group-title" for="estimatorType">Base Architecture</label>
+            <select id="estimatorType" onchange="runCalculation()" class="estimator-select">
+              <option value="4999">Starter Landing Page (₹4,999 / ~$60 USD)</option>
+              <option value="9999" selected>Business Website (₹9,999 / ~$120 USD)</option>
+              <option value="14999">Marketing &amp; Growth Bundle (₹14,999 / ~$180 USD)</option>
+              <option value="19999">Full-Stack Web App (₹19,999 / ~$240 USD)</option>
+              <option value="14999">Python AI &amp; Custom MCP (₹14,999 / ~$180 USD)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="estimator-group-title">Add-on Capabilities</label>
+            <div class="estimator-addons-grid">
+              <label class="estimator-addon-label">
+                <input type="checkbox" value="5000" class="addon-check" onchange="runCalculation()" />
+                <span>API Integrations (+₹5,000)</span>
+              </label>
+              <label class="estimator-addon-label">
+                <input type="checkbox" value="7500" class="addon-check" onchange="runCalculation()" />
+                <span>Custom MCP Server (+₹7,500)</span>
+              </label>
+              <label class="estimator-addon-label">
+                <input type="checkbox" value="3500" class="addon-check" onchange="runCalculation()" />
+                <span>10 Ad Posters (+₹3,500)</span>
+              </label>
+              <label class="estimator-addon-label">
+                <input type="checkbox" value="5000" class="addon-check" onchange="runCalculation()" />
+                <span>10 Video Reels (+₹5,000)</span>
+              </label>
+              <label class="estimator-addon-label">
+                <input type="checkbox" value="4500" class="addon-check" onchange="runCalculation()" />
+                <span>2 Meta Campaigns (+₹4,500)</span>
+              </label>
+              <label class="estimator-addon-label">
+                <input type="checkbox" value="4000" class="addon-check" onchange="runCalculation()" />
+                <span>1 Mo Off-Site SEO (+₹4,000)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="estimator-footer-bar">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-subtle); display: block;">Calculated Estimate:</span>
+              <div class="estimator-output-val" id="estimateOutput">₹9,999 (~$120 USD)</div>
+            </div>
+            <button type="button" onclick="exportEstimateToWhatsApp()" class="btn-whatsapp-cta" style="border: none; cursor: pointer;">
+              <span>💬 Export Estimate to WhatsApp</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
 <section class="section experience-section" id="experience" data-track="both" aria-labelledby="experience-heading">
       <div class="container">
 
@@ -5744,10 +6581,12 @@
                 <div class="form-group-field">
                   <label for="project-type">Project Scope *</label>
                   <select id="project-type" name="projectType" class="sketch-select">
+                    <option value="Full-Stack &amp; AI Suite (React 19 + Node.js + Python MCP)">Full-Stack &amp; AI Suite (React 19 + Node + Python MCP)</option>
+                    <option value="Custom MCP Server &amp; AI Agent Tools">Custom MCP Server &amp; AI Agent Tools</option>
+                    <option value="Marketing &amp; Growth Bundle (10 Posters + 10 Videos + 2 Meta Ads + 1 Mo SEO)">Marketing &amp; Growth Bundle (₹14,999)</option>
+                    <option value="Business Website (Up to 6 Pages + SEO)">Business Website (₹9,999)</option>
+                    <option value="Starter Landing Page">Starter Landing Page (₹4,999)</option>
                     <option value="Real-Time Web Application / SaaS">Real-Time Web Application / SaaS</option>
-                    <option value="Product Design (Figma UI/UX)">Product Design (Figma UI/UX)</option>
-                    <option value="Front-End Development (React/Next.js)">Front-End Development (React/Next.js)</option>
-                    <option value="Full-Stack Web App (React + Java/Node)">Full-Stack Web App (React + Java/Node)</option>
                     <option value="Full-Time / Contract Role">Full-Time / Contract Opportunity</option>
                   </select>
                 </div>
@@ -5766,9 +6605,14 @@
                 <span class="field-error-msg" id="message-error">Please provide a brief message (at least 10 characters)</span>
               </div>
 
-              <button type="submit" id="contact-submit-btn" class="biz-btn-primary" style="width: 100%; justify-content: center; font-size: 1.05rem;">
-                <span id="btn-submit-text">Transmit Project Inquiry &rarr;</span>
-              </button>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 10px;">
+                <button type="submit" id="contact-submit-btn" class="biz-btn-primary" style="justify-content: center; font-size: 0.95rem;">
+                  <span id="btn-submit-text">✉ Transmit Project Inquiry &rarr;</span>
+                </button>
+                <button type="button" onclick="sendWhatsApp(event)" class="btn-whatsapp-cta" style="justify-content: center; font-size: 0.95rem; border: none; cursor: pointer;">
+                  <span>💬 Send on WhatsApp &rarr;</span>
+                </button>
+              </div>
             </form>
           </div>
 
@@ -7351,6 +8195,69 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
       }
 
       // Initialize cursor and backend playground
+      
+      /* ------------------------------------------------------------------------
+         Project Cost Estimator & WhatsApp Lead Triggers
+         ------------------------------------------------------------------------ */
+      /* ------------------------------------------------------------------------
+         Project Cost Estimator & WhatsApp Lead Triggers
+         ------------------------------------------------------------------------ */
+      window.runCalculation = function() {
+        const baseElem = document.getElementById('estimatorType');
+        if (!baseElem) return;
+        const base = parseInt(baseElem.value || 9999, 10);
+        const checkboxes = document.querySelectorAll('.addon-check:checked');
+        let addonTotal = 0;
+        checkboxes.forEach(cb => {
+          addonTotal += parseInt(cb.value, 10);
+        });
+        const total = base + addonTotal;
+        const usd = Math.round(total / 85);
+        const out = document.getElementById('estimateOutput');
+        if (out) {
+          out.innerText = '₹' + total.toLocaleString() + ' (~$' + usd + ' USD)';
+        }
+      };
+
+      window.exportEstimateToWhatsApp = function() {
+        const baseElem = document.getElementById('estimatorType');
+        if (!baseElem) return;
+        const typeText = baseElem.options[baseElem.selectedIndex].text;
+        const outElem = document.getElementById('estimateOutput');
+        const outText = outElem ? outElem.innerText : '';
+        const text = '*Freelance Project Estimate*\nTier: ' + typeText + '\nCalculated Price: ' + outText + '\n\nHi Belintan, let\'s schedule a kickoff call!';
+        window.open('https://wa.me/918610662871?text=' + encodeURIComponent(text), '_blank');
+      };
+
+      window.sendWhatsApp = function(event) {
+        if (event) event.preventDefault();
+        const nameInput = document.getElementById('user-name') || document.getElementById('nameInput');
+        const emailInput = document.getElementById('user-email') || document.getElementById('contactInput');
+        const scopeInput = document.getElementById('project-type') || document.getElementById('serviceSelect');
+        const timelineInput = document.getElementById('user-timeline');
+        const msgInput = document.getElementById('user-message') || document.getElementById('messageInput');
+        
+        const name = nameInput ? nameInput.value.trim() : '';
+        const contact = emailInput ? emailInput.value.trim() : '';
+        const scope = scopeInput ? scopeInput.value : 'General Freelance Project';
+        const timeline = timelineInput ? timelineInput.value.trim() : 'Immediate Kickoff';
+        const msg = msgInput ? msgInput.value.trim() : '';
+        
+        if (!name || !contact) {
+          alert('Please enter your name and email or phone number to connect on WhatsApp.');
+          return;
+        }
+
+        const text = '*New Project Inquiry*\n' +
+          '👤 Name: ' + name + '\n' +
+          '📞 Contact: ' + contact + '\n' +
+          '⚡ Service: ' + scope + '\n' +
+          '⏱ Timeline: ' + (timeline || 'Immediate') + '\n' +
+          '📝 Details: ' + (msg || 'Discussing project scope and deliverables');
+          
+        window.open('https://wa.me/918610662871?text=' + encodeURIComponent(text), '_blank');
+      };
+
       initCustomCursor();
       initBackendPlayground();
 
