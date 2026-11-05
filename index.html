@@ -3488,6 +3488,80 @@
       border-radius: var(--radius-pill);
     }
 
+    /* ==========================================================================
+       UNIFIED EXPERIENCE & ACADEMIC CREDENTIALS (SINGLE-PAGE SPLIT VIEW)
+       ========================================================================== */
+    .credentials-unified-grid {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: clamp(24px, 3.5vw, 40px);
+      align-items: start;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 960px) {
+      .credentials-unified-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    .credentials-col-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px dashed var(--border-light, #E2E8F0);
+    }
+
+    [data-theme="dark"] .credentials-col-header {
+      border-bottom-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .credentials-col-badge {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--accent-orange);
+      background: var(--bg-alt, #F8FAFC);
+      border: 1.5px solid var(--text);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      box-shadow: 1.5px 1.5px 0px var(--shadow-ink);
+    }
+
+    [data-theme="dark"] .credentials-col-badge {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .credentials-col-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .education-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .education-stack .edu-card {
+      margin-top: 0;
+    }
+
+    .credentials-unified-grid .timeline-container {
+      margin-top: 0;
+    }
+
+    .credentials-resume-wrap {
+      margin-top: 40px;
+    }
+
     /* Resume Download Banner */
     .resume-banner-card {
       margin-top: 64px;
@@ -5928,7 +6002,7 @@
           <a href="#hero" class="overlay-nav-item" data-index="01">
             <span class="overlay-item-num">01</span>
             <span class="overlay-item-text">Profile</span>
-            <span class="overlay-item-sub">Identity, MBA HR Credentials &amp; Bio</span>
+            <span class="overlay-item-sub">Identity, Background &amp; Bio</span>
           </a>
           <a href="#services" class="overlay-nav-item" data-index="02">
             <span class="overlay-item-num">02</span>
@@ -5940,8 +6014,18 @@
             <span class="overlay-item-text">Projects</span>
             <span class="overlay-item-sub">Real-Time Telemetry &amp; Offline PWA</span>
           </a>
-          <a href="#contact" class="overlay-nav-item" data-index="04">
+          <a href="#pricing" class="overlay-nav-item" data-index="04">
             <span class="overlay-item-num">04</span>
+            <span class="overlay-item-text">Packages &amp; Estimator</span>
+            <span class="overlay-item-sub">Fixed Tiers &amp; Interactive Cost Calculator</span>
+          </a>
+          <a href="#experience" class="overlay-nav-item" data-index="05">
+            <span class="overlay-item-num">05</span>
+            <span class="overlay-item-text">Experience &amp; Credentials</span>
+            <span class="overlay-item-sub">TICFIBER Support, Freelance &amp; MBA HR Degrees</span>
+          </a>
+          <a href="#contact" class="overlay-nav-item" data-index="06">
+            <span class="overlay-item-num">06</span>
             <span class="overlay-item-text">Contact</span>
             <span class="overlay-item-sub">Direct WhatsApp, Inquiries &amp; Instant Booking</span>
           </a>
@@ -6988,12 +7072,12 @@
          ========================================================================== -->
     <section class="section pricing-section" id="pricing" data-track="both" aria-labelledby="pricing-heading">
       <div class="container">
-        <div class="sketch-chapter-badge">[ 05 · PACKAGES &amp; INVESTMENT ]</div>
+        <div class="sketch-chapter-badge">[ 04 · PACKAGES &amp; PROJECT ESTIMATOR ]</div>
         <h2 class="section-title" id="pricing-heading">
-          Transparent Freelance Packages
+          Transparent Packages &amp; Interactive Scope Estimator
         </h2>
         <p class="section-subtitle">
-          Web design, software engineering, and digital growth marketing packages with clear deliverables.
+          Web design, software engineering, and digital growth marketing packages with an immediate investment calculator.
         </p>
 
         <div class="pricing-grid">
@@ -7083,202 +7167,209 @@
             </a>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ==========================================================================
-         PROJECT COST ESTIMATOR SECTION
-         ========================================================================== -->
-    <section class="section estimator-section" id="estimator" data-track="both" aria-labelledby="estimator-heading">
-      <div class="container">
-        <div style="text-align: center; max-width: 640px; margin: 0 auto 30px;">
-          <div class="sketch-chapter-badge">[ 06 · CALCULATOR &amp; SCOPE ]</div>
-          <h2 class="section-title" id="estimator-heading" style="margin-top: 10px;">
-            Project Cost Estimator
-          </h2>
-          <p class="section-subtitle" style="margin: 0 auto;">
-            Select your requirements and calculate an immediate investment range.
-          </p>
-        </div>
-
-        <div class="estimator-container">
-          <div>
-            <label class="estimator-group-title" for="estimatorType">Base Architecture</label>
-            <select id="estimatorType" onchange="runCalculation()" class="estimator-select">
-              <option value="4999">Starter Landing Page (₹4,999 / ~$60 USD)</option>
-              <option value="9999" selected>Business Website (₹9,999 / ~$120 USD)</option>
-              <option value="14999">Marketing &amp; Growth Bundle (₹14,999 / ~$180 USD)</option>
-              <option value="19999">Full-Stack Web App (₹19,999 / ~$240 USD)</option>
-              <option value="14999">Python AI &amp; Custom MCP (₹14,999 / ~$180 USD)</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="estimator-group-title">Add-on Capabilities</label>
-            <div class="estimator-addons-grid">
-              <label class="estimator-addon-label">
-                <input type="checkbox" value="5000" class="addon-check" onchange="runCalculation()" />
-                <span>API Integrations (+₹5,000)</span>
-              </label>
-              <label class="estimator-addon-label">
-                <input type="checkbox" value="7500" class="addon-check" onchange="runCalculation()" />
-                <span>Custom MCP Server (+₹7,500)</span>
-              </label>
-              <label class="estimator-addon-label">
-                <input type="checkbox" value="3500" class="addon-check" onchange="runCalculation()" />
-                <span>10 Ad Posters (+₹3,500)</span>
-              </label>
-              <label class="estimator-addon-label">
-                <input type="checkbox" value="5000" class="addon-check" onchange="runCalculation()" />
-                <span>10 Video Reels (+₹5,000)</span>
-              </label>
-              <label class="estimator-addon-label">
-                <input type="checkbox" value="4500" class="addon-check" onchange="runCalculation()" />
-                <span>2 Meta Campaigns (+₹4,500)</span>
-              </label>
-              <label class="estimator-addon-label">
-                <input type="checkbox" value="4000" class="addon-check" onchange="runCalculation()" />
-                <span>1 Mo Off-Site SEO (+₹4,000)</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="estimator-footer-bar">
-            <div>
-              <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-subtle); display: block;">Calculated Estimate:</span>
-              <div class="estimator-output-val" id="estimateOutput">₹9,999 (~$120 USD)</div>
-            </div>
-            <button type="button" onclick="exportEstimateToWhatsApp()" class="btn-whatsapp-cta" style="border: none; cursor: pointer;">
-              <span>💬 Export Estimate to WhatsApp</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-<section class="section experience-section" id="experience" data-track="both" aria-labelledby="experience-heading">
-      <div class="container">
-
-        <div class="sketch-chapter-badge">[ 05 · CAREER HISTORY ]</div>
-        <h2 class="section-title" id="experience-heading">
-          Professional Experience
-        </h2>
-        <p class="section-subtitle">
-          Demonstrated history of driving technical innovation, design maturity, and measurable commercial value.
-        </p>
-
-        <div class="timeline-container">
-          <div class="timeline-spine"></div>
-
-          <!-- Role 1: TICFIBER -->
-          <div class="timeline-entry">
-            <div class="timeline-node"></div>
-            <div class="timeline-content-card">
-              <div class="timeline-header-meta">
-                <h3 class="timeline-role-title">Customer Care &amp; Network Technical Support (Backend)</h3>
-                <span class="timeline-period-badge">May 2025 — Present</span>
-              </div>
-              <p class="timeline-company-txt">TICFIBER · Tuticorin, Tamil Nadu, India</p>
-              <ul class="timeline-bullet-list">
-                <li><strong>Customer Care &amp; Client Satisfaction:</strong> Provide empathetic, high-touch customer care and technical assistance to high-priority fiber broadband clients, listening actively to user issues and resolving inquiries to maximize client satisfaction and retention.</li>
-                <li><strong>Incident Diagnosis &amp; Root Cause Analysis (RCA):</strong> Triage incoming service tickets, diagnose network latency and optical attenuation threshold alarms, and coordinate rapid technician dispatch for first-contact resolution.</li>
-                <li><strong>Backend Systems &amp; Monitoring:</strong> Build and maintain dependable backend services and operational telemetry tools using Java, Spring Boot, Hibernate, and PostgreSQL.</li>
-                <li><strong>Defect Prevention &amp; Unit Testing:</strong> Author automated unit and regression test suites with JUnit and Mockito to catch edge cases early and ensure rock-solid service stability.</li>
-                <li><strong>Client Advocacy &amp; Team Communication:</strong> Serve as the primary liaison between non-technical end-users, field operations, and engineering teams, turning user feedback into actionable software fixes.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Role 2: Freelance Web Developer -->
-          <div class="timeline-entry">
-            <div class="timeline-node"></div>
-            <div class="timeline-content-card">
-              <div class="timeline-header-meta">
-                <h3 class="timeline-role-title">Freelance Web Developer</h3>
-                <span class="timeline-period-badge">Ongoing Engagements</span>
-              </div>
-              <p class="timeline-company-txt">AI-Powered Web Solutions for Clients · Remote</p>
-              <ul class="timeline-bullet-list">
-                <li>Design and build websites and full-stack web applications that meet client requirements.</li>
-                <li>Use AI-powered tools to speed up development and deliver practical solutions to clients.</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-<section class="section education-section" id="education" data-track="both" aria-labelledby="education-heading">
-      <div class="container">
-
-        <div class="sketch-chapter-badge">[ 06 · ACADEMICS &amp; CERTIFICATIONS ]</div>
-        <h2 class="section-title" id="education-heading">
-          Academic Foundations &amp; Credentials
-        </h2>
-        <p class="section-subtitle">
-          Rigorous academic grounding combined with industry-standard professional certifications.
-        </p>
-
-        <div class="education-grid">
-
-          <div class="edu-card">
-            <span class="edu-year-stamp">2024 — 2026</span>
-            <h3 class="edu-degree-title">MBA, Human Resources</h3>
-            <p class="edu-institution">Alagappa University, Centre for Distance and Online Education, Karaikudi</p>
-            <span class="edu-badge-tag">Human Resources &amp; Business Management</span>
-          </div>
-
-          <div class="edu-card">
-            <span class="edu-year-stamp">2023</span>
-            <h3 class="edu-degree-title">Bachelor of Business Administration (BBA)</h3>
-            <p class="edu-institution">Kamaraj College</p>
-            <span class="edu-badge-tag">Business Administration &amp; Systems</span>
-          </div>
-
-          <div class="edu-card">
-            <span class="edu-year-stamp">Certified</span>
-            <h3 class="edu-degree-title">Certified Frontend Developer</h3>
-            <p class="edu-institution">Industry-Recognized Specialization</p>
-            <span class="edu-badge-tag">React, Modern JavaScript &amp; Web Standards</span>
-          </div>
-
-        </div>
-
-        <!-- Resume Download Banner -->
-        <div class="resume-banner-card">
-          <div class="resume-banner-text">
-            <h3>Need a structured copy for your recruitment pipeline?</h3>
-            <p>
-              Download Belintan's comprehensive single-page executive resume containing technical credentials, project
-              breakdowns, and professional references.
+        <!-- Integrated Scope & Budget Calculator within single Packages & Estimator page -->
+        <div id="estimator" style="scroll-margin-top: 90px; margin-top: 56px; padding-top: 40px; border-top: 2px dashed var(--border-light, #E2E8F0);">
+          <div style="text-align: center; max-width: 640px; margin: 0 auto 30px;">
+            <span class="credentials-col-badge" style="display: inline-block; margin-bottom: 8px;">⚙️ Dynamic Calculator</span>
+            <h3 class="section-title" id="estimator-heading" style="font-size: clamp(1.4rem, 2.5vw, 1.85rem); margin-top: 6px;">
+              Project Cost Estimator
+            </h3>
+            <p class="section-subtitle" style="margin: 0 auto;">
+              Select your requirements and calculate an immediate investment range.
             </p>
           </div>
-          <div class="resume-btn-group">
-            <button id="banner-download-pdf-btn" class="btn-sketch-primary">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              Download Belintan_B_Resume.pdf
-            </button>
-            <button onclick="window.print()" class="btn-sketch-secondary">
-              Print / Save as PDF
-            </button>
+
+          <div class="estimator-container">
+            <div>
+              <label class="estimator-group-title" for="estimatorType">Base Architecture</label>
+              <select id="estimatorType" onchange="runCalculation()" class="estimator-select">
+                <option value="4999">Starter Landing Page (₹4,999 / ~$60 USD)</option>
+                <option value="9999" selected>Business Website (₹9,999 / ~$120 USD)</option>
+                <option value="14999">Marketing &amp; Growth Bundle (₹14,999 / ~$180 USD)</option>
+                <option value="19999">Full-Stack Web App (₹19,999 / ~$240 USD)</option>
+                <option value="14999">Python AI &amp; Custom MCP (₹14,999 / ~$180 USD)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="estimator-group-title">Add-on Capabilities</label>
+              <div class="estimator-addons-grid">
+                <label class="estimator-addon-label">
+                  <input type="checkbox" value="5000" class="addon-check" onchange="runCalculation()" />
+                  <span>API Integrations (+₹5,000)</span>
+                </label>
+                <label class="estimator-addon-label">
+                  <input type="checkbox" value="7500" class="addon-check" onchange="runCalculation()" />
+                  <span>Custom MCP Server (+₹7,500)</span>
+                </label>
+                <label class="estimator-addon-label">
+                  <input type="checkbox" value="3500" class="addon-check" onchange="runCalculation()" />
+                  <span>10 Ad Posters (+₹3,500)</span>
+                </label>
+                <label class="estimator-addon-label">
+                  <input type="checkbox" value="5000" class="addon-check" onchange="runCalculation()" />
+                  <span>10 Video Reels (+₹5,000)</span>
+                </label>
+                <label class="estimator-addon-label">
+                  <input type="checkbox" value="4500" class="addon-check" onchange="runCalculation()" />
+                  <span>2 Meta Campaigns (+₹4,500)</span>
+                </label>
+                <label class="estimator-addon-label">
+                  <input type="checkbox" value="4000" class="addon-check" onchange="runCalculation()" />
+                  <span>1 Mo Off-Site SEO (+₹4,000)</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="estimator-footer-bar">
+              <div>
+                <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-subtle); display: block;">Calculated Estimate:</span>
+                <div class="estimator-output-val" id="estimateOutput">₹9,999 (~$120 USD)</div>
+              </div>
+              <button type="button" onclick="exportEstimateToWhatsApp()" class="btn-whatsapp-cta" style="border: none; cursor: pointer;">
+                <span>💬 Export Estimate to WhatsApp</span>
+              </button>
+            </div>
           </div>
         </div>
 
       </div>
     </section>
 
-<section class="section contact-section" id="contact" data-track="both" aria-labelledby="contact-heading">
+    <section class="section experience-section" id="experience" data-track="both" aria-labelledby="experience-heading">
       <div class="container">
 
-        <div class="sketch-chapter-badge">[ 07 · INQUIRIES &amp; ENGAGEMENTS ]</div>
+        <div class="sketch-chapter-badge">[ 05 · EXPERIENCE &amp; ACADEMIC CREDENTIALS ]</div>
+        <h2 class="section-title" id="experience-heading">
+          Experience &amp; Academic Credentials
+        </h2>
+        <p class="section-subtitle">
+          Field-tested telecommunications customer care &amp; software engineering backed by business management degrees and professional certifications.
+        </p>
+
+        <!-- Hidden anchor so any #education bookmarks or links scroll here seamlessly -->
+        <div id="education" style="scroll-margin-top: 90px;"></div>
+
+        <!-- 2-Column Responsive Grid: Left Career History, Right Academic Degrees -->
+        <div class="credentials-unified-grid">
+          
+          <!-- Column 1: Career Timeline -->
+          <div class="credentials-col-experience">
+            <div class="credentials-col-header">
+              <span class="credentials-col-badge">💼 Career Timeline</span>
+              <h3 class="credentials-col-title">Professional Experience</h3>
+            </div>
+
+            <div class="timeline-container">
+              <div class="timeline-spine"></div>
+
+              <!-- Role 1: TICFIBER -->
+              <div class="timeline-entry">
+                <div class="timeline-node"></div>
+                <div class="timeline-content-card">
+                  <div class="timeline-header-meta">
+                    <h3 class="timeline-role-title">Customer Care &amp; Network Technical Support (Backend)</h3>
+                    <span class="timeline-period-badge">May 2025 — Present</span>
+                  </div>
+                  <p class="timeline-company-txt">TICFIBER · Tuticorin, Tamil Nadu, India</p>
+                  <ul class="timeline-bullet-list">
+                    <li><strong>Customer Care &amp; Client Satisfaction:</strong> Provide empathetic, high-touch customer care and technical assistance to high-priority fiber broadband clients, listening actively to user issues and resolving inquiries to maximize client satisfaction and retention.</li>
+                    <li><strong>Incident Diagnosis &amp; Root Cause Analysis (RCA):</strong> Triage incoming service tickets, diagnose network latency and optical attenuation threshold alarms, and coordinate rapid technician dispatch for first-contact resolution.</li>
+                    <li><strong>Backend Systems &amp; Monitoring:</strong> Build and maintain dependable backend services and operational telemetry tools using Java, Spring Boot, Hibernate, and PostgreSQL.</li>
+                    <li><strong>Defect Prevention &amp; Unit Testing:</strong> Author automated unit and regression test suites with JUnit and Mockito to catch edge cases early and ensure rock-solid service stability.</li>
+                    <li><strong>Client Advocacy &amp; Team Communication:</strong> Serve as the primary liaison between non-technical end-users, field operations, and engineering teams, turning user feedback into actionable software fixes.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Role 2: Freelance Web Developer -->
+              <div class="timeline-entry">
+                <div class="timeline-node"></div>
+                <div class="timeline-content-card">
+                  <div class="timeline-header-meta">
+                    <h3 class="timeline-role-title">Freelance Web Developer</h3>
+                    <span class="timeline-period-badge">Ongoing Engagements</span>
+                  </div>
+                  <p class="timeline-company-txt">AI-Powered Web Solutions for Clients · Remote</p>
+                  <ul class="timeline-bullet-list">
+                    <li>Design and build websites and full-stack web applications that meet client requirements.</li>
+                    <li>Use AI-powered tools to speed up development and deliver practical solutions to clients.</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Column 2: Academic Degrees & Certifications -->
+          <div class="credentials-col-education">
+            <div class="credentials-col-header">
+              <span class="credentials-col-badge">🎓 Degrees &amp; Certifications</span>
+              <h3 class="credentials-col-title" id="education-heading">Academic Foundations</h3>
+            </div>
+
+            <div class="education-stack">
+
+              <div class="edu-card">
+                <span class="edu-year-stamp">2024 — 2026</span>
+                <h3 class="edu-degree-title">MBA, Human Resources</h3>
+                <p class="edu-institution">Alagappa University, Centre for Distance and Online Education, Karaikudi</p>
+                <span class="edu-badge-tag">Human Resources &amp; Business Management</span>
+              </div>
+
+              <div class="edu-card">
+                <span class="edu-year-stamp">2023</span>
+                <h3 class="edu-degree-title">Bachelor of Business Administration (BBA)</h3>
+                <p class="edu-institution">Kamaraj College</p>
+                <span class="edu-badge-tag">Business Administration &amp; Systems</span>
+              </div>
+
+              <div class="edu-card">
+                <span class="edu-year-stamp">Certified</span>
+                <h3 class="edu-degree-title">Certified Frontend Developer</h3>
+                <p class="edu-institution">Industry-Recognized Specialization</p>
+                <span class="edu-badge-tag">React, Modern JavaScript &amp; Web Standards</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Full-Width Single-Page Resume Download Banner -->
+        <div class="credentials-resume-wrap">
+          <div class="resume-banner-card">
+            <div class="resume-banner-text">
+              <h3>Need a structured copy for your recruitment pipeline?</h3>
+              <p>
+                Download Belintan's comprehensive single-page executive resume containing technical credentials, customer care leadership, project breakdowns, and professional references.
+              </p>
+            </div>
+            <div class="resume-btn-group">
+              <button id="banner-download-pdf-btn" class="btn-sketch-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Download Belintan_B_Resume.pdf
+              </button>
+              <button onclick="window.print()" class="btn-sketch-secondary">
+                Print / Save as PDF
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact" data-track="both" aria-labelledby="contact-heading">
+      <div class="container">
+
+        <div class="sketch-chapter-badge">[ 06 · INQUIRIES &amp; ENGAGEMENTS ]</div>
         <h2 class="section-title" id="contact-heading">
           Let's Build Something Memorable
         </h2>
