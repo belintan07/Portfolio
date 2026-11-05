@@ -5398,7 +5398,423 @@
       }
     }
 
-  </style>
+  
+
+/* ==========================================================================
+   REACT BITS PRO NAVBAR 13: CENTERED LOGO NAVBAR WITH OVERLAY MENU
+   ========================================================================== */
+
+/* Header Container */
+.site-header.navbar-13-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1.5px solid var(--border-light, #E2E8F0);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .site-header.navbar-13-header {
+  background: rgba(13, 14, 18, 0.92);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-header.navbar-13-header.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .site-header.navbar-13-header.scrolled {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* 3-Column Inner Layout for Centered Logo */
+.navbar-13-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+  position: relative;
+  gap: 16px;
+}
+
+/* Left Navigation Column */
+.navbar-13-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Center Brand Logo Column */
+.navbar-13-center {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Right Navigation & Controls Column */
+.navbar-13-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.navbar-13-links-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-right: 6px;
+}
+
+/* Desktop Navigation Link Styling */
+.nav-13-link {
+  text-decoration: none;
+  color: var(--text);
+  font-family: var(--font-display, sans-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding: 6px 2px;
+  transition: color 0.2s ease;
+}
+
+.nav-13-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background: var(--accent-orange, #FF5A1F);
+  border-radius: 2px;
+  transition: width 0.22s ease;
+}
+
+.nav-13-link:hover {
+  color: var(--accent-orange, #FF5A1F);
+}
+
+.nav-13-link:hover::after,
+.nav-13-link.active::after {
+  width: 100%;
+}
+
+/* WhatsApp Nav Pill */
+.nav-13-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #25D366;
+  border: 1.5px solid #20BA5A;
+  color: #FFFFFF !important;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-13-whatsapp-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+}
+
+/* Overlay Menu Trigger Button */
+.navbar-13-menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1.5px solid var(--border-light, #E2E8F0);
+  color: var(--text);
+  padding: 7px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] .navbar-13-menu-toggle {
+  background: rgba(26, 28, 36, 0.9);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #F8FAFC;
+}
+
+.navbar-13-menu-toggle:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+  transform: scale(1.03);
+}
+
+[data-theme="dark"] .navbar-13-menu-toggle:hover {
+  background: #FFFFFF;
+  color: #0F172A;
+  border-color: #FFFFFF;
+}
+
+.menu-burger-icon {
+  width: 16px;
+  height: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.burger-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.navbar-13-menu-toggle.open .bar-top {
+  transform: translateY(5px) rotate(45deg);
+}
+
+.navbar-13-menu-toggle.open .bar-bot {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   FULL-SCREEN OVERLAY MENU
+   ========================================================================== */
+.navbar-13-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(24px, 4vw, 48px) clamp(24px, 6vw, 80px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-16px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] .navbar-13-overlay {
+  background: rgba(9, 10, 15, 0.97);
+  color: #F8FAFC;
+}
+
+.navbar-13-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.navbar-13-overlay-inner {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* Overlay Top Bar */
+.overlay-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1.5px solid var(--border-light, #E2E8F0);
+}
+
+[data-theme="dark"] .overlay-top-bar {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.overlay-meta-brand {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.overlay-close-btn {
+  background: var(--surface);
+  border: 1.5px solid var(--border-light, #E2E8F0);
+  color: var(--text);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+[data-theme="dark"] .overlay-close-btn {
+  background: rgba(26, 28, 36, 0.9);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+.overlay-close-btn:hover {
+  transform: scale(1.08) rotate(90deg);
+  background: var(--accent-orange);
+  border-color: var(--accent-orange);
+  color: #FFFFFF;
+}
+
+/* Big Staggered Links */
+.overlay-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2.5vh, 24px);
+  margin: auto 0;
+}
+
+.overlay-nav-item {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  text-decoration: none;
+  color: var(--text);
+  padding: 10px 0;
+  border-bottom: 1px solid transparent;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+}
+
+.overlay-item-num {
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--accent-orange);
+  opacity: 0.85;
+}
+
+.overlay-item-text {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.overlay-item-sub {
+  font-size: 0.95rem;
+  color: var(--text-muted, #64748B);
+  font-weight: 500;
+  margin-left: 12px;
+  transition: opacity 0.25s ease;
+}
+
+.overlay-nav-item:hover {
+  transform: translateX(12px);
+  color: var(--accent-orange);
+}
+
+.overlay-nav-item:hover .overlay-item-text {
+  color: var(--accent-orange);
+}
+
+.overlay-nav-item:hover .overlay-item-sub {
+  color: var(--text);
+}
+
+/* Overlay Footer */
+.overlay-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1.5px solid var(--border-light, #E2E8F0);
+  font-size: 0.86rem;
+  color: var(--text-muted, #64748B);
+}
+
+[data-theme="dark"] .overlay-footer {
+  border-top-color: rgba(255, 255, 255, 0.1);
+  color: #94A3B8;
+}
+
+.overlay-contact-brief {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.overlay-contact-brief a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.overlay-contact-brief a:hover {
+  color: var(--accent-orange);
+}
+
+.overlay-social-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.overlay-social-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 800;
+  transition: color 0.2s ease;
+}
+
+.overlay-social-links a:hover {
+  color: var(--accent-orange);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+  .navbar-13-left,
+  .navbar-13-links-right {
+    display: none;
+  }
+  
+  .navbar-13-center {
+    flex: 1;
+    justify-content: flex-start;
+  }
+
+  .overlay-item-sub {
+    display: none;
+  }
+}
+
+</style>
 
   <!-- Schema.org JSON-LD Structured Data for Full-Stack Freelance Software Engineer -->
   <script type="application/ld+json">
@@ -5432,24 +5848,34 @@
   <!-- ==========================================================================
        HEADER & NAVIGATION
        ========================================================================== -->
-  <header class="site-header biz-header" role="banner">
-    <div class="container nav-container">
-      <!-- Modern Business Logo (Matching [K] Kelviq) -->
-      <a href="#hero" class="brand-logo-biz" aria-label="Belintan B. — Full-Stack &amp; Backend Software Engineer">
-        <span class="brand-icon-box">B</span>
-        <span class="brand-name">Belintan B.</span>
-      </a>
-
-      <!-- Desktop Nav (Clean, essential 4 links without unnecessary tags) -->
-      <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
-        <a href="#hero">Profile</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+    <!-- ==========================================================================
+       REACT BITS PRO NAVBAR 13: CENTERED LOGO NAVBAR WITH OVERLAY MENU
+       ========================================================================== -->
+  <header class="site-header navbar-13-header" role="banner">
+    <div class="container navbar-13-inner">
+      
+      <!-- Left Column: Primary Navigation Links -->
+      <nav class="navbar-13-left" role="navigation" aria-label="Primary Left Navigation">
+        <a href="#hero" class="nav-13-link">Profile</a>
+        <a href="#services" class="nav-13-link">Services</a>
       </nav>
 
-      <!-- Nav Action Buttons -->
-      <div class="nav-actions">
+      <!-- Center Column: Mathematically Centered Brand Logo -->
+      <div class="navbar-13-center">
+        <a href="#hero" class="brand-logo-biz" aria-label="Belintan B. — Full-Stack &amp; Backend Software Engineer">
+          <span class="brand-icon-box">B</span>
+          <span class="brand-name">Belintan B.</span>
+        </a>
+      </div>
+
+      <!-- Right Column: Secondary Navigation, Theme Toggle, WhatsApp & Overlay Menu Trigger -->
+      <div class="navbar-13-right">
+        <nav class="navbar-13-links-right" role="navigation" aria-label="Primary Right Navigation">
+          <a href="#projects" class="nav-13-link">Projects</a>
+          <a href="#contact" class="nav-13-link">Contact</a>
+        </nav>
+
+        <!-- Apple Dark / Light Mode Switcher -->
         <button class="apple-theme-toggle" id="theme-toggle" aria-label="Toggle Dark / Light Mode" title="Toggle dark / light theme">
           <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="5"></circle>
@@ -5467,32 +5893,75 @@
           </svg>
         </button>
 
-        <a href="#contact" class="apple-nav-cta">
-          <span>Start Project</span>
-        </a>
-
-        <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" class="apple-nav-cta" style="background: #25D366; border-color: #25D366; color: #FFF !important; display: inline-flex; align-items: center; gap: 6px;" title="Chat directly with Belintan on WhatsApp">
+        <!-- Direct WhatsApp Action Pill -->
+        <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" class="nav-13-whatsapp-btn" title="Chat directly with Belintan on WhatsApp">
           <span>WhatsApp &rarr;</span>
         </a>
-        <button class="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" id="mobile-toggle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-            stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
+
+        <!-- React Bits Pro Navbar 13 Overlay Menu Trigger Button -->
+        <button class="navbar-13-menu-toggle" id="overlay-menu-toggle" aria-label="Toggle Navigation Overlay" aria-expanded="false" aria-controls="navbar-13-overlay">
+          <span class="menu-toggle-label">Menu</span>
+          <div class="menu-burger-icon" aria-hidden="true">
+            <span class="burger-bar bar-top"></span>
+            <span class="burger-bar bar-bot"></span>
+          </div>
         </button>
       </div>
+
     </div>
 
-    <!-- Mobile Drawer (Streamlined navigation) -->
-    <div class="mobile-nav-panel" id="mobile-drawer" role="menu">
-      <a href="#hero" role="menuitem">Profile</a>
-      <a href="#services" role="menuitem">Services</a>
-      <a href="#projects" role="menuitem">Projects</a>
-      <a href="#contact" role="menuitem">Contact</a>
-      <a href="#contact" class="apple-nav-cta" style="margin-top: 14px; text-align: center; justify-content: center; display: flex;"
-        role="menuitem">Start Project &rarr;</a>
+    <!-- React Bits Pro Navbar 13 Full-Screen Overlay Menu -->
+    <div class="navbar-13-overlay" id="navbar-13-overlay" role="dialog" aria-modal="true" aria-label="Main Navigation Overlay">
+      <div class="navbar-13-overlay-inner">
+        
+        <!-- Top Overlay Header -->
+        <div class="overlay-top-bar">
+          <span class="overlay-meta-brand">
+            <span class="brand-icon-box" style="width: 24px; height: 24px; font-size: 13px;">B</span>
+            <span>Belintan B. &middot; Full-Stack &amp; AI Engineering</span>
+          </span>
+          <button class="overlay-close-btn" id="overlay-menu-close" aria-label="Close navigation overlay">✕</button>
+        </div>
+
+        <!-- Big Staggered Navigation Links -->
+        <nav class="overlay-nav-list" role="navigation" aria-label="Overlay Navigation Links">
+          <a href="#hero" class="overlay-nav-item" data-index="01">
+            <span class="overlay-item-num">01</span>
+            <span class="overlay-item-text">Profile</span>
+            <span class="overlay-item-sub">Identity, MBA HR Credentials &amp; Bio</span>
+          </a>
+          <a href="#services" class="overlay-nav-item" data-index="02">
+            <span class="overlay-item-num">02</span>
+            <span class="overlay-item-text">Services</span>
+            <span class="overlay-item-sub">Web Apps, Node APIs, Python AI &amp; Marketing</span>
+          </a>
+          <a href="#projects" class="overlay-nav-item" data-index="03">
+            <span class="overlay-item-num">03</span>
+            <span class="overlay-item-text">Projects</span>
+            <span class="overlay-item-sub">Real-Time Telemetry &amp; Offline PWA</span>
+          </a>
+          <a href="#contact" class="overlay-nav-item" data-index="04">
+            <span class="overlay-item-num">04</span>
+            <span class="overlay-item-text">Contact</span>
+            <span class="overlay-item-sub">Direct WhatsApp, Inquiries &amp; Instant Booking</span>
+          </a>
+        </nav>
+
+        <!-- Overlay Footer Info -->
+        <div class="overlay-footer">
+          <div class="overlay-contact-brief">
+            <div>📞 <a href="tel:+918610662871">+91 8610662871</a></div>
+            <div>✉️ <a href="mailto:belintan07@gmail.com">belintan07@gmail.com</a></div>
+            <div>📍 Tuticorin, Tamil Nadu, India</div>
+          </div>
+          <div class="overlay-social-links">
+            <a href="https://linkedin.com/in/belintanben" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+            <a href="https://github.com/belintan07" target="_blank" rel="noopener">GitHub &rarr;</a>
+            <a href="https://wa.me/918610662871" target="_blank" rel="noopener">WhatsApp &rarr;</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </header>
 
@@ -7259,30 +7728,62 @@
       }, { passive: true });
 
       /* ------------------------------------------------------------------------
-         3. Mobile Navigation Drawer Toggle with Accessibility Trapping
+         3. React Bits Pro Navbar 13 Overlay Menu Controller
          ------------------------------------------------------------------------ */
-      const mobileToggle = document.getElementById('mobile-toggle');
-      const mobileDrawer = document.getElementById('mobile-drawer');
+      const overlayMenuToggle = document.getElementById('overlay-menu-toggle');
+      const overlayMenuClose = document.getElementById('overlay-menu-close');
+      const navbarOverlay = document.getElementById('navbar-13-overlay');
 
-      if (mobileToggle && mobileDrawer) {
-        mobileToggle.addEventListener('click', () => {
-          const isOpen = mobileDrawer.classList.toggle('open');
-          mobileToggle.setAttribute('aria-expanded', isOpen);
+      function openNavbarOverlay() {
+        if (!navbarOverlay) return;
+        navbarOverlay.classList.add('open');
+        if (overlayMenuToggle) {
+          overlayMenuToggle.classList.add('open');
+          overlayMenuToggle.setAttribute('aria-expanded', 'true');
+        }
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeNavbarOverlay() {
+        if (!navbarOverlay) return;
+        navbarOverlay.classList.remove('open');
+        if (overlayMenuToggle) {
+          overlayMenuToggle.classList.remove('open');
+          overlayMenuToggle.setAttribute('aria-expanded', 'false');
+        }
+        document.body.style.overflow = '';
+      }
+
+      if (overlayMenuToggle) {
+        overlayMenuToggle.addEventListener('click', () => {
+          const isOpen = navbarOverlay && navbarOverlay.classList.contains('open');
           if (isOpen) {
-            document.body.style.overflow = 'hidden';
+            closeNavbarOverlay();
           } else {
-            document.body.style.overflow = '';
+            openNavbarOverlay();
           }
         });
+      }
 
-        mobileDrawer.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => {
-            mobileDrawer.classList.remove('open');
-            mobileToggle.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-          });
+      if (overlayMenuClose) {
+        overlayMenuClose.addEventListener('click', closeNavbarOverlay);
+      }
+
+      if (navbarOverlay) {
+        navbarOverlay.querySelectorAll('.overlay-nav-item').forEach(link => {
+          link.addEventListener('click', closeNavbarOverlay);
+        });
+
+        navbarOverlay.addEventListener('click', (e) => {
+          if (e.target === navbarOverlay) closeNavbarOverlay();
         });
       }
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navbarOverlay && navbarOverlay.classList.contains('open')) {
+          closeNavbarOverlay();
+        }
+      });
 
       /* ------------------------------------------------------------------------
          4. Interactive Skills Filter Tabs
