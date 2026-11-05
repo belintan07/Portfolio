@@ -1064,8 +1064,8 @@
       background-color: #FFFFFF;
       background-image: radial-gradient(#E2E8F0 1.2px, transparent 1.2px);
       background-size: 24px 24px;
-      padding-top: clamp(100px, 12vw, 160px);
-      padding-bottom: clamp(70px, 9vw, 130px);
+      padding-top: clamp(32px, 4vw, 56px);
+      padding-bottom: clamp(64px, 7vw, 100px);
       border-bottom: 1.5px solid #E2E8F0;
     }
 
@@ -1599,7 +1599,7 @@
       display: grid;
       grid-template-columns: 0.92fr 1.08fr;
       gap: clamp(40px, 6vw, 80px);
-      align-items: center;
+      align-items: flex-start;
     }
 
     .hero-badge-pill {
@@ -2214,12 +2214,41 @@
       line-height: 1;
     }
 
+    /* Profile Top Chip & Polaroid Stage */
+    .profile-hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1.5px solid var(--border-light);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      color: var(--text);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      margin-bottom: 14px;
+      width: fit-content;
+      transition: var(--transition-smooth);
+    }
+
+    [data-theme="dark"] .profile-hero-chip {
+      background: rgba(22, 27, 34, 0.92);
+      border-color: rgba(255, 255, 255, 0.16);
+      color: #E2E8F0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+
     /* Polaroid Visual Stage */
     .polaroid-stage {
       position: relative;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: flex-start;
+      margin-top: 0;
     }
 
     .polaroid-frame {
@@ -4822,7 +4851,7 @@
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
       gap: clamp(36px, 5vw, 64px);
-      align-items: center;
+      align-items: flex-start;
     }
 
     @media (max-width: 992px) {
@@ -5414,12 +5443,8 @@
       <!-- Desktop Nav (Clean, essential 4 links without unnecessary tags) -->
       <nav class="desktop-nav" role="navigation" aria-label="Primary Navigation">
         <a href="#hero">Profile</a>
-        <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#projects">Projects</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#estimator">Estimator</a>
-        <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -5463,14 +5488,11 @@
     <!-- Mobile Drawer (Streamlined navigation) -->
     <div class="mobile-nav-panel" id="mobile-drawer" role="menu">
       <a href="#hero" role="menuitem">Profile</a>
-      <a href="#about" role="menuitem">About</a>
-      <a href="#skills" role="menuitem">Skills</a>
-      <a href="#projects" role="menuitem">Real-Time Projects</a>
-      <a href="#experience" role="menuitem">Experience</a>
-      <a href="#education" role="menuitem">Education</a>
+      <a href="#services" role="menuitem">Services</a>
+      <a href="#projects" role="menuitem">Projects</a>
       <a href="#contact" role="menuitem">Contact</a>
       <a href="#contact" class="apple-nav-cta" style="margin-top: 14px; text-align: center; justify-content: center; display: flex;"
-        role="menuitem">Get in Touch &rarr;</a>
+        role="menuitem">Start Project &rarr;</a>
     </div>
   </header>
 
@@ -5483,6 +5505,12 @@
 
         <!-- Column 1: Profile & Verified Identity (Arranged First) -->
         <div class="polaroid-stage">
+          <!-- Live Verified Profile Chip to Fill Top Gap -->
+          <div class="profile-hero-chip">
+            <span class="pulse-dot"></span>
+            <span>AVAILABLE FOR CONTRACTS &middot; FULL-STACK &amp; AI</span>
+          </div>
+
           <div class="tape-corner-tl" aria-hidden="true"></div>
 
           <div class="polaroid-frame">
