@@ -3595,34 +3595,194 @@
     }
 
     /* ==========================================================================
-       10. CONTACT SECTION & INTERACTIVE SUBMISSION
+       10. CONTACT SECTION & CONSULTATION SIDEBAR LAYOUT (JARO-STYLE SIDE FORM)
        ========================================================================== */
     .contact-section {
-      background: var(--bg-alt);
+      background: var(--bg-alt, #F8FAFC);
       border-top: 1.5px solid #E2E8F0;
+      position: relative;
+      padding-bottom: 60px;
     }
 
-    .contact-grid {
+    [data-theme="dark"] .contact-section {
+      border-top-color: rgba(255, 255, 255, 0.08);
+      background: #0E0F15;
+    }
+
+    /* 2-Column Grid: Left Editorial Pitch & Channels, Right Sticky Side Form */
+    .contact-side-grid {
       display: grid;
-      grid-template-columns: 1fr 1.25fr;
-      gap: clamp(40px, 6vw, 72px);
-      margin-top: 48px;
+      grid-template-columns: 1.14fr 0.86fr;
+      gap: clamp(32px, 4.5vw, 60px);
+      align-items: start;
+      margin-top: 40px;
+      position: relative;
     }
 
-    .contact-info-panel {
+    @media (max-width: 960px) {
+      .contact-side-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    /* Left Narrative Column */
+    .contact-main-col {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 24px;
+    }
+
+    .contact-editorial-box {
+      background: var(--bg);
+      border: 2px solid var(--text);
+      border-radius: var(--radius-md, 12px);
+      padding: clamp(24px, 3.5vw, 36px);
+      box-shadow: var(--sketch-shadow);
+    }
+
+    [data-theme="dark"] .contact-editorial-box {
+      background: #141620;
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.6);
+    }
+
+    .contact-editorial-box h3 {
+      font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    .contact-editorial-box p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    /* Bulleted Highlights matching reference article layout */
+    .consultation-takeaways-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .consultation-takeaways-list li {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text);
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .consultation-takeaways-list li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #0047AB;
+      font-weight: 900;
+      font-size: 1rem;
+    }
+
+    [data-theme="dark"] .consultation-takeaways-list li::before {
+      color: #38BDF8;
+    }
+
+    .consultation-takeaways-list li strong {
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    /* AI / Fast Inquiry Shortcuts Strip matching screenshot */
+    .contact-shortcuts-strip {
+      background: var(--bg-alt, #F1F5F9);
+      border: 1.5px dashed var(--border-light, #CBD5E1);
+      border-radius: var(--radius-sm, 10px);
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    [data-theme="dark"] .contact-shortcuts-strip {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .shortcuts-label {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-orange);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .shortcuts-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .shortcut-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg);
+      border: 1.5px solid var(--text);
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 1.5px 1.5px 0px var(--shadow-ink);
+      transition: all 0.2s ease;
+    }
+
+    .shortcut-pill-btn:hover {
+      background: var(--text);
+      color: var(--bg);
+      transform: translateY(-2px);
+    }
+
+    [data-theme="dark"] .shortcut-pill-btn {
+      background: #1C1F2B;
+      border-color: rgba(255, 255, 255, 0.16);
+      color: #F8FAFC;
+    }
+
+    [data-theme="dark"] .shortcut-pill-btn:hover {
+      background: #FFFFFF;
+      color: #0F172A;
+    }
+
+    /* Direct Contact Channels Cluster */
+    .contact-channels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
     }
 
     .contact-item-card {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       background: var(--bg);
       border: 2px solid var(--text);
       border-radius: var(--radius-sm);
-      padding: 16px 20px;
+      padding: 14px 18px;
       text-decoration: none;
       color: var(--text);
       box-shadow: 2px 2px 0px var(--shadow-ink);
@@ -3635,22 +3795,38 @@
       box-shadow: var(--sketch-shadow);
     }
 
+    [data-theme="dark"] .contact-item-card {
+      background: #141620;
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 2.5px 2.5px 0px rgba(0, 0, 0, 0.6);
+    }
+
+    [data-theme="dark"] .contact-item-card:hover {
+      background: #1E2232;
+      border-color: var(--accent-orange);
+    }
+
     .contact-icon-bubble {
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
       border: 2px solid var(--text);
       border-radius: 50%;
       background: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       flex-shrink: 0;
       box-shadow: 1.5px 1.5px 0px var(--shadow-ink);
     }
 
+    [data-theme="dark"] .contact-icon-bubble {
+      background: #1C1F2B;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
     .contact-meta h4 {
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -3659,81 +3835,329 @@
     }
 
     .contact-meta p {
-      font-size: 0.98rem;
+      font-size: 0.92rem;
       font-weight: 700;
+      word-break: break-word;
     }
 
-    /* Contact Form Box */
-    .contact-form-box {
-      background: var(--bg);
-      border: 2.5px solid var(--text);
-      border-radius: var(--radius-md);
-      padding: clamp(24px, 4vw, 36px);
-      box-shadow: var(--sketch-shadow);
-    }
-
-    .form-row-dual {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    /* ==========================================================================
+       RIGHT COLUMN: STICKY SIDEBAR CONSULTATION CARD (JARO-STYLE)
+       ========================================================================== */
+    .contact-side-col {
+      position: sticky;
+      top: 92px;
+      display: flex;
+      flex-direction: column;
       gap: 18px;
     }
 
-    .form-group-field {
-      margin-bottom: 18px;
-    }
-
-    .form-group-field label {
-      display: block;
-      font-family: var(--font-display);
-      font-size: 0.82rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-
-    .sketch-input,
-    .sketch-textarea,
-    .sketch-select {
-      width: 100%;
+    /* Consultation Card Container */
+    .consultation-form-card {
       background: #FFFFFF;
       border: 2px solid var(--text);
-      border-radius: var(--radius-sm);
-      padding: 12px 16px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.12), 4px 4px 0px var(--shadow-ink);
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    [data-theme="dark"] .consultation-form-card {
+      background: #141722;
+      border-color: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6), 4px 4px 0px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Blue Top Banner matching Jaro reference */
+    .consultation-card-header {
+      background: linear-gradient(135deg, #0047AB 0%, #002D72 100%);
+      color: #FFFFFF;
+      padding: 22px 24px;
+      text-align: center;
+      border-bottom: 2px solid var(--text);
+    }
+
+    [data-theme="dark"] .consultation-card-header {
+      background: linear-gradient(135deg, #1E3A8A 0%, #0F172A 100%);
+      border-bottom-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .consultation-card-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      margin: 0 0 6px 0;
+      color: #FFFFFF;
+    }
+
+    .consultation-card-header p {
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.88);
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* Card Form Body */
+    .consultation-card-body {
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    /* Clean Rounded Inputs */
+    .consultation-input,
+    .consultation-select,
+    .consultation-textarea {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 12px 14px;
       font-family: var(--font-body);
-      font-size: 0.95rem;
-      color: var(--text);
+      font-size: 0.92rem;
+      color: #0F172A;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .sketch-input:focus,
-    .sketch-textarea:focus,
-    .sketch-select:focus {
+    [data-theme="dark"] .consultation-input,
+    [data-theme="dark"] .consultation-select,
+    [data-theme="dark"] .consultation-textarea {
+      background: #1C1F2D;
+      border-color: rgba(255, 255, 255, 0.14);
+      color: #F8FAFC;
+    }
+
+    .consultation-input::placeholder,
+    .consultation-textarea::placeholder {
+      color: #94A3B8;
+    }
+
+    .consultation-input:focus,
+    .consultation-select:focus,
+    .consultation-textarea:focus {
       outline: none;
-      border-color: var(--accent-orange);
-      box-shadow: 3px 3px 0px var(--accent-orange);
+      border-color: #0047AB;
+      box-shadow: 0 0 0 3px rgba(0, 71, 171, 0.18);
     }
 
-    .sketch-textarea {
+    [data-theme="dark"] .consultation-input:focus,
+    [data-theme="dark"] .consultation-select:focus,
+    [data-theme="dark"] .consultation-textarea:focus {
+      border-color: #38BDF8;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.22);
+    }
+
+    .consultation-input.input-invalid,
+    .consultation-textarea.input-invalid {
+      border-color: #EF4444;
+      background-color: #FEF2F2;
+    }
+
+    [data-theme="dark"] .consultation-input.input-invalid,
+    [data-theme="dark"] .consultation-textarea.input-invalid {
+      background-color: rgba(239, 68, 68, 0.1);
+    }
+
+    /* 2-Column Split Input Row matching Work Exp / City */
+    .consultation-dual-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 480px) {
+      .consultation-dual-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .consultation-textarea {
       resize: vertical;
-      min-height: 120px;
+      min-height: 80px;
     }
 
-    .form-feedback-toast {
-      display: none;
-      padding: 14px 18px;
-      border-radius: var(--radius-sm);
-      border: 2px solid var(--text);
-      margin-bottom: 18px;
+    /* High-Visibility Full-Width SUBMIT Button */
+    .consultation-submit-btn {
+      width: 100%;
+      height: 48px;
+      background: #0047AB;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 71, 171, 0.28);
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      margin-top: 4px;
+    }
+
+    .consultation-submit-btn:hover {
+      background: #003685;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0, 71, 171, 0.38);
+    }
+
+    [data-theme="dark"] .consultation-submit-btn {
+      background: #2563EB;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+    }
+
+    [data-theme="dark"] .consultation-submit-btn:hover {
+      background: #1D4ED8;
+    }
+
+    /* Instant WhatsApp Action Button */
+    .consultation-wa-btn {
+      width: 100%;
+      height: 44px;
+      background: #25D366;
+      color: #FFFFFF;
+      border: 1.5px solid #20BA5A;
+      border-radius: 8px;
+      font-family: var(--font-display);
       font-size: 0.9rem;
-      font-weight: 700;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 3px 10px rgba(37, 211, 102, 0.25);
+      transition: all 0.2s ease;
+      text-decoration: none;
     }
 
-    .form-feedback-toast.success {
-      display: block;
-      background: var(--card-sage);
-      color: var(--card-sage-text);
+    .consultation-wa-btn:hover {
+      background: #1EBE5D;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+    }
+
+    /* Fine-Print Disclaimer */
+    .consultation-disclaimer {
+      font-size: 0.72rem;
+      line-height: 1.45;
+      color: var(--text-subtle, #64748B);
+      text-align: center;
+      margin: 2px 0 0 0;
+    }
+
+    /* Secondary Trust Card underneath matching reference */
+    .consultation-trust-banner {
+      background: linear-gradient(135deg, #0A2540 0%, #001A33 100%);
+      color: #FFFFFF;
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    [data-theme="dark"] .consultation-trust-banner {
+      background: linear-gradient(135deg, #161A28 0%, #0F121C 100%);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .trust-banner-badge {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #38BDF8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .trust-banner-sub {
+      font-size: 0.8rem;
+      color: #CBD5E1;
+      line-height: 1.4;
+    }
+
+    .trust-banner-link {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #F8FAFC;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      margin-top: 4px;
+      display: inline-block;
+    }
+
+    .trust-banner-link:hover {
+      color: var(--accent-orange);
+    }
+
+    /* Bottom Expert Call Strip across contact section */
+    .contact-bottom-expert-bar {
+      margin-top: 48px;
+      background: #003399;
+      color: #FFFFFF;
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 8px 24px rgba(0, 51, 153, 0.25);
+    }
+
+    [data-theme="dark"] .contact-bottom-expert-bar {
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .expert-bar-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .expert-bar-info a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+
+    .expert-bar-info a:hover {
+      color: #38BDF8;
+    }
+
+    .expert-bar-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #25D366;
+      color: #FFFFFF !important;
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+      font-weight: 800;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(37, 211, 102, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .expert-bar-cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.5);
     }
 
     /* ==========================================================================
@@ -7374,113 +7798,206 @@
           Let's Build Something Memorable
         </h2>
         <p class="section-subtitle">
-          Have an upcoming project requiring real-time web architecture, Java/Spring Boot backend engineering, or frontend precision? Send a message below.
+          Have an upcoming project requiring real-time web architecture, Java/Spring Boot backend engineering, or client-centric customer care? Reach out directly.
         </p>
 
-        <div class="contact-grid">
+        <!-- 2-Column Responsive Layout: Left Editorial Pitch & Channels, Right Sticky Side Form -->
+        <div class="contact-side-grid">
 
-          <!-- Left Info Cards -->
-          <div class="contact-info-panel">
-            <a href="mailto:belintan07@gmail.com" class="contact-item-card">
-              <div class="contact-icon-bubble">✉️</div>
-              <div class="contact-meta">
-                <h4>Direct Email</h4>
-                <p>belintan07@gmail.com</p>
-              </div>
-            </a>
+          <!-- Left Column: Editorial Value Proposition & Direct Contact Channels -->
+          <div class="contact-main-col">
+            
+            <div class="contact-editorial-box">
+              <h3>High-Velocity Engineering With Empathetic Customer Care</h3>
+              <p>
+                Combining business strategy from an MBA in HR with certified frontend development and telecommunications network support, I bridge technical execution with client satisfaction. Every engagement is built on direct communication, clean code, and predictable delivery.
+              </p>
 
-            <a href="https://linkedin.com/in/belintanben" target="_blank" rel="noopener" class="contact-item-card">
-              <div class="contact-icon-bubble">💼</div>
-              <div class="contact-meta">
-                <h4>LinkedIn Profile</h4>
-                <p>linkedin.com/in/belintanben</p>
-              </div>
-            </a>
+              <!-- Editorial Bulleted List matching Jaro reference -->
+              <ul class="consultation-takeaways-list">
+                <li><strong>Rapid 24–48hr Architecture Discovery:</strong> Receive an initial technical feasibility audit, architecture overview, and transparent milestone roadmap within 48 hours.</li>
+                <li><strong>Empathetic Client Customer Care:</strong> Honed directly at TICFIBER with 100% active incident resolution, daily status visibility, and attentive post-launch support.</li>
+                <li><strong>Production-Grade Full-Stack Stack:</strong> React 19, Spring Boot, Node.js, FastMCP, and PostgreSQL built for high conversion, rock-solid stability, and sub-100ms response times.</li>
+                <li><strong>Guaranteed Milestone-Driven Billing:</strong> Zero hidden surprise costs. Clear sprint milestones, detailed deliverable sign-offs, and complete code ownership.</li>
+              </ul>
 
-            <a href="https://github.com/belintan07" target="_blank" rel="noopener" class="contact-item-card">
-              <div class="contact-icon-bubble">🐙</div>
-              <div class="contact-meta">
-                <h4>GitHub Portfolio</h4>
-                <p>github.com/belintan07</p>
-              </div>
-            </a>
-
-            <a href="tel:+918610662871" class="contact-item-card">
-              <div class="contact-icon-bubble">📞</div>
-              <div class="contact-meta">
-                <h4>Direct Phone / WhatsApp</h4>
-                <p>+91 8610662871</p>
-              </div>
-            </a>
-
-            <div class="contact-item-card">
-              <div class="contact-icon-bubble">📍</div>
-              <div class="contact-meta">
-                <h4>Current Location</h4>
-                <p>Tuticorin, Tamil Nadu, India · Open to Remote &amp; On-Site</p>
+              <!-- Quick Inquiry Shortcuts Strip matching reference -->
+              <div class="contact-shortcuts-strip">
+                <span class="shortcuts-label">✦ Direct Shortcuts &amp; Fast Channels</span>
+                <div class="shortcuts-pills-row">
+                  <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" class="shortcut-pill-btn">
+                    <span>💬 WhatsApp (+91 8610662871)</span>
+                  </a>
+                  <a href="tel:+918610662871" class="shortcut-pill-btn">
+                    <span>📞 Direct Phone Call</span>
+                  </a>
+                  <a href="mailto:belintan07@gmail.com" class="shortcut-pill-btn">
+                    <span>✉️ Send Direct Email</span>
+                  </a>
+                  <a href="#experience" class="shortcut-pill-btn">
+                    <span>📄 Single-Page Resume PDF</span>
+                  </a>
+                </div>
               </div>
             </div>
+
+            <!-- Direct Contact Info Channels -->
+            <div class="contact-channels-grid">
+              <a href="mailto:belintan07@gmail.com" class="contact-item-card">
+                <div class="contact-icon-bubble">✉️</div>
+                <div class="contact-meta">
+                  <h4>Direct Email</h4>
+                  <p>belintan07@gmail.com</p>
+                </div>
+              </a>
+
+              <a href="https://wa.me/918610662871" target="_blank" rel="noopener" class="contact-item-card">
+                <div class="contact-icon-bubble">📞</div>
+                <div class="contact-meta">
+                  <h4>Phone &amp; WhatsApp</h4>
+                  <p>+91 8610662871</p>
+                </div>
+              </a>
+
+              <a href="https://linkedin.com/in/belintanben" target="_blank" rel="noopener" class="contact-item-card">
+                <div class="contact-icon-bubble">💼</div>
+                <div class="contact-meta">
+                  <h4>LinkedIn Profile</h4>
+                  <p>linkedin.com/in/belintanben</p>
+                </div>
+              </a>
+
+              <a href="https://github.com/belintan07" target="_blank" rel="noopener" class="contact-item-card">
+                <div class="contact-icon-bubble">🐙</div>
+                <div class="contact-meta">
+                  <h4>GitHub Repositories</h4>
+                  <p>github.com/belintan07</p>
+                </div>
+              </a>
+
+              <div class="contact-item-card" style="grid-column: 1 / -1;">
+                <div class="contact-icon-bubble">📍</div>
+                <div class="contact-meta">
+                  <h4>Current Location &amp; Engagement Mode</h4>
+                  <p>Tuticorin, Tamil Nadu, India · Available Worldwide for Remote &amp; On-Site Projects</p>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Right Interactive Form -->
-          <div class="contact-form-box">
-            <div id="form-toast" class="form-feedback-toast" role="status" aria-live="polite"></div>
-
-            <form id="portfolio-contact-form" novalidate>
-              <div class="form-row-dual">
-                <div class="form-group-field">
-                  <label for="user-name">Your Full Name *</label>
-                  <input type="text" id="user-name" name="name" class="sketch-input" placeholder="e.g. Jane Doe"
-                    required autocomplete="name" aria-describedby="name-error" />
-                  <span class="field-error-msg" id="name-error">Please enter your name (at least 2 letters)</span>
-                </div>
-                <div class="form-group-field">
-                  <label for="user-email">Email Address *</label>
-                  <input type="email" id="user-email" name="email" class="sketch-input"
-                    placeholder="e.g. jane@company.com" required autocomplete="email" aria-describedby="email-error" />
-                  <span class="field-error-msg" id="email-error">Please enter a valid work or personal email address</span>
-                </div>
+          <!-- Right Column: Sticky Sidebar Consultation Form Card ("in the side") -->
+          <div class="contact-side-col">
+            
+            <div class="consultation-form-card">
+              <!-- Deep Royal Blue Top Banner matching Jaro reference -->
+              <div class="consultation-card-header">
+                <h3>Get Free Project Consultation</h3>
+                <p>Fill in the details for a free consultation &amp; quote</p>
               </div>
 
-              <div class="form-row-dual">
-                <div class="form-group-field">
-                  <label for="project-type">Project Scope *</label>
-                  <select id="project-type" name="projectType" class="sketch-select">
-                    <option value="Full-Stack &amp; AI Suite (React 19 + Node.js + Python MCP)">Full-Stack &amp; AI Suite (React 19 + Node + Python MCP)</option>
-                    <option value="Custom MCP Server &amp; AI Agent Tools">Custom MCP Server &amp; AI Agent Tools</option>
-                    <option value="Marketing &amp; Growth Bundle (10 Posters + 10 Videos + 2 Meta Ads + 1 Mo SEO)">Marketing &amp; Growth Bundle (₹14,999)</option>
-                    <option value="Business Website (Up to 6 Pages + SEO)">Business Website (₹9,999)</option>
-                    <option value="Starter Landing Page">Starter Landing Page (₹4,999)</option>
-                    <option value="Real-Time Web Application / SaaS">Real-Time Web Application / SaaS</option>
-                    <option value="Full-Time / Contract Role">Full-Time / Contract Opportunity</option>
-                  </select>
-                </div>
-                <div class="form-group-field">
-                  <label for="user-timeline">Target Timeline (Optional)</label>
-                  <input type="text" id="user-timeline" name="timeline" class="sketch-input"
-                    placeholder="e.g. Q4 Sprint, 2-4 Weeks" />
-                </div>
-              </div>
+              <!-- Form Body -->
+              <div class="consultation-card-body">
+                <div id="form-toast" class="form-feedback-toast" role="status" aria-live="polite"></div>
 
-              <div class="form-group-field">
-                <label for="user-message">Project Brief &amp; Goals *</label>
-                <textarea id="user-message" name="message" class="sketch-textarea"
-                  placeholder="Describe your product vision, event dates, or key business outcomes..."
-                  required aria-describedby="message-error"></textarea>
-                <span class="field-error-msg" id="message-error">Please provide a brief message (at least 10 characters)</span>
-              </div>
+                <form id="portfolio-contact-form" novalidate>
+                  
+                  <!-- Full Name* -->
+                  <div>
+                    <input type="text" id="user-name" name="name" class="consultation-input" placeholder="Full Name*"
+                      required autocomplete="name" aria-describedby="name-error" />
+                    <span class="field-error-msg" id="name-error">Please enter your full name (at least 2 letters)</span>
+                  </div>
 
-              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 10px;">
-                <button type="submit" id="contact-submit-btn" class="biz-btn-primary" style="justify-content: center; font-size: 0.95rem;">
-                  <span id="btn-submit-text">✉ Transmit Project Inquiry &rarr;</span>
-                </button>
-                <button type="button" onclick="sendWhatsApp(event)" class="btn-whatsapp-cta" style="justify-content: center; font-size: 0.95rem; border: none; cursor: pointer;">
-                  <span>💬 Send on WhatsApp &rarr;</span>
-                </button>
+                  <!-- Email Address* -->
+                  <div>
+                    <input type="email" id="user-email" name="email" class="consultation-input"
+                      placeholder="Email Address*" required autocomplete="email" aria-describedby="email-error" />
+                    <span class="field-error-msg" id="email-error">Please enter a valid work or personal email address</span>
+                  </div>
+
+                  <!-- Mobile Number* -->
+                  <div>
+                    <input type="tel" id="user-phone" name="phone" class="consultation-input"
+                      placeholder="Mobile Number (WhatsApp)*" autocomplete="tel" aria-describedby="phone-error" />
+                    <span class="field-error-msg" id="phone-error">Please enter a valid phone or WhatsApp number</span>
+                  </div>
+
+                  <!-- Dual Split Row: Timeline & City -->
+                  <div class="consultation-dual-row">
+                    <div>
+                      <input type="text" id="user-timeline" name="timeline" class="consultation-input"
+                        placeholder="Timeline / Budget*" />
+                    </div>
+                    <div>
+                      <input type="text" id="user-city" name="city" class="consultation-input"
+                        placeholder="City / Country*" />
+                    </div>
+                  </div>
+
+                  <!-- Select Your Domain* -->
+                  <div>
+                    <select id="project-type" name="projectType" class="consultation-select">
+                      <option value="" disabled selected>Select Your Domain*</option>
+                      <option value="Full-Stack Web App (React 19 + Node.js)">Full-Stack Web App (React 19 + Node.js)</option>
+                      <option value="Java &amp; Spring Boot Backend Systems">Java &amp; Spring Boot Backend Systems</option>
+                      <option value="Python AI &amp; Custom FastMCP Bridge">Python AI &amp; Custom FastMCP Bridge</option>
+                      <option value="Marketing &amp; Growth Bundle (₹14,999)">Marketing &amp; Growth Bundle (₹14,999)</option>
+                      <option value="Business Website (₹9,999)">Business Website (₹9,999)</option>
+                      <option value="Starter Landing Page (₹4,999)">Starter Landing Page (₹4,999)</option>
+                      <option value="Customer Care &amp; Technical Support Role">Customer Care &amp; Technical Support Role</option>
+                    </select>
+                  </div>
+
+                  <!-- Brief Project Scope (Optional) -->
+                  <div>
+                    <textarea id="user-message" name="message" class="consultation-textarea"
+                      placeholder="Brief project vision or key requirements (optional)..." aria-describedby="message-error"></textarea>
+                    <span class="field-error-msg" id="message-error">Please provide a brief message (at least 6 characters)</span>
+                  </div>
+
+                  <!-- Submit Buttons -->
+                  <button type="submit" id="contact-submit-btn" class="consultation-submit-btn">
+                    <span id="btn-submit-text">SUBMIT INQUIRY</span>
+                  </button>
+
+                  <button type="button" onclick="sendWhatsApp(event)" class="consultation-wa-btn">
+                    <span>💬 Instant Inquiry on WhatsApp &rarr;</span>
+                  </button>
+
+                  <!-- Fine-Print Consent Disclaimer matching Jaro screenshot -->
+                  <p class="consultation-disclaimer">
+                    *By clicking "Submit Inquiry", you authorize Belintan to call/email/WhatsApp you for your project query.
+                  </p>
+                </form>
               </div>
-            </form>
+            </div>
+
+            <!-- Secondary Trust Banner matching Jaro screenshot's second card -->
+            <div class="consultation-trust-banner">
+              <span class="trust-banner-badge">⚡ Belintan B. &middot; Engineering &amp; Care</span>
+              <span class="trust-banner-sub">Verified Frontend Developer &amp; Spring Boot Specialist &middot; 100% On-Time Delivery Guarantee</span>
+              <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20checking%20your%20availability%20for%20a%20project" target="_blank" rel="noopener noreferrer" class="trust-banner-link">
+                Direct WhatsApp Hotline Available 10:00 AM &ndash; 9:00 PM IST &rarr;
+              </a>
+            </div>
+
           </div>
 
+        </div>
+
+        <!-- Bottom Expert Strip across contact section matching reference bottom bar -->
+        <div class="contact-bottom-expert-bar">
+          <div class="expert-bar-info">
+            <span>Talk directly with Belintan (10:00 am to 9:00 pm IST)</span>
+            <span>&bull;</span>
+            <a href="tel:+918610662871">📞 +91 8610662871</a>
+            <span>&bull;</span>
+            <a href="mailto:belintan07@gmail.com">✉️ belintan07@gmail.com</a>
+          </div>
+          <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20let's%20connect%20for%20a%20quick%20consultation" target="_blank" rel="noopener noreferrer" class="expert-bar-cta-btn">
+            <span>💬 Chat on WhatsApp</span>
+          </a>
         </div>
 
       </div>
@@ -7940,14 +8457,17 @@
       const formToast = document.getElementById('form-toast');
       const nameInput = document.getElementById('user-name');
       const emailInput = document.getElementById('user-email');
-      const messageInput = document.getElementById('user-message');
-      const scopeInput = document.getElementById('project-type');
+      const phoneInput = document.getElementById('user-phone');
+      const cityInput = document.getElementById('user-city');
       const timelineInput = document.getElementById('user-timeline');
+      const scopeInput = document.getElementById('project-type');
+      const messageInput = document.getElementById('user-message');
       const submitBtn = document.getElementById('contact-submit-btn');
       const btnSubmitText = document.getElementById('btn-submit-text');
 
       const nameError = document.getElementById('name-error');
       const emailError = document.getElementById('email-error');
+      const phoneError = document.getElementById('phone-error');
       const messageError = document.getElementById('message-error');
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -7970,9 +8490,19 @@
         return valid;
       }
 
+      function validatePhone() {
+        if (!phoneInput || !phoneInput.value.trim()) return true; // Optional unless entered
+        const clean = phoneInput.value.replace(/[^0-9+]/g, '');
+        const valid = clean.length >= 7;
+        phoneInput.classList.toggle('input-invalid', !valid);
+        phoneInput.classList.toggle('input-valid', valid);
+        if (phoneError) phoneError.classList.toggle('visible', !valid);
+        return valid;
+      }
+
       function validateMessage() {
-        if (!messageInput) return true;
-        const valid = messageInput.value.trim().length >= 10;
+        if (!messageInput || !messageInput.value.trim()) return true; // Optional in quick consultation
+        const valid = messageInput.value.trim().length >= 4;
         messageInput.classList.toggle('input-invalid', !valid);
         messageInput.classList.toggle('input-valid', valid);
         if (messageError) messageError.classList.toggle('visible', !valid);
@@ -7981,6 +8511,7 @@
 
       if (nameInput) nameInput.addEventListener('blur', validateName);
       if (emailInput) emailInput.addEventListener('blur', validateEmail);
+      if (phoneInput) phoneInput.addEventListener('blur', validatePhone);
       if (messageInput) messageInput.addEventListener('blur', validateMessage);
 
       if (contactForm) {
@@ -7989,9 +8520,10 @@
 
           const isNameValid = validateName();
           const isEmailValid = validateEmail();
+          const isPhoneValid = validatePhone();
           const isMsgValid = validateMessage();
 
-          if (!isNameValid || !isEmailValid || !isMsgValid) {
+          if (!isNameValid || !isEmailValid || !isPhoneValid || !isMsgValid) {
             if (formToast) {
               formToast.className = 'form-feedback-toast';
               formToast.style.background = '#FFE4E6';
@@ -8005,40 +8537,44 @@
           if (btnSubmitText) btnSubmitText.textContent = 'Transmitting Inquiry... ⏳';
           if (submitBtn) submitBtn.disabled = true;
 
-          const scopeVal = scopeInput ? scopeInput.value : 'Project';
+          const scopeVal = scopeInput && scopeInput.value ? scopeInput.value : 'Project Consultation';
           const nameVal = nameInput ? nameInput.value.trim() : 'Prospective Client';
           const emailVal = emailInput ? emailInput.value.trim() : '';
-          const timelineVal = timelineInput ? timelineInput.value : 'Flexible';
-          const msgVal = messageInput ? messageInput.value.trim() : '';
+          const phoneVal = phoneInput ? phoneInput.value.trim() : 'Not provided';
+          const timelineVal = timelineInput ? timelineInput.value.trim() : 'Immediate Kickoff';
+          const cityVal = cityInput ? cityInput.value.trim() : 'Remote';
+          const msgVal = messageInput ? messageInput.value.trim() : 'Consultation request from portfolio.';
 
-          const emailSubject = encodeURIComponent(`[Project Inquiry] ${scopeVal} - ${nameVal}`);
+          const emailSubject = encodeURIComponent(`[Consultation Request] ${scopeVal} - ${nameVal}`);
           const emailBody = encodeURIComponent(
             `Hi Belintan,\n\n` +
             `Name: ${nameVal}\n` +
             `Email: ${emailVal}\n` +
-            `Scope: ${scopeVal}\n` +
-            `Timeline: ${timelineVal}\n\n` +
+            `Mobile: ${phoneVal}\n` +
+            `City / Location: ${cityVal}\n` +
+            `Domain Scope: ${scopeVal}\n` +
+            `Timeline / Budget: ${timelineVal}\n\n` +
             `Project Brief:\n${msgVal}\n\n` +
             `Best regards,\n${nameVal}`
           );
 
           if (formToast) {
             formToast.className = 'form-feedback-toast success';
-            formToast.innerHTML = '✦ Success! Opening your mail client with formatted project inquiry...';
+            formToast.innerHTML = '✦ Success! Opening your mail client with formatted consultation request...';
             formToast.style.display = 'block';
           }
 
           setTimeout(() => {
             window.location.href = `mailto:belintan07@gmail.com?subject=${emailSubject}&body=${emailBody}`;
             contactForm.reset();
-            [nameInput, emailInput, messageInput].forEach(inp => {
+            [nameInput, emailInput, phoneInput, messageInput].forEach(inp => {
               if (inp) {
                 inp.classList.remove('input-valid', 'input-invalid');
               }
             });
-            if (btnSubmitText) btnSubmitText.textContent = 'Transmit Project Inquiry \u2192';
+            if (btnSubmitText) btnSubmitText.textContent = 'SUBMIT INQUIRY';
             if (submitBtn) submitBtn.disabled = false;
-          }, 800);
+          }, 700);
         });
       }
 
@@ -9271,27 +9807,33 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
         if (event) event.preventDefault();
         const nameInput = document.getElementById('user-name') || document.getElementById('nameInput');
         const emailInput = document.getElementById('user-email') || document.getElementById('contactInput');
+        const phoneInput = document.getElementById('user-phone');
+        const cityInput = document.getElementById('user-city');
         const scopeInput = document.getElementById('project-type') || document.getElementById('serviceSelect');
         const timelineInput = document.getElementById('user-timeline');
         const msgInput = document.getElementById('user-message') || document.getElementById('messageInput');
         
         const name = nameInput ? nameInput.value.trim() : '';
         const contact = emailInput ? emailInput.value.trim() : '';
-        const scope = scopeInput ? scopeInput.value : 'General Freelance Project';
+        const phone = phoneInput ? phoneInput.value.trim() : '';
+        const city = cityInput ? cityInput.value.trim() : '';
+        const scope = scopeInput && scopeInput.value ? scopeInput.value : 'General Freelance Project';
         const timeline = timelineInput ? timelineInput.value.trim() : 'Immediate Kickoff';
         const msg = msgInput ? msgInput.value.trim() : '';
         
-        if (!name || !contact) {
-          alert('Please enter your name and email or phone number to connect on WhatsApp.');
+        if (!name || (!contact && !phone)) {
+          alert('Please enter your name and either your email or phone number to connect on WhatsApp.');
           return;
         }
 
-        const text = '*New Project Inquiry*\n' +
+        const text = '*New Project Consultation Inquiry*\n' +
           '👤 Name: ' + name + '\n' +
-          '📞 Contact: ' + contact + '\n' +
-          '⚡ Service: ' + scope + '\n' +
-          '⏱ Timeline: ' + (timeline || 'Immediate') + '\n' +
-          '📝 Details: ' + (msg || 'Discussing project scope and deliverables');
+          '✉️ Email: ' + (contact || 'Provided on chat') + '\n' +
+          (phone ? ('📱 Mobile: ' + phone + '\n') : '') +
+          (city ? ('📍 City / Location: ' + city + '\n') : '') +
+          '⚡ Service Domain: ' + scope + '\n' +
+          '⏱ Timeline / Budget: ' + (timeline || 'Immediate') + '\n' +
+          '📝 Brief: ' + (msg || 'Requesting free project consultation & scope breakdown.');
           
         window.open('https://wa.me/918610662871?text=' + encodeURIComponent(text), '_blank');
       };
