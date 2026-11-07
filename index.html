@@ -2602,13 +2602,16 @@
     }
 
     .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(24px, 3vw, 36px);
       margin-top: 48px;
+      align-items: stretch;
     }
 
     .project-card {
+      flex: 1 1 calc(50% - 20px);
+      min-width: min(100%, 380px);
       background: var(--bg);
       border: 2.5px solid var(--text);
       border-radius: var(--radius-md);
@@ -2616,7 +2619,15 @@
       box-shadow: var(--sketch-shadow);
       display: flex;
       flex-direction: column;
+      height: auto;
       transition: var(--transition-smooth);
+    }
+
+    @media (max-width: 860px) {
+      .project-card {
+        flex: 1 1 100%;
+        min-width: 100%;
+      }
     }
 
     .project-card:hover {
@@ -2661,9 +2672,11 @@
       display: flex;
       flex-direction: column;
       flex: 1;
+      justify-content: space-between;
     }
 
     .project-category-row {
+      order: 1;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -2696,17 +2709,147 @@
     }
 
     .project-title {
+      order: 2;
       font-size: 1.45rem;
       margin-bottom: 10px;
       letter-spacing: -0.03em;
+      min-height: 2.3em;
     }
 
     .project-blurb {
+      order: 3;
       font-size: 0.94rem;
       color: var(--text-muted);
       line-height: 1.65;
       margin-bottom: 20px;
-      flex: 1;
+      flex: 1 1 auto;
+    }
+
+    /* ==========================================================================
+       CLICKABLE PROJECT PREVIEW BAR (FLEXIBLE SPACE & ORDER)
+       ========================================================================== */
+    .project-preview-bar {
+      order: 4;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1.5px dashed var(--border-light, #CBD5E1);
+      width: 100%;
+    }
+
+    [data-theme="dark"] .project-preview-bar {
+      border-top-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-preview-project {
+      width: 100%;
+      background: var(--bg-alt, #F8FAFC);
+      border: 1.5px solid var(--border-ink, #0F172A);
+      border-radius: 10px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      box-shadow: 2px 2px 0px var(--shadow-ink, #0F172A);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      font-family: inherit;
+    }
+
+    .btn-preview-project:hover {
+      background: #0047AB;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 3.5px 3.5px 0px var(--shadow-ink, #0F172A);
+    }
+
+    .btn-preview-project:hover .preview-bar-title,
+    .btn-preview-project:hover .preview-bar-domain,
+    .btn-preview-project:hover .preview-bar-cta,
+    .btn-preview-project:hover svg {
+      color: #FFFFFF !important;
+      stroke: #FFFFFF !important;
+    }
+
+    [data-theme="dark"] .btn-preview-project {
+      background: #1A1E2E;
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.6);
+    }
+
+    [data-theme="dark"] .btn-preview-project:hover {
+      background: #2563EB;
+      border-color: #38BDF8;
+    }
+
+    .preview-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .preview-pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      display: inline-block;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: previewPulse 1.8s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes previewPulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .preview-bar-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .preview-bar-domain {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--text-subtle, #64748B);
+      background: rgba(0, 0, 0, 0.05);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    [data-theme="dark"] .preview-bar-domain {
+      background: rgba(255, 255, 255, 0.08);
+      color: #94A3B8;
+    }
+
+    .preview-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .preview-bar-cta {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #0047AB;
+      letter-spacing: 0.02em;
+    }
+
+    [data-theme="dark"] .preview-bar-cta {
+      color: #38BDF8;
+    }
+
+    .project-visual-header {
+      cursor: pointer;
     }
 
     .project-metric-pill {
@@ -7510,7 +7653,7 @@
         <div class="projects-grid">
 
           <!-- PROJECT 01 / 04: GymFreaky Fitness Platform -->
-          <article class="project-card" style="position: relative;">
+          <article class="project-card" style="position: relative; order: 1;">
             <span class="project-live-indicator"><span class="pulse-dot"></span> PRODUCTION READY</span>
             <div class="project-visual-header">
               <span class="project-number-stamp">01 / 04</span>
@@ -7577,7 +7720,7 @@
           </article>
 
           <!-- PROJECT 02 / 04: HabiTrack Live PWA -->
-          <article class="project-card" style="position: relative;">
+          <article class="project-card" style="position: relative; order: 2;">
             <span class="project-live-indicator"><span class="pulse-dot"></span> PWA &middot; SUB-MS ENGINE</span>
             <div class="project-visual-header">
               <span class="project-number-stamp">02 / 04</span>
@@ -7642,7 +7785,7 @@
           </article>
 
           <!-- PROJECT 03 / 04: GeoTrack GIS Dashboard -->
-          <article class="project-card" style="position: relative;">
+          <article class="project-card" style="position: relative; order: 3;">
             <span class="project-live-indicator"><span class="pulse-dot"></span> POSTGIS SPATIAL</span>
             <div class="project-visual-header">
               <span class="project-number-stamp">03 / 04</span>
@@ -7716,7 +7859,7 @@
           </article>
 
           <!-- PROJECT 04 / 04: ResumeAI Live -->
-          <article class="project-card" style="position: relative;">
+          <article class="project-card" style="position: relative; order: 4;">
             <span class="project-live-indicator"><span class="pulse-dot"></span> REAL-TIME AI &amp; AST</span>
             <div class="project-visual-header">
               <span class="project-number-stamp">04 / 04</span>
