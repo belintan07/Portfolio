@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShoppingCart } from 'lucide-react';
 
-export default function LiveSalesStream({ sales, rawSalesCount = sales.length, filterType, setFilterType }) {
+export default function LiveSalesStream({ sales = [], rawSalesCount = (sales ? sales.length : 0), filterType = 'all', setFilterType }) {
   return (
     <div className="rounded-xl bg-white dark:bg-[#14151F] border border-slate-200 dark:border-[#262838] p-5 shadow-sm dark:shadow-lg flex flex-col h-[520px] transition-colors">
       
@@ -104,7 +104,7 @@ export default function LiveSalesStream({ sales, rawSalesCount = sales.length, f
               {/* Price Tag & Action */}
               <div className="text-right flex-shrink-0">
                 <div className="font-mono text-sm font-extrabold text-emerald-600 dark:text-emerald-400">
-                  +${sale.amount.toFixed(2)}
+                  +${Number(sale.amount || 0).toFixed(2)}
                 </div>
                 <span className="inline-block text-[10px] font-bold px-1.5 py-0.5 rounded bg-slate-200 text-slate-800 border border-slate-300 dark:bg-zinc-800 dark:text-zinc-200 dark:border-zinc-700/60 mt-1">
                   Settled ✓

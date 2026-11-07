@@ -96,7 +96,7 @@ const readableText = color => {
 
 const RotatingText = forwardRef((props, ref) => {
   const {
-    texts,
+    texts = [],
     transition,
     initial,
     animate,
@@ -135,11 +135,11 @@ const RotatingText = forwardRef((props, ref) => {
   const width = useMotionValue('auto');
   const reduceMotion = useReducedMotion();
 
-  const lastIndex = Math.max(texts.length - 1, 0);
+  const lastIndex = Math.max((texts ? texts.length : 0) - 1, 0);
   const activeIndex = Math.min(currentTextIndex, lastIndex);
 
   const elements = useMemo(() => {
-    const currentText = texts[activeIndex] ?? '';
+    const currentText = (texts && texts[activeIndex]) ? texts[activeIndex] : '';
     if (splitBy === 'characters') {
       const words = currentText.split(' ');
       return words.map((word, i) => ({
@@ -321,7 +321,7 @@ const RotatingText = forwardRef((props, ref) => {
         layout={!highlight}
         transition={transition ?? LAYOUT_SPRING}
       >
-        <span className="text-rotate-sr-only">{texts[activeIndex]}</span>
+        <span className="text-rotate-sr-only">{(texts && texts[activeIndex]) || ''}</span>
         {highlight ? (
           <span ref={contentRef} className="text-rotate-highlight-content">
             {presence}

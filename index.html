@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,12 +20,10 @@
     content="Official Portfolio of Belintan B. — Network Technical Support (Backend), Java, Spring Boot, React, and AI-Powered Web Solutions." />
   <meta property="og:image" content="belintan-hero.jpg" />
 
-  <!-- Google Fonts Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Space+Grotesk:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600&family=Caveat:wght@600;700&display=swap"
-    rel="stylesheet" />
+  <!-- Google Fonts Preconnect & Font Stylesheets: Amarante & Redaction -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amarante&family=Redaction:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
@@ -74,11 +72,12 @@
       --radius-lg: 20px;
       --radius-pill: 9999px;
 
-      /* Typography */
-      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      --font-display: 'Space Grotesk', system-ui, sans-serif;
-      --font-serif: 'Playfair Display', Georgia, serif;
-      --font-sketch: 'Caveat', cursive, sans-serif;
+      /* Typography: Amarante & Redaction Font System */
+      --font-title: 'Amarante', serif;
+      --font-display: 'Redaction', 'Space Grotesk', serif, sans-serif;
+      --font-body: 'Redaction', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-serif: 'Redaction', Georgia, serif;
+      --font-sketch: 'Amarante', cursive, serif;
 
       /* Layout - Enhanced Responsive Spacing & Padding */
       --container-max: 1280px;
@@ -946,16 +945,23 @@
     }
 
     h1,
-    h2,
+    h2 {
+      font-family: var(--font-title);
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 1.15;
+    }
+
     h3,
     h4,
     h5,
     h6 {
       font-family: var(--font-display);
       color: var(--text);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1.12;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
     }
 
     .sketch-chapter-badge {
@@ -964,8 +970,8 @@
       gap: 8px;
       font-family: var(--font-display);
       font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--accent-orange);
       background: var(--accent-orange-subtle);
@@ -977,8 +983,11 @@
     }
 
     .section-title {
+      font-family: var(--font-title);
+      font-weight: 400;
       font-size: clamp(2.2rem, 5vw, 3.6rem);
       margin-bottom: 18px;
+      letter-spacing: 0.01em;
     }
 
     .section-subtitle {
@@ -1111,10 +1120,11 @@
     }
 
     .biz-hero-title {
+      font-family: var(--font-title);
       font-size: clamp(2.8rem, 6.2vw, 4.8rem);
-      font-weight: 900;
+      font-weight: 400;
       line-height: 1.05;
-      letter-spacing: -0.04em;
+      letter-spacing: 0.01em;
       color: #0B0F19;
       margin-bottom: 20px;
     }
@@ -5114,9 +5124,10 @@
     }
 
     .album-modal-main-title {
+      font-family: var(--font-title);
       font-size: clamp(1.2rem, 2.4vw, 1.55rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
+      font-weight: 400;
+      letter-spacing: 0.01em;
       margin-top: 6px;
       color: var(--text);
     }
@@ -5964,9 +5975,10 @@
     }
 
     .brand-name {
-      font-size: 1.25rem;
-      font-weight: 900;
-      letter-spacing: -0.02em;
+      font-family: var(--font-title);
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
     }
       .hero-grid {
       display: grid;
@@ -6840,10 +6852,10 @@
 }
 
 .overlay-item-text {
-  font-family: var(--font-display);
+  font-family: var(--font-title);
   font-size: clamp(2.4rem, 6vw, 4.4rem);
-  font-weight: 900;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   line-height: 1.05;
   transition: color 0.25s ease, transform 0.25s ease;
 }
@@ -8486,7 +8498,7 @@
             <li><a href="#skills">Merchant Integration</a></li>
             <li><a href="#skills">Usage-Based Billing</a></li>
             <li><a href="#skills">Entitlements Engine</a></li>
-            <li><a href="#community-templates">Checkout &amp; Localization</a></li>
+            <li><a href="#pricing">Checkout &amp; Localization</a></li>
             <li><a href="#contact">Pricing &amp; Retainers</a></li>
           </ul>
         </div>
@@ -8499,7 +8511,7 @@
             <li><a href="#skills">Java 17 &amp; Spring Boot</a></li>
             <li><a href="#skills">API Reference</a></li>
             <li><a href="#skills">SDKs &amp; Libraries</a></li>
-            <li><a href="#community-templates">Changelog &amp; Releases</a></li>
+            <li><a href="#projects">Changelog &amp; Releases</a></li>
             <li><a href="#experience">Engineering Stack</a></li>
           </ul>
         </div>
@@ -8509,7 +8521,7 @@
           <h4>Solutions</h4>
           <ul>
             <li><a href="#skills">AI Agents &amp; Workflows</a></li>
-            <li><a href="#community-templates">Digital Products &amp; Templates</a></li>
+            <li><a href="#projects">Digital Products &amp; Templates</a></li>
             <li><a href="#education">Education &amp; Credentials</a></li>
             <li><a href="#projects">Fintech Wealth Dashboards</a></li>
             <li><a href="#projects">Telehealth Portals</a></li>
