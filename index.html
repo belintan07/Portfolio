@@ -6268,16 +6268,16 @@
       margin-top: 36px;
       padding-top: 24px;
       border-top: 1.5px solid var(--border-light);
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
       width: 100%;
     }
 
-    @media (min-width: 640px) {
-      .capabilities-strip {
-        grid-template-columns: repeat(4, 1fr);
-      }
+    .capabilities-strip > div {
+      flex: 1 1 180px;
     }
 
     [data-theme="dark"] .capabilities-strip {
@@ -7159,8 +7159,12 @@
             </div>
           </div>
 
-          <!-- Honest Capabilities Strip -->
+          <!-- Capabilities Strip: Arranged with Flexible Space -->
           <div class="capabilities-strip" aria-label="Core Technical Capabilities">
+            <div>
+              <div class="cap-item-title" style="color: var(--accent-orange);">Clean Delivery with</div>
+              <div class="cap-item-sub">Git &amp; CI/CD Pipelines</div>
+            </div>
             <div>
               <div class="cap-item-title">Full-Stack Web</div>
               <div class="cap-item-sub">React 19 &amp; Vite</div>
@@ -7168,14 +7172,6 @@
             <div>
               <div class="cap-item-title">Node &amp; Python</div>
               <div class="cap-item-sub">APIs &amp; MCP Servers</div>
-            </div>
-            <div>
-              <div class="cap-item-title">MBA Strategy</div>
-              <div class="cap-item-sub">Conversion Focused</div>
-            </div>
-            <div>
-              <div class="cap-item-title" style="color: var(--accent-orange);">Clean Delivery</div>
-              <div class="cap-item-sub">Git &amp; CI/CD Pipelines</div>
             </div>
           </div>
 
