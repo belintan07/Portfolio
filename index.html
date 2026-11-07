@@ -6088,6 +6088,240 @@
     }
 
     /* ==========================================================================
+       GUARANTEED 50% OFF PROMOTIONAL QUOTE BANNER
+       ========================================================================== */
+    .guaranteed-offer-banner {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, #FFF7ED 0%, #FFFFFF 50%, #F0FDF4 100%);
+      border: 2.5px solid var(--text);
+      border-radius: var(--radius-md);
+      padding: clamp(24px, 4vw, 36px);
+      box-shadow: var(--sketch-shadow-lg);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    [data-theme="dark"] .guaranteed-offer-banner {
+      background: linear-gradient(135deg, #1C120C 0%, #12141F 50%, #0D1A14 100%);
+      border-color: #383D54;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+    }
+
+    .guaranteed-offer-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #FF5A1F, #F59E0B, #10B981, #FF5A1F);
+      background-size: 200% 100%;
+      animation: offerGradientShift 4s linear infinite;
+    }
+
+    @keyframes offerGradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .offer-banner-header {
+      margin-bottom: 24px;
+    }
+
+    .offer-badge-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .offer-discount-badge {
+      display: inline-flex;
+      align-items: center;
+      background: #FF5A1F;
+      color: #FFFFFF;
+      font-family: var(--font-title);
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      box-shadow: 2px 2px 0px var(--shadow-ink);
+    }
+
+    .offer-guarantee-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #10B981;
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      text-transform: uppercase;
+      box-shadow: 2px 2px 0px var(--shadow-ink);
+    }
+
+    .offer-banner-title {
+      font-family: var(--font-title);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin-bottom: 8px;
+    }
+
+    .offer-guarantee-highlight {
+      color: #FF5A1F;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      text-underline-offset: 4px;
+    }
+
+    .offer-banner-subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(0.92rem, 1.4vw, 1.05rem);
+      color: var(--text-muted);
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    .offer-features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .offer-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--surface);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .offer-feature-item:hover {
+      transform: translateY(-2px);
+      border-color: #FF5A1F;
+    }
+
+    [data-theme="dark"] .offer-feature-item {
+      background: #171A27;
+      border-color: #272C3E;
+    }
+
+    .offer-feature-bullet {
+      color: #FF5A1F;
+      font-size: 1.3rem;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .offer-feature-check {
+      color: #10B981;
+      font-size: 1.1rem;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+
+    .offer-feature-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .offer-feature-text strong {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .offer-feature-text span {
+      font-size: 0.76rem;
+      color: var(--text-subtle);
+      margin-top: 2px;
+    }
+
+    .offer-banner-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding-top: 20px;
+      border-top: 1.5px dashed var(--border-light);
+    }
+
+    [data-theme="dark"] .offer-banner-cta-row {
+      border-top-color: #2B3044;
+    }
+
+    .offer-banner-guarantee-note {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .btn-claim-offer {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0047AB;
+      color: #FFFFFF !important;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 800;
+      padding: 13px 22px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0, 71, 171, 0.28);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-claim-offer:hover {
+      background: #003685;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 71, 171, 0.4);
+    }
+
+    [data-theme="dark"] .btn-claim-offer {
+      background: #2563EB;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    }
+
+    [data-theme="dark"] .btn-claim-offer:hover {
+      background: #1D4ED8;
+    }
+
+    @media (max-width: 640px) {
+      .offer-banner-cta-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-claim-offer {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* ==========================================================================
        PRICING PACKAGES SECTION
        ========================================================================== */
     .pricing-grid {
@@ -7441,6 +7675,98 @@
             <div class="service-tech-pill">Stripe • Webhooks • Cloud</div>
           </div>
         </div>
+
+        <!-- Special Promotional Offer: 50% OFF Guaranteed -->
+        <div class="guaranteed-offer-banner" id="promo-offer-services">
+          <div class="offer-banner-header">
+            <div class="offer-badge-wrap">
+              <span class="offer-discount-badge">50% OFF</span>
+              <span class="offer-guarantee-pill">GUARANTEED*</span>
+            </div>
+            <h3 class="offer-banner-title">
+              50% OFF on your website <span class="offer-guarantee-highlight">GUARANTEED*</span>
+            </h3>
+            <p class="offer-banner-subtitle">
+              Comprehensive full-stack launch package engineered for business conversion, speed, and continuous reliability.
+            </p>
+          </div>
+
+          <div class="offer-features-grid">
+            <div class="offer-feature-item">
+              <span class="offer-feature-bullet">•</span>
+              <div class="offer-feature-text">
+                <strong>Custom Website</strong>
+                <span>Tailored UI/UX design &amp; code</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-bullet">•</span>
+              <div class="offer-feature-text">
+                <strong>Fully Functional</strong>
+                <span>100% dynamic &amp; ready to sell</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>Domain Included</strong>
+                <span>Custom .com / .in domain registration</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>Hosting Included</strong>
+                <span>High-speed cloud SSD web hosting</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>DNS Included</strong>
+                <span>Cloudflare SSL &amp; fast DNS propagation</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>SEO Optimised</strong>
+                <span>Meta tags, Schema &amp; Google indexing</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>Social Media Integration</strong>
+                <span>WhatsApp, Instagram &amp; LinkedIn triggers</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>1 Year Full Support</strong>
+                <span>Maintenance &amp; security updates included</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>24/7 Support</strong>
+                <span>Round-the-clock developer priority hotline</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="offer-banner-cta-row">
+            <div class="offer-banner-guarantee-note">
+              <span class="pulse-dot"></span>
+              <span>*Guaranteed locked-in 50% discount applied instantly on all new client website bookings.</span>
+            </div>
+            <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I'd%20like%20to%20claim%20the%2050%25%20OFF%20Website%20Package%20with%20Domain,%20Hosting%20and%201%20Year%20Support!" target="_blank" rel="noopener noreferrer" class="btn-claim-offer">
+              <span>Claim 50% Off Website on WhatsApp &rarr;</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -8056,6 +8382,99 @@
         <p class="section-subtitle">
           Web design, software engineering, and digital growth marketing packages with an immediate investment calculator.
         </p>
+
+        <!-- Special Promotional Offer: 50% OFF Guaranteed (Merged in Chapter 04) -->
+        <div class="guaranteed-offer-banner" id="promo-offer-pricing">
+          <div class="offer-banner-header">
+            <div class="offer-badge-wrap">
+              <span class="offer-discount-badge">50% OFF</span>
+              <span class="offer-guarantee-pill">GUARANTEED*</span>
+              <span class="credentials-col-badge" style="background: rgba(0, 71, 171, 0.1); border-color: #0047AB; color: #0047AB;">EXCLUSIVE WEB PACKAGE</span>
+            </div>
+            <h3 class="offer-banner-title">
+              50% OFF on your website <span class="offer-guarantee-highlight">GUARANTEED*</span>
+            </h3>
+            <p class="offer-banner-subtitle">
+              All-inclusive turnkey website package with zero hidden charges. Get enterprise-grade performance, design, and 1 full year of support at half the standard investment.
+            </p>
+          </div>
+
+          <div class="offer-features-grid">
+            <div class="offer-feature-item">
+              <span class="offer-feature-bullet">•</span>
+              <div class="offer-feature-text">
+                <strong>Custom Website</strong>
+                <span>Tailored UI/UX design &amp; code</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-bullet">•</span>
+              <div class="offer-feature-text">
+                <strong>Fully Functional</strong>
+                <span>100% dynamic &amp; ready to sell</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>Domain Included</strong>
+                <span>Custom .com / .in domain registration</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>Hosting Included</strong>
+                <span>High-speed cloud SSD web hosting</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>DNS Included</strong>
+                <span>Cloudflare SSL &amp; fast DNS propagation</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>SEO Optimised</strong>
+                <span>Meta tags, Schema &amp; Google indexing</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>Social Media Integration</strong>
+                <span>WhatsApp, Instagram &amp; LinkedIn triggers</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>1 Year Full Support</strong>
+                <span>Maintenance &amp; security updates included</span>
+              </div>
+            </div>
+            <div class="offer-feature-item">
+              <span class="offer-feature-check">✓</span>
+              <div class="offer-feature-text">
+                <strong>24/7 Support</strong>
+                <span>Round-the-clock developer priority hotline</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="offer-banner-cta-row">
+            <div class="offer-banner-guarantee-note">
+              <span class="pulse-dot"></span>
+              <span>*Guaranteed locked-in 50% discount applied instantly on all new client website bookings.</span>
+            </div>
+            <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I'd%20like%20to%20claim%20the%2050%25%20OFF%20Website%20Package%20with%20Domain,%20Hosting%20and%201%20Year%20Support!" target="_blank" rel="noopener noreferrer" class="btn-claim-offer">
+              <span>Claim 50% Off Website on WhatsApp &rarr;</span>
+            </a>
+          </div>
+        </div>
 
         <div class="pricing-grid">
           <!-- Tier 1 -->
