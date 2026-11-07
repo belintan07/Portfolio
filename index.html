@@ -4888,7 +4888,7 @@
       border-radius: 20px;
       box-shadow: 12px 12px 0px var(--shadow-ink), 0 25px 60px rgba(0, 0, 0, 0.5);
       width: 100%;
-      max-width: 1040px;
+      max-width: 860px;
       max-height: 94vh;
       overflow-y: auto;
       padding: clamp(18px, 3vw, 30px);
@@ -4949,7 +4949,7 @@
       border-radius: 9999px;
     }
 
-    /* Modal Navigation Stepper (← Prev / Item 1 of 12 / Next →) */
+    /* Modal Navigation Stepper (← Prev / Item 1 of 4 / Next →) */
     .album-modal-controls-right {
       display: flex;
       align-items: center;
@@ -7514,7 +7514,7 @@
             <span class="project-live-indicator"><span class="pulse-dot"></span> PRODUCTION READY</span>
             <div class="project-visual-header">
               <span class="project-number-stamp">01 / 04</span>
-              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="GymFreaky Fitness Platform live member portal">
+              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="GymFreaky Fitness Platform live member portal" style="cursor: pointer;" data-project-id="gymfreaky">
                 <defs>
                   <linearGradient id="gfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stop-color="#271005" />
@@ -7559,27 +7559,18 @@
                 High-conversion gym membership and class scheduling platform with automated WhatsApp lead capture, member subscription workflows, and mobile-optimized interfaces.
               </p>
 
-              <div class="telemetry-mini-console">
-                <div class="telemetry-row">
-                  <span class="telemetry-label">Active Membership:</span>
-                  <span class="telemetry-val">1,280+ Enrolled &middot; 96.4% Retention</span>
-                </div>
-                <div class="telemetry-row">
-                  <span class="telemetry-label">Lead Automation:</span>
-                  <span class="telemetry-val">Sub-second WhatsApp Trigger</span>
-                </div>
-              </div>
-
-              <div class="project-metric-pill">
-                <span>⚡ Performance:</span> 0.2s page load &middot; Real-time membership pass verification.
-              </div>
-
-              <div class="project-actions" style="flex-wrap: wrap;">
-                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20GymFreaky" target="_blank" rel="noopener noreferrer" class="btn-project-link btn-live-primary">
-                  <span>💬 Inquire on WhatsApp &rarr;</span>
-                </a>
-                <button type="button" class="btn-project-link btn-inspect-album" data-album-id="gymfreaky">
-                  <span>🔍 View System Spec</span>
+              <!-- Simple Clickable Preview Bar -->
+              <div class="project-preview-bar">
+                <button type="button" class="btn-preview-project" data-project-id="gymfreaky" aria-label="Open live interactive preview of GymFreaky Platform">
+                  <div class="preview-bar-left">
+                    <span class="preview-pulse-dot" aria-hidden="true"></span>
+                    <span class="preview-bar-title">Interactive Live Preview</span>
+                    <span class="preview-bar-domain">gymfreaky.fit/shop</span>
+                  </div>
+                  <div class="preview-bar-right">
+                    <span class="preview-bar-cta">Launch Preview</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </div>
                 </button>
               </div>
             </div>
@@ -7590,7 +7581,7 @@
             <span class="project-live-indicator"><span class="pulse-dot"></span> PWA &middot; SUB-MS ENGINE</span>
             <div class="project-visual-header">
               <span class="project-number-stamp">02 / 04</span>
-              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="HabiTrack Live sub-millisecond habit tracking engine">
+              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="HabiTrack Live sub-millisecond habit tracking engine" style="cursor: pointer;" data-project-id="habitrack">
                 <defs>
                   <linearGradient id="htGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stop-color="#1E1B4B" />
@@ -7633,32 +7624,19 @@
                 Progressive Web App engineered for zero-latency local execution and 100% offline persistence. Evaluates recurrence calculus, optimistic state updates, and streak algorithms with sub-millisecond execution times and background cloud sync.
               </p>
 
-              <div class="telemetry-mini-console" id="habitrack-live-telemetry">
-                <div class="telemetry-row">
-                  <span class="telemetry-label">Current Streak:</span>
-                  <span class="telemetry-val" id="habitrack-streak-val">42 Days Active 🔥</span>
-                </div>
-                <div class="telemetry-row">
-                  <span class="telemetry-label">Evaluation Latency:</span>
-                  <span class="telemetry-val">0.3 ms (Optimistic Local)</span>
-                </div>
-              </div>
-
-              <div class="project-metric-pill">
-                <span>⚡ Performance:</span> Zero network latency · 100% offline-ready with instant sync.
-              </div>
-
-              <div class="project-actions" style="flex-wrap: wrap;">
-                <button type="button" class="btn-project-link btn-live-primary" id="btn-habitrack-toggle">
-                  <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
-                  <span>✓ Mark Habit Complete</span>
+              <!-- Simple Clickable Preview Bar -->
+              <div class="project-preview-bar">
+                <button type="button" class="btn-preview-project" data-project-id="habitrack" aria-label="Open live interactive preview of HabiTrack Live PWA">
+                  <div class="preview-bar-left">
+                    <span class="preview-pulse-dot" aria-hidden="true"></span>
+                    <span class="preview-bar-title">Interactive Live Preview</span>
+                    <span class="preview-bar-domain">habitrack.app/live</span>
+                  </div>
+                  <div class="preview-bar-right">
+                    <span class="preview-bar-cta">Launch Preview</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </div>
                 </button>
-                <button type="button" class="btn-project-link btn-inspect-album" data-album-id="habitrack">
-                  <span>🔍 Live Details</span>
-                </button>
-                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20HabiTrack" target="_blank" rel="noopener noreferrer" class="btn-project-link">
-                  <span>💬 WhatsApp &rarr;</span>
-                </a>
               </div>
             </div>
           </article>
@@ -7720,27 +7698,18 @@
                 Fleet coordinate tracking dashboard with WebSocket streaming and spatial polygon queries via PostGIS, rendering thousands of asset coordinates at 60 FPS.
               </p>
 
-              <div class="telemetry-mini-console">
-                <div class="telemetry-row">
-                  <span class="telemetry-label">Tracked Coordinates:</span>
-                  <span class="telemetry-val">48 Live Nodes &middot; 60 FPS Canvas</span>
-                </div>
-                <div class="telemetry-row">
-                  <span class="telemetry-label">Spatial Query Speed:</span>
-                  <span class="telemetry-val">4.2 ms (PostGIS Indexed ST_Contains)</span>
-                </div>
-              </div>
-
-              <div class="project-metric-pill">
-                <span>⚡ Performance:</span> Sub-5ms spatial query latency &middot; Zero canvas stuttering.
-              </div>
-
-              <div class="project-actions" style="flex-wrap: wrap;">
-                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20GeoTrack" target="_blank" rel="noopener noreferrer" class="btn-project-link btn-live-primary">
-                  <span>💬 Inquire on WhatsApp &rarr;</span>
-                </a>
-                <button type="button" class="btn-project-link btn-inspect-album" data-album-id="geotrack">
-                  <span>🔍 View System Spec</span>
+              <!-- Simple Clickable Preview Bar -->
+              <div class="project-preview-bar">
+                <button type="button" class="btn-preview-project" data-project-id="geotrack" aria-label="Open live interactive preview of GeoTrack GIS Dashboard">
+                  <div class="preview-bar-left">
+                    <span class="preview-pulse-dot" aria-hidden="true"></span>
+                    <span class="preview-bar-title">Interactive Live Preview</span>
+                    <span class="preview-bar-domain">geotrack.gis/live</span>
+                  </div>
+                  <div class="preview-bar-right">
+                    <span class="preview-bar-cta">Launch Preview</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </div>
                 </button>
               </div>
             </div>
@@ -7751,7 +7720,7 @@
             <span class="project-live-indicator"><span class="pulse-dot"></span> REAL-TIME AI &amp; AST</span>
             <div class="project-visual-header">
               <span class="project-number-stamp">04 / 04</span>
-              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="ResumeAI AST ATS scoring and keyword telemetry engine">
+              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="ResumeAI AST ATS scoring and keyword telemetry engine" style="cursor: pointer;" data-project-id="resumeai">
                 <defs>
                   <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stop-color="#180C2E" />
@@ -7802,29 +7771,19 @@
                 Client-side resume intelligence scanner powered by abstract syntax tree (AST) token parsing and LLM semantic embeddings. Calculates recruiter ATS match percentages, skill density, and formatting compliance in under 80ms.
               </p>
 
-              <div class="telemetry-mini-console">
-                <div class="telemetry-row">
-                  <span class="telemetry-label">ATS Compatibility:</span>
-                  <span class="telemetry-val">94% Match · Tier 1 Compliant</span>
-                </div>
-                <div class="telemetry-row">
-                  <span class="telemetry-label">Analysis Speed:</span>
-                  <span class="telemetry-val">74 ms (Background Worker)</span>
-                </div>
-              </div>
-
-              <div class="project-metric-pill">
-                <span>⚡ Performance:</span> Sub-80ms client-side AST parse &middot; 94% ATS accuracy.
-              </div>
-
-              <div class="project-actions" style="flex-wrap: wrap;">
-                <button type="button" class="btn-project-link btn-live-primary btn-inspect-album" data-album-id="resumeai">
-                  <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/><path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg>
-                  <span>⚡ Open AST Scanner</span>
+              <!-- Simple Clickable Preview Bar -->
+              <div class="project-preview-bar">
+                <button type="button" class="btn-preview-project" data-project-id="resumeai" aria-label="Open live interactive preview of ResumeAI Live Scanner">
+                  <div class="preview-bar-left">
+                    <span class="preview-pulse-dot" aria-hidden="true"></span>
+                    <span class="preview-bar-title">Interactive Live Preview</span>
+                    <span class="preview-bar-domain">resumeai.engine/live</span>
+                  </div>
+                  <div class="preview-bar-right">
+                    <span class="preview-bar-cta">Launch Preview</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </div>
                 </button>
-                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20tell%20me%20about%20ResumeAI" target="_blank" rel="noopener noreferrer" class="btn-project-link">
-                  <span>💬 WhatsApp &rarr;</span>
-                </a>
               </div>
             </div>
           </article>
@@ -8390,7 +8349,7 @@
             <button class="album-step-btn" id="modal-prev-btn" title="Previous Album Item (←)" aria-label="Previous Album Item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
             </button>
-            <span id="modal-album-counter" class="album-counter-pill">Item 1 of 12</span>
+            <span id="modal-album-counter" class="album-counter-pill">Project 1 of 4</span>
             <button class="album-step-btn" id="modal-next-btn" title="Next Album Item (→)" aria-label="Next Album Item">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
             </button>
@@ -8884,16 +8843,16 @@
       const ALBUM_WEBPAGE_DATABASE = [
         {
           id: 'gymfreaky',
-          slug: 'gymfreaky-platform',
-          title: 'GymFreaky Platform — High-Conversion Fitness Engine',
-          category: 'Full-Stack Web App & Automation',
+          slug: 'gymfreaky-dtc-brand',
+          title: 'GymFreaky Elite Performance Pass — DTC Fitness & Apparel Brand',
+          category: 'DTC E-Commerce & Membership Brand',
           tech: 'React 19 · Node.js · Tailwind CSS · WhatsApp Cloud API · Stripe',
-          url: 'https://gymfreaky.fit',
+          url: 'https://gymfreaky.fit/shop/elite-pass',
           features: [
-            'Automated WhatsApp lead capture workflow with instant QR membership verification',
-            'Recurring subscription billing with Stripe webhook reconciliation and receipt generation',
-            'Real-time class slot locking and trainer booking calendar with zero double-booking',
-            'Sub-second page load performance and 100% mobile-responsive touch controls'
+            'Direct-to-Consumer (DTC) performance pass & starter kit with instant WhatsApp QR fulfillment',
+            'Interactive finish/tier variant switcher with dynamic pricing discounts & real-time bag calculation',
+            'Friction-free checkout: Single-click WhatsApp express order & Stripe recurring payments',
+            'Transparent 30-day money-back guarantee, free onboarding consultation & 4.9★ social proof'
           ],
           palette: [
             { name: 'Fire Orange', hex: '#FF5A1F' },
@@ -8903,42 +8862,171 @@
           ],
           renderLiveWebpage: function(container) {
             container.innerHTML = `
-              <div style="background: #170B03; color: #FED7AA; padding: 24px; border-radius: 12px; border: 1.5px solid #7C2D12;">
+              <div class="dtc-ecommerce-showcase" style="background: #120803; color: #FED7AA; padding: 22px; border-radius: 12px; border: 1.5px solid #7C2D12; font-family: var(--font-body, sans-serif);">
+                
+                <!-- Top Brand Header Bar -->
                 <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #7C2D12; padding-bottom: 12px; margin-bottom: 16px;">
                   <div>
-                    <strong style="color: #FF5A1F; font-size: 1.05rem;">GymFreaky Member Automation Console</strong>
-                    <div style="color: #FDBA74; font-size: 0.76rem;">React 19 &middot; Node.js &middot; Active Lead Engine</div>
+                    <span style="font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: #FB923C; font-weight: 800;">⚡ DTC E-COMMERCE BRAND STORE</span>
+                    <h4 style="margin: 2px 0 0 0; color: #FFFFFF; font-family: var(--font-display); font-size: 1.15rem; font-weight: 800;">GymFreaky All-Access Performance Pass</h4>
                   </div>
-                  <span style="background: rgba(255, 90, 31, 0.2); color: #FF5A1F; padding: 3px 8px; border-radius: 4px; border: 1px solid #FF5A1F; font-size: 0.72rem; font-weight: bold;">● LIVE MEMBERSHIP</span>
+                  <span style="background: rgba(255, 90, 31, 0.15); color: #FF5A1F; border: 1px solid #FF5A1F; padding: 3px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 800;">★ 4.9 (1,280+ REVIEWS)</span>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
-                  <div style="background: #271005; padding: 10px; border-radius: 6px; border: 1px solid #7C2D12;">
-                    <div style="color: #FDBA74; font-size: 0.72rem;">ACTIVE ENROLLED</div>
-                    <div style="color: #FF5A1F; font-size: 1.1rem; font-weight: bold;">1,280 Members</div>
+
+                <!-- Product Showcase Grid -->
+                <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 18px; align-items: start;">
+                  
+                  <!-- Left: Interactive Product Media Card -->
+                  <div style="background: #1F0D04; border: 1.5px solid #431407; border-radius: 10px; padding: 14px; text-align: center;">
+                    <div style="background: #2E1205; border-radius: 8px; padding: 18px 12px; margin-bottom: 10px;">
+                      <div style="font-size: 2.5rem; margin-bottom: 4px;">🏋️‍♂️</div>
+                      <div style="font-family: monospace; font-size: 0.78rem; color: #FDBA74; font-weight: bold;">GYMFREAKY ELITE PASS</div>
+                      <div style="font-size: 0.68rem; color: #A7F3D0; margin-top: 2px;">● INSTANT WHATSAPP QR PASS</div>
+                    </div>
+                    <div style="display: flex; justify-content: center; gap: 6px; font-size: 0.7rem; color: #FDBA74;">
+                      <span>✓ All Equipment</span>
+                      <span>&bull;</span>
+                      <span>✓ Sauna &amp; Spa</span>
+                      <span>&bull;</span>
+                      <span>✓ Locker</span>
+                    </div>
                   </div>
-                  <div style="background: #271005; padding: 10px; border-radius: 6px; border: 1px solid #7C2D12;">
-                    <div style="color: #FDBA74; font-size: 0.72rem;">WHATSAPP LEAD SYNC</div>
-                    <div style="color: #34D399; font-size: 1.1rem; font-weight: bold;">0.84s Instant</div>
+
+                  <!-- Right: Interactive Variant & Add-to-Bag Engine -->
+                  <div>
+                    <!-- Price Display -->
+                    <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
+                      <span id="dtc-price-val" style="font-size: 1.45rem; font-weight: 900; color: #FFFFFF; font-family: var(--font-display);">₹3,499</span>
+                      <span id="dtc-mrp-val" style="text-decoration: line-through; color: #9CA3AF; font-size: 0.88rem;">₹5,000</span>
+                      <span id="dtc-save-badge" style="background: #059669; color: #FFFFFF; font-size: 0.7rem; font-weight: bold; padding: 2px 7px; border-radius: 4px;">SAVE 30%</span>
+                    </div>
+
+                    <!-- Variant Selection Pills (Prompt: Ecommerce Brand spec) -->
+                    <div style="margin-bottom: 12px;">
+                      <div style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: #FED7AA; margin-bottom: 6px;">SELECT MEMBERSHIP TIER:</div>
+                      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;" id="dtc-tier-selector">
+                        <button type="button" class="dtc-tier-btn" data-tier="starter" data-price="1499" data-mrp="2000" data-save="25%" style="background: #271005; border: 1px solid #7C2D12; color: #FED7AA; padding: 8px 4px; border-radius: 6px; font-size: 0.74rem; cursor: pointer; text-align: center; font-weight: 600;">
+                          <div>Starter</div>
+                          <div style="font-size: 0.68rem; color: #FB923C;">₹1,499/mo</div>
+                        </button>
+                        <button type="button" class="dtc-tier-btn active" data-tier="pro" data-price="3499" data-mrp="5000" data-save="30%" style="background: #FF5A1F; border: 1px solid #FF5A1F; color: #FFFFFF; padding: 8px 4px; border-radius: 6px; font-size: 0.74rem; cursor: pointer; text-align: center; font-weight: 800;">
+                          <div>Pro Pass ★</div>
+                          <div style="font-size: 0.68rem; color: #FFF;">₹3,499/mo</div>
+                        </button>
+                        <button type="button" class="dtc-tier-btn" data-tier="vip" data-price="6999" data-mrp="12000" data-save="42%" style="background: #271005; border: 1px solid #7C2D12; color: #FED7AA; padding: 8px 4px; border-radius: 6px; font-size: 0.74rem; cursor: pointer; text-align: center; font-weight: 600;">
+                          <div>VIP Annual</div>
+                          <div style="font-size: 0.68rem; color: #FB923C;">₹6,999/yr</div>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Quantity & Add to Cart Action -->
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                      <div style="display: inline-flex; align-items: center; background: #271005; border: 1px solid #7C2D12; border-radius: 6px; overflow: hidden;">
+                        <button type="button" id="dtc-qty-minus" style="background: none; border: none; color: #FED7AA; width: 28px; height: 36px; cursor: pointer; font-size: 1rem; font-weight: bold;">-</button>
+                        <span id="dtc-qty-val" style="width: 28px; text-align: center; font-weight: bold; font-size: 0.85rem; color: #FFF;">1</span>
+                        <button type="button" id="dtc-qty-plus" style="background: none; border: none; color: #FED7AA; width: 28px; height: 36px; cursor: pointer; font-size: 1rem; font-weight: bold;">+</button>
+                      </div>
+                      <button type="button" id="dtc-add-cart-btn" style="flex: 1; background: #FF5A1F; color: #FFF; border: none; font-weight: 800; font-size: 0.84rem; border-radius: 6px; cursor: pointer; padding: 0 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.15s ease;">
+                        <span>🛒 Add to Bag</span>
+                        <span id="dtc-btn-price">(₹3,499)</span>
+                      </button>
+                    </div>
+
+                    <!-- Direct Express WhatsApp Checkout -->
+                    <a id="dtc-wa-btn" href="https://wa.me/918610662871?text=Hi%20Belintan,%20I'd%20like%20to%20order%20the%20GymFreaky%20Pro%20Pass%20(₹3,499)" target="_blank" rel="noopener noreferrer" style="width: 100%; box-sizing: border-box; background: #16A34A; color: #FFF; text-decoration: none; font-weight: 700; font-size: 0.8rem; border-radius: 6px; padding: 8px 12px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 12px;">
+                      <span>💬 Instant WhatsApp Express Order &rarr;</span>
+                    </a>
+
+                    <!-- Conversion Levers & Trust Signals -->
+                    <div style="border-top: 1px dashed #431407; padding-top: 8px; display: flex; flex-direction: column; gap: 4px; font-size: 0.72rem; color: #FDBA74;">
+                      <div>⚡ <strong>Instant Delivery:</strong> QR pass texted to your WhatsApp immediately.</div>
+                      <div>🛡️ <strong>Risk-Free Guarantee:</strong> 30-day 100% money-back guarantee.</div>
+                    </div>
+
+                    <div id="dtc-toast" style="margin-top: 8px; font-size: 0.76rem; color: #34D399; font-weight: bold; min-height: 18px;"></div>
                   </div>
-                  <div style="background: #271005; padding: 10px; border-radius: 6px; border: 1px solid #7C2D12;">
-                    <div style="color: #FDBA74; font-size: 0.72rem;">RETENTION RATE</div>
-                    <div style="color: #10B981; font-size: 1.1rem; font-weight: bold;">96.4 %</div>
-                  </div>
+
                 </div>
-                <div style="background: #0E0702; padding: 12px; border-radius: 6px; font-size: 0.75rem; color: #FED7AA; margin-bottom: 16px; border: 1px solid #431407;">
-                  <div>&gt; POST /api/v1/leads/whatsapp-trigger ... 200 OK (112ms)</div>
-                  <div>&gt; Generating one-time cryptographic member check-in QR token ... VERIFIED</div>
-                  <div>&gt; Stripe Webhook subscription status: active. Zero payment churn.</div>
-                </div>
-                <button id="sim-gymfreaky-demo-btn" style="background: #FF5A1F; color: #FFF; border: none; font-weight: bold; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.82rem;">⚡ Test WhatsApp Lead Ingestion</button>
-                <span id="sim-gymfreaky-result" style="margin-left: 12px; color: #34D399; font-size: 0.8rem;"></span>
+
               </div>
             `;
-            const btn = container.querySelector('#sim-gymfreaky-demo-btn');
-            const res = container.querySelector('#sim-gymfreaky-result');
-            if (btn && res) {
+
+            // Interactive Wire for DTC E-Commerce Component
+            const tierBtns = container.querySelectorAll('.dtc-tier-btn');
+            const priceVal = container.querySelector('#dtc-price-val');
+            const mrpVal = container.querySelector('#dtc-mrp-val');
+            const saveBadge = container.querySelector('#dtc-save-badge');
+            const btnPrice = container.querySelector('#dtc-btn-price');
+            const qtyMinus = container.querySelector('#dtc-qty-minus');
+            const qtyPlus = container.querySelector('#dtc-qty-plus');
+            const qtyVal = container.querySelector('#dtc-qty-val');
+            const addCartBtn = container.querySelector('#dtc-add-cart-btn');
+            const waBtn = container.querySelector('#dtc-wa-btn');
+            const toast = container.querySelector('#dtc-toast');
+
+            let currentUnit = 3499;
+            let currentQty = 1;
+            let currentTierName = 'Pro Pass';
+
+            function updateDisplay() {
+              const total = currentUnit * currentQty;
+              if (priceVal) priceVal.textContent = '₹' + total.toLocaleString('en-IN');
+              if (btnPrice) btnPrice.textContent = '(₹' + total.toLocaleString('en-IN') + ')';
+              if (qtyVal) qtyVal.textContent = currentQty;
+              if (waBtn) {
+                const text = encodeURIComponent(`Hi Belintan, I'd like to order ${currentQty}x ${currentTierName} (₹${total.toLocaleString('en-IN')}) via GymFreaky DTC store.`);
+                waBtn.href = `https://wa.me/918610662871?text=${text}`;
+              }
+            }
+
+            tierBtns.forEach(btn => {
               btn.addEventListener('click', () => {
-                res.textContent = '✓ Lead dispatched to +91 8610662871 in 0.42s!';
+                tierBtns.forEach(b => {
+                  b.style.background = '#271005';
+                  b.style.borderColor = '#7C2D12';
+                  b.style.color = '#FED7AA';
+                  b.classList.remove('active');
+                });
+                btn.style.background = '#FF5A1F';
+                btn.style.borderColor = '#FF5A1F';
+                btn.style.color = '#FFFFFF';
+                btn.classList.add('active');
+
+                currentUnit = parseInt(btn.getAttribute('data-price'), 10);
+                const mrp = parseInt(btn.getAttribute('data-mrp'), 10);
+                const save = btn.getAttribute('data-save');
+                currentTierName = btn.querySelector('div:first-child').textContent.trim();
+
+                if (mrpVal) mrpVal.textContent = '₹' + (mrp * currentQty).toLocaleString('en-IN');
+                if (saveBadge) saveBadge.textContent = 'SAVE ' + save;
+                updateDisplay();
+              });
+            });
+
+            if (qtyMinus) {
+              qtyMinus.addEventListener('click', () => {
+                if (currentQty > 1) {
+                  currentQty--;
+                  updateDisplay();
+                }
+              });
+            }
+
+            if (qtyPlus) {
+              qtyPlus.addEventListener('click', () => {
+                currentQty++;
+                updateDisplay();
+              });
+            }
+
+            if (addCartBtn && toast) {
+              addCartBtn.addEventListener('click', () => {
+                const total = currentUnit * currentQty;
+                toast.textContent = `✓ Added ${currentQty}x ${currentTierName} (₹${total.toLocaleString('en-IN')}) to Bag! Proceeding to WhatsApp checkout...`;
+                setTimeout(() => {
+                  if (waBtn) waBtn.click();
+                }, 800);
               });
             }
           }
@@ -9225,12 +9313,12 @@
           document.body.style.overflow = '';
         }
 
-      // Wire [data-album-id] and .btn-inspect-album buttons to open Album Modal
-      document.querySelectorAll('[data-album-id], .btn-inspect-album').forEach(btn => {
+      // Wire .btn-preview-project, [data-project-id], [data-album-id], and .project-visual-header to open preview
+      document.querySelectorAll('.btn-preview-project, [data-project-id], [data-album-id], .btn-inspect-album, .project-visual-header').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
-          const albumId = btn.getAttribute('data-album-id');
-          const idx = ALBUM_WEBPAGE_DATABASE.findIndex(item => item.id === albumId);
+          const projId = btn.getAttribute('data-project-id') || btn.getAttribute('data-album-id') || (btn.querySelector('[data-project-id]') ? btn.querySelector('[data-project-id]').getAttribute('data-project-id') : null);
+          const idx = ALBUM_WEBPAGE_DATABASE.findIndex(item => item.id === projId);
           openAlbumModal(idx !== -1 ? idx : 0);
         });
       });
