@@ -674,7 +674,7 @@
 
     .value-pillars-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
       gap: 22px;
       margin-top: 36px;
     }
@@ -883,6 +883,7 @@
     html {
       scroll-behavior: smooth;
       -webkit-text-size-adjust: 100%;
+      overflow-x: hidden;
     }
 
     body {
@@ -2486,7 +2487,7 @@
 
     .skills-deck {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
       gap: 28px;
     }
 
@@ -2846,6 +2847,22 @@
 
     [data-theme="dark"] .preview-bar-cta {
       color: #38BDF8;
+    }
+
+    @media (max-width: 540px) {
+      .btn-preview-project {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 10px 12px;
+      }
+      .preview-bar-left {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .preview-bar-right {
+        align-self: flex-end;
+      }
     }
 
     .project-visual-header {
@@ -3578,7 +3595,7 @@
        ========================================================================== */
     .education-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
       gap: 24px;
       margin-top: 48px;
     }
@@ -4182,7 +4199,7 @@
     /* Direct Contact Channels Cluster */
     .contact-channels-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
       gap: 14px;
     }
 
@@ -4582,6 +4599,7 @@
       background: #003399;
       color: #FFFFFF;
       padding: 12px 28px;
+      padding-bottom: max(12px, env(safe-area-inset-bottom, 12px));
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -4673,12 +4691,16 @@
 
     /* Provide bottom clearance for body and footer so fixed bar never obstructs content */
     body {
-      padding-bottom: 56px;
+      padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
     }
 
     @media (max-width: 768px) {
+      body {
+        padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+      }
       .persistent-expert-bottom-bar {
         padding: 10px 16px;
+        padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
       }
       .expert-bar-inner {
         gap: 12px;
@@ -4695,6 +4717,34 @@
       .floating-chat-bubble-btn {
         width: 38px;
         height: 38px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .persistent-expert-bottom-bar {
+        padding: 8px 12px;
+        padding-bottom: max(8px, env(safe-area-inset-bottom, 8px));
+      }
+      .expert-bar-inner {
+        gap: 6px;
+        flex: 1;
+        min-width: 0;
+      }
+      .expert-bar-label {
+        font-size: 0.74rem;
+        white-space: normal;
+      }
+      .expert-bar-channels {
+        gap: 8px;
+      }
+      .expert-bar-link {
+        font-size: 0.74rem;
+        word-break: break-all;
+      }
+      .floating-chat-bubble-btn {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
       }
     }
 
@@ -5583,6 +5633,40 @@
       gap: 10px;
     }
 
+    /* DTC Ecommerce Brand Modal Showcase Grid */
+    .dtc-ecommerce-showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    @media (max-width: 680px) {
+      .dtc-ecommerce-showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .album-modal-card {
+        padding: 16px 12px;
+        border-radius: 14px;
+        box-shadow: 4px 4px 0px var(--shadow-ink);
+        max-height: 96vh;
+      }
+      .album-modal-header {
+        gap: 10px;
+      }
+      .album-modal-meta-left {
+        min-width: 100%;
+      }
+      .album-modal-controls-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
     /* Toast Notification for Token Copied */
     .album-toast-notice {
       position: fixed;
@@ -5907,7 +5991,7 @@
        ========================================================================== */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
       gap: 24px;
       margin-top: 40px;
     }
@@ -5996,7 +6080,7 @@
        ========================================================================== */
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
       gap: 24px;
       margin-top: 40px;
       align-items: stretch;
@@ -6422,8 +6506,12 @@
         justify-content: center !important;
       }
       .capabilities-strip {
-        grid-template-columns: 1fr !important;
+        flex-direction: column !important;
         gap: 16px !important;
+      }
+      .capabilities-strip > div {
+        flex: 1 1 100% !important;
+        width: 100% !important;
       }
       .estimator-footer-bar {
         flex-direction: column !important;
@@ -6848,6 +6936,18 @@
 
   .overlay-item-sub {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-13-whatsapp-btn {
+    display: none !important;
+  }
+  .navbar-13-inner {
+    height: 62px;
+  }
+  .brand-logo-biz .brand-name {
+    font-size: 1.1rem;
   }
 }
 
@@ -9013,7 +9113,7 @@
                 </div>
 
                 <!-- Product Showcase Grid -->
-                <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 18px; align-items: start;">
+                <div class="dtc-ecommerce-showcase-grid">
                   
                   <!-- Left: Interactive Product Media Card -->
                   <div style="background: #1F0D04; border: 1.5px solid #431407; border-radius: 10px; padding: 14px; text-align: center;">
