@@ -15,6 +15,13 @@ try {
                 $rawPath = "/index.html"
             }
             $targetFile = Join-Path (Get-Location) $rawPath.TrimStart('/')
+            if (Test-Path $targetFile -PathType Container) {
+                if (Test-Path (Join-Path $targetFile "index.html") -PathType Leaf) {
+                    $targetFile = Join-Path $targetFile "index.html"
+                } elseif (Test-Path (Join-Path $targetFile "dist\index.html") -PathType Leaf) {
+                    $targetFile = Join-Path $targetFile "dist\index.html"
+                }
+            }
             if (Test-Path $targetFile -PathType Leaf) {
                 $bytes = [System.IO.File]::ReadAllBytes($targetFile)
                 $ext = [System.IO.Path]::GetExtension($targetFile).ToLower()
@@ -27,8 +34,13 @@ try {
                     ".jpg"  { $response.ContentType = "image/jpeg" }
                     ".jpeg" { $response.ContentType = "image/jpeg" }
                     ".png"  { $response.ContentType = "image/png" }
+                    ".webp" { $response.ContentType = "image/webp" }
                     ".svg"  { $response.ContentType = "image/svg+xml" }
                     ".pdf"  { $response.ContentType = "application/pdf" }
+                    ".ttf"  { $response.ContentType = "font/ttf" }
+                    ".woff" { $response.ContentType = "font/woff" }
+                    ".woff2" { $response.ContentType = "font/woff2" }
+                    ".ico"  { $response.ContentType = "image/x-icon" }
                     default { $response.ContentType = "application/octet-stream" }
                 }
                 $response.ContentLength64 = $bytes.Length
