@@ -9,7 +9,7 @@ export default {
     extend: {
       colors: {
         brand: {
-          orange: '#FF5A1F',
+          orange: '#BB271A',
           dark: '#0C0D11',
           card: '#161720',
           border: '#282A36'

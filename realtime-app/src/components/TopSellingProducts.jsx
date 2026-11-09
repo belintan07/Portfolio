@@ -42,7 +42,7 @@ export default function TopSellingProducts({ sales }) {
                 {/* Progress bar */}
                 <div className="w-full h-1.5 bg-slate-100 dark:bg-zinc-800 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-amber-500 to-[#FF5A1F] rounded-full transition-all duration-300"
+                    className="h-full bg-gradient-to-r from-amber-500 to-[#BB271A] rounded-full transition-all duration-300"
                     style={{ width: `${percent}%` }}
                   ></div>
                 </div>

@@ -17,7 +17,7 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers,
         
         {/* Brand & Live Pulse Badge */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#FF5A1F] to-[#FF8A50] flex items-center justify-center text-white shadow-lg shadow-[#FF5A1F]/20 font-black text-xl">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#BB271A] to-[#FF8A50] flex items-center justify-center text-white shadow-lg shadow-[#BB271A]/20 font-black text-xl">
             ⚡
           </div>
           <div>
@@ -35,7 +35,7 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers,
                 effect="flip"
                 direction="up"
                 highlight={true}
-                highlightColor="#FF5A1F"
+                highlightColor="#BB271A"
                 staggerDuration={0.02}
                 rotationInterval={2200}
                 splitLevelClassName="overflow-hidden"
@@ -59,7 +59,7 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers,
               onClick={() => setSpeed('normal')}
               className={`px-3 py-1 rounded-md transition-all ${
                 speed === 'normal'
-                  ? 'bg-[#FF5A1F] text-white shadow-sm'
+                  ? 'bg-[#BB271A] text-white shadow-sm'
                   : 'text-slate-700 hover:text-slate-950 dark:text-zinc-300 dark:hover:text-white font-bold'
               }`}
               title="Normal Pace (Sale every ~3.5s)"
@@ -97,7 +97,7 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers,
             className={`p-2 rounded-lg border transition-all ${
               isMuted
                 ? 'bg-slate-100 border-slate-200 text-slate-400 hover:text-slate-600 dark:bg-[#161722] dark:border-[#282B3B] dark:text-zinc-500 dark:hover:text-zinc-300'
-                : 'bg-orange-50 border-orange-200 text-[#FF5A1F] dark:bg-[#161722] dark:border-[#FF5A1F]/40 hover:bg-orange-100 dark:hover:bg-[#FF5A1F]/10'
+                : 'bg-orange-50 border-orange-200 text-[#BB271A] dark:bg-[#161722] dark:border-[#BB271A]/40 hover:bg-orange-100 dark:hover:bg-[#BB271A]/10'
             }`}
             title={isMuted ? 'Unmute Sale Chimes' : 'Mute Sale Chimes'}
             aria-label="Toggle Audio Chimes"
@@ -122,7 +122,7 @@ export default function Header({ speed, setSpeed, onTriggerSale, activeShoppers,
           {/* Instant Trigger Sale Button */}
           <button
             onClick={() => onTriggerSale()}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-[#FF5A1F] to-[#E0470E] hover:from-[#E0470E] hover:to-[#C03706] text-white font-bold text-xs shadow-md shadow-[#FF5A1F]/25 active:scale-95 transition-all"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-[#BB271A] to-[#E0470E] hover:from-[#E0470E] hover:to-[#C03706] text-white font-bold text-xs shadow-md shadow-[#BB271A]/25 active:scale-95 transition-all"
             title="Simulate an instant incoming purchase"
           >
             <PlusCircle className="w-4 h-4" />
