@@ -3799,6 +3799,86 @@
     }
 
     /* ==========================================================================
+       CHAPTER 02: UNIFIED MERGED SERVICES, SKILLS & CREDENTIALS (SINGLE 2ND PAGE)
+       ========================================================================== */
+    .chapter-two-unified-section {
+      padding-top: var(--section-spacing);
+      padding-bottom: var(--section-spacing);
+      position: relative;
+    }
+
+    .chapter-two-subgroup {
+      position: relative;
+      margin-top: 24px;
+    }
+
+    .chapter-two-divider {
+      height: 1.5px;
+      border: none;
+      border-top: 1.5px dashed var(--border-light, #CBD5E1);
+      margin: clamp(48px, 6vw, 68px) 0 clamp(36px, 5vw, 48px) 0;
+      position: relative;
+    }
+
+    [data-theme="dark"] .chapter-two-divider {
+      border-top-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .chapter-two-subtitle-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .chapter-two-subbadge {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      background: rgba(187, 39, 26, 0.08);
+      color: #BB271A;
+      border: 1px solid rgba(187, 39, 26, 0.28);
+    }
+
+    [data-theme="dark"] .chapter-two-subbadge {
+      background: rgba(187, 39, 26, 0.22);
+      color: #FF5A4E;
+      border-color: rgba(187, 39, 26, 0.45);
+    }
+
+    .chapter-two-subtitle {
+      font-family: var(--font-title);
+      font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+      font-weight: 600;
+      color: var(--text);
+      margin: 0;
+    }
+
+    [data-theme="dark"] .chapter-two-subtitle {
+      color: #FFFFFF;
+    }
+
+    .chapter-two-subdesc {
+      font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+      color: var(--text-muted);
+      margin-top: 4px;
+      margin-bottom: 24px;
+      max-width: 840px;
+      line-height: 1.55;
+    }
+
+    [data-theme="dark"] .chapter-two-subdesc {
+      color: #FFFFFF;
+      opacity: 0.85;
+    }
+
+    /* ==========================================================================
        COMPACT EXPERIENCE & CREDENTIALS (MERGED UNDER SECTION 02)
        ========================================================================== */
     .compact-credentials-section {
@@ -7456,19 +7536,31 @@
     </section>
 
     <!-- ==========================================================================
-         SERVICES & CAPABILITIES SECTION
+         CHAPTER 02: SERVICES, SKILLS & CREDENTIALS (UNIFIED SINGLE 2ND PAGE)
          ========================================================================== -->
-    <section class="section services-section" id="services" data-track="both" aria-labelledby="services-heading">
+    <section class="section chapter-two-unified-section" id="services" data-track="both" aria-labelledby="services-heading">
       <div class="container">
-        <div class="sketch-chapter-badge">[ 02 · SERVICES &amp; CAPABILITIES ]</div>
+
+        <!-- Unified Chapter Badge for the 2nd Page -->
+        <div class="sketch-chapter-badge">[ 02 · SERVICES, SKILLS &amp; CREDENTIALS ]</div>
         <h2 class="section-title" id="services-heading">
-          Web Engineering &amp; Growth Services
+          Web Engineering, Technical Stack &amp; Credentials
         </h2>
         <p class="section-subtitle">
-          From high-performance web applications to custom MCP AI servers, marketing creatives, and search engine authority.
+          Full-cycle web application engineering, verified production skills, dedicated telecom support experience, and formal academic foundations.
         </p>
 
-        <div class="services-grid">
+        <!-- Subsection 02.1: Services & Capabilities -->
+        <div class="chapter-two-subgroup" id="services-capabilities-group">
+          <div class="chapter-two-subtitle-row">
+            <span class="chapter-two-subbadge">02.1 &middot; SERVICES &amp; CAPABILITIES</span>
+            <h3 class="chapter-two-subtitle">Web Engineering &amp; Growth Services</h3>
+          </div>
+          <p class="chapter-two-subdesc">
+            From high-performance web applications to custom MCP AI servers, marketing creatives, and search engine authority.
+          </p>
+
+          <div class="services-grid">
           <!-- 01 Modern Web Apps -->
           <div class="service-card">
             <div>
@@ -7642,22 +7734,20 @@
           </div>
         </div>
       </div>
-    </section>
+        </div>
 
+        <!-- Subsection 02.2: Categorized Skills & Stack (Anchor #skills) -->
+        <div class="chapter-two-subgroup" id="skills" style="scroll-margin-top: 90px;">
+          <div class="chapter-two-divider" aria-hidden="true"></div>
+          <div class="chapter-two-subtitle-row">
+            <span class="chapter-two-subbadge">02.2 &middot; PROFICIENCY MATRIX</span>
+            <h3 class="chapter-two-subtitle" id="skills-heading">Categorized Skills &amp; Stack</h3>
+          </div>
+          <p class="chapter-two-subdesc">
+            Every competency has been tested in high-stakes production environments and client deployments.
+          </p>
 
-<section class="section skills-section" id="skills" data-track="both" aria-labelledby="skills-heading">
-      <div class="container">
-
-        <div class="sketch-chapter-badge">[ 02 · PROFICIENCY MATRIX ]</div>
-        <h2 class="section-title" id="skills-heading">
-          Categorized Skills &amp; Stack
-        </h2>
-        <p class="section-subtitle">
-          Every competency has been tested in high-stakes production environments and client deployments.
-        </p>
-
-        <!-- Interactive Category Switcher -->
-        <div class="skills-filter-nav" role="tablist" aria-label="Skills Category Filter">
+          <div class="skills-filter-nav" role="tablist" aria-label="Skills Category Filter">
           <button class="filter-btn active" role="tab" aria-selected="true" data-filter="all">All Disciplines</button>
           <button class="filter-btn" role="tab" aria-selected="false" data-filter="design">Product Design &amp;
             UX</button>
@@ -7825,29 +7915,23 @@
         </div>
 
       </div>
-    </section>
-
-    
-    <!-- ==========================================================================
-         02-B. CAREER EXPERIENCE & CREDENTIALS (IN SHORT UNDER SECTION 02)
-         ========================================================================== -->
-    <section class="section compact-credentials-section" id="experience" data-track="both" aria-labelledby="experience-heading">
-      <div class="container">
-        
-        <div style="margin-bottom: 24px;">
-          <div class="sketch-chapter-badge">[ 02-B &middot; CAREER TRACK RECORD &amp; CREDENTIALS ]</div>
-          <h2 class="section-title" id="experience-heading" style="font-size: clamp(1.4rem, 2.4vw, 1.85rem); margin-top: 8px;">
-            Professional Experience &amp; Academic Credentials
-          </h2>
-          <p class="section-subtitle" style="margin-bottom: 0;">
-            Demonstrated customer care &amp; telecommunications network support combined with formal business management degrees and certified web engineering.
-          </p>
         </div>
 
-        <!-- Hidden anchor so #education links work smoothly -->
-        <div id="education" style="scroll-margin-top: 90px;"></div>
+        <!-- Subsection 02.3: Career Track Record & Academic Foundations (Former 2B, Anchors #experience and #education) -->
+        <div class="chapter-two-subgroup" id="experience" style="scroll-margin-top: 90px;">
+          <div class="chapter-two-divider" aria-hidden="true"></div>
+          <!-- Anchor target for education nav links -->
+          <div id="education" style="scroll-margin-top: 90px;"></div>
 
-        <div class="compact-credentials-grid">
+          <div class="chapter-two-subtitle-row">
+            <span class="chapter-two-subbadge">02.3 &middot; CAREER &amp; CREDENTIALS</span>
+            <h3 class="chapter-two-subtitle" id="experience-heading">Professional Experience &amp; Academic Credentials</h3>
+          </div>
+          <p class="chapter-two-subdesc">
+            Demonstrated customer care &amp; telecommunications network support combined with formal business management degrees and certified web engineering.
+          </p>
+
+          <div class="compact-credentials-grid">
 
           <!-- Left Column: Career Timeline (In Short) -->
           <div class="compact-cred-col">
@@ -7942,6 +8026,9 @@
 
           </div>
 
+        </div>
+
+      </div>
         </div>
 
       </div>
