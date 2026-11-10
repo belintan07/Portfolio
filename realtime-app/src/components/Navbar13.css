@@ -79,13 +79,13 @@
   left: 0;
   width: 0;
   height: 2.5px;
-  background: #BB271A;
+  background: #F48936;
   border-radius: 2px;
   transition: width 0.22s ease;
 }
 
 .nav-13-link:hover {
-  color: #BB271A;
+  color: #F48936;
 }
 
 .nav-13-link:hover::after {
@@ -107,14 +107,14 @@
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: #BB271A;
+  background: #F48936;
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
   font-size: 1rem;
-  box-shadow: 0 2px 8px rgba(187, 39, 26, 0.3);
+  box-shadow: 0 2px 8px rgba(244, 137, 54, 0.3);
 }
 
 .nav-13-whatsapp-btn {
@@ -264,8 +264,8 @@
 
 .overlay-close-btn:hover {
   transform: scale(1.08) rotate(90deg);
-  background: #BB271A;
-  border-color: #BB271A;
+  background: #F48936;
+  border-color: #F48936;
   color: #FFFFFF;
 }
 
@@ -290,7 +290,7 @@
   font-family: monospace;
   font-size: 1rem;
   font-weight: 800;
-  color: #BB271A;
+  color: #F48936;
   opacity: 0.85;
 }
 
@@ -311,11 +311,11 @@
 
 .overlay-nav-item:hover {
   transform: translateX(10px);
-  color: #BB271A;
+  color: #F48936;
 }
 
 .overlay-nav-item:hover .overlay-item-text {
-  color: #BB271A;
+  color: #F48936;
 }
 
 .overlay-footer {
@@ -348,7 +348,7 @@
 }
 
 .overlay-contact-brief a:hover {
-  color: #BB271A;
+  color: #F48936;
 }
 
 .overlay-social-links {
@@ -365,7 +365,7 @@
 }
 
 .overlay-social-links a:hover {
-  color: #BB271A;
+  color: #F48936;
 }
 
 @media (max-width: 900px) {

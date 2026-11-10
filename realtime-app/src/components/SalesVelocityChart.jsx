@@ -34,7 +34,7 @@ export default function SalesVelocityChart({ velocityPoints }) {
       <div className="flex items-center justify-between mb-4">
         <div>
           <h3 className="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-            <Activity className="w-4 h-4 text-[#BB271A]" />
+            <Activity className="w-4 h-4 text-[#F48936]" />
             <span>Sales Velocity &amp; Transaction Throughput</span>
           </h3>
           <p className="text-xs text-slate-700 dark:text-zinc-300 font-medium mt-0.5">Real-time revenue stream per 2-minute rolling window</p>
@@ -48,8 +48,8 @@ export default function SalesVelocityChart({ velocityPoints }) {
         <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-auto" preserveAspectRatio="none">
           <defs>
             <linearGradient id="velocityGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#BB271A" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#BB271A" stopOpacity="0.0" />
+              <stop offset="0%" stopColor="#F48936" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#F48936" stopOpacity="0.0" />
             </linearGradient>
           </defs>
 
@@ -62,14 +62,14 @@ export default function SalesVelocityChart({ velocityPoints }) {
           <path d={areaD} fill="url(#velocityGrad)" />
 
           {/* Line Stroke */}
-          <path d={pathD} fill="none" stroke="#BB271A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d={pathD} fill="none" stroke="#F48936" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
 
           {/* Data Points */}
           {points.map((p, idx) => (
             <g key={idx}>
-              <circle cx={p.x} cy={p.y} r="4" className="fill-white dark:fill-[#0C0D11] stroke-[#BB271A]" strokeWidth="2" />
+              <circle cx={p.x} cy={p.y} r="4" className="fill-white dark:fill-[#0C0D11] stroke-[#F48936]" strokeWidth="2" />
               {idx === points.length - 1 && (
-                <circle cx={p.x} cy={p.y} r="8" fill="none" stroke="#BB271A" strokeWidth="1.5" className="animate-ping" />
+                <circle cx={p.x} cy={p.y} r="8" fill="none" stroke="#F48936" strokeWidth="1.5" className="animate-ping" />
               )}
             </g>
           ))}
@@ -83,7 +83,7 @@ export default function SalesVelocityChart({ velocityPoints }) {
         <span>-6m</span>
         <span>-4m</span>
         <span>-2m</span>
-        <span className="text-[#BB271A] font-bold">Now</span>
+        <span className="text-[#F48936] font-bold">Now</span>
       </div>
     </div>
   );

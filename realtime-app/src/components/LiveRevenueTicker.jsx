@@ -8,7 +8,7 @@ export default function LiveRevenueTicker({ totalRevenue, totalOrders }) {
   return (
     <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white via-slate-50 to-slate-100 border border-slate-200 shadow-md dark:from-[#151724] dark:via-[#10111A] dark:to-[#0A0B0F] dark:border-[#272A3C] dark:shadow-2xl p-6 lg:p-8 transition-colors">
       {/* Background Ambient Glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#BB271A]/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#F48936]/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
 
       <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
         
@@ -38,7 +38,7 @@ export default function LiveRevenueTicker({ totalRevenue, totalOrders }) {
         <div className="w-full lg:w-80 bg-white/80 border border-slate-200 dark:bg-[#161826]/80 dark:border-[#2B2F44] rounded-xl p-4 backdrop-blur-sm shadow-sm dark:shadow-none">
           <div className="flex items-center justify-between text-xs font-bold mb-2">
             <span className="flex items-center gap-1.5 text-slate-700 dark:text-zinc-300">
-              <Target className="w-3.5 h-3.5 text-[#BB271A]" />
+              <Target className="w-3.5 h-3.5 text-[#F48936]" />
               <span>Daily Target ($200K)</span>
             </span>
             <span className="text-emerald-600 dark:text-emerald-400 font-extrabold">{progressPercent}%</span>
@@ -47,7 +47,7 @@ export default function LiveRevenueTicker({ totalRevenue, totalOrders }) {
           {/* Progress Bar */}
           <div className="w-full h-2.5 bg-slate-200 dark:bg-zinc-800 rounded-full overflow-hidden p-0.5 border border-slate-300/60 dark:border-zinc-700/50">
             <div
-              className="h-full bg-gradient-to-r from-[#BB271A] to-emerald-400 rounded-full transition-all duration-500 ease-out"
+              className="h-full bg-gradient-to-r from-[#F48936] to-emerald-400 rounded-full transition-all duration-500 ease-out"
               style={{ width: `${progressPercent}%` }}
             ></div>
           </div>

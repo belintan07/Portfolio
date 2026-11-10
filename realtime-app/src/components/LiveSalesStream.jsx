@@ -18,7 +18,7 @@ export default function LiveSalesStream({ sales = [], rawSalesCount = (sales ? s
             onClick={() => setFilterType('all')}
             className={`px-2.5 py-1 rounded-md transition-all ${
               filterType === 'all'
-                ? 'bg-[#BB271A] text-white shadow-sm'
+                ? 'bg-[#F48936] text-white shadow-sm'
                 : 'text-slate-700 hover:text-slate-950 dark:text-zinc-300 dark:hover:text-white font-bold'
             }`}
           >
@@ -59,7 +59,7 @@ export default function LiveSalesStream({ sales = [], rawSalesCount = (sales ? s
               key={sale.id}
               className={`p-3.5 rounded-xl border transition-all duration-300 flex items-center justify-between gap-3 ${
                 idx === 0
-                  ? 'bg-gradient-to-r from-orange-50 via-white to-slate-50 border-orange-300 shadow-sm dark:from-[#BB271A]/15 dark:via-[#191A26] dark:to-[#14151F] dark:border-[#BB271A]/40 dark:shadow-lg dark:shadow-[#BB271A]/5 animate-slide-in'
+                  ? 'bg-gradient-to-r from-orange-50 via-white to-slate-50 border-orange-300 shadow-sm dark:from-[#F48936]/15 dark:via-[#191A26] dark:to-[#14151F] dark:border-[#F48936]/40 dark:shadow-lg dark:shadow-[#F48936]/5 animate-slide-in'
                   : 'bg-slate-50/80 border-slate-200 hover:border-slate-300 dark:bg-[#181926]/60 dark:border-[#26293B] dark:hover:border-[#3A3E59]'
               }`}
             >
