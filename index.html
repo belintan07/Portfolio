@@ -97,7 +97,7 @@
       --shadow-ink: #0F172A;
       /* Borders & Shadows */
       --border-ink: #0F172A;
-      --border-light: #E2E8F0;
+      --border-light: #E9E9E9;
       --sketch-shadow: 3px 3px 0px #0F172A;
       --sketch-shadow-lg: 6px 6px 0px #0F172A;
       --sketch-shadow-hover: 1.5px 1.5px 0px #0F172A;
@@ -138,7 +138,7 @@
       --card-sage: #13241A;
       --card-sage-text: #86EFAC;
       --card-lavender: #1E1730;
-      --card-lavender-text: #C4B0FF;
+      --card-lavender-text: #9270FB;
       --card-cream: #181922;
 
       --surface: #171822;
@@ -178,7 +178,7 @@
     }
 
     [data-theme="dark"] .biz-hero-subtitle {
-      color: #CBD5E1;
+      color: #E9E9E9;
     }
 
     [data-theme="dark"] .biz-btn-secondary {
@@ -195,12 +195,12 @@
     }
 
     [data-theme="dark"] .biz-metric-desc {
-      color: #CBD5E1;
+      color: #E9E9E9;
     }
 
     [data-theme="dark"] .brand-icon-box {
-      background: linear-gradient(135deg, #F48936 0%, #9270FB 100%);
-      color: #000000;
+      background: linear-gradient(135deg, #9270FB 0%, #F48936 100%);
+      color: #FFFFFF;
     }
 
     [data-theme="dark"] .brand-logo-biz {
@@ -380,7 +380,7 @@
     [data-theme="dark"] .site-footer {
       background: #08090D;
       border-top-color: #2D303D;
-      color: #CBD5E1;
+      color: #E9E9E9;
     }
 
     [data-theme="dark"] .footer-copy strong {
@@ -426,7 +426,7 @@
     [data-theme="dark"] .album-feature-chip {
       background: #161722;
       border-color: #2D303D;
-      color: #CBD5E1;
+      color: #E9E9E9;
     }
 
     [data-theme="dark"] .apple-theme-toggle {
@@ -1007,13 +1007,21 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--accent-orange);
-      background: var(--accent-orange-subtle);
-      border: 1.5px solid var(--text);
+      color: #9270FB;
+      background: rgba(146, 112, 251, 0.1);
+      border: 1.5px solid #9270FB;
       padding: 5px 14px;
       border-radius: var(--radius-pill);
-      box-shadow: 2px 2px 0px var(--shadow-ink);
+      box-shadow: 2.5px 2.5px 0px rgba(146, 112, 251, 0.35);
       margin-bottom: 16px;
+    }
+
+    
+    [data-theme="dark"] .sketch-chapter-badge {
+      color: #C4B0FF;
+      background: rgba(146, 112, 251, 0.2);
+      border-color: #9270FB;
+      box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.85);
     }
 
     .section-title {
@@ -1105,12 +1113,12 @@
     .hero-section.business-hero {
       position: relative;
       overflow: hidden;
-      background-color: #FFFFFF;
+      background-color: var(--bg);
       background-image: radial-gradient(#E2E8F0 1.2px, transparent 1.2px);
       background-size: 24px 24px;
       padding-top: clamp(32px, 4vw, 56px);
       padding-bottom: clamp(64px, 7vw, 100px);
-      border-bottom: 1.5px solid #E2E8F0;
+      border-bottom: 1.5px solid var(--border-light);
     }
 
     /* SwarmCursor WebGL2 Atmospheric Background Canvas */
@@ -1434,7 +1442,7 @@
 
     .biz-footer-col ul li a {
       text-decoration: none;
-      color: #CBD5E1;
+      color: #E9E9E9;
       font-family: 'Space Grotesk', system-ui, sans-serif;
       font-size: 0.85rem;
       font-weight: 500;
@@ -1481,7 +1489,7 @@
       background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1.5px solid #E2E8F0;
+      border-bottom: 1.5px solid var(--border-light, #E9E9E9);
       transition: box-shadow 0.25s ease;
     }
 
@@ -2403,8 +2411,8 @@
        ========================================================================== */
     .about-section {
       background: #FFFFFF;
-      border-top: 1.5px solid #E2E8F0;
-      border-bottom: 1.5px solid #E2E8F0;
+      border-top: 1.5px solid var(--border-light, #E9E9E9);
+      border-bottom: 1.5px solid var(--border-light, #E9E9E9);
     }
 
     .about-layout {
@@ -2629,12 +2637,10 @@
       background: var(--accent-orange);
     }
 
-    .fill-sage {
-      background: #16A34A;
+    .fill-sage { background: #F48936;
     }
 
-    .fill-purple {
-      background: #9333EA;
+    .fill-purple { background: #9270FB;
     }
 
     /* ==========================================================================
@@ -2642,8 +2648,8 @@
        ========================================================================== */
     .projects-section {
       background: var(--bg-alt);
-      border-top: 1.5px solid #E2E8F0;
-      border-bottom: 1.5px solid #E2E8F0;
+      border-top: 1.5px solid var(--border-light, #E9E9E9);
+      border-bottom: 1.5px solid var(--border-light, #E9E9E9);
     }
 
     .projects-grid {
@@ -2777,7 +2783,7 @@
       order: 4;
       margin-top: auto;
       padding-top: 16px;
-      border-top: 1.5px dashed var(--border-light, #CBD5E1);
+      border-top: 1.5px dashed var(--border-light, #E9E9E9);
       width: 100%;
     }
 
@@ -2803,7 +2809,7 @@
     }
 
     .btn-preview-project:hover {
-      background: #0047AB;
+      background: #9270FB;
       color: #FFFFFF;
       transform: translateY(-2px);
       box-shadow: 3.5px 3.5px 0px var(--shadow-ink, #0F172A);
@@ -2824,8 +2830,7 @@
     }
 
     [data-theme="dark"] .btn-preview-project:hover {
-      background: #2563EB;
-      border-color: #38BDF8;
+      background: #9270FB; border-color: #C4B0FF;
     }
 
     .preview-bar-left {
@@ -3453,7 +3458,7 @@
       gap: 5px;
       background: #141B2D;
       border: 1px solid #28334E;
-      color: #CBD5E1;
+      color: #E9E9E9;
       font-family: var(--font-display);
       font-size: 0.75rem;
       font-weight: 700;
@@ -3716,7 +3721,7 @@
       gap: 12px;
       margin-bottom: 24px;
       padding-bottom: 12px;
-      border-bottom: 2px dashed var(--border-light, #E2E8F0);
+      border-bottom: 2px dashed var(--border-light, #E9E9E9);
     }
 
     [data-theme="dark"] .credentials-col-header {
@@ -3815,7 +3820,7 @@
     .chapter-two-divider {
       height: 1.5px;
       border: none;
-      border-top: 1.5px dashed var(--border-light, #CBD5E1);
+      border-top: 1.5px dashed var(--border-light, #E9E9E9);
       margin: clamp(48px, 6vw, 68px) 0 clamp(36px, 5vw, 48px) 0;
       position: relative;
     }
@@ -3841,15 +3846,12 @@
       letter-spacing: 0.08em;
       padding: 3px 10px;
       border-radius: 9999px;
-      background: rgba(244, 137, 54, 0.08);
-      color: #F48936;
-      border: 1px solid rgba(244, 137, 54, 0.28);
+      background: rgba(146, 112, 251, 0.08);
+      color: #9270FB; border: 1px solid rgba(146, 112, 251, 0.3);
     }
 
     [data-theme="dark"] .chapter-two-subbadge {
-      background: rgba(244, 137, 54, 0.22);
-      color: #FF5A4E;
-      border-color: rgba(244, 137, 54, 0.45);
+      background: rgba(146, 112, 251, 0.22); color: #C4B0FF; border-color: rgba(146, 112, 251, 0.45);
     }
 
     .chapter-two-subtitle {
@@ -3884,7 +3886,7 @@
     .compact-credentials-section {
       padding: 48px 0 56px 0;
       background: var(--bg);
-      border-top: 1.5px dashed var(--border-light, #CBD5E1);
+      border-top: 1.5px dashed var(--border-light, #E9E9E9);
       position: relative;
     }
 
@@ -3920,7 +3922,7 @@
       gap: 10px;
       margin-bottom: 4px;
       padding-bottom: 8px;
-      border-bottom: 1.5px solid var(--border-light, #E2E8F0);
+      border-bottom: 1.5px solid var(--border-light, #E9E9E9);
     }
 
     [data-theme="dark"] .compact-col-header {
@@ -4151,7 +4153,7 @@
        ========================================================================== */
     .contact-section {
       background: var(--bg-alt, #F8FAFC);
-      border-top: 1.5px solid #E2E8F0;
+      border-top: 1.5px solid var(--border-light, #E9E9E9);
       position: relative;
       padding-bottom: 60px;
     }
@@ -4254,7 +4256,7 @@
     /* AI / Fast Inquiry Shortcuts Strip matching screenshot */
     .contact-shortcuts-strip {
       background: var(--bg-alt, #F1F5F9);
-      border: 1.5px dashed var(--border-light, #CBD5E1);
+      border: 1.5px dashed var(--border-light, #E9E9E9);
       border-radius: var(--radius-sm, 10px);
       padding: 16px 20px;
       display: flex;
@@ -4406,10 +4408,10 @@
     /* Consultation Card Container */
     .consultation-form-card {
       background: #FFFFFF;
-      border: 2px solid #0047AB;
+      border: 2px solid #9270FB;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 12px 32px -4px rgba(0, 71, 171, 0.15);
+      box-shadow: 0 12px 32px -4px rgba(146, 112, 251, 0.2);
       transition: box-shadow 0.25s ease, transform 0.25s ease;
     }
 
@@ -4421,7 +4423,7 @@
 
     /* Blue Top Banner matching Jaro reference */
     .consultation-card-header {
-      background: #0047AB;
+      background: linear-gradient(135deg, #9270FB 0%, #7544EA 100%);
       color: #FFFFFF;
       padding: 20px 24px;
       text-align: center;
@@ -4429,7 +4431,7 @@
     }
 
     [data-theme="dark"] .consultation-card-header {
-      background: linear-gradient(135deg, #1E3A8A 0%, #0F172A 100%);
+      background: linear-gradient(135deg, #5B3BBF 0%, #1A1435 100%);
       border-bottom-color: rgba(255, 255, 255, 0.12);
     }
 
@@ -4534,7 +4536,7 @@
     .consultation-submit-btn {
       width: 100%;
       height: 46px;
-      background: #0047AB;
+      background: linear-gradient(135deg, #F48936 0%, #E07320 100%);
       color: #FFFFFF;
       border: none;
       border-radius: 6px;
@@ -4553,18 +4555,18 @@
     }
 
     .consultation-submit-btn:hover {
-      background: #003685;
+      background: #E07320;
       transform: translateY(-1px);
       box-shadow: 0 6px 16px rgba(0, 71, 171, 0.38);
     }
 
     [data-theme="dark"] .consultation-submit-btn {
-      background: #2563EB;
+      background: linear-gradient(135deg, #F48936 0%, #E07320 100%);
       box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
     }
 
     [data-theme="dark"] .consultation-submit-btn:hover {
-      background: #1D4ED8;
+      background: #E07320;
     }
 
     /* Instant WhatsApp Action Button */
@@ -4633,7 +4635,7 @@
 
     .trust-banner-sub {
       font-size: 0.8rem;
-      color: #CBD5E1;
+      color: #E9E9E9;
       line-height: 1.4;
     }
 
@@ -4654,7 +4656,7 @@
     /* Bottom Expert Call Strip across contact section */
     .contact-bottom-expert-bar {
       margin-top: 48px;
-      background: #003399;
+      background: linear-gradient(135deg, #9270FB 0%, #7040E5 100%);
       color: #FFFFFF;
       border-radius: 12px;
       padding: 16px 24px;
@@ -4663,11 +4665,11 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 16px;
-      box-shadow: 0 8px 24px rgba(0, 51, 153, 0.25);
+      box-shadow: 0 8px 24px rgba(146, 112, 251, 0.3);
     }
 
     [data-theme="dark"] .contact-bottom-expert-bar {
-      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      background: linear-gradient(135deg, #2E1F5E 0%, #15102A 100%);
       border: 1.5px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -6070,7 +6072,7 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, #F48936, #F59E0B, #10B981, #F48936);
+      background: linear-gradient(90deg, #9270FB, #F48936, #9270FB, #F48936);
       background-size: 200% 100%;
       animation: offerGradientShift 4s linear infinite;
     }
@@ -6111,7 +6113,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #10B981;
+      background: #9270FB;
       color: #FFFFFF;
       font-family: var(--font-display);
       font-size: 0.78rem;
@@ -6183,8 +6185,7 @@
       font-weight: 900;
     }
 
-    .offer-feature-check {
-      color: #10B981;
+    .offer-feature-check { color: #9270FB;
       font-size: 1.1rem;
       line-height: 1.2;
       font-weight: 900;
@@ -6237,7 +6238,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #0047AB;
+      background: linear-gradient(135deg, #F48936 0%, #E07320 100%);
       color: #FFFFFF !important;
       font-family: var(--font-display);
       font-size: 0.9rem;
@@ -6737,7 +6738,7 @@
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1.5px solid var(--border-light, #E2E8F0);
+  border-bottom: 1.5px solid var(--border-light, #E9E9E9);
   transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -6859,7 +6860,7 @@
   align-items: center;
   gap: 8px;
   background: var(--surface);
-  border: 1.5px solid var(--border-light, #E2E8F0);
+  border: 1.5px solid var(--border-light, #E9E9E9);
   color: var(--text);
   padding: 7px 14px;
   border-radius: 9999px;
@@ -6965,7 +6966,7 @@
   align-items: center;
   justify-content: space-between;
   padding-bottom: 20px;
-  border-bottom: 1.5px solid var(--border-light, #E2E8F0);
+  border-bottom: 1.5px solid var(--border-light, #E9E9E9);
 }
 
 [data-theme="dark"] .overlay-top-bar {
@@ -6985,7 +6986,7 @@
 
 .overlay-close-btn {
   background: var(--surface);
-  border: 1.5px solid var(--border-light, #E2E8F0);
+  border: 1.5px solid var(--border-light, #E9E9E9);
   color: var(--text);
   width: 44px;
   height: 44px;
@@ -7077,7 +7078,7 @@
   flex-wrap: wrap;
   gap: 16px;
   padding-top: 24px;
-  border-top: 1.5px solid var(--border-light, #E2E8F0);
+  border-top: 1.5px solid var(--border-light, #E9E9E9);
   font-size: 0.86rem;
   color: var(--text-muted, #64748B);
 }
@@ -8341,7 +8342,7 @@
             <div class="offer-badge-wrap">
               <span class="offer-discount-badge">50% OFF</span>
               <span class="offer-guarantee-pill">GUARANTEED*</span>
-              <span class="credentials-col-badge" style="background: rgba(0, 71, 171, 0.1); border-color: #0047AB; color: #0047AB;">EXCLUSIVE WEB PACKAGE</span>
+              <span class="credentials-col-badge" style="background: rgba(146, 112, 251, 0.12); border-color: #9270FB; color: #9270FB;">EXCLUSIVE WEB PACKAGE</span>
             </div>
             <h3 class="offer-banner-title">
               50% OFF on your website <span class="offer-guarantee-highlight">GUARANTEED*</span>
@@ -8517,7 +8518,7 @@
         </div>
 
         <!-- Integrated Scope & Budget Calculator within single Packages & Estimator page -->
-        <div id="estimator" style="scroll-margin-top: 90px; margin-top: 56px; padding-top: 40px; border-top: 2px dashed var(--border-light, #E2E8F0);">
+        <div id="estimator" style="scroll-margin-top: 90px; margin-top: 56px; padding-top: 40px; border-top: 2px dashed var(--border-light, #E9E9E9);">
           <div style="text-align: center; max-width: 640px; margin: 0 auto 30px;">
             <span class="credentials-col-badge" style="display: inline-block; margin-bottom: 8px;">⚙️ Dynamic Calculator</span>
             <h3 class="section-title" id="estimator-heading" style="font-size: clamp(1.4rem, 2.5vw, 1.85rem); margin-top: 6px;">
