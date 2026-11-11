@@ -2652,6 +2652,756 @@
       border-bottom: 1.5px solid var(--border-light, #E9E9E9);
     }
 
+    
+    /* ==========================================================================
+       VIBRANT SAAS PORTFOLIO FRAME & BENTO GRID (CIRCULAR RBP SPEC)
+       ========================================================================== */
+    .vibrant-saas-frame {
+      position: relative;
+      background: #090B0E;
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-radius: clamp(24px, 3.5vw, 36px);
+      box-shadow: 0 30px 90px -20px rgba(0, 0, 0, 0.9), 0 0 80px -25px rgba(163, 230, 53, 0.18);
+      padding: clamp(20px, 3.2vw, 36px);
+      margin-top: 40px;
+      overflow: hidden;
+      color: #FFFFFF;
+    }
+
+    .vibrant-saas-frame::before {
+      content: '';
+      position: absolute;
+      top: -150px;
+      right: -100px;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(163, 230, 53, 0.08) 0%, rgba(9, 11, 14, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Floating SaaS Nav Mockup */
+    .saas-mock-nav {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 22px;
+      margin-bottom: clamp(22px, 3vw, 32px);
+      background: rgba(18, 21, 28, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 9999px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .saas-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .saas-nav-logo-icon {
+      width: 14px;
+      height: 14px;
+      background: #FFFFFF;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .saas-nav-brand {
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      font-family: var(--font-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+    }
+
+    .saas-nav-center {
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 2vw, 24px);
+    }
+
+    .saas-nav-dropdown {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #94A3B8;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .saas-nav-dropdown:hover {
+      color: #FFFFFF;
+    }
+
+    .saas-nav-link {
+      color: #94A3B8;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .saas-nav-link:hover {
+      color: #FFFFFF;
+    }
+
+    .saas-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .saas-nav-signin {
+      color: #CBD5E1;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      transition: color 0.2s ease;
+    }
+
+    .saas-nav-signin:hover {
+      color: #FFFFFF;
+    }
+
+    .saas-nav-btn-lime {
+      background: #A3E635;
+      color: #0F172A;
+      font-weight: 700;
+      font-size: 0.86rem;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 14px rgba(163, 230, 53, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .saas-nav-btn-lime:hover {
+      background: #BEF264;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(163, 230, 53, 0.55);
+    }
+
+    /* Bento Grid Master Layout */
+    .saas-bento-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.05fr 1.3fr;
+      gap: clamp(16px, 2vw, 24px);
+      align-items: stretch;
+    }
+
+    /* Shared Bento Card Foundation */
+    .saas-bento-card {
+      position: relative;
+      border-radius: 28px;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+
+    .saas-bento-card:hover {
+      transform: translateY(-4px);
+    }
+
+    /* CARD 1: Guided Onboarding (Tall Left Card) */
+    .card-onboarding {
+      background: #A3E635;
+      padding: 38px 30px 0 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      min-height: 570px;
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-onboarding-title {
+      font-size: clamp(1.8rem, 2.6vw, 2.35rem);
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      text-align: center;
+      margin-bottom: 12px;
+      font-family: var(--font-display, inherit);
+    }
+
+    .card-onboarding-sub {
+      color: #1E293B;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      text-align: center;
+      max-width: 340px;
+      margin: 0 auto 28px;
+      opacity: 0.92;
+      font-weight: 500;
+    }
+
+    /* Phone Device Mockup */
+    .device-phone-mockup {
+      width: 300px;
+      max-width: 90%;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 3.5px solid #0F172A;
+      border-bottom: none;
+      border-radius: 36px 36px 0 0;
+      padding: 14px 18px 0;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+      transform: translateY(12px);
+      transition: transform 0.4s ease;
+    }
+
+    .card-onboarding:hover .device-phone-mockup {
+      transform: translateY(0px);
+    }
+
+    .device-dynamic-island {
+      width: 80px;
+      height: 18px;
+      background: #0F172A;
+      border-radius: 9999px;
+      margin: 0 auto 16px;
+    }
+
+    .phone-screen-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.2;
+      margin-bottom: 6px;
+      text-align: left;
+      font-family: var(--font-display, inherit);
+    }
+
+    .phone-screen-sub {
+      font-size: 0.82rem;
+      color: #64748B;
+      line-height: 1.4;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .phone-project-alpha-card {
+      background: linear-gradient(135deg, #D9F99D 0%, #BEF264 100%);
+      border-radius: 18px;
+      padding: 16px 18px;
+      margin-bottom: -15px;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(132, 204, 22, 0.25);
+    }
+
+    .alpha-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .alpha-card-title {
+      font-weight: 800;
+      color: #0F172A;
+      font-size: 1.05rem;
+    }
+
+    .alpha-card-check {
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid #0F172A;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #0F172A;
+    }
+
+    .alpha-card-wave {
+      width: 100%;
+      height: 38px;
+      margin: 6px 0;
+      display: block;
+    }
+
+    .alpha-card-stamp {
+      display: block;
+      font-family: monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #334155;
+      letter-spacing: 0.08em;
+    }
+
+    /* Right Column Layout */
+    .saas-bento-right-column {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(16px, 2vw, 24px);
+      justify-content: space-between;
+    }
+
+    /* CARD 2: Real-time Data (Top Right) */
+    .card-realtime {
+      background: #16240D;
+      border: 1.5px solid rgba(163, 230, 53, 0.16);
+      padding: clamp(24px, 3vw, 34px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-realtime-title {
+      color: #FFFFFF;
+      font-size: clamp(1.4rem, 1.8vw, 1.85rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      font-family: var(--font-display, inherit);
+    }
+
+    .card-realtime-sub {
+      color: #94A3B8;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      max-width: 190px;
+    }
+
+    .realtime-radar-visual {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .radar-ring {
+      position: absolute;
+      border: 1.2px solid rgba(163, 230, 53, 0.22);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .ring-1 {
+      width: 150px;
+      height: 150px;
+      animation: saasRadarPulse 3.5s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .ring-2 {
+      width: 210px;
+      height: 210px;
+      animation: saasRadarPulse 3.5s infinite cubic-bezier(0.2, 0.8, 0.2, 1) 1s;
+    }
+
+    .ring-3 {
+      width: 270px;
+      height: 270px;
+      animation: saasRadarPulse 3.5s infinite cubic-bezier(0.2, 0.8, 0.2, 1) 2s;
+    }
+
+    @keyframes saasRadarPulse {
+      0% {
+        transform: scale(0.85);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.08);
+        opacity: 0.25;
+      }
+      100% {
+        transform: scale(0.85);
+        opacity: 0.8;
+      }
+    }
+
+    .realtime-device-card {
+      position: relative;
+      z-index: 2;
+      width: 195px;
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 12px 14px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      transform: rotate(1deg);
+      transition: transform 0.3s ease;
+    }
+
+    .card-realtime:hover .realtime-device-card {
+      transform: rotate(0deg) scale(1.03);
+    }
+
+    .device-mini-notch {
+      width: 36px;
+      height: 6px;
+      background: #0F172A;
+      border-radius: 9999px;
+      margin: 0 auto 8px;
+    }
+
+    .realtime-search-pill {
+      background: #F1F5F9;
+      border-radius: 9999px;
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #94A3B8;
+      font-size: 0.7rem;
+    }
+
+    .realtime-metric-group {
+      margin-top: 8px;
+    }
+
+    .realtime-metric-label {
+      font-size: 0.68rem;
+      color: #64748B;
+      font-weight: 500;
+      display: block;
+    }
+
+    .realtime-metric-number {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.1;
+      display: block;
+      margin-top: 2px;
+      margin-bottom: 8px;
+    }
+
+    .realtime-tags-row {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    .tag-pill {
+      font-size: 0.65rem;
+      border-radius: 9999px;
+      padding: 2px 8px;
+      line-height: 1.3;
+    }
+
+    .tag-lime {
+      background: #A3E635;
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    .tag-ghost {
+      border: 1px solid #E2E8F0;
+      color: #64748B;
+    }
+
+    .realtime-build-status {
+      background: #0F172A;
+      border-radius: 10px;
+      padding: 7px 10px;
+      color: #FFFFFF;
+    }
+
+    .build-status-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.62rem;
+      color: #94A3B8;
+      margin-bottom: 2px;
+    }
+
+    .build-status-val {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .passing-badge {
+      color: #A3E635;
+      background: rgba(163, 230, 53, 0.2);
+      font-size: 0.62rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Bottom Row Split (2 Cards) */
+    .saas-bento-bottom-row {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(16px, 2vw, 24px);
+      align-items: stretch;
+    }
+
+    /* CARD 3: Trusted By 254k+ Users */
+    .card-trusted {
+      background: #15220B;
+      border: 1.5px solid rgba(163, 230, 53, 0.16);
+      padding: 30px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-trusted-title {
+      color: #FFFFFF;
+      font-size: clamp(1.25rem, 1.6vw, 1.55rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      font-family: var(--font-display, inherit);
+    }
+
+    .trusted-avatar-stack {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .avatar-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2.5px solid #15220B;
+      margin-left: -9px;
+      position: relative;
+      overflow: hidden;
+      background: #334155;
+      transition: transform 0.2s ease, margin 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-circle:first-child {
+      margin-left: 0;
+    }
+
+    .card-trusted:hover .avatar-circle {
+      margin-left: -5px;
+    }
+
+    .card-trusted:hover .avatar-circle:first-child {
+      margin-left: 0;
+    }
+
+    .avatar-more-badge {
+      background: #A3E635;
+      color: #0F172A;
+      font-weight: 800;
+      font-size: 0.8rem;
+      border: 2.5px solid #15220B;
+      z-index: 5;
+    }
+
+    .trusted-reviews-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      color: #CBD5E1;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .star-icon {
+      color: #FBBF24;
+      font-size: 0.88rem;
+    }
+
+    /* CARD 4: Built to Scale */
+    .card-scale {
+      background: #A3E635;
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-scale-title {
+      color: #0F172A;
+      font-size: clamp(1.25rem, 1.6vw, 1.55rem);
+      font-weight: 800;
+      margin-bottom: 6px;
+      line-height: 1.2;
+      font-family: var(--font-display, inherit);
+    }
+
+    .card-scale-sub {
+      color: #1E293B;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-bottom: 18px;
+      opacity: 0.92;
+      font-weight: 500;
+    }
+
+    .scale-metric-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .scale-metric-pill {
+      background: #0F172A;
+      border-radius: 12px;
+      padding: 11px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease;
+    }
+
+    .scale-metric-pill:hover {
+      transform: translateX(3px);
+    }
+
+    .pill-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pill-icon {
+      font-size: 0.95rem;
+    }
+
+    .pill-text {
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .pill-growth {
+      color: #94A3B8;
+      font-size: 0.8rem;
+      font-family: monospace;
+      font-weight: 600;
+    }
+
+    /* Status Strip at Bottom of SaaS Frame */
+    .saas-frame-footer {
+      position: relative;
+      z-index: 1;
+      margin-top: 26px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .saas-footer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: monospace;
+      font-size: 0.72rem;
+      color: #A3E635;
+      letter-spacing: 0.06em;
+    }
+
+    .saas-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #A3E635;
+      box-shadow: 0 0 10px #A3E635;
+      animation: statusBlink 2s infinite ease-in-out;
+    }
+
+    @keyframes statusBlink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .saas-footer-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .saas-footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #94A3B8;
+      font-size: 0.78rem;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.2s ease;
+    }
+
+    .saas-footer-link:hover,
+    .saas-footer-link.active {
+      color: #FFFFFF;
+      background: rgba(163, 230, 53, 0.12);
+      border-color: rgba(163, 230, 53, 0.35);
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 980px) {
+      .saas-bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-onboarding {
+        min-height: 480px;
+      }
+      .saas-mock-nav .saas-nav-center {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .saas-bento-bottom-row {
+        grid-template-columns: 1fr;
+      }
+      .card-realtime {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .realtime-radar-visual {
+        align-self: center;
+        margin-top: 14px;
+      }
+      .saas-frame-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+
     .projects-grid {
       display: flex;
       flex-wrap: wrap;
@@ -8536,294 +9286,223 @@
     <section class="section projects-section" id="projects" data-track="both" aria-labelledby="projects-heading">
       <div class="container">
 
-        <div class="sketch-chapter-badge">[ 03 · REAL-TIME ENGINEERING PROJECTS ]</div>
+        <div class="sketch-chapter-badge">[ 03 · SAAS PLATFORM &amp; CLOUD ARCHITECTURE ]</div>
         <h2 class="section-title" id="projects-heading">
-          Real-Time Projects &amp; Live Telemetry
+          Vibrant SaaS Platform &amp; Cloud Systems
         </h2>
         <p class="section-subtitle">
-          Interactive streaming applications, low-latency telemetry pipelines, and production systems crafted from first principles.
+          Production-grade enterprise SaaS primitives, automated onboarding, real-time telemetry, and resilient cloud architecture.
         </p>
 
-        <div class="projects-grid">
+        <!-- VIBRANT SAAS PLATFORM WITH ROUNDED FRAME (CIRCULAR RBP TEMPLATE SPEC) -->
+        <div class="vibrant-saas-frame">
 
-          <!-- PROJECT 01 / 04: GymFreaky Fitness Platform -->
-          <article class="project-card" style="position: relative; order: 1;">
-            <span class="project-live-indicator"><span class="pulse-dot"></span> PRODUCTION READY</span>
-            <div class="project-visual-header">
-              <span class="project-number-stamp">01 / 04</span>
-              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="GymFreaky Fitness Platform live member portal" style="cursor: pointer;" data-project-id="gymfreaky">
-                <defs>
-                  <linearGradient id="gfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#271005" />
-                    <stop offset="100%" stop-color="#0E0702" />
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="220" fill="url(#gfGrad)" />
-                <rect x="20" y="20" width="360" height="180" rx="8" fill="#170B03" stroke="#7C2D12" stroke-width="1.5" />
-                <rect x="20" y="20" width="360" height="32" fill="#2E1205" />
-                <circle cx="36" cy="36" r="4" fill="#F48936" />
-                <circle cx="50" cy="36" r="4" fill="#F59E0B" />
-                <circle cx="64" cy="36" r="4" fill="#10B981" />
-                <text x="82" y="40" fill="#FDBA74" font-family="monospace" font-size="10">gymfreaky.fit · automated-leads-engine</text>
-                
-                <!-- Dial: Membership Attendance -->
-                <circle cx="95" cy="118" r="40" fill="none" stroke="#431407" stroke-width="7" />
-                <circle cx="95" cy="118" r="40" fill="none" stroke="#F48936" stroke-width="7" stroke-dasharray="225 251" stroke-linecap="round" />
-                <text x="95" y="114" fill="#FFF" font-size="16" font-family="monospace" font-weight="bold" text-anchor="middle">1,280+</text>
-                <text x="95" y="129" fill="#FB923C" font-size="8" text-anchor="middle">ACTIVE MEMBERS</text>
-                
-                <!-- Lead Automation Workflow Chips -->
-                <rect x="175" y="65" width="180" height="26" rx="4" fill="#2E1205" stroke="#7C2D12" stroke-width="1" />
-                <text x="185" y="82" fill="#FED7AA" font-size="9" font-family="monospace">⚡ WhatsApp Lead QR Sync: &lt;1.2s</text>
-                
-                <rect x="175" y="99" width="180" height="26" rx="4" fill="#2E1205" stroke="#7C2D12" stroke-width="1" />
-                <text x="185" y="116" fill="#34D399" font-size="9" font-family="monospace">💳 Stripe Subscriptions: Active ✓</text>
-                
-                <rect x="175" y="133" width="180" height="32" rx="4" fill="#220D03" />
-                <text x="185" y="148" fill="#FDBA74" font-size="9">Conversion: +44% Organic Walk-ins</text>
-                <text x="185" y="160" fill="#34D399" font-size="8" font-family="monospace">PWA Offline Check-In &middot; Instant Pass</text>
-              </svg>
+          <!-- Top Floating Navbar -->
+          <header class="saas-mock-nav">
+            <div class="saas-nav-left">
+              <span class="saas-nav-logo-icon"></span>
+              <span class="saas-nav-brand">Circular</span>
             </div>
-            <div class="project-body">
-              <div class="project-category-row">
-                <span class="project-tag tag-peach">React 19</span>
-                <span class="project-tag tag-sage">Node.js</span>
-                <span class="project-tag tag-lavender">Tailwind CSS</span>
-                <span class="project-tag tag-sage">WhatsApp API</span>
+            <nav class="saas-nav-center" aria-label="SaaS Template Navigation">
+              <div class="saas-nav-dropdown">
+                <span>Products</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </div>
-              <h3 class="project-title">GymFreaky Fitness Platform</h3>
-              <p class="project-blurb">
-                High-conversion gym membership and class scheduling platform with automated WhatsApp lead capture, member subscription workflows, and mobile-optimized interfaces.
-              </p>
+              <div class="saas-nav-dropdown">
+                <span>Resources</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </div>
+              <a href="#pricing" class="saas-nav-link">Pricing</a>
+            </nav>
+            <div class="saas-nav-right">
+              <a href="#contact" class="saas-nav-signin">Sign in</a>
+              <a href="https://rbp-saas-template.vercel.app" target="_blank" rel="noopener noreferrer" class="saas-nav-btn-lime">
+                <span>Try for free</span>
+                <span style="font-size: 0.95rem;">↗</span>
+              </a>
+            </div>
+          </header>
 
-              <!-- Simple Clickable Preview Bar -->
-              <div class="project-preview-bar">
-                <button type="button" class="btn-preview-project" data-project-id="gymfreaky" aria-label="Open live interactive preview of GymFreaky Platform">
-                  <div class="preview-bar-left">
-                    <span class="preview-pulse-dot" aria-hidden="true"></span>
-                    <span class="preview-bar-title">Interactive Live Preview</span>
-                    <span class="preview-bar-domain">gymfreaky.fit/shop</span>
-                  </div>
-                  <div class="preview-bar-right">
-                    <span class="preview-bar-cta">Launch Preview</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                  </div>
-                </button>
-              </div>
-            </div>
-          </article>
+          <!-- Bento Grid Master -->
+          <div class="saas-bento-grid">
 
-          <!-- PROJECT 02 / 04: HabiTrack Live PWA -->
-          <article class="project-card" style="position: relative; order: 2;">
-            <span class="project-live-indicator"><span class="pulse-dot"></span> PWA &middot; SUB-MS ENGINE</span>
-            <div class="project-visual-header">
-              <span class="project-number-stamp">02 / 04</span>
-              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="HabiTrack Live sub-millisecond habit tracking engine" style="cursor: pointer;" data-project-id="habitrack">
-                <defs>
-                  <linearGradient id="htGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#1E1B4B" />
-                    <stop offset="100%" stop-color="#0F172A" />
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="220" fill="url(#htGrad)" />
-                <rect x="20" y="20" width="360" height="180" rx="8" fill="#18182B" stroke="#312E81" stroke-width="1.5" />
-                <rect x="20" y="20" width="360" height="32" fill="#242247" />
-                <circle cx="36" cy="36" r="4" fill="#A855F7" />
-                <circle cx="50" cy="36" r="4" fill="#6366F1" />
-                <circle cx="64" cy="36" r="4" fill="#10B981" />
-                <text x="82" y="40" fill="#C7D2FE" font-family="monospace" font-size="10">habitrack.app · sub-ms streak calculus</text>
-                
-                <!-- Streak Completion Visual -->
-                <circle cx="100" cy="118" r="42" fill="none" stroke="#312E81" stroke-width="8" />
-                <circle cx="100" cy="118" r="42" fill="none" stroke="#10B981" stroke-width="8" stroke-dasharray="210 264" stroke-linecap="round" />
-                <text x="100" y="115" fill="#FFF" font-size="16" font-family="monospace" font-weight="bold" text-anchor="middle">85%</text>
-                <text x="100" y="130" fill="#A5B4FC" font-size="8" text-anchor="middle">TODAY</text>
-                
-                <rect x="180" y="65" width="180" height="32" rx="4" fill="#242247" />
-                <text x="195" y="85" fill="#FFF" font-size="11" font-weight="bold">🔥 Daily LeetCode Streak: 42 Days</text>
-                
-                <rect x="180" y="105" width="180" height="32" rx="4" fill="#242247" />
-                <text x="195" y="125" fill="#FFF" font-size="11" font-weight="bold">⚡ Spring Boot Microservice: Done ✓</text>
-                
-                <rect x="180" y="145" width="180" height="32" rx="4" fill="#242247" />
-                <text x="195" y="165" fill="#34D399" font-size="11" font-weight="bold">📊 Focus Score: 98/100 · Optimal</text>
-              </svg>
-            </div>
-            <div class="project-body">
-              <div class="project-category-row">
-                <span class="project-tag tag-peach">React</span>
-                <span class="project-tag tag-sage">IndexedDB PWA</span>
-                <span class="project-tag tag-lavender">Local-First</span>
-                <span class="project-tag tag-sage">Sub-ms Calculus</span>
+            <!-- CARD 1: Guided Onboarding For Every Team (Tall Left Card) -->
+            <article class="saas-bento-card card-onboarding">
+              <div class="card-onboarding-header">
+                <h3 class="card-onboarding-title">Guided Onboarding<br>For Every Team</h3>
+                <p class="card-onboarding-sub">Get your team up and running in minutes with step-by-step walkthroughs</p>
               </div>
-              <h3 class="project-title">HabiTrack Live PWA — Sub-Millisecond Habit &amp; Streak Engine</h3>
-              <p class="project-blurb">
-                Progressive Web App engineered for zero-latency local execution and 100% offline persistence. Evaluates recurrence calculus, optimistic state updates, and streak algorithms with sub-millisecond execution times and background cloud sync.
-              </p>
+              <!-- Phone Device Mockup -->
+              <div class="device-phone-mockup" aria-hidden="true">
+                <div class="device-dynamic-island"></div>
+                <div class="device-phone-screen">
+                  <h4 class="phone-screen-title">Your workspace<br>is ready!</h4>
+                  <p class="phone-screen-sub">Invite your team and start collaborating instantly.</p>
+                  <div class="phone-project-alpha-card">
+                    <div class="alpha-card-top">
+                      <span class="alpha-card-title">Project Alpha</span>
+                      <div class="alpha-card-check">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                    <svg class="alpha-card-wave" viewBox="0 0 240 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 38 C 50 15, 90 48, 140 22 C 180 2, 210 35, 240 18" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.35"/>
+                    </svg>
+                    <div class="alpha-card-bottom">
+                      <span class="alpha-card-stamp">PRJ · 2024 · LIVE</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
 
-              <!-- Simple Clickable Preview Bar -->
-              <div class="project-preview-bar">
-                <button type="button" class="btn-preview-project" data-project-id="habitrack" aria-label="Open live interactive preview of HabiTrack Live PWA">
-                  <div class="preview-bar-left">
-                    <span class="preview-pulse-dot" aria-hidden="true"></span>
-                    <span class="preview-bar-title">Interactive Live Preview</span>
-                    <span class="preview-bar-domain">habitrack.app/live</span>
-                  </div>
-                  <div class="preview-bar-right">
-                    <span class="preview-bar-cta">Launch Preview</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                  </div>
-                </button>
-              </div>
-            </div>
-          </article>
+            <!-- RIGHT COLUMN: Real-time Data + Bottom Split Row -->
+            <div class="saas-bento-right-column">
 
-          <!-- PROJECT 03 / 04: GeoTrack GIS Dashboard -->
-          <article class="project-card" style="position: relative; order: 3;">
-            <span class="project-live-indicator"><span class="pulse-dot"></span> POSTGIS SPATIAL</span>
-            <div class="project-visual-header">
-              <span class="project-number-stamp">03 / 04</span>
-              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="GeoTrack GIS Dashboard spatial polygon tracker">
-                <defs>
-                  <linearGradient id="gtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#022C22" />
-                    <stop offset="100%" stop-color="#041813" />
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="220" fill="url(#gtGrad)" />
-                <rect x="20" y="20" width="360" height="180" rx="8" fill="#061F18" stroke="#065F46" stroke-width="1.5" />
-                <rect x="20" y="20" width="360" height="32" fill="#0B3026" />
-                <circle cx="36" cy="36" r="4" fill="#10B981" />
-                <circle cx="50" cy="36" r="4" fill="#34D399" />
-                <circle cx="64" cy="36" r="4" fill="#059669" />
-                <text x="82" y="40" fill="#A7F3D0" font-family="monospace" font-size="10">geotrack.gis.internal · postgis-spatial-stream</text>
-                
-                <!-- Radar / GIS Map Grid Overlay -->
-                <circle cx="105" cy="118" r="42" fill="none" stroke="#065F46" stroke-width="1.5" />
-                <circle cx="105" cy="118" r="28" fill="none" stroke="#047857" stroke-width="1" stroke-dasharray="3 3" />
-                <circle cx="105" cy="118" r="14" fill="none" stroke="#047857" stroke-width="1" />
-                <line x1="105" y1="76" x2="105" y2="160" stroke="#047857" stroke-width="1" />
-                <line x1="63" y1="118" x2="147" y2="118" stroke="#047857" stroke-width="1" />
-                
-                <!-- GPS Nodes -->
-                <circle cx="95" cy="105" r="4" fill="#34D399" />
-                <circle cx="120" cy="125" r="4" fill="#10B981" />
-                <circle cx="100" cy="138" r="3.5" fill="#6EE7B7" />
-                <text x="105" y="112" fill="#6EE7B7" font-size="7" font-family="monospace">HQ</text>
-                
-                <!-- GIS Metadata Chips -->
-                <rect x="175" y="65" width="180" height="26" rx="4" fill="#0B3026" stroke="#065F46" stroke-width="1" />
-                <text x="185" y="82" fill="#D1FAE5" font-size="9" font-family="monospace">📍 Spatial Query: 8.764°N, 78.134°E</text>
-                
-                <rect x="175" y="99" width="180" height="26" rx="4" fill="#0B3026" stroke="#065F46" stroke-width="1" />
-                <text x="185" y="116" fill="#34D399" font-size="9" font-family="monospace">⚡ PostGIS Polygon Index: 60 FPS</text>
-                
-                <rect x="175" y="133" width="180" height="32" rx="4" fill="#052018" />
-                <text x="185" y="148" fill="#A7F3D0" font-size="9">Active Tracked Units: 48 Assets</text>
-                <text x="185" y="160" fill="#34D399" font-size="8" font-family="monospace">WebSocket Stream &middot; Zero Dropped Packets</text>
-              </svg>
-            </div>
-            <div class="project-body">
-              <div class="project-category-row">
-                <span class="project-tag tag-peach">Node.js</span>
-                <span class="project-tag tag-sage">PostgreSQL</span>
-                <span class="project-tag tag-lavender">Leaflet GIS</span>
-                <span class="project-tag tag-sage">PostGIS</span>
-              </div>
-              <h3 class="project-title">GeoTrack GIS Dashboard</h3>
-              <p class="project-blurb">
-                Fleet coordinate tracking dashboard with WebSocket streaming and spatial polygon queries via PostGIS, rendering thousands of asset coordinates at 60 FPS.
-              </p>
+              <!-- CARD 2: Real-time Data -->
+              <article class="saas-bento-card card-realtime">
+                <div class="realtime-content-side">
+                  <h3 class="card-realtime-title">Real-time Data</h3>
+                  <p class="card-realtime-sub">Monitor metrics, analytics, and team activity instantly</p>
+                </div>
+                <div class="realtime-radar-visual">
+                  <div class="radar-ring ring-1"></div>
+                  <div class="radar-ring ring-2"></div>
+                  <div class="radar-ring ring-3"></div>
+                  <div class="realtime-device-card">
+                    <div class="device-mini-notch"></div>
+                    <div class="realtime-search-pill">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                      <span>Search projects...</span>
+                    </div>
+                    <div class="realtime-metric-group">
+                      <span class="realtime-metric-label">Active projects</span>
+                      <span class="realtime-metric-number">24 running</span>
+                    </div>
+                    <div class="realtime-tags-row">
+                      <span class="tag-pill tag-lime">Deploy</span>
+                      <span class="tag-pill tag-ghost">Build</span>
+                      <span class="tag-pill tag-ghost">Test</span>
+                    </div>
+                    <div class="realtime-build-status">
+                      <div class="build-status-header">
+                        <span>Build status</span>
+                        <span style="font-size: 0.65rem;">ⓘ</span>
+                      </div>
+                      <div class="build-status-val">
+                        <span>All passing</span>
+                        <span class="passing-badge">✓ 100%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
 
-              <!-- Simple Clickable Preview Bar -->
-              <div class="project-preview-bar">
-                <button type="button" class="btn-preview-project" data-project-id="geotrack" aria-label="Open live interactive preview of GeoTrack GIS Dashboard">
-                  <div class="preview-bar-left">
-                    <span class="preview-pulse-dot" aria-hidden="true"></span>
-                    <span class="preview-bar-title">Interactive Live Preview</span>
-                    <span class="preview-bar-domain">geotrack.gis/live</span>
-                  </div>
-                  <div class="preview-bar-right">
-                    <span class="preview-bar-cta">Launch Preview</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                  </div>
-                </button>
-              </div>
-            </div>
-          </article>
+              <!-- BOTTOM SPLIT ROW: Trusted By + Built to Scale -->
+              <div class="saas-bento-bottom-row">
 
-          <!-- PROJECT 04 / 04: ResumeAI Live -->
-          <article class="project-card" style="position: relative; order: 4;">
-            <span class="project-live-indicator"><span class="pulse-dot"></span> REAL-TIME AI &amp; AST</span>
-            <div class="project-visual-header">
-              <span class="project-number-stamp">04 / 04</span>
-              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" aria-label="ResumeAI AST ATS scoring and keyword telemetry engine" style="cursor: pointer;" data-project-id="resumeai">
-                <defs>
-                  <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#180C2E" />
-                    <stop offset="100%" stop-color="#080414" />
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="220" fill="url(#aiGrad)" />
-                <rect x="20" y="20" width="360" height="180" rx="8" fill="#1F1336" stroke="#4C1D95" stroke-width="1.5" />
-                <rect x="20" y="20" width="360" height="32" fill="#2E1B4F" />
-                <circle cx="36" cy="36" r="4" fill="#C084FC" />
-                <circle cx="50" cy="36" r="4" fill="#818CF8" />
-                <circle cx="64" cy="36" r="4" fill="#34D399" />
-                <text x="82" y="40" fill="#DDD6FE" font-family="monospace" font-size="10">resume-ai.engine · real-time AST match</text>
-                
-                <!-- Match Score Dial -->
-                <circle cx="95" cy="118" r="40" fill="none" stroke="#3B1869" stroke-width="7" />
-                <circle cx="95" cy="118" r="40" fill="none" stroke="#A855F7" stroke-width="7" stroke-dasharray="235 251" stroke-linecap="round" />
-                <text x="95" y="115" fill="#FFF" font-size="17" font-family="monospace" font-weight="bold" text-anchor="middle">94%</text>
-                <text x="95" y="130" fill="#C4B5FD" font-size="8" text-anchor="middle">ATS MATCH</text>
-                
-                <!-- Keyword Chips -->
-                <rect x="175" y="65" width="85" height="24" rx="4" fill="#3B1869" />
-                <text x="185" y="81" fill="#34D399" font-size="9" font-family="monospace">✓ Java 17</text>
-                
-                <rect x="270" y="65" width="95" height="24" rx="4" fill="#3B1869" />
-                <text x="280" y="81" fill="#34D399" font-size="9" font-family="monospace">✓ Spring Boot</text>
-                
-                <rect x="175" y="98" width="95" height="24" rx="4" fill="#3B1869" />
-                <text x="185" y="114" fill="#34D399" font-size="9" font-family="monospace">✓ PostgreSQL</text>
-                
-                <rect x="280" y="98" width="85" height="24" rx="4" fill="#3B1869" />
-                <text x="290" y="114" fill="#34D399" font-size="9" font-family="monospace">✓ React 18</text>
-                
-                <rect x="175" y="132" width="190" height="34" rx="4" fill="#2A1647" />
-                <text x="185" y="148" fill="#DDD6FE" font-size="9">AST Evaluation: Complete</text>
-                <text x="185" y="160" fill="#34D399" font-size="8" font-family="monospace">0 Syntax Errors · 14 ATS Keywords Verified</text>
-              </svg>
-            </div>
-            <div class="project-body">
-              <div class="project-category-row">
-                <span class="project-tag tag-peach">Gemini LLM</span>
-                <span class="project-tag tag-sage">AST Lexer</span>
-                <span class="project-tag tag-lavender">Web Workers</span>
-                <span class="project-tag tag-peach">React</span>
-              </div>
-              <h3 class="project-title">ResumeAI Live — Real-Time AST ATS Scanner &amp; Telemetry</h3>
-              <p class="project-blurb">
-                Client-side resume intelligence scanner powered by abstract syntax tree (AST) token parsing and LLM semantic embeddings. Calculates recruiter ATS match percentages, skill density, and formatting compliance in under 80ms.
-              </p>
+                <!-- CARD 3: Trusted By 254k+ Users -->
+                <article class="saas-bento-card card-trusted">
+                  <h3 class="card-trusted-title">Trusted By<br>254k+ Users</h3>
+                  <div class="trusted-avatar-stack">
+                    <div class="avatar-circle" title="Sarah Chen — Engineering Lead">
+                      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                        <rect width="40" height="40" rx="20" fill="#38BDF8"/>
+                        <circle cx="20" cy="15" r="7.5" fill="#FED7AA"/>
+                        <path d="M12.5 14 C12.5 9 15.5 7 20 7 C24.5 7 27.5 9 27.5 14 C27.5 15.5 26.5 16 26.5 16 C25 10 23.5 9 20 9 C16.5 9 15 10 13.5 16 Z" fill="#1E293B"/>
+                        <path d="M8 36 C8 27 13.5 24 20 24 C26.5 24 32 27 32 36 Z" fill="#0284C7"/>
+                      </svg>
+                    </div>
+                    <div class="avatar-circle" title="Marcus Vance — Founder &amp; CTO">
+                      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                        <rect width="40" height="40" rx="20" fill="#F43F5E"/>
+                        <circle cx="20" cy="15.5" r="7.5" fill="#FDBA74"/>
+                        <path d="M12.5 13 C12.5 8 16 7 20 7 C24 7 27.5 8 27.5 13 Z" fill="#451A03"/>
+                        <path d="M16 19 C16 22 17.5 23 20 23 C22.5 23 24 22 24 19 Z" fill="#451A03"/>
+                        <path d="M8 36 C8 27.5 13.5 24.5 20 24.5 C26.5 24.5 32 27.5 32 36 Z" fill="#9F1239"/>
+                      </svg>
+                    </div>
+                    <div class="avatar-circle" title="Elena Rostova — Product Architect">
+                      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                        <rect width="40" height="40" rx="20" fill="#A855F7"/>
+                        <path d="M11 15 C11 10 15 7 20 7 C25 7 29 10 29 15 C29 25 28 27 27 28 C25 28 24 20 20 20 C16 20 15 28 13 28 C12 27 11 25 11 15 Z" fill="#3B0764"/>
+                        <circle cx="20" cy="15" r="7.5" fill="#FDE047"/>
+                        <circle cx="17" cy="14.5" r="2.5" stroke="#1E1B4B" stroke-width="1" fill="none"/>
+                        <circle cx="23" cy="14.5" r="2.5" stroke="#1E1B4B" stroke-width="1" fill="none"/>
+                        <path d="M19.5 14.5 L20.5 14.5" stroke="#1E1B4B" stroke-width="1"/>
+                        <path d="M8 36 C8 27 13.5 24 20 24 C26.5 24 32 27 32 36 Z" fill="#6B21A8"/>
+                      </svg>
+                    </div>
+                    <div class="avatar-circle" title="David Kalu — Growth Strategist">
+                      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                        <rect width="40" height="40" rx="20" fill="#10B981"/>
+                        <circle cx="20" cy="15" r="7.5" fill="#9A3412"/>
+                        <path d="M13 13 C13 8 16.5 7 20 7 C23.5 7 27 8 27 13 Z" fill="#18181B"/>
+                        <path d="M8 36 C8 27 13.5 24 20 24 C26.5 24 32 27 32 36 Z" fill="#047857"/>
+                      </svg>
+                    </div>
+                    <div class="avatar-circle avatar-more-badge" title="Over 254,000 active global SaaS operators">
+                      <span>5+</span>
+                    </div>
+                  </div>
+                  <div class="trusted-reviews-row">
+                    <span class="star-icon">★</span>
+                    <span>4.9 from 48k+ reviews</span>
+                  </div>
+                </article>
 
-              <!-- Simple Clickable Preview Bar -->
-              <div class="project-preview-bar">
-                <button type="button" class="btn-preview-project" data-project-id="resumeai" aria-label="Open live interactive preview of ResumeAI Live Scanner">
-                  <div class="preview-bar-left">
-                    <span class="preview-pulse-dot" aria-hidden="true"></span>
-                    <span class="preview-bar-title">Interactive Live Preview</span>
-                    <span class="preview-bar-domain">resumeai.engine/live</span>
+                <!-- CARD 4: Built to Scale -->
+                <article class="saas-bento-card card-scale">
+                  <div class="card-scale-header">
+                    <h3 class="card-scale-title">Built to Scale</h3>
+                    <p class="card-scale-sub">Enterprise-ready infrastructure that grows with you</p>
                   </div>
-                  <div class="preview-bar-right">
-                    <span class="preview-bar-cta">Launch Preview</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  <div class="scale-metric-pills">
+                    <div class="scale-metric-pill">
+                      <div class="pill-left">
+                        <span class="pill-icon">🚀</span>
+                        <span class="pill-text">2,598 Deploys</span>
+                      </div>
+                      <span class="pill-growth">+24%</span>
+                    </div>
+                    <div class="scale-metric-pill">
+                      <div class="pill-left">
+                        <span class="pill-icon">⚡</span>
+                        <span class="pill-text">99.9% Uptime</span>
+                      </div>
+                      <span class="pill-growth">+0.2%</span>
+                    </div>
                   </div>
-                </button>
+                </article>
+
               </div>
+
             </div>
-          </article>
+
+          </div>
+
+          <!-- Bottom Telemetry & Reference Links Footer -->
+          <footer class="saas-frame-footer">
+            <div class="saas-footer-badge">
+              <span class="saas-status-dot"></span>
+              <span>PRODUCTION LIVE · VIBRANT SAAS ARCHITECTURE · ZERO-LATENCY EDGE ENGINE</span>
+            </div>
+            <div class="saas-footer-actions">
+              <a href="https://pro.reactbits.dev/login" target="_blank" rel="noopener noreferrer" class="saas-footer-link">
+                <span>ReactBits Pro Template</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+              </a>
+              <a href="https://rbp-saas-template.vercel.app" target="_blank" rel="noopener noreferrer" class="saas-footer-link active">
+                <span>rbp-saas-template.vercel.app</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+              </a>
+            </div>
+          </footer>
 
         </div>
 
