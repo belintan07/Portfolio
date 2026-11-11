@@ -72,16 +72,16 @@
     }
 
     :root {
-      /* Professional White Design Tokens */
-      --bg: #E9E9E9;
-      --bg-alt: #DFDFDF;
-      --paper-line: #D0D0D0;
-      --text: #0F172A;
-      --text-muted: #334155;
-      --text-subtle: #64748B;
-      --accent-orange: #F48936;
-      --accent-orange-hover: #E07320;
-      --accent-orange-subtle: #FEF2E8;
+      /* High-Contrast Vibrant SaaS Design Tokens */
+      --bg: #07090C;
+      --bg-alt: #0D1017;
+      --paper-line: rgba(255, 255, 255, 0.05);
+      --text: #FFFFFF;
+      --text-muted: #CBD5E1;
+      --text-subtle: #94A3B8;
+      --accent-orange: #A3E635;
+      --accent-orange-hover: #BEF264;
+      --accent-orange-subtle: rgba(163, 230, 53, 0.12);
 
       /* Refined Clean Badges */
       --card-peach: #FFF7ED;
@@ -8188,9 +8188,10 @@
 }
 
 
+    
     /* ==========================================================================
-       UNIVERSAL VIBRANT SAAS & BENTO DESIGN SYSTEM (CIRCULAR RBP SPEC)
-       Transforms every card, section frame, and container to the Vibrant SaaS style
+       HIGH-CONTRAST VIBRANT SAAS TYPOGRAPHY & VISIBILITY SPECIFICATION
+       Guarantees 100% visible, crisp, ultra-legible text across all cards & frames
        ========================================================================== */
     :root, [data-theme="dark"], [data-theme="light"] {
       --bg: #07090C !important;
@@ -8226,16 +8227,83 @@
       color: #FFFFFF !important;
     }
 
-    /* SECTION TITLES & SUBTITLES */
-    .section-title {
+    /* GLOBAL HIGH-VISIBILITY TYPOGRAPHY FOR ALL HEADINGS & TITLES */
+    h1, h2, h3, h4, h5, h6,
+    .section-title,
+    .biz-hero-title,
+    .hero-title,
+    .value-pillar-title,
+    .service-card-title,
+    .pricing-tier-name,
+    .timeline-role,
+    .edu-degree,
+    .skill-deck-title,
+    .polaroid-caption h3,
+    .contact-editorial-box h3,
+    .build-stack-card h3,
+    .build-stack-card h4,
+    .chapter-two-subtitle,
+    .consultation-card-header h3,
+    .brand-logo-biz,
+    .brand-logo-biz .brand-name {
       color: #FFFFFF !important;
-      font-family: var(--font-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif) !important;
       font-weight: 800 !important;
-      letter-spacing: -0.03em !important;
+      letter-spacing: -0.02em !important;
     }
 
-    .section-subtitle {
+    /* GLOBAL HIGH-VISIBILITY BODY TEXT & PARAGRAPHS */
+    p,
+    .section-subtitle,
+    .biz-hero-subtitle,
+    .hero-bio-lead,
+    .value-pillar-desc,
+    .service-card-desc,
+    .timeline-desc,
+    .edu-desc,
+    .pricing-features-list,
+    .pricing-features-list li,
+    .contact-editorial-box p,
+    .consultation-takeaways-list li,
+    .build-stack-card p,
+    .build-stack-card li,
+    .about-prose p,
+    .about-prose strong,
+    .polaroid-caption p,
+    .chapter-two-subdesc,
+    .contact-meta p {
+      color: #CBD5E1 !important;
+      line-height: 1.6 !important;
+    }
+
+    /* SPECIFIC SUBTITLE & INTRO LEAD TEXT */
+    .section-subtitle,
+    .biz-hero-subtitle,
+    .hero-bio-lead {
+      color: #CBD5E1 !important;
+      opacity: 0.95 !important;
+    }
+
+    /* METADATA, TAGS & SUBTEXT (LIGHT CRISP SLATE) */
+    .timeline-date,
+    .edu-year,
+    .pricing-price-sub,
+    .stat-label,
+    .shortcuts-label,
+    .contact-meta-label,
+    .consultation-disclaimer,
+    .brand-tagline {
       color: #94A3B8 !important;
+    }
+
+    /* CODE & MONOSPACE ELEMENTS */
+    code, pre, .build-stack-tier-title, .backend-endpoint-prefix {
+      color: #A3E635 !important;
+    }
+
+    /* PRICING AMOUNTS */
+    .pricing-price-main {
+      color: #FFFFFF !important;
+      font-weight: 900 !important;
     }
 
     /* ALL MAJOR SECTION CONTAINERS AS VIBRANT SAAS ROUNDED FRAMES */
@@ -8272,7 +8340,7 @@
       z-index: 0;
     }
 
-    /* ALL CARDS & DIVS AS BENTO CARDS (RADIUS 28PX, FOREST GREEN OR LIME) */
+    /* ALL BENTO CARDS (RADIUS 28PX, FOREST GREEN) */
     .value-pillar-card,
     .timeline-content-card,
     .compact-edu-card,
@@ -8323,73 +8391,43 @@
       border-color: rgba(163, 230, 53, 0.35) !important;
     }
 
-    /* TYPOGRAPHY INSIDE BENTO CARDS */
-    .value-pillar-title,
-    .service-card-title,
-    .pricing-tier-name,
-    .timeline-role,
-    .edu-degree,
-    .skill-deck-title,
-    .polaroid-caption h3,
-    .contact-editorial-box h3,
-    .build-stack-card h3,
-    .build-stack-card h4 {
-      color: #FFFFFF !important;
-      font-family: var(--font-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif) !important;
-      font-weight: 800 !important;
-      letter-spacing: -0.02em !important;
-    }
-
-    .value-pillar-desc,
-    .service-card-desc,
-    .timeline-desc,
-    .edu-desc,
-    .pricing-features-list li,
-    .contact-editorial-box p,
-    .consultation-takeaways-list li,
-    .build-stack-card p,
-    .build-stack-card li {
-      color: #CBD5E1 !important;
-      font-size: 0.92rem !important;
-      line-height: 1.5 !important;
-    }
-
-    /* FEATURED VIBRANT LIME HIGHLIGHT CARDS */
-    .pricing-card.featured-card,
-    .service-value-proposition-card,
-    .value-pillar-card:first-child {
-      background: #A3E635 !important; /* Vibrant Neon Lime Green */
-      color: #0F172A !important;
-      border: none !important;
-      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35) !important;
-    }
-
-    .pricing-card.featured-card *,
-    .service-value-proposition-card *,
-    .value-pillar-card:first-child * {
+    /* THE ONLY LIME BACKGROUND CARDS WHERE TEXT MUST BE DARK */
+    .saas-bento-card.card-onboarding,
+    .saas-bento-card.card-scale {
+      background: #A3E635 !important;
       color: #0F172A !important;
     }
 
-    .pricing-card.featured-card .pricing-features-list li,
-    .service-value-proposition-card p,
-    .value-pillar-card:first-child p {
+    .saas-bento-card.card-onboarding h3,
+    .saas-bento-card.card-scale h3,
+    .card-onboarding-title,
+    .card-scale-title {
+      color: #0F172A !important;
+    }
+
+    .saas-bento-card.card-onboarding p,
+    .saas-bento-card.card-scale p,
+    .card-onboarding-sub,
+    .card-scale-sub {
       color: #1E293B !important;
-      opacity: 0.92;
     }
 
-    .pricing-card.featured-card .btn-pricing-cta,
-    .service-value-proposition-card .btn-sketch-primary {
-      background: #0F172A !important;
-      color: #FFFFFF !important;
-      border-radius: 9999px !important;
-      border: none !important;
-      font-weight: 800 !important;
+    /* WHITE PHONE & RADAR DEVICE SCREENS INSIDE SAAS FRAME */
+    .device-phone-screen,
+    .realtime-device-card {
+      color: #0F172A !important;
     }
 
-    .pricing-card.featured-card .btn-pricing-cta:hover,
-    .service-value-proposition-card .btn-sketch-primary:hover {
-      background: #1E293B !important;
-      color: #A3E635 !important;
+    .device-phone-screen h4,
+    .phone-screen-title,
+    .alpha-card-title,
+    .realtime-metric-number {
+      color: #0F172A !important;
+    }
+
+    .phone-screen-sub,
+    .realtime-metric-label {
+      color: #64748B !important;
     }
 
     /* GLOWING MONOSPACE PILL BADGES */
@@ -8400,7 +8438,8 @@
     .pricing-card-badge,
     .hero-kicker-badge,
     .tag-pill,
-    .status-pill {
+    .status-pill,
+    .chapter-two-subbadge {
       background: rgba(163, 230, 53, 0.12) !important;
       border: 1px solid rgba(163, 230, 53, 0.3) !important;
       color: #A3E635 !important;
@@ -8506,7 +8545,7 @@
     }
 
     .nav-13-link {
-      color: #94A3B8 !important;
+      color: #CBD5E1 !important;
       font-size: 0.9rem !important;
       font-weight: 500 !important;
       transition: color 0.2s ease !important;
@@ -8522,9 +8561,11 @@
     .contact-form-container textarea,
     .contact-form-container select,
     .contact-input,
-    .contact-textarea {
+    .contact-textarea,
+    .consultation-input,
+    .consultation-textarea {
       background: #0E1218 !important;
-      border: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
       border-radius: 16px !important;
       color: #FFFFFF !important;
       padding: 14px 18px !important;
@@ -8534,7 +8575,9 @@
     .contact-form-container input:focus,
     .contact-form-container textarea:focus,
     .contact-input:focus,
-    .contact-textarea:focus {
+    .contact-textarea:focus,
+    .consultation-input:focus,
+    .consultation-textarea:focus {
       border-color: #A3E635 !important;
       box-shadow: 0 0 15px rgba(163, 230, 53, 0.25) !important;
       outline: none !important;
@@ -8547,6 +8590,12 @@
       background: #090B0E !important;
       border: 1.5px solid rgba(255, 255, 255, 0.1) !important;
       color: #FFFFFF !important;
+    }
+
+    .site-footer a,
+    .site-footer p,
+    .site-footer span {
+      color: #CBD5E1 !important;
     }
 
     /* HIDE BRUTALIST RETRO SKETCH ARTIFACTS */
