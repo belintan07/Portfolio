@@ -3816,12 +3816,24 @@
       transition: var(--transition-smooth);
       position: relative;
       overflow: hidden;
+      cursor: pointer;
+    }
+
+    .service-value-proposition-card:hover {
+      transform: translateY(-4px);
+      border-color: #9270FB;
+      box-shadow: 6px 6px 0px var(--shadow-ink, #0F172A), 0 14px 28px rgba(146, 112, 251, 0.18);
     }
 
     [data-theme="dark"] .service-value-proposition-card {
       background: #151724;
       border-color: rgba(146, 112, 251, 0.45);
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 3px 3px 0px rgba(146, 112, 251, 0.35);
+    }
+
+    [data-theme="dark"] .service-value-proposition-card:hover {
+      border-color: #9270FB;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 5px 5px 0px rgba(146, 112, 251, 0.5);
     }
 
     .svp-header {
@@ -3921,10 +3933,15 @@
       transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
+    .svp-feature-item {
+      cursor: pointer;
+    }
+
     .svp-feature-item:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px) scale(1.015);
       border-color: #9270FB;
-      box-shadow: 2.5px 2.5px 0px rgba(146, 112, 251, 0.25);
+      background: var(--surface);
+      box-shadow: 3.5px 3.5px 0px rgba(146, 112, 251, 0.35);
     }
 
     [data-theme="dark"] .svp-feature-item {
@@ -3994,12 +4011,24 @@
       transition: var(--transition-smooth);
       position: relative;
       overflow: hidden;
+      cursor: pointer;
+    }
+
+    .build-stack-card:hover {
+      transform: translateY(-4px);
+      border-color: #F48936;
+      box-shadow: 6px 6px 0px var(--shadow-ink, #0F172A), 0 14px 28px rgba(244, 137, 54, 0.18);
     }
 
     [data-theme="dark"] .build-stack-card {
       background: #151724;
       border-color: rgba(146, 112, 251, 0.45);
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 3px 3px 0px rgba(146, 112, 251, 0.35);
+    }
+
+    [data-theme="dark"] .build-stack-card:hover {
+      border-color: #F48936;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 5px 5px 0px rgba(244, 137, 54, 0.5);
     }
 
     .build-stack-header {
@@ -4075,10 +4104,15 @@
       position: relative;
     }
 
+    .stack-tier-item {
+      cursor: pointer;
+    }
+
     .stack-tier-item:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px) scale(1.015);
       border-color: #F48936;
-      box-shadow: 2.5px 2.5px 0px rgba(244, 137, 54, 0.25);
+      background: var(--surface);
+      box-shadow: 3.5px 3.5px 0px rgba(244, 137, 54, 0.35);
     }
 
     [data-theme="dark"] .stack-tier-item {
@@ -5274,7 +5308,15 @@
 
     .framer-card-item:hover .card-3d-glare,
     .album-card-item:hover .card-3d-glare,
-    .project-card:hover .card-3d-glare {
+    .project-card:hover .card-3d-glare,
+    .service-value-proposition-card:hover .card-3d-glare,
+    .build-stack-card:hover .card-3d-glare,
+    .service-card:hover .card-3d-glare,
+    .skill-deck-card:hover .card-3d-glare,
+    .compact-role-card:hover .card-3d-glare,
+    .compact-edu-card:hover .card-3d-glare,
+    .compact-resume-box:hover .card-3d-glare,
+    .value-pillar-card:hover .card-3d-glare {
       opacity: 1;
     }
 
@@ -9847,7 +9889,7 @@
 
       // 3D Parallax Tilt with Specular Glare Tracking
       function init3DCardParallax() {
-        const cards = document.querySelectorAll('.framer-card-item, .album-card-item, .project-card');
+        const cards = document.querySelectorAll('.framer-card-item, .album-card-item, .project-card, .service-value-proposition-card, .build-stack-card, .service-card, .skill-deck-card, .compact-role-card, .compact-edu-card, .compact-resume-box, .value-pillar-card');
 
         cards.forEach(card => {
           // Inject 3D Specular Glare overlay if missing
@@ -10635,7 +10677,7 @@
           document.body.classList.remove('cursor-active');
         });
 
-        const interactiveSelector = 'a, button, [role="button"], input, select, textarea, .btn-project-link, .btn-backend-clickable, .framer-card-item, .polaroid-frame, .album-card-item, .persona-tab-btn, .apple-theme-toggle, .filter-btn, .term-dot';
+        const interactiveSelector = 'a, button, [role="button"], input, select, textarea, .btn-project-link, .btn-backend-clickable, .framer-card-item, .polaroid-frame, .album-card-item, .persona-tab-btn, .apple-theme-toggle, .filter-btn, .term-dot, .service-value-proposition-card, .build-stack-card, .service-card, .stack-tier-item, .svp-feature-item, .skill-deck-card, .compact-role-card, .compact-edu-card, .compact-resume-box, .value-pillar-card';
 
         document.addEventListener('mouseover', function(e) {
           if (e.target && e.target.closest && e.target.closest(interactiveSelector)) {
