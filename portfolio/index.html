@@ -8187,7 +8187,378 @@
   }
 }
 
-</style>
+
+    /* ==========================================================================
+       UNIVERSAL VIBRANT SAAS & BENTO DESIGN SYSTEM (CIRCULAR RBP SPEC)
+       Transforms every card, section frame, and container to the Vibrant SaaS style
+       ========================================================================== */
+    :root, [data-theme="dark"], [data-theme="light"] {
+      --bg: #07090C !important;
+      --bg-alt: #0D1017 !important;
+      --paper-line: rgba(255, 255, 255, 0.05) !important;
+      --text: #FFFFFF !important;
+      --text-muted: #CBD5E1 !important;
+      --text-subtle: #94A3B8 !important;
+
+      --surface: #141B12 !important; /* Deep Forest Olive Green */
+      --surface-subtle: #0F150D !important;
+      --border-ink: rgba(163, 230, 53, 0.18) !important; /* Glowing Lime Border */
+      --border-light: rgba(255, 255, 255, 0.08) !important;
+
+      --sketch-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+      --sketch-shadow-lg: 0 25px 60px -10px rgba(0, 0, 0, 0.7), 0 0 40px -10px rgba(163, 230, 53, 0.15) !important;
+      --sketch-shadow-hover: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(163, 230, 53, 0.2) !important;
+
+      --radius-sm: 16px !important;
+      --radius-md: 28px !important; /* Signature Bento Card Radius */
+      --radius-lg: 36px !important; /* Signature Frame Radius */
+      --radius-pill: 9999px !important;
+
+      --accent-orange: #A3E635 !important; /* Neon Lime Green */
+      --accent-orange-hover: #BEF264 !important;
+      --accent-orange-subtle: rgba(163, 230, 53, 0.12) !important;
+    }
+
+    body {
+      background-color: #07090C !important;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px) !important;
+      background-size: 28px 28px !important;
+      color: #FFFFFF !important;
+    }
+
+    /* SECTION TITLES & SUBTITLES */
+    .section-title {
+      color: #FFFFFF !important;
+      font-family: var(--font-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif) !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.03em !important;
+    }
+
+    .section-subtitle {
+      color: #94A3B8 !important;
+    }
+
+    /* ALL MAJOR SECTION CONTAINERS AS VIBRANT SAAS ROUNDED FRAMES */
+    .hero-section .container,
+    .core-value-section .container,
+    .chapter-two-unified-section .container,
+    .pricing-section .container,
+    .contact-section .container {
+      position: relative;
+      background: #090B0E !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+      border-radius: clamp(24px, 3.5vw, 36px) !important;
+      box-shadow: 0 30px 90px -20px rgba(0, 0, 0, 0.9), 0 0 80px -25px rgba(163, 230, 53, 0.15) !important;
+      padding: clamp(24px, 4vw, 44px) !important;
+      margin-top: 36px !important;
+      margin-bottom: 36px !important;
+      overflow: hidden;
+      color: #FFFFFF !important;
+    }
+
+    .hero-section .container::before,
+    .core-value-section .container::before,
+    .chapter-two-unified-section .container::before,
+    .pricing-section .container::before,
+    .contact-section .container::before {
+      content: '';
+      position: absolute;
+      top: -150px;
+      right: -100px;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(163, 230, 53, 0.08) 0%, rgba(9, 11, 14, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ALL CARDS & DIVS AS BENTO CARDS (RADIUS 28PX, FOREST GREEN OR LIME) */
+    .value-pillar-card,
+    .timeline-content-card,
+    .compact-edu-card,
+    .skill-deck-card,
+    .service-card,
+    .framer-card-item,
+    .album-card-item,
+    .build-stack-card,
+    .pricing-card,
+    .contact-editorial-box,
+    .contact-side-form-wrap,
+    .polaroid-frame,
+    .hero-content-column,
+    .credentials-box,
+    .compact-role-card,
+    .compact-resume-box,
+    .offer-banner-box,
+    .guaranteed-offer-banner,
+    .tech-spec-matrix-card,
+    .testimonial-card,
+    .portfolio-grid-card,
+    .service-card-item,
+    .project-card,
+    .stat-card,
+    .consultation-card {
+      border-radius: 28px !important;
+      background: #141B12 !important; /* Deep Forest Olive Green */
+      border: 1.5px solid rgba(163, 230, 53, 0.16) !important;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+      color: #FFFFFF !important;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-pillar-card:hover,
+    .timeline-content-card:hover,
+    .compact-edu-card:hover,
+    .skill-deck-card:hover,
+    .service-card:hover,
+    .framer-card-item:hover,
+    .build-stack-card:hover,
+    .pricing-card:hover,
+    .polaroid-frame:hover,
+    .contact-editorial-box:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.6), 0 0 30px rgba(163, 230, 53, 0.15) !important;
+      border-color: rgba(163, 230, 53, 0.35) !important;
+    }
+
+    /* TYPOGRAPHY INSIDE BENTO CARDS */
+    .value-pillar-title,
+    .service-card-title,
+    .pricing-tier-name,
+    .timeline-role,
+    .edu-degree,
+    .skill-deck-title,
+    .polaroid-caption h3,
+    .contact-editorial-box h3,
+    .build-stack-card h3,
+    .build-stack-card h4 {
+      color: #FFFFFF !important;
+      font-family: var(--font-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif) !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    .value-pillar-desc,
+    .service-card-desc,
+    .timeline-desc,
+    .edu-desc,
+    .pricing-features-list li,
+    .contact-editorial-box p,
+    .consultation-takeaways-list li,
+    .build-stack-card p,
+    .build-stack-card li {
+      color: #CBD5E1 !important;
+      font-size: 0.92rem !important;
+      line-height: 1.5 !important;
+    }
+
+    /* FEATURED VIBRANT LIME HIGHLIGHT CARDS */
+    .pricing-card.featured-card,
+    .service-value-proposition-card,
+    .value-pillar-card:first-child {
+      background: #A3E635 !important; /* Vibrant Neon Lime Green */
+      color: #0F172A !important;
+      border: none !important;
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.35) !important;
+    }
+
+    .pricing-card.featured-card *,
+    .service-value-proposition-card *,
+    .value-pillar-card:first-child * {
+      color: #0F172A !important;
+    }
+
+    .pricing-card.featured-card .pricing-features-list li,
+    .service-value-proposition-card p,
+    .value-pillar-card:first-child p {
+      color: #1E293B !important;
+      opacity: 0.92;
+    }
+
+    .pricing-card.featured-card .btn-pricing-cta,
+    .service-value-proposition-card .btn-sketch-primary {
+      background: #0F172A !important;
+      color: #FFFFFF !important;
+      border-radius: 9999px !important;
+      border: none !important;
+      font-weight: 800 !important;
+    }
+
+    .pricing-card.featured-card .btn-pricing-cta:hover,
+    .service-value-proposition-card .btn-sketch-primary:hover {
+      background: #1E293B !important;
+      color: #A3E635 !important;
+    }
+
+    /* GLOWING MONOSPACE PILL BADGES */
+    .sketch-chapter-badge,
+    .credentials-col-badge,
+    .profile-hero-chip,
+    .offer-discount-pill,
+    .pricing-card-badge,
+    .hero-kicker-badge,
+    .tag-pill,
+    .status-pill {
+      background: rgba(163, 230, 53, 0.12) !important;
+      border: 1px solid rgba(163, 230, 53, 0.3) !important;
+      color: #A3E635 !important;
+      border-radius: 9999px !important;
+      font-family: monospace !important;
+      font-size: 0.78rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      padding: 6px 16px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      box-shadow: none !important;
+    }
+
+    .sketch-chapter-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #A3E635;
+      box-shadow: 0 0 8px #A3E635;
+      display: inline-block;
+    }
+
+    /* ALL BUTTONS TRANSFORMED TO PILL BUTTONS */
+    .btn-sketch-primary,
+    .biz-btn-primary,
+    .btn-pricing-cta,
+    .btn-contact-submit,
+    .btn-whatsapp-cta,
+    .btn-nav-primary,
+    .nav-13-cta,
+    .btn-live-preview {
+      background: #A3E635 !important;
+      color: #0F172A !important;
+      font-weight: 800 !important;
+      border-radius: 9999px !important;
+      border: none !important;
+      box-shadow: 0 4px 14px rgba(163, 230, 53, 0.35) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      padding: 12px 26px !important;
+      text-decoration: none !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+    }
+
+    .btn-sketch-primary:hover,
+    .biz-btn-primary:hover,
+    .btn-pricing-cta:hover,
+    .btn-contact-submit:hover,
+    .btn-whatsapp-cta:hover,
+    .btn-nav-primary:hover,
+    .nav-13-cta:hover {
+      background: #BEF264 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 20px rgba(163, 230, 53, 0.55) !important;
+      color: #0F172A !important;
+    }
+
+    .btn-sketch-secondary,
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.06) !important;
+      color: #FFFFFF !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      border-radius: 9999px !important;
+      padding: 12px 24px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      text-decoration: none !important;
+      transition: all 0.2s ease !important;
+    }
+
+    .btn-sketch-secondary:hover,
+    .btn-ghost:hover {
+      background: rgba(163, 230, 53, 0.12) !important;
+      border-color: rgba(163, 230, 53, 0.35) !important;
+      color: #A3E635 !important;
+      transform: translateY(-2px) !important;
+    }
+
+    /* FLOATING TOP NAVBAR AS SLEEK PILL BAR */
+    .site-header,
+    .navbar-13 {
+      background: transparent !important;
+      border-bottom: none !important;
+      padding: 14px 20px !important;
+    }
+
+    .navbar-13-inner,
+    .site-header .container {
+      background: rgba(18, 21, 28, 0.88) !important;
+      backdrop-filter: blur(14px) !important;
+      -webkit-backdrop-filter: blur(14px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 9999px !important;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5) !important;
+      padding: 10px 24px !important;
+    }
+
+    .nav-13-link {
+      color: #94A3B8 !important;
+      font-size: 0.9rem !important;
+      font-weight: 500 !important;
+      transition: color 0.2s ease !important;
+    }
+
+    .nav-13-link:hover,
+    .nav-13-link.active {
+      color: #FFFFFF !important;
+    }
+
+    /* FORM INPUTS IN CONTACT SECTION */
+    .contact-form-container input,
+    .contact-form-container textarea,
+    .contact-form-container select,
+    .contact-input,
+    .contact-textarea {
+      background: #0E1218 !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+      border-radius: 16px !important;
+      color: #FFFFFF !important;
+      padding: 14px 18px !important;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    }
+
+    .contact-form-container input:focus,
+    .contact-form-container textarea:focus,
+    .contact-input:focus,
+    .contact-textarea:focus {
+      border-color: #A3E635 !important;
+      box-shadow: 0 0 15px rgba(163, 230, 53, 0.25) !important;
+      outline: none !important;
+    }
+
+    /* FOOTER AS VIBRANT SAAS FRAME */
+    .site-footer,
+    .site-footer .container {
+      border-radius: clamp(24px, 3.5vw, 36px) !important;
+      background: #090B0E !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+      color: #FFFFFF !important;
+    }
+
+    /* HIDE BRUTALIST RETRO SKETCH ARTIFACTS */
+    .tape-corner-tl,
+    .tape-corner-br,
+    .tape-corner-tr,
+    .tape-corner-bl,
+    .sketch-line-decor {
+      display: none !important;
+    }
+
+    </style>
 
   <!-- Schema.org JSON-LD Structured Data for Full-Stack Freelance Software Engineer -->
   <script type="application/ld+json">
