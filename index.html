@@ -8754,6 +8754,368 @@
       display: none !important;
     }
 
+    
+    /* ==========================================================================
+       EXPANSIVE FULL-VIEW SAAS LAYOUT & BORDER/PADDING OPTIMIZATION
+       Fulfills: "use the space padding around and border should decrease
+       and use content full view till border for all and make sure don't touch end"
+       ========================================================================== */
+
+    :root {
+      --container-max: 1600px !important;
+      --section-spacing: clamp(36px, 4vw, 64px) !important;
+    }
+
+    /* 1. SECTIONS: Clean vertical cadence, no dead space */
+    .section {
+      padding-top: clamp(20px, 2.5vw, 36px) !important;
+      padding-bottom: clamp(20px, 2.5vw, 36px) !important;
+      position: relative !important;
+    }
+
+    /* 2. CONTAINERS: Expand to use space padding around, decrease outer borders, NEVER touch end */
+    .container,
+    .hero-section .container,
+    .core-value-section .container,
+    .chapter-two-unified-section .container,
+    .projects-section .container,
+    .pricing-section .container,
+    .contact-section .container {
+      width: calc(100% - clamp(24px, 3.5vw, 56px)) !important;
+      max-width: 1600px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      margin-top: 14px !important;
+      margin-bottom: 20px !important;
+      padding: clamp(24px, 3vw, 40px) clamp(22px, 2.8vw, 40px) !important;
+      box-sizing: border-box !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      border-radius: clamp(24px, 3vw, 36px) !important;
+    }
+
+    /* Floating pill header container keeps its sleek pill shape */
+    .site-header .container {
+      border-radius: 9999px !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      padding: 10px clamp(18px, 2.5vw, 32px) !important;
+    }
+
+    /* 3. HERO: Content Full View Till Border */
+    .hero-section .hero-grid {
+      display: grid !important;
+      grid-template-columns: minmax(340px, 430px) 1fr !important;
+      gap: clamp(28px, 3.5vw, 60px) !important;
+      width: 100% !important;
+      align-items: stretch !important;
+      box-sizing: border-box !important;
+    }
+
+    .polaroid-stage {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+    }
+
+    .polaroid-frame {
+      width: 100% !important;
+      max-width: 440px !important;
+      box-sizing: border-box !important;
+      transform: none !important;
+      border: 1px solid rgba(163, 230, 53, 0.18) !important;
+    }
+
+    .polaroid-frame:hover {
+      transform: translateY(-4px) !important;
+    }
+
+    .polaroid-image-container {
+      width: 100% !important;
+      height: clamp(380px, 35vw, 460px) !important;
+    }
+
+    .hero-text-block {
+      width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      box-sizing: border-box !important;
+    }
+
+    .biz-hero-title {
+      font-size: clamp(2.4rem, 4.2vw, 4.4rem) !important;
+      line-height: 1.08 !important;
+      margin-bottom: 16px !important;
+      width: 100% !important;
+    }
+
+    .biz-hero-subtitle,
+    .hero-bio-lead {
+      max-width: 100% !important;
+      width: 100% !important;
+      font-size: clamp(1.02rem, 1.25vw, 1.18rem) !important;
+      line-height: 1.65 !important;
+      margin-bottom: 24px !important;
+    }
+
+    .biz-cta-group {
+      width: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 12px !important;
+      margin-bottom: 28px !important;
+    }
+
+    .biz-metrics-deck {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: clamp(12px, 1.8vw, 20px) !important;
+      margin-top: 12px !important;
+      box-sizing: border-box !important;
+    }
+
+    .biz-metric-card {
+      width: 100% !important;
+      box-sizing: border-box !important;
+      padding: clamp(16px, 2vw, 22px) !important;
+    }
+
+    .capabilities-strip {
+      width: 100% !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      gap: 18px !important;
+      margin-top: 28px !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 4. ABOUT / CORE VALUES: Full View 4-Column Bento Row */
+    .value-pillars-grid {
+      width: 100% !important;
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: clamp(16px, 1.8vw, 24px) !important;
+      margin-top: 32px !important;
+      box-sizing: border-box !important;
+    }
+
+    .value-pillar-card {
+      width: 100% !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+      padding: clamp(24px, 2.5vw, 32px) !important;
+    }
+
+    /* 5. SERVICES & SPECIALIZED STACK: Full View Width */
+    .service-value-proposition-card {
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .svp-features-grid {
+      width: 100% !important;
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: clamp(14px, 1.8vw, 22px) !important;
+      box-sizing: border-box !important;
+    }
+
+    .services-grid {
+      width: 100% !important;
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: clamp(18px, 2.2vw, 28px) !important;
+      box-sizing: border-box !important;
+    }
+
+    .service-card {
+      width: 100% !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .build-stack-card {
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .build-stack-grid {
+      width: 100% !important;
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: clamp(14px, 1.8vw, 22px) !important;
+      box-sizing: border-box !important;
+    }
+
+    .compact-credentials-grid {
+      width: 100% !important;
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: clamp(18px, 2.2vw, 28px) !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 6. PROJECTS / SAAS PLATFORM: Expansive Frame & Full View Bento Grid */
+    .vibrant-saas-frame {
+      width: 100% !important;
+      box-sizing: border-box !important;
+      margin-top: 24px !important;
+      padding: clamp(20px, 2.5vw, 36px) !important;
+      border: 1px solid rgba(163, 230, 53, 0.2) !important;
+    }
+
+    .saas-bento-grid {
+      width: 100% !important;
+      display: grid !important;
+      grid-template-columns: 1fr 1.25fr !important;
+      gap: clamp(16px, 2vw, 26px) !important;
+      align-items: stretch !important;
+      box-sizing: border-box !important;
+    }
+
+    .saas-bento-card {
+      box-sizing: border-box !important;
+    }
+
+    /* 7. PRICING & PACKAGES: Full View 3-Column Bento Grid */
+    .guaranteed-offer-banner {
+      width: 100% !important;
+      box-sizing: border-box !important;
+      margin-top: 28px !important;
+      margin-bottom: 28px !important;
+    }
+
+    .pricing-grid {
+      width: 100% !important;
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: clamp(18px, 2.2vw, 28px) !important;
+      align-items: stretch !important;
+      box-sizing: border-box !important;
+      margin-top: 28px !important;
+    }
+
+    .pricing-card {
+      width: 100% !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    /* 8. CONTACT & CONSULTATION: Full View Side-by-Side Grid */
+    .contact-side-grid {
+      width: 100% !important;
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: clamp(24px, 3.2vw, 44px) !important;
+      align-items: stretch !important;
+      box-sizing: border-box !important;
+      margin-top: 28px !important;
+    }
+
+    .contact-main-col,
+    .contact-side-col,
+    .contact-editorial-box,
+    .consultation-form-card {
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .contact-editorial-box,
+    .consultation-form-card {
+      height: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+    }
+
+    .contact-bottom-expert-bar {
+      width: 100% !important;
+      box-sizing: border-box !important;
+      margin-top: 28px !important;
+    }
+
+    /* 9. RESPONSIVE MEDIA QUERIES FOR CLEAN BREAKPOINTS WITHOUT TOUCHING ENDS */
+    @media (max-width: 1200px) {
+      .value-pillars-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      .build-stack-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-section .hero-grid {
+        grid-template-columns: 1fr !important;
+        text-align: center !important;
+      }
+      .polaroid-stage {
+        margin: 0 auto 28px auto !important;
+      }
+      .biz-hero-title {
+        text-align: center !important;
+      }
+      .biz-hero-subtitle,
+      .hero-bio-lead {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+      .biz-cta-group {
+        justify-content: center !important;
+      }
+      .biz-metrics-deck {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+      .saas-bento-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .pricing-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .contact-side-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .services-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .compact-credentials-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container,
+      .hero-section .container,
+      .core-value-section .container,
+      .chapter-two-unified-section .container,
+      .projects-section .container,
+      .pricing-section .container,
+      .contact-section .container {
+        width: calc(100% - 24px) !important;
+        padding: 20px 16px !important;
+        border-radius: 20px !important;
+      }
+      .value-pillars-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .biz-metrics-deck {
+        grid-template-columns: 1fr !important;
+      }
+      .svp-features-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .build-stack-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
     </style>
 
   <!-- Schema.org JSON-LD Structured Data for Full-Stack Freelance Software Engineer -->
