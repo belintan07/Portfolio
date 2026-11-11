@@ -1,0 +1,3109 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Website Templates — Curated Collection by Belintan</title>
+  <meta name="description" content="Explore production-ready, conversion-optimized landing pages, SaaS frontends, and AI agent web templates. Fully customizable and ultra-fast.">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & RESET (DARK MINIMAL TEMPLATE MARKETPLACE)
+       ========================================================================== */
+    :root {
+      --bg: #090A0F;
+      --bg-elevated: #0E1017;
+      --surface: #13141E;
+      --surface-subtle: #191B28;
+      --surface-hover: #202336;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.22);
+      --border-accent: rgba(146, 112, 251, 0.4);
+      --text: #FFFFFF;
+      --text-muted: #94A3B8;
+      --text-subtle: #64748B;
+      --accent-lavender: #9270FB;
+      --accent-orange: #F48936;
+      --accent-cyan: #38BDF8;
+      --accent-emerald: #10B981;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 9999px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-display: "Cabinet Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: "JetBrains Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --shadow-card: 0 16px 36px rgba(0, 0, 0, 0.45);
+      --shadow-glow: 0 0 30px rgba(146, 112, 251, 0.15);
+      --transition-smooth: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Ambient Spotlight Background Mesh */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(146, 112, 251, 0.08) 0%, rgba(244, 137, 54, 0.04) 40%, rgba(9, 10, 15, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ==========================================================================
+       TOP FLOATING NAVIGATION
+       ========================================================================== */
+    .top-nav-wrapper {
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .top-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      background: rgba(14, 16, 23, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      padding: 8px 18px 8px 22px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-brand-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-orange);
+      box-shadow: 0 0 10px var(--accent-orange);
+    }
+
+    .nav-links-center {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-link-item {
+      position: relative;
+    }
+
+    .nav-link-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 4px;
+      transition: color 0.15s ease;
+      text-decoration: none;
+    }
+
+    .nav-link-btn:hover {
+      color: #FFFFFF;
+    }
+
+    .nav-link-btn svg {
+      opacity: 0.6;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-link-btn:hover svg {
+      opacity: 1;
+      transform: translateY(1px);
+    }
+
+    .nav-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-nav-portfolio {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-nav-portfolio:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.28);
+      transform: translateY(-1px);
+    }
+
+    .btn-nav-allaccess {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--accent-orange), #FF6B4A);
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(244, 137, 54, 0.35);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-nav-allaccess:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(244, 137, 54, 0.5);
+    }
+
+    /* ==========================================================================
+       HERO / INTRO SECTION
+       ========================================================================== */
+    .templates-hero {
+      position: relative;
+      z-index: 1;
+      padding: 68px 24px 36px 24px;
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(146, 112, 251, 0.12);
+      border: 1px solid rgba(146, 112, 251, 0.3);
+      color: #C4B0FF;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 20px;
+    }
+
+    .hero-main-title {
+      font-family: var(--font-sans);
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+
+    .hero-main-title span {
+      background: linear-gradient(135deg, #FFFFFF 30%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 36px auto;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       CATEGORY FILTERS & SEARCH CONTROLS
+       ========================================================================== */
+    .controls-container {
+      max-width: 1240px;
+      margin: 0 auto 36px auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .filter-pills-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .filter-pill:hover {
+      background: var(--surface-hover);
+      color: #FFFFFF;
+      border-color: var(--border-hover);
+    }
+
+    .filter-pill.active {
+      background: #FFFFFF;
+      color: #090A0F;
+      border-color: #FFFFFF;
+      font-weight: 700;
+    }
+
+    .search-box-wrapper {
+      position: relative;
+      min-width: 260px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: #FFFFFF;
+      font-size: 0.84rem;
+      padding: 8px 14px 8px 36px;
+      border-radius: var(--radius-pill);
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-lavender);
+      box-shadow: 0 0 16px rgba(146, 112, 251, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-subtle);
+      pointer-events: none;
+    }
+
+    /* ==========================================================================
+       3-COLUMN TEMPLATES GRID (EXACT DUPLICATION OF SCREENSHOT)
+       ========================================================================== */
+    .templates-grid-section {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px 80px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .templates-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    @media (max-width: 1080px) {
+      .templates-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .templates-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    /* Template Card Item */
+    .template-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, box-shadow 0.28s ease;
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+    }
+
+    .template-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-hover);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6), 0 0 20px rgba(146, 112, 251, 0.18);
+    }
+
+    /* 3D Specular Glare Sheen */
+    .card-3d-glare {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0;
+      mix-blend-mode: overlay;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 65%);
+    }
+
+    .template-card:hover .card-3d-glare {
+      opacity: 1;
+    }
+
+    /* Preview Frame */
+    .tpl-preview-frame {
+      background: #0B0C12;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-md);
+      aspect-ratio: 16 / 10;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Badges (New, Lock, Free) */
+    .tpl-badges-row {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 8;
+    }
+
+    .tpl-badge {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.02em;
+      text-transform: capitalize;
+    }
+
+    .tpl-badge.new {
+      background: #000000;
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .tpl-badge.free {
+      background: #10B981;
+      color: #FFFFFF;
+      font-weight: 800;
+    }
+
+    .tpl-badge-lock {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #E2E8F0;
+    }
+
+    /* Mock Browser Bar */
+    .tpl-browser-bar {
+      height: 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      z-index: 2;
+    }
+
+    .tpl-browser-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .tpl-browser-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .tpl-browser-address {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--text-subtle);
+      opacity: 0.7;
+    }
+
+    /* Viewport Area */
+    .tpl-preview-viewport {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      background: #0E1018;
+    }
+
+    /* Hover Overlay */
+    .tpl-hover-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(9, 10, 15, 0.65);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      z-index: 9;
+    }
+
+    .tpl-preview-frame:hover .tpl-hover-overlay {
+      opacity: 1;
+    }
+
+    .tpl-preview-btn {
+      background: #FFFFFF;
+      color: #090A0F;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      transform: translateY(4px);
+      transition: transform 0.2s ease;
+    }
+
+    .tpl-preview-frame:hover .tpl-preview-btn {
+      transform: translateY(0);
+    }
+
+    /* Details Area */
+    .tpl-details {
+      padding: 14px 4px 4px 4px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .tpl-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .tpl-title {
+      font-family: var(--font-sans);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.01em;
+    }
+
+    .tpl-price-chip {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #A0AEC0;
+    }
+
+    .tpl-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    /* Action Buttons (Primary Pill & Secondary Link) */
+    .tpl-action-row {
+      margin-bottom: 8px;
+    }
+
+    .btn-buy-template {
+      width: 100%;
+      background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 100%);
+      color: #0B0C11;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 11px 18px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-buy-template:hover {
+      background: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
+    }
+
+    .tpl-unlock-row {
+      text-align: center;
+    }
+
+    .tpl-unlock-link {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      transition: color 0.15s ease;
+    }
+
+    .tpl-unlock-link:hover {
+      color: #FFFFFF;
+    }
+
+    .tpl-unlock-link svg {
+      opacity: 0.6;
+      transition: transform 0.15s ease;
+    }
+
+    .tpl-unlock-link:hover svg {
+      opacity: 1;
+      transform: translateX(2px);
+    }
+
+    /* ==========================================================================
+       CANVAS MOCKUP GRAPHICS (CSS/SVG HIGH-RES RECREATIONS OF SCREENSHOT)
+       ========================================================================== */
+    .mock-canvas {
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background: #0D0E16;
+    }
+
+    .mock-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 8px;
+    }
+
+    .mock-logo {
+      display: flex;
+      gap: 3px;
+    }
+
+    .mock-logo span {
+      width: 12px;
+      height: 6px;
+      background: #6366F1;
+      border-radius: 2px;
+    }
+
+    .mock-logo.blue span { background: #38BDF8; }
+    .mock-logo.pink span { background: #EC4899; }
+    .mock-logo.yellow span { background: #F59E0B; }
+    .mock-logo.purple span { background: #8B5CF6; }
+    .mock-logo.green span { background: #10B981; }
+    .mock-logo.orange span { background: #F48936; }
+    .mock-logo.white span { background: #FFFFFF; }
+
+    .mock-links {
+      display: flex;
+      gap: 6px;
+    }
+
+    .mock-links span {
+      width: 22px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+    }
+
+    .mock-pill-sm {
+      font-size: 0.55rem;
+      background: rgba(99, 102, 241, 0.2);
+      color: #A5B4FC;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .mock-pill-sm.pink { background: rgba(236, 72, 153, 0.2); color: #F472B6; }
+    .mock-pill-sm.purple { background: rgba(139, 92, 246, 0.2); color: #C4B5FD; }
+    .mock-pill-sm.green { background: rgba(16, 185, 129, 0.2); color: #6EE7B7; }
+    .mock-pill-sm.orange { background: rgba(244, 137, 54, 0.2); color: #FFA767; }
+
+    .mock-h1 {
+      height: 8px;
+      background: #FFFFFF;
+      border-radius: 4px;
+    }
+
+    .mock-sub {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 2px;
+    }
+
+    .mock-btn-row {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .mock-btn-core {
+      width: 44px;
+      height: 12px;
+      background: #6366F1;
+      border-radius: 4px;
+    }
+
+    .mock-btn-sub {
+      width: 36px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+    }
+
+    /* Agentframe Pixel Landscape */
+    .mock-agentframe {
+      background: linear-gradient(180deg, #0A0F1D 0%, #172554 60%, #1E3A8A 100%);
+    }
+
+    .mock-pixel-hero {
+      height: 48px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+      background: linear-gradient(180deg, #1E1B4B 0%, #312E81 70%, #4338CA 100%);
+    }
+
+    .pixel-sun {
+      width: 16px;
+      height: 16px;
+      background: #FDE047;
+      border-radius: 50%;
+      position: absolute;
+      top: 8px;
+      right: 24px;
+      box-shadow: 0 0 12px #FDE047;
+    }
+
+    .pixel-mountain {
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    .pixel-mountain.m1 {
+      left: 10px;
+      border-width: 0 35px 32px 35px;
+      border-color: transparent transparent #1E1B4B transparent;
+    }
+
+    .pixel-mountain.m2 {
+      left: 55px;
+      border-width: 0 45px 40px 45px;
+      border-color: transparent transparent #0F172A transparent;
+    }
+
+    .pixel-ground {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: #0284C7;
+    }
+
+    .mock-agent-cards {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .m-card {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .m-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .m-dot.green { background: #10B981; }
+    .m-dot.purple { background: #8B5CF6; }
+    .m-dot.orange { background: #F48936; }
+
+    .m-line {
+      flex: 1;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+    }
+
+    /* Cloudlight Cloud Storage */
+    .mock-cloudlight {
+      background: radial-gradient(circle at 50% 30%, #082F49 0%, #030712 70%);
+    }
+
+    .cloud-center-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      position: relative;
+    }
+
+    .cloud-node {
+      font-size: 2rem;
+      filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.6));
+      animation: floatSlow 3s ease-in-out infinite;
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .cloud-storage-grid {
+      display: flex;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .c-col {
+      flex: 1;
+      background: rgba(56, 189, 248, 0.06);
+      border: 1px solid rgba(56, 189, 248, 0.15);
+      border-radius: 4px;
+      padding: 4px;
+      text-align: center;
+    }
+
+    .c-val {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #38BDF8;
+    }
+
+    .c-lbl {
+      font-size: 0.5rem;
+      color: var(--text-subtle);
+    }
+
+    /* Imageworks 3D Gallery */
+    .mock-imageworks {
+      background: #000000;
+    }
+
+    .iw-headline-box {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .iw-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .iw-3d-strip-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      perspective: 400px;
+      height: 42px;
+      margin-bottom: 8px;
+    }
+
+    .iw-card {
+      width: 28px;
+      height: 38px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, #EC4899, #8B5CF6);
+      transform: rotateY(25deg) scale(0.85);
+      opacity: 0.6;
+    }
+
+    .iw-card.active {
+      width: 38px;
+      height: 44px;
+      transform: rotateY(0deg) scale(1);
+      opacity: 1;
+      box-shadow: 0 0 16px rgba(236, 72, 153, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .iw-card.c4, .iw-card.c5 {
+      transform: rotateY(-25deg) scale(0.85);
+    }
+
+    .iw-prompt-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-pill);
+      padding: 3px 8px;
+      font-size: 0.55rem;
+    }
+
+    .iw-sparkle { color: #EC4899; }
+    .iw-input-mock { flex: 1; color: var(--text-subtle); overflow: hidden; white-space: nowrap; }
+    .iw-gen-btn { background: #EC4899; color: #FFF; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
+
+    /* Sparkdesign Collaboration Canvas */
+    .mock-sparkdesign {
+      background: #0F172A;
+      position: relative;
+    }
+
+    .mock-avatars-row {
+      display: flex;
+    }
+
+    .m-av {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid #0F172A;
+      margin-left: -4px;
+    }
+
+    .m-av.a1 { background: #F59E0B; margin-left: 0; }
+    .m-av.a2 { background: #8B5CF6; }
+    .m-av.a3 { background: #10B981; }
+
+    .spark-collab-stage {
+      height: 72px;
+      position: relative;
+      background: radial-gradient(#334155 1px, transparent 1px);
+      background-size: 8px 8px;
+      border-radius: 6px;
+    }
+
+    .cursor-pointer {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      z-index: 5;
+    }
+
+    .cursor-pointer::before {
+      content: "▲";
+      font-size: 8px;
+      transform: rotate(-45deg);
+    }
+
+    .c-sarah {
+      top: 10px;
+      left: 20px;
+      color: #F59E0B;
+    }
+
+    .c-sarah .c-tag {
+      background: #F59E0B;
+      color: #000;
+      font-size: 0.5rem;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 2px;
+      margin-left: 6px;
+    }
+
+    .c-alex {
+      bottom: 12px;
+      right: 35px;
+      color: #8B5CF6;
+    }
+
+    .c-alex .c-tag {
+      background: #8B5CF6;
+      color: #FFF;
+      font-size: 0.5rem;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 2px;
+      margin-left: 6px;
+    }
+
+    .spark-sticky {
+      position: absolute;
+      padding: 6px;
+      border-radius: 4px;
+      width: 65px;
+    }
+
+    .spark-sticky.yellow {
+      top: 14px;
+      right: 25px;
+      background: #FEF08A;
+      color: #713F12;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .spark-sticky.purple {
+      bottom: 8px;
+      left: 18px;
+      background: #DDD6FE;
+      color: #4C1D95;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .s-head { font-size: 0.52rem; font-weight: 800; margin-bottom: 2px; }
+    .s-lines span { display: block; height: 2px; background: rgba(0,0,0,0.2); margin-bottom: 2px; border-radius: 1px; }
+
+    .spark-bottom-dock {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      background: rgba(0,0,0,0.4);
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      width: fit-content;
+      margin: 4px auto 0 auto;
+    }
+
+    .d-tool { font-size: 0.65rem; opacity: 0.6; }
+    .d-tool.active { opacity: 1; transform: scale(1.1); }
+
+    /* SaaS Nested Frame */
+    .mock-saas {
+      background: #0B0A12;
+    }
+
+    .saas-nested-window {
+      background: #141320;
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      border-radius: 6px;
+      overflow: hidden;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .saas-win-header {
+      background: #1E1C30;
+      padding: 3px 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .win-dots { display: flex; gap: 3px; }
+    .win-dots span { width: 4px; height: 4px; border-radius: 50%; background: #64748B; }
+    .win-title { font-size: 0.5rem; color: #94A3B8; font-family: var(--font-mono); }
+
+    .saas-win-body {
+      display: flex;
+      flex: 1;
+      padding: 6px;
+      gap: 6px;
+    }
+
+    .saas-sidebar {
+      width: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border-right: 1px solid rgba(255,255,255,0.05);
+      padding-right: 4px;
+    }
+
+    .s-item { height: 6px; background: rgba(255,255,255,0.1); border-radius: 2px; }
+    .s-item.active { background: #8B5CF6; }
+
+    .saas-main { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+
+    .saas-stat-row { display: flex; gap: 4px; }
+    .st-card { flex: 1; background: #1C192E; padding: 4px; border-radius: 4px; }
+    .st-val { font-size: 0.65rem; font-weight: 800; color: #FFF; }
+    .st-bar { height: 2px; background: #10B981; border-radius: 1px; margin-top: 2px; }
+    .st-bar.p { background: #8B5CF6; }
+
+    .saas-chart-mock {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 24px;
+      background: #1C192E;
+      padding: 4px;
+      border-radius: 4px;
+    }
+
+    .bar { flex: 1; background: #8B5CF6; border-radius: 1px; }
+    .bar.h40 { height: 40%; }
+    .bar.h70 { height: 70%; }
+    .bar.h55 { height: 55%; }
+    .bar.h90 { height: 90%; background: #A78BFA; }
+    .bar.h80 { height: 80%; }
+
+    /* Minimal Swiss Typography */
+    .mock-minimal {
+      background: #FAFAF9;
+      color: #0F172A;
+    }
+
+    .mock-nav.minimal {
+      border-bottom-color: rgba(0,0,0,0.1);
+    }
+
+    .minimal-brand { font-size: 0.55rem; font-weight: 800; color: #0F172A; font-family: var(--font-mono); }
+    .minimal-index { font-size: 0.5rem; color: #64748B; font-family: var(--font-mono); }
+
+    .minimal-center-type {
+      text-align: center;
+      padding: 6px 0;
+      flex: 1;
+    }
+
+    .m-hero-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 3px;
+    }
+
+    .m-hero-p {
+      font-size: 0.48rem;
+      color: #64748B;
+      margin-bottom: 6px;
+    }
+
+    .m-hero-btn {
+      display: inline-block;
+      font-size: 0.5rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      background: #0F172A;
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+
+    .minimal-columns-dock {
+      display: flex;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding-top: 4px;
+    }
+
+    .min-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.45rem;
+      color: #64748B;
+      border-right: 1px solid rgba(0,0,0,0.08);
+      padding: 0 4px;
+    }
+    .min-col:last-child { border-right: none; }
+    .min-col strong { color: #0F172A; }
+
+    /* Agency Cosmic Mesh */
+    .mock-agency {
+      background: #000000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .agency-aurora-bg {
+      position: absolute;
+      top: -10px;
+      right: -20px;
+      width: 140px;
+      height: 90px;
+      background: radial-gradient(circle, #A855F7 0%, #EC4899 50%, rgba(0,0,0,0) 70%);
+      filter: blur(14px);
+      opacity: 0.7;
+    }
+
+    .agency-hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 4px;
+    }
+
+    .agency-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .agency-sub {
+      font-size: 0.48rem;
+      color: #94A3B8;
+      max-width: 160px;
+      line-height: 1.35;
+    }
+
+    .agency-badge-float {
+      margin-top: auto;
+      font-size: 0.48rem;
+      font-family: var(--font-mono);
+      color: #E2E8F0;
+      background: rgba(255,255,255,0.1);
+      padding: 2px 6px;
+      border-radius: 3px;
+      width: fit-content;
+    }
+
+    /* Finance Fintech 3D */
+    .mock-finance {
+      background: radial-gradient(circle at 80% 20%, #064E3B 0%, #022C22 50%, #021C16 100%);
+      position: relative;
+    }
+
+    .fin-card-floating {
+      width: 120px;
+      height: 64px;
+      background: linear-gradient(135deg, #10B981, #047857);
+      border-radius: 6px;
+      padding: 6px;
+      color: #FFF;
+      position: absolute;
+      top: 24px;
+      right: 12px;
+      transform: rotate(8deg);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .fin-chip { width: 12px; height: 9px; background: #FDE047; border-radius: 2px; }
+    .fin-num { font-size: 0.55rem; font-family: var(--font-mono); letter-spacing: 1px; }
+    .fin-owner { font-size: 0.45rem; font-weight: 700; }
+    .fin-logo-visa { position: absolute; bottom: 6px; right: 8px; font-weight: 900; font-size: 0.6rem; font-style: italic; }
+
+    .fin-hero-text {
+      width: 55%;
+      position: relative;
+      z-index: 2;
+      margin-top: 4px;
+    }
+
+    .fin-title { font-size: 0.68rem; font-weight: 800; color: #FFF; line-height: 1.2; margin-bottom: 2px; }
+    .fin-sub { font-size: 0.46rem; color: #A7F3D0; line-height: 1.3; }
+
+    .fin-stats-row {
+      display: flex;
+      gap: 12px;
+      margin-top: auto;
+      z-index: 2;
+    }
+
+    .f-stat .f-num { font-size: 0.72rem; font-weight: 800; color: #34D399; }
+    .f-stat .f-lbl { font-size: 0.45rem; color: #6EE7B7; }
+
+    /* AI SaaS Fluid Ambient */
+    .mock-ai-saas {
+      background: #090812;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ai-glow-orb {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #6366F1 0%, rgba(99,102,241,0) 70%);
+      filter: blur(18px);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.45;
+    }
+
+    .ai-hero-center {
+      text-align: center;
+      margin: auto 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ai-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #FFF;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .ai-prompt-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius-pill);
+      padding: 3px 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      max-width: 190px;
+      margin: 0 auto;
+    }
+
+    .ai-icon { font-size: 0.55rem; color: #A5B4FC; }
+    .ai-txt { font-size: 0.45rem; color: #94A3B8; overflow: hidden; white-space: nowrap; flex: 1; }
+    .ai-btn-go { background: #6366F1; color: #FFF; border: none; width: 14px; height: 14px; border-radius: 50%; font-size: 0.5rem; cursor: pointer; }
+
+    .ai-chips-dock {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-top: auto;
+      z-index: 2;
+    }
+
+    .ai-chip {
+      font-size: 0.45rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #94A3B8;
+      padding: 2px 6px;
+      border-radius: var(--radius-pill);
+    }
+    .ai-chip.active {
+      border-color: #6366F1;
+      color: #FFF;
+      background: rgba(99,102,241,0.2);
+    }
+
+    /* Build What Matters */
+    .mock-bwm {
+      background: #0E0E12;
+    }
+
+    .bwm-split-stage {
+      display: flex;
+      gap: 8px;
+      flex: 1;
+      align-items: center;
+    }
+
+    .bwm-left {
+      flex: 1;
+    }
+
+    .bwm-h1 {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #F48936;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+
+    .bwm-p { font-size: 0.45rem; color: #94A3B8; margin-bottom: 4px; }
+    .bwm-cmd {
+      font-family: var(--font-mono);
+      font-size: 0.42rem;
+      background: #1C1917;
+      color: #FDBA74;
+      padding: 2px 4px;
+      border-radius: 3px;
+      border: 1px solid rgba(244,137,54,0.3);
+    }
+
+    .bwm-right {
+      flex: 1;
+      background: #18181B;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px;
+      padding: 4px;
+    }
+
+    .code-header {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding-bottom: 2px;
+      margin-bottom: 3px;
+    }
+
+    .dot { width: 4px; height: 4px; border-radius: 50%; }
+    .dot.r { background: #EF4444; }
+    .dot.y { background: #F59E0B; }
+    .dot.g { background: #10B981; }
+    .code-file { font-size: 0.4rem; color: #71717A; font-family: var(--font-mono); margin-left: 2px; }
+
+    .c-line { font-family: var(--font-mono); font-size: 0.42rem; line-height: 1.3; }
+    .c-line.blue { color: #60A5FA; }
+    .c-line.orange { color: #FB923C; }
+    .c-line.green { color: #4ADE80; }
+    .c-line.purple { color: #C084FC; }
+
+    /* Hyperflow Dot Matrix */
+    .mock-hyperflow {
+      background: #000000;
+      position: relative;
+    }
+
+    .hf-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px);
+      background-size: 6px 6px;
+    }
+
+    .hf-hero {
+      position: relative;
+      z-index: 2;
+      margin: auto 0;
+      text-align: center;
+    }
+
+    .hf-mono-tag {
+      font-family: var(--font-mono);
+      font-size: 0.45rem;
+      color: #94A3B8;
+      letter-spacing: 1px;
+      margin-bottom: 3px;
+    }
+
+    .hf-title {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .hf-stripes {
+      display: flex;
+      justify-content: center;
+      gap: 3px;
+    }
+
+    .hf-stripes span {
+      width: 14px;
+      height: 2px;
+      background: #FFFFFF;
+    }
+
+    /* Minimalist Commerce */
+    .mock-commerce {
+      background: #FFFFFF;
+      color: #0F172A;
+    }
+
+    .mock-commerce .mock-nav {
+      border-bottom-color: rgba(0,0,0,0.08);
+    }
+
+    .mock-commerce .mock-links span {
+      background: transparent;
+      color: #0F172A;
+      font-size: 0.5rem;
+      font-weight: 600;
+    }
+
+    .mock-cart-badge {
+      font-size: 0.5rem;
+      font-weight: 700;
+      background: #F1F5F9;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+
+    .commerce-store-grid {
+      display: flex;
+      gap: 8px;
+      flex: 1;
+      padding: 4px 0;
+    }
+
+    .c-item {
+      flex: 1;
+      background: #F8FAFC;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .c-photo {
+      height: 44px;
+      background: #E2E8F0;
+    }
+
+    .c-photo.p1 { background: linear-gradient(135deg, #CBD5E1, #94A3B8); }
+    .c-photo.p2 { background: linear-gradient(135deg, #E2E8F0, #CBD5E1); }
+
+    .c-info {
+      padding: 3px 4px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.48rem;
+      font-weight: 700;
+    }
+
+    .c-name { color: #0F172A; }
+    .c-price { color: #10B981; }
+
+    .commerce-free-banner {
+      background: #DCFCE7;
+      color: #166534;
+      font-size: 0.48rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 2px 4px;
+      border-radius: 3px;
+      margin-top: auto;
+    }
+
+    /* ==========================================================================
+       INTERACTIVE LIVE PREVIEW MODAL
+       ========================================================================== */
+    .tpl-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .tpl-modal-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .tpl-modal-window {
+      background: #0E1017;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 1100px;
+      max-height: 92vh;
+      overflow-y: auto;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(146, 112, 251, 0.15);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .tpl-modal-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(14, 16, 23, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .modal-tpl-title-group h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    .modal-tpl-title-group p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .modal-device-switcher {
+      display: flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .device-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: var(--transition-smooth);
+    }
+
+    .device-btn:hover {
+      color: #FFFFFF;
+    }
+
+    .device-btn.active {
+      background: #FFFFFF;
+      color: #090A0F;
+      font-weight: 700;
+    }
+
+    .modal-close-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: #FFFFFF;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: var(--transition-smooth);
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .modal-stage-wrapper {
+      background: #06070B;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+      min-height: 420px;
+      overflow: hidden;
+      transition: width 0.3s ease;
+    }
+
+    .modal-stage-canvas {
+      width: 100%;
+      max-width: 1000px;
+      transition: max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-specs-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .modal-specs-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .modal-features-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .modal-features-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .modal-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .modal-features-list li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-features-list li::before {
+      content: "✓";
+      color: var(--accent-emerald);
+      font-weight: 800;
+    }
+
+    .modal-action-card {
+      background: linear-gradient(135deg, rgba(146, 112, 251, 0.1), rgba(244, 137, 54, 0.1));
+      border: 1px solid rgba(146, 112, 251, 0.3);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .modal-price-tag {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .modal-price-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .btn-modal-checkout {
+      background: #FFFFFF;
+      color: #090A0F;
+      border: none;
+      font-size: 0.95rem;
+      font-weight: 800;
+      padding: 12px 20px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+
+    .btn-modal-checkout:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-modal-whatsapp {
+      background: #25D366;
+      color: #FFFFFF;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-modal-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .templates-footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 24px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      background: #07080C;
+    }
+
+    .footer-brand-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .footer-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .footer-links-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .footer-links-row a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.15s ease;
+    }
+
+    .footer-links-row a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-copy {
+      font-size: 0.76rem;
+      color: var(--text-subtle);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Minimal Navigation Bar -->
+  <header class="top-nav-wrapper">
+    <nav class="top-nav-bar" aria-label="Main Navigation">
+      <a href="/templates/" class="nav-brand">
+        <span class="nav-brand-dot"></span>
+        <span>TEMPLATES</span>
+      </a>
+
+      <ul class="nav-links-center">
+        <li class="nav-link-item">
+          <a href="#grid" class="nav-link-btn">
+            <span>Library</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+        </li>
+        <li class="nav-link-item">
+          <a href="#resources" class="nav-link-btn">
+            <span>Resources</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+        </li>
+        <li class="nav-link-item">
+          <a href="#agents" class="nav-link-btn">
+            <span>Agents</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+        </li>
+        <li class="nav-link-item">
+          <a href="#pricing" class="nav-link-btn" onclick="openAllAccessModal(); return false;">
+            <span>Pricing</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-right-actions">
+        <a href="/" class="btn-nav-portfolio" title="Return to Belintan's Main Portfolio">
+          <span>Portfolio</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+        <button class="btn-nav-allaccess" onclick="openAllAccessModal()">
+          <span>Unlock All</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Header -->
+  <header class="templates-hero">
+    <div class="hero-eyebrow">
+      <span>✦ 12+ PRODUCTION-READY WEBPAGE TEMPLATES</span>
+    </div>
+    <h1 class="hero-main-title">
+      <span>Curated Website Templates</span><br>For Modern Digital Builders
+    </h1>
+    <p class="hero-subtitle">
+      Deploy high-converting landing pages, SaaS frontends, and AI agent web applications in minutes. Ultra-fast, responsive, and performance-tuned.
+    </p>
+  </header>
+
+  <!-- Controls: Category Filter Pills & Search -->
+  <section class="controls-container" aria-label="Template Filters and Search">
+    <div class="filter-pills-row" role="tablist">
+      <button class="filter-pill active" data-filter="all">All Templates (12)</button>
+      <button class="filter-pill" data-filter="ai">AI &amp; Agents (3)</button>
+      <button class="filter-pill" data-filter="saas">SaaS &amp; Tech (3)</button>
+      <button class="filter-pill" data-filter="studio">Design &amp; Studio (4)</button>
+      <button class="filter-pill" data-filter="finance">Finance &amp; B2B (1)</button>
+      <button class="filter-pill" data-filter="free">Free (1)</button>
+    </div>
+
+    <div class="search-box-wrapper">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="template-search" class="search-input" placeholder="Search templates..." aria-label="Search templates">
+    </div>
+  </section>
+
+  <!-- 3-Column Template Grid -->
+  <main class="templates-grid-section" id="grid">
+    <div class="templates-grid" id="templates-grid-container">
+      
+      <!-- Template Card: Agentframe -->
+      <article class="template-card" data-category="ai" data-id="agentframe" data-name="agentframe" data-desc="ai agent website with a pixel landscape hero">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Preview Window / Browser Mockup -->
+        <div class="tpl-preview-frame" onclick="openTemplateModal('agentframe')" title="Click to view live interactive preview of Agentframe">
+          <div class="tpl-badges-row">
+            <span class="tpl-badge new">New</span>
+            <span class="tpl-badge-lock" title="Premium Template"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+          </div>
+
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">belintan.design/templates/agentframe</div>
+          </div>
+
+          <div class="tpl-preview-viewport">
+            
+      <div class="mock-canvas mock-agentframe">
+        <div class="mock-nav">
+          <div class="mock-logo"><span></span><span></span></div>
+          <div class="mock-links"><span></span><span></span><span></span></div>
+          <div class="mock-pill-sm">Agent v2.4</div>
+        </div>
+        <div class="mock-pixel-hero">
+          <div class="pixel-sun"></div>
+          <div class="pixel-mountain m1"></div>
+          <div class="pixel-mountain m2"></div>
+          <div class="pixel-ground"></div>
+        </div>
+        <div class="mock-hero-text">
+          <div class="mock-h1" style="width: 70%; margin: 8px auto 4px auto;"></div>
+          <div class="mock-sub" style="width: 50%; margin: 0 auto 10px auto;"></div>
+          <div class="mock-btn-row"><div class="mock-btn-core"></div><div class="mock-btn-sub"></div></div>
+        </div>
+        <div class="mock-agent-cards">
+          <div class="m-card"><span class="m-dot green"></span><div class="m-line"></div></div>
+          <div class="m-card"><span class="m-dot purple"></span><div class="m-line"></div></div>
+          <div class="m-card"><span class="m-dot orange"></span><div class="m-line"></div></div>
+        </div>
+      </div>
+    
+          </div>
+
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">👁️ Live Interactive Preview</span>
+          </div>
+        </div>
+
+        <!-- Template Meta Details -->
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">Agentframe</h3>
+            <span class="tpl-price-chip">$49</span>
+          </div>
+          <p class="tpl-desc">AI agent website with a pixel landscape hero</p>
+
+          <!-- Primary CTA Button -->
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openCheckoutModal('agentframe')">
+              <span>Buy Template ($49)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Secondary Link: Or Unlock All -->
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="openAllAccessModal()">
+              <span>Or Unlock All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    
+
+      <!-- Template Card: Cloudlight -->
+      <article class="template-card" data-category="saas" data-id="cloudlight" data-name="cloudlight" data-desc="cloud storage landing page with a cloud hero">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Preview Window / Browser Mockup -->
+        <div class="tpl-preview-frame" onclick="openTemplateModal('cloudlight')" title="Click to view live interactive preview of Cloudlight">
+          <div class="tpl-badges-row">
+            <span class="tpl-badge new">New</span>
+            <span class="tpl-badge-lock" title="Premium Template"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+          </div>
+
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">belintan.design/templates/cloudlight</div>
+          </div>
+
+          <div class="tpl-preview-viewport">
+            
+      <div class="mock-canvas mock-cloudlight">
+        <div class="mock-nav">
+          <div class="mock-logo blue"><span></span></div>
+          <div class="mock-links"><span></span><span></span><span></span></div>
+          <div class="mock-pill-sm">Free 50GB</div>
+        </div>
+        <div class="cloud-center-stage">
+          <div class="cloud-node c1">☁️</div>
+          <div class="cloud-glow"></div>
+        </div>
+        <div class="mock-hero-text">
+          <div class="mock-h1" style="width: 65%; margin: 6px auto 4px auto;"></div>
+          <div class="mock-sub" style="width: 45%; margin: 0 auto 10px auto;"></div>
+          <div class="mock-btn-core" style="width: 90px; margin: 0 auto 12px auto; background: #38BDF8;"></div>
+        </div>
+        <div class="cloud-storage-grid">
+          <div class="c-col"><div class="c-val">5TB</div><div class="c-lbl">Hot Storage</div></div>
+          <div class="c-col"><div class="c-val">0ms</div><div class="c-lbl">Edge Latency</div></div>
+          <div class="c-col"><div class="c-val">99.9%</div><div class="c-lbl">Availability</div></div>
+        </div>
+      </div>
+    
+          </div>
+
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">👁️ Live Interactive Preview</span>
+          </div>
+        </div>
+
+        <!-- Template Meta Details -->
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">Cloudlight</h3>
+            <span class="tpl-price-chip">$49</span>
+          </div>
+          <p class="tpl-desc">Cloud storage landing page with a cloud hero</p>
+
+          <!-- Primary CTA Button -->
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openCheckoutModal('cloudlight')">
+              <span>Buy Template ($49)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Secondary Link: Or Unlock All -->
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="openAllAccessModal()">
+              <span>Or Unlock All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    
+
+      <!-- Template Card: Imageworks -->
+      <article class="template-card" data-category="ai" data-id="imageworks" data-name="imageworks" data-desc="ai image platform landing page with a 3d hero">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Preview Window / Browser Mockup -->
+        <div class="tpl-preview-frame" onclick="openTemplateModal('imageworks')" title="Click to view live interactive preview of Imageworks">
+          <div class="tpl-badges-row">
+            <span class="tpl-badge new">New</span>
+            <span class="tpl-badge-lock" title="Premium Template"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+          </div>
+
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">belintan.design/templates/imageworks</div>
+          </div>
+
+          <div class="tpl-preview-viewport">
+            
+      <div class="mock-canvas mock-imageworks">
+        <div class="mock-nav dark">
+          <div class="mock-logo pink"><span></span></div>
+          <div class="mock-links dark"><span></span><span></span></div>
+          <div class="mock-pill-sm pink">v4.0 Flux</div>
+        </div>
+        <div class="iw-headline-box">
+          <div class="iw-title">The picture in your head,<br>rendered before lunch.</div>
+        </div>
+        <div class="iw-3d-strip-stage">
+          <div class="iw-card c1"></div>
+          <div class="iw-card c2"></div>
+          <div class="iw-card c3 active"></div>
+          <div class="iw-card c4"></div>
+          <div class="iw-card c5"></div>
+        </div>
+        <div class="iw-prompt-bar">
+          <span class="iw-sparkle">✦</span>
+          <div class="iw-input-mock">A futuristic cybernetic garden at sunset...</div>
+          <div class="iw-gen-btn">Generate</div>
+        </div>
+      </div>
+    
+          </div>
+
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">👁️ Live Interactive Preview</span>
+          </div>
+        </div>
+
+        <!-- Template Meta Details -->
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">Imageworks</h3>
+            <span class="tpl-price-chip">$49</span>
+          </div>
+          <p class="tpl-desc">AI image platform landing page with a 3D hero</p>
+
+          <!-- Primary CTA Button -->
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openCheckoutModal('imageworks')">
+              <span>Buy Template ($49)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Secondary Link: Or Unlock All -->
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="openAllAccessModal()">
+              <span>Or Unlock All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    
+
+      <!-- Template Card: Sparkdesign -->
+      <article class="template-card" data-category="studio" data-id="sparkdesign" data-name="sparkdesign" data-desc="design collaboration landing page">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Preview Window / Browser Mockup -->
+        <div class="tpl-preview-frame" onclick="openTemplateModal('sparkdesign')" title="Click to view live interactive preview of Sparkdesign">
+          <div class="tpl-badges-row">
+            <span class="tpl-badge new">New</span>
+            <span class="tpl-badge-lock" title="Premium Template"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+          </div>
+
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">belintan.design/templates/sparkdesign</div>
+          </div>
+
+          <div class="tpl-preview-viewport">
+            
+      <div class="mock-canvas mock-sparkdesign">
+        <div class="mock-nav">
+          <div class="mock-logo yellow"><span></span></div>
+          <div class="mock-links"><span></span><span></span><span></span></div>
+          <div class="mock-avatars-row">
+            <span class="m-av a1"></span>
+            <span class="m-av a2"></span>
+            <span class="m-av a3"></span>
+          </div>
+        </div>
+        <div class="spark-collab-stage">
+          <div class="cursor-pointer c-sarah">
+            <span class="c-tag">Sarah</span>
+          </div>
+          <div class="cursor-pointer c-alex">
+            <span class="c-tag">Alex</span>
+          </div>
+          <div class="spark-sticky yellow">
+            <div class="s-head">Design Sprint</div>
+            <div class="s-lines"><span></span><span></span></div>
+          </div>
+          <div class="spark-sticky purple">
+            <div class="s-head">Motion Specs</div>
+            <div class="s-lines"><span></span></div>
+          </div>
+        </div>
+        <div class="spark-bottom-dock">
+          <div class="d-tool active">✏️</div>
+          <div class="d-tool">💬</div>
+          <div class="d-tool">📐</div>
+          <div class="d-tool">🖼️</div>
+        </div>
+      </div>
+    
+          </div>
+
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">👁️ Live Interactive Preview</span>
+          </div>
+        </div>
+
+        <!-- Template Meta Details -->
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">Sparkdesign</h3>
+            <span class="tpl-price-chip">$49</span>
+          </div>
+          <p class="tpl-desc">Design collaboration landing page</p>
+
+          <!-- Primary CTA Button -->
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openCheckoutModal('sparkdesign')">
+              <span>Buy Template ($49)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Secondary Link: Or Unlock All -->
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="openAllAccessModal()">
+              <span>Or Unlock All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    
+
+      <!-- Template Card: SaaS -->
+      <article class="template-card" data-category="saas" data-id="saas" data-name="saas" data-desc="vibrant saas landing page with a rounded frame">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Preview Window / Browser Mockup -->
+        <div class="tpl-preview-frame" onclick="openTemplateModal('saas')" title="Click to view live interactive preview of SaaS">
+          <div class="tpl-badges-row">
+            
+            <span class="tpl-badge-lock" title="Premium Template"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+          </div>
+
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">belintan.design/templates/saas</div>
+          </div>
+
+          <div class="tpl-preview-viewport">
+            
+      <div class="mock-canvas mock-saas">
+        <div class="mock-nav">
+          <div class="mock-logo purple"><span></span></div>
+          <div class="mock-links"><span></span><span></span></div>
+          <div class="mock-pill-sm purple">Start Trial</div>
+        </div>
+        <div class="saas-nested-window">
+          <div class="saas-win-header">
+            <div class="win-dots"><span></span><span></span><span></span></div>
+            <div class="win-title">app.saasflow.io/dashboard</div>
+          </div>
+          <div class="saas-win-body">
+            <div class="saas-sidebar">
+              <div class="s-item active"></div><div class="s-item"></div><div class="s-item"></div>
+            </div>
+            <div class="saas-main">
+              <div class="saas-stat-row">
+                <div class="st-card"><div class="st-val">$84.2k</div><div class="st-bar"></div></div>
+                <div class="st-card"><div class="st-val">12.4k</div><div class="st-bar p"></div></div>
+              </div>
+              <div class="saas-chart-mock">
+                <div class="bar h40"></div><div class="bar h70"></div><div class="bar h55"></div><div class="bar h90"></div><div class="bar h80"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+          </div>
+
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">👁️ Live Interactive Preview</span>
+          </div>
+        </div>
+
+        <!-- Template Meta Details -->
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">SaaS</h3>
+            <span class="tpl-price-chip">$49</span>
+          </div>
+          <p class="tpl-desc">Vibrant SaaS landing page with a rounded frame</p>
+
+          <!-- Primary CTA Button -->
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openCheckoutModal('saas')">
+              <span>Buy Template ($49)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Secondary Link: Or Unlock All -->
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="openAllAccessModal()">
+              <span>Or Unlock All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    
+
+      <!-- Template Card: Minimal -->
+      <article class="template-card" data-category="studio" data-id="minimal" data-name="minimal" data-desc="clean, minimal landing page">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Preview Window / Browser Mockup -->
+        <div class="tpl-preview-frame" onclick="openTemplateModal('minimal')" title="Click to view live interactive preview of Minimal">
+          <div class="tpl-badges-row">
+            
+            <span class="tpl-badge-lock" title="Premium Template"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+          </div>
+
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">belintan.design/templates/minimal</div>
+          </div>
+
+          <div class="tpl-preview-viewport">
+            
+      <div class="mock-canvas mock-minimal">
+        <div class="mock-nav minimal">
+          <div class="minimal-brand">STUDIO / 01</div>
+          <div class="minimal-index">INDEX (24)</div>
+        </div>
+        <div class="minimal-center-type">
+          <div class="m-hero-title">TURN HOURS OF CONTENT<br>INTO FAST INSIGHT.</div>
+          <div class="m-hero-p">A disciplined, zero-clutter approach to software narrative.</div>
+          <div class="m-hero-btn">Get Started &rarr;</div>
+        </div>
+        <div class="minimal-columns-dock">
+          <div class="min-col"><strong>01</strong><span>Editorial Grid</span></div>
+          <div class="min-col"><strong>02</strong><span>Monochrome</span></div>
+          <div class="min-col"><strong>03</strong><span>Fast 99+</span></div>
+        </div>
+      </div>
+    
+          </div>
+
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">👁️ Live Interactive Preview</span>
+          </div>
+        </div>
+
+        <!-- Template Meta Details -->
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">Minimal</h3>
+            <span class="tpl-price-chip">$49</span>
+          </div>
+          <p class="tpl-desc">Clean, minimal landing page</p>
+
+          <!-- Primary CTA Button -->
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openCheckoutModal('minimal')">
+              <span>Buy Template ($49)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Secondary Link: Or Unlock All -->
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="openAllAccessModal()">
+              <span>Or Unlock All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    
+
+      <!-- Template Card: Agency -->
+      <article class="template-card" data-category="studio" data-id="agency" data-name="agency" data-desc="creative agency site with smooth scrolling">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Preview Window / Browser Mockup -->
+        <div class="tpl-preview-frame" onclick="openTemplateModal('agency')" title="Click to view live interactive preview of Agency">
+          <div class="tpl-badges-row">
+            
+            <span class="tpl-badge-lock" title="Premium Template"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+          </div>
+
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">belintan.design/templates/agency</div>
+          </div>
+
+          <div class="tpl-preview-viewport">
+            
+      <div class="mock-canvas mock-agency">
+        <div class="agency-aurora-bg"></div>
+        <div class="mock-nav dark">
+          <div class="mock-logo purple"><span></span></div>
+          <div class="mock-links dark"><span></span><span></span><span></span></div>
+          <div class="mock-pill-sm" style="background: rgba(255,255,255,0.15); color: #FFF;">Let's Talk</div>
+        </div>
+        <div class="agency-hero-content">
+          <div class="agency-title">Crafting digital<br>experiences that<br>inspire &amp; convert.</div>
+          <div class="agency-sub">We partner with ambitious brands to engineer category-defining digital products.</div>
+        </div>
+        <div class="agency-badge-float">
+          <span>✦ AOTD 2026 WINNER</span>
+        </div>
+      </div>
+    
+          </div>
+
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">👁️ Live Interactive Preview</span>
+          </div>
+        </div>
+
+        <!-- Template Meta Details -->
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">Agency</h3>
+            <span class="tpl-price-chip">$49</span>
+          </div>
+          <p class="tpl-desc">Creative agency site with smooth scrolling</p>
+
+          <!-- Primary CTA Button -->
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openCheckoutModal('agency')">
+              <span>Buy Template ($49)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Secondary Link: Or Unlock All -->
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="openAllAccessModal()">
+              <span>Or Unlock All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    
+
+      <!-- Template Card: Finance -->
+      <article class="template-card" data-category="finance" data-id="finance" data-name="finance" data-desc="fintech landing page with 3d backgrounds">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Preview Window / Browser Mockup -->
+        <div class="tpl-preview-frame" onclick="openTemplateModal('finance')" title="Click to view live interactive preview of Finance">
+          <div class="tpl-badges-row">
+            
+            <span class="tpl-badge-lock" title="Premium Template"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+          </div>
+
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">belintan.design/templates/finance</div>
+          </div>
+
+          <div class="tpl-preview-viewport">
+            
+      <div class="mock-canvas mock-finance">
+        <div class="mock-nav">
+          <div class="mock-logo green"><span></span></div>
+          <div class="mock-links"><span></span><span></span></div>
+          <div class="mock-pill-sm green">Open Account</div>
+        </div>
+        <div class="fin-card-floating">
+          <div class="fin-chip"></div>
+          <div class="fin-num">&bull;&bull;&bull;&bull; 8824</div>
+          <div class="fin-owner">BELINTAN CORP</div>
+          <div class="fin-logo-visa">VISA</div>
+        </div>
+        <div class="fin-hero-text">
+          <div class="fin-title">Smart global capital for high-growth ventures.</div>
+          <div class="fin-sub">Multi-currency accounts, instant wire rails, and automated treasury yield.</div>
+        </div>
+        <div class="fin-stats-row">
+          <div class="f-stat"><div class="f-num">$4.2B+</div><div class="f-lbl">Processed</div></div>
+          <div class="f-stat"><div class="f-num">0.15s</div><div class="f-lbl">Settlement</div></div>
+        </div>
+      </div>
+    
+          </div>
+
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">👁️ Live Interactive Preview</span>
+          </div>
+        </div>
+
+        <!-- Template Meta Details -->
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">Finance</h3>
+            <span class="tpl-price-chip">$49</span>
+          </div>
+          <p class="tpl-desc">Fintech landing page with 3D backgrounds</p>
+
+          <!-- Primary CTA Button -->
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openCheckoutModal('finance')">
+              <span>Buy Template ($49)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Secondary Link: Or Unlock All -->
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="openAllAccessModal()">
+              <span>Or Unlock All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    
+
+      <!-- Template Card: AI SaaS -->
+      <article class="template-card" data-category="ai" data-id="ai-saas" data-name="ai saas" data-desc="ai product landing page with a fluid cursor">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Preview Window / Browser Mockup -->
+        <div class="tpl-preview-frame" onclick="openTemplateModal('ai-saas')" title="Click to view live interactive preview of AI SaaS">
+          <div class="tpl-badges-row">
+            
+            <span class="tpl-badge-lock" title="Premium Template"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+          </div>
+
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">belintan.design/templates/ai-saas</div>
+          </div>
+
+          <div class="tpl-preview-viewport">
+            
+      <div class="mock-canvas mock-ai-saas">
+        <div class="ai-glow-orb"></div>
+        <div class="mock-nav dark">
+          <div class="mock-logo purple"><span></span></div>
+          <div class="mock-links dark"><span></span><span></span></div>
+          <div class="mock-pill-sm purple">Try Free</div>
+        </div>
+        <div class="ai-hero-center">
+          <div class="ai-title">Design with AI &mdash;<br>the future of creativity.</div>
+          <div class="ai-prompt-box">
+            <span class="ai-icon">✨</span>
+            <span class="ai-txt">Generate a high-converting SaaS landing page...</span>
+            <button class="ai-btn-go">&rarr;</button>
+          </div>
+        </div>
+        <div class="ai-chips-dock">
+          <span class="ai-chip active">Logo Gen</span>
+          <span class="ai-chip">Color Palettes</span>
+          <span class="ai-chip">Code Export</span>
+        </div>
+      </div>
+    
+          </div>
+
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">👁️ Live Interactive Preview</span>
+          </div>
+        </div>
+
+        <!-- Template Meta Details -->
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">AI SaaS</h3>
+            <span class="tpl-price-chip">$49</span>
+          </div>
+          <p class="tpl-desc">AI product landing page with a fluid cursor</p>
+
+          <!-- Primary CTA Button -->
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openCheckoutModal('ai-saas')">
+              <span>Buy Template ($49)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Secondary Link: Or Unlock All -->
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="openAllAccessModal()">
+              <span>Or Unlock All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    
+
+      <!-- Template Card: Build What Matters -->
+      <article class="template-card" data-category="saas" data-id="build-what-matters" data-name="build what matters" data-desc="developer tools & api infrastructure template">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Preview Window / Browser Mockup -->
+        <div class="tpl-preview-frame" onclick="openTemplateModal('build-what-matters')" title="Click to view live interactive preview of Build What Matters">
+          <div class="tpl-badges-row">
+            
+            <span class="tpl-badge-lock" title="Premium Template"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+          </div>
+
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">belintan.design/templates/build-what-matters</div>
+          </div>
+
+          <div class="tpl-preview-viewport">
+            
+      <div class="mock-canvas mock-bwm">
+        <div class="mock-nav">
+          <div class="mock-logo orange"><span></span></div>
+          <div class="mock-links"><span></span><span></span><span></span></div>
+          <div class="mock-pill-sm orange">Docs v1.2</div>
+        </div>
+        <div class="bwm-split-stage">
+          <div class="bwm-left">
+            <div class="bwm-h1">Build what<br>matters.</div>
+            <div class="bwm-p">Fast primitives for ambitious builders.</div>
+            <div class="bwm-cmd">npm install @belintan/core</div>
+          </div>
+          <div class="bwm-right">
+            <div class="code-header">
+              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              <span class="code-file">api.config.ts</span>
+            </div>
+            <div class="code-lines">
+              <div class="c-line blue">import { Agent } from 'core';</div>
+              <div class="c-line orange">export const worker = Agent({</div>
+              <div class="c-line green">  runtime: 'edge',</div>
+              <div class="c-line purple">  concurrency: 1000</div>
+              <div class="c-line orange">});</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+          </div>
+
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">👁️ Live Interactive Preview</span>
+          </div>
+        </div>
+
+        <!-- Template Meta Details -->
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">Build What Matters</h3>
+            <span class="tpl-price-chip">$49</span>
+          </div>
+          <p class="tpl-desc">Developer tools & API infrastructure template</p>
+
+          <!-- Primary CTA Button -->
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openCheckoutModal('build-what-matters')">
+              <span>Buy Template ($49)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Secondary Link: Or Unlock All -->
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="openAllAccessModal()">
+              <span>Or Unlock All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    
+
+      <!-- Template Card: Hyperflow -->
+      <article class="template-card" data-category="studio" data-id="hyperflow" data-name="hyperflow" data-desc="dynamic design system & studio landing page">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Preview Window / Browser Mockup -->
+        <div class="tpl-preview-frame" onclick="openTemplateModal('hyperflow')" title="Click to view live interactive preview of Hyperflow">
+          <div class="tpl-badges-row">
+            
+            <span class="tpl-badge-lock" title="Premium Template"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span>
+          </div>
+
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">belintan.design/templates/hyperflow</div>
+          </div>
+
+          <div class="tpl-preview-viewport">
+            
+      <div class="mock-canvas mock-hyperflow">
+        <div class="hf-grid-bg"></div>
+        <div class="mock-nav dark">
+          <div class="mock-logo white"><span></span></div>
+          <div class="mock-links dark"><span></span><span></span></div>
+          <div class="mock-pill-sm" style="background:#FFF; color:#000;">Inquire</div>
+        </div>
+        <div class="hf-hero">
+          <div class="hf-mono-tag">[ 01 · CREATIVE ENGINEERING ]</div>
+          <div class="hf-title">HIGH-PRECISION DIGITAL ARCHITECTURE.</div>
+          <div class="hf-stripes">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    
+          </div>
+
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">👁️ Live Interactive Preview</span>
+          </div>
+        </div>
+
+        <!-- Template Meta Details -->
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">Hyperflow</h3>
+            <span class="tpl-price-chip">$49</span>
+          </div>
+          <p class="tpl-desc">Dynamic design system & studio landing page</p>
+
+          <!-- Primary CTA Button -->
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openCheckoutModal('hyperflow')">
+              <span>Buy Template ($49)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Secondary Link: Or Unlock All -->
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="openAllAccessModal()">
+              <span>Or Unlock All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    
+
+      <!-- Template Card: Minimalist Commerce -->
+      <article class="template-card" data-category="free" data-id="minimalist-commerce" data-name="minimalist commerce" data-desc="clean, minimal e-commerce store layout">
+        <div class="card-3d-glare"></div>
+        
+        <!-- Preview Window / Browser Mockup -->
+        <div class="tpl-preview-frame" onclick="openTemplateModal('minimalist-commerce')" title="Click to view live interactive preview of Minimalist Commerce">
+          <div class="tpl-badges-row">
+            <span class="tpl-badge free">Free</span>
+            <span class="tpl-badge free">Free</span>
+          </div>
+
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">belintan.design/templates/minimalist-commerce</div>
+          </div>
+
+          <div class="tpl-preview-viewport">
+            
+      <div class="mock-canvas mock-commerce">
+        <div class="mock-nav">
+          <div class="mock-logo"><span></span></div>
+          <div class="mock-links"><span>Shop</span><span>Journal</span></div>
+          <div class="mock-cart-badge">🛒 (2)</div>
+        </div>
+        <div class="commerce-store-grid">
+          <div class="c-item">
+            <div class="c-photo p1"></div>
+            <div class="c-info"><div class="c-name">Studio Chair</div><div class="c-price">$240</div></div>
+          </div>
+          <div class="c-item">
+            <div class="c-photo p2"></div>
+            <div class="c-info"><div class="c-name">Analog Lamp</div><div class="c-price">$120</div></div>
+          </div>
+        </div>
+        <div class="commerce-free-banner">
+          <span>✨ 100% Free Open-Source Download</span>
+        </div>
+      </div>
+    
+          </div>
+
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">👁️ Live Interactive Preview</span>
+          </div>
+        </div>
+
+        <!-- Template Meta Details -->
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">Minimalist Commerce</h3>
+            <span class="tpl-price-chip">$0</span>
+          </div>
+          <p class="tpl-desc">Clean, minimal e-commerce store layout</p>
+
+          <!-- Primary CTA Button -->
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openCheckoutModal('minimalist-commerce')">
+              <span>Download Template ($0)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            </button>
+          </div>
+
+          <!-- Secondary Link: Or Unlock All -->
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="openAllAccessModal()">
+              <span>Or Unlock All</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    
+    </div>
+  </main>
+
+  <!-- Interactive Live Preview Modal -->
+  <div class="tpl-modal-backdrop" id="tpl-modal" role="dialog" aria-modal="true" aria-labelledby="modal-tpl-title">
+    <div class="tpl-modal-window">
+      <!-- Modal Header -->
+      <div class="tpl-modal-header">
+        <div class="modal-tpl-title-group">
+          <h2 id="modal-tpl-title">Template Preview</h2>
+          <p id="modal-tpl-desc">Production-ready web application</p>
+        </div>
+
+        <!-- Responsive Device Switcher -->
+        <div class="modal-device-switcher" role="tablist" aria-label="Device Switcher">
+          <button class="device-btn active" data-device="desktop">🖥️ Desktop</button>
+          <button class="device-btn" data-device="tablet">📱 Tablet</button>
+          <button class="device-btn" data-device="mobile">📱 Mobile</button>
+        </div>
+
+        <button class="modal-close-btn" onclick="closeTemplateModal()" aria-label="Close preview">✕</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <!-- Interactive Viewport Stage -->
+        <div class="modal-stage-wrapper">
+          <div class="modal-stage-canvas" id="modal-stage-canvas">
+            <!-- Injected Preview -->
+          </div>
+        </div>
+
+        <!-- Spec Details & Checkout Card -->
+        <div class="modal-specs-grid">
+          <div class="modal-features-card">
+            <h4>✨ Included Features &amp; Architecture</h4>
+            <ul class="modal-features-list" id="modal-features-list">
+              <!-- Dynamically populated -->
+            </ul>
+          </div>
+
+          <div class="modal-action-card">
+            <div>
+              <div class="modal-price-tag" id="modal-price-tag">$49</div>
+              <p class="modal-price-sub">Instant digital download · Commercial license included · Lifetime updates</p>
+            </div>
+            <div>
+              <a href="#" id="modal-checkout-btn" class="btn-modal-checkout">
+                <span>Buy Template Now &rarr;</span>
+              </a>
+              <a href="#" id="modal-whatsapp-btn" target="_blank" rel="noopener noreferrer" class="btn-modal-whatsapp">
+                <span>💬 Purchase via WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All Access Modal -->
+  <div class="tpl-modal-backdrop" id="all-access-modal" role="dialog" aria-modal="true">
+    <div class="tpl-modal-window" style="max-width: 600px; text-align: center;">
+      <div class="tpl-modal-header" style="justify-content: flex-end;">
+        <button class="modal-close-btn" onclick="closeAllAccessModal()">✕</button>
+      </div>
+      <div class="modal-body" style="padding: 10px 32px 36px 32px;">
+        <span style="font-size: 2.2rem; margin-bottom: 8px;">👑</span>
+        <h3 style="font-size: 1.6rem; font-weight: 800; color: #FFF; margin-bottom: 8px;">Unlock All 12+ Templates</h3>
+        <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px; line-height: 1.6;">
+          Get unlimited access to every current and future template, Figma design source files, priority developer support, and lifetime updates.
+        </p>
+
+        <div style="background: rgba(244, 137, 54, 0.12); border: 1.5px solid rgba(244, 137, 54, 0.4); border-radius: var(--radius-md); padding: 18px; margin-bottom: 24px;">
+          <div style="font-size: 2.4rem; font-weight: 900; color: #FFA767;">$199</div>
+          <div style="font-size: 0.8rem; color: #E9E9E9;">One-time payment · Lifetime all-access license</div>
+        </div>
+
+        <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I'd%20like%20to%20get%20the%20All-Access%20Templates%20Pass%20for%20$199!" target="_blank" rel="noopener noreferrer" class="btn-modal-checkout" style="width: 100%; margin-bottom: 12px; background: #FFA767; color: #000;">
+          <span>Get All-Access Pass on WhatsApp &rarr;</span>
+        </a>
+        <button class="tpl-unlock-link" onclick="closeAllAccessModal()">Maybe later</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="templates-footer">
+    <div class="footer-brand-title">BELINTAN B. — TEMPLATES MARKETPLACE</div>
+    <p class="footer-sub">Modern full-stack engineering &amp; conversion design primitives.</p>
+    <ul class="footer-links-row">
+      <li><a href="/">Portfolio</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Belintan B. All rights reserved. Crafted with clean code.</p>
+  </footer>
+
+  <script>
+    // Templates Data for Modal & Interactions
+    const templates = [{"id":"agentframe","title":"Agentframe","desc":"AI agent website with a pixel landscape hero","category":"ai","categoryName":"AI & Agents","price":"$49","badge":"New","isLock":true,"accent":"#6366F1","tagline":"Autonomous Agent Execution Platform","tech":["React 19","Tailwind CSS","TypeScript","Vite"],"features":["Dynamic Pixel Art Landscape Hero with Day/Night cycle","Interactive Terminal Prompt Simulator & Sandbox","Real-time Agent Telemetry & Reasoning Graphs","Deploy-ready for Cloudflare Pages & Vercel"],"previewHTML":"\n      <div class=\"mock-canvas mock-agentframe\">\n        <div class=\"mock-nav\">\n          <div class=\"mock-logo\"><span></span><span></span></div>\n          <div class=\"mock-links\"><span></span><span></span><span></span></div>\n          <div class=\"mock-pill-sm\">Agent v2.4</div>\n        </div>\n        <div class=\"mock-pixel-hero\">\n          <div class=\"pixel-sun\"></div>\n          <div class=\"pixel-mountain m1\"></div>\n          <div class=\"pixel-mountain m2\"></div>\n          <div class=\"pixel-ground\"></div>\n        </div>\n        <div class=\"mock-hero-text\">\n          <div class=\"mock-h1\" style=\"width: 70%; margin: 8px auto 4px auto;\"></div>\n          <div class=\"mock-sub\" style=\"width: 50%; margin: 0 auto 10px auto;\"></div>\n          <div class=\"mock-btn-row\"><div class=\"mock-btn-core\"></div><div class=\"mock-btn-sub\"></div></div>\n        </div>\n        <div class=\"mock-agent-cards\">\n          <div class=\"m-card\"><span class=\"m-dot green\"></span><div class=\"m-line\"></div></div>\n          <div class=\"m-card\"><span class=\"m-dot purple\"></span><div class=\"m-line\"></div></div>\n          <div class=\"m-card\"><span class=\"m-dot orange\"></span><div class=\"m-line\"></div></div>\n        </div>\n      </div>\n    "},{"id":"cloudlight","title":"Cloudlight","desc":"Cloud storage landing page with a cloud hero","category":"saas","categoryName":"SaaS & Tech","price":"$49","badge":"New","isLock":true,"accent":"#38BDF8","tagline":"Decentralized Next-Gen Cloud Storage","tech":["Next.js 14","Framer Motion","Tailwind CSS"],"features":["Volumetric 3D Cloud Ambient Hero Scene","Interactive Storage Quota & Cost Estimator","Enterprise Encryption Compliance Matrix","Drag-and-Drop Upload Demo with Live Progress"],"previewHTML":"\n      <div class=\"mock-canvas mock-cloudlight\">\n        <div class=\"mock-nav\">\n          <div class=\"mock-logo blue\"><span></span></div>\n          <div class=\"mock-links\"><span></span><span></span><span></span></div>\n          <div class=\"mock-pill-sm\">Free 50GB</div>\n        </div>\n        <div class=\"cloud-center-stage\">\n          <div class=\"cloud-node c1\">☁️</div>\n          <div class=\"cloud-glow\"></div>\n        </div>\n        <div class=\"mock-hero-text\">\n          <div class=\"mock-h1\" style=\"width: 65%; margin: 6px auto 4px auto;\"></div>\n          <div class=\"mock-sub\" style=\"width: 45%; margin: 0 auto 10px auto;\"></div>\n          <div class=\"mock-btn-core\" style=\"width: 90px; margin: 0 auto 12px auto; background: #38BDF8;\"></div>\n        </div>\n        <div class=\"cloud-storage-grid\">\n          <div class=\"c-col\"><div class=\"c-val\">5TB</div><div class=\"c-lbl\">Hot Storage</div></div>\n          <div class=\"c-col\"><div class=\"c-val\">0ms</div><div class=\"c-lbl\">Edge Latency</div></div>\n          <div class=\"c-col\"><div class=\"c-val\">99.9%</div><div class=\"c-lbl\">Availability</div></div>\n        </div>\n      </div>\n    "},{"id":"imageworks","title":"Imageworks","desc":"AI image platform landing page with a 3D hero","category":"ai","categoryName":"AI & Agents","price":"$49","badge":"New","isLock":true,"accent":"#EC4899","tagline":"The picture in your head, rendered before lunch.","tech":["React 19","Three.js / WebGL","Tailwind CSS"],"features":["Curved 3D Horizon Carousel Gallery","Live Prompt-to-Image Generation Mockup","Aspect Ratio & Style Selector Chips","High-Converting Dark Studio Architecture"],"previewHTML":"\n      <div class=\"mock-canvas mock-imageworks\">\n        <div class=\"mock-nav dark\">\n          <div class=\"mock-logo pink\"><span></span></div>\n          <div class=\"mock-links dark\"><span></span><span></span></div>\n          <div class=\"mock-pill-sm pink\">v4.0 Flux</div>\n        </div>\n        <div class=\"iw-headline-box\">\n          <div class=\"iw-title\">The picture in your head,<br>rendered before lunch.</div>\n        </div>\n        <div class=\"iw-3d-strip-stage\">\n          <div class=\"iw-card c1\"></div>\n          <div class=\"iw-card c2\"></div>\n          <div class=\"iw-card c3 active\"></div>\n          <div class=\"iw-card c4\"></div>\n          <div class=\"iw-card c5\"></div>\n        </div>\n        <div class=\"iw-prompt-bar\">\n          <span class=\"iw-sparkle\">✦</span>\n          <div class=\"iw-input-mock\">A futuristic cybernetic garden at sunset...</div>\n          <div class=\"iw-gen-btn\">Generate</div>\n        </div>\n      </div>\n    "},{"id":"sparkdesign","title":"Sparkdesign","desc":"Design collaboration landing page","category":"studio","categoryName":"Design & Studio","price":"$49","badge":"New","isLock":true,"accent":"#F59E0B","tagline":"Real-time Infinite Canvas for Product Teams","tech":["Vue 3 / React","HTML5 Canvas","Tailwind CSS"],"features":["Multiplayer Live Cursor Movement Simulator","Interactive Infinite Sticky Canvas Elements","Real-time Comment Threads & Annotations","Figma / Sketch Import Pipeline UI"],"previewHTML":"\n      <div class=\"mock-canvas mock-sparkdesign\">\n        <div class=\"mock-nav\">\n          <div class=\"mock-logo yellow\"><span></span></div>\n          <div class=\"mock-links\"><span></span><span></span><span></span></div>\n          <div class=\"mock-avatars-row\">\n            <span class=\"m-av a1\"></span>\n            <span class=\"m-av a2\"></span>\n            <span class=\"m-av a3\"></span>\n          </div>\n        </div>\n        <div class=\"spark-collab-stage\">\n          <div class=\"cursor-pointer c-sarah\">\n            <span class=\"c-tag\">Sarah</span>\n          </div>\n          <div class=\"cursor-pointer c-alex\">\n            <span class=\"c-tag\">Alex</span>\n          </div>\n          <div class=\"spark-sticky yellow\">\n            <div class=\"s-head\">Design Sprint</div>\n            <div class=\"s-lines\"><span></span><span></span></div>\n          </div>\n          <div class=\"spark-sticky purple\">\n            <div class=\"s-head\">Motion Specs</div>\n            <div class=\"s-lines\"><span></span></div>\n          </div>\n        </div>\n        <div class=\"spark-bottom-dock\">\n          <div class=\"d-tool active\">✏️</div>\n          <div class=\"d-tool\">💬</div>\n          <div class=\"d-tool\">📐</div>\n          <div class=\"d-tool\">🖼️</div>\n        </div>\n      </div>\n    "},{"id":"saas","title":"SaaS","desc":"Vibrant SaaS landing page with a rounded frame","category":"saas","categoryName":"SaaS & Tech","price":"$49","badge":"","isLock":true,"accent":"#8B5CF6","tagline":"All-in-One Cloud Operations Dashboard","tech":["React 19","Lucide Icons","Tailwind CSS"],"features":["Layered Nested Frame Dashboard Visuals","Monthly vs Annual Dynamic Pricing Toggle","Interactive ARR & Retention Charts","Pre-built Authentication & Team Settings UI"],"previewHTML":"\n      <div class=\"mock-canvas mock-saas\">\n        <div class=\"mock-nav\">\n          <div class=\"mock-logo purple\"><span></span></div>\n          <div class=\"mock-links\"><span></span><span></span></div>\n          <div class=\"mock-pill-sm purple\">Start Trial</div>\n        </div>\n        <div class=\"saas-nested-window\">\n          <div class=\"saas-win-header\">\n            <div class=\"win-dots\"><span></span><span></span><span></span></div>\n            <div class=\"win-title\">app.saasflow.io/dashboard</div>\n          </div>\n          <div class=\"saas-win-body\">\n            <div class=\"saas-sidebar\">\n              <div class=\"s-item active\"></div><div class=\"s-item\"></div><div class=\"s-item\"></div>\n            </div>\n            <div class=\"saas-main\">\n              <div class=\"saas-stat-row\">\n                <div class=\"st-card\"><div class=\"st-val\">$84.2k</div><div class=\"st-bar\"></div></div>\n                <div class=\"st-card\"><div class=\"st-val\">12.4k</div><div class=\"st-bar p\"></div></div>\n              </div>\n              <div class=\"saas-chart-mock\">\n                <div class=\"bar h40\"></div><div class=\"bar h70\"></div><div class=\"bar h55\"></div><div class=\"bar h90\"></div><div class=\"bar h80\"></div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    "},{"id":"minimal","title":"Minimal","desc":"Clean, minimal landing page","category":"studio","categoryName":"Design & Studio","price":"$49","badge":"","isLock":true,"accent":"#0F172A","tagline":"Swiss Modernism & Spatial Typography","tech":["Vanilla HTML5","Modern CSS Grid","Clean JS"],"features":["Ultra-clean Swiss Typographic Baseline","Perfect 100/100 Lighthouse Performance","Micro-interaction States for Links & Buttons","Lightweight Zero-bundle Dependency Footprint"],"previewHTML":"\n      <div class=\"mock-canvas mock-minimal\">\n        <div class=\"mock-nav minimal\">\n          <div class=\"minimal-brand\">STUDIO / 01</div>\n          <div class=\"minimal-index\">INDEX (24)</div>\n        </div>\n        <div class=\"minimal-center-type\">\n          <div class=\"m-hero-title\">TURN HOURS OF CONTENT<br>INTO FAST INSIGHT.</div>\n          <div class=\"m-hero-p\">A disciplined, zero-clutter approach to software narrative.</div>\n          <div class=\"m-hero-btn\">Get Started &rarr;</div>\n        </div>\n        <div class=\"minimal-columns-dock\">\n          <div class=\"min-col\"><strong>01</strong><span>Editorial Grid</span></div>\n          <div class=\"min-col\"><strong>02</strong><span>Monochrome</span></div>\n          <div class=\"min-col\"><strong>03</strong><span>Fast 99+</span></div>\n        </div>\n      </div>\n    "},{"id":"agency","title":"Agency","desc":"Creative agency site with smooth scrolling","category":"studio","categoryName":"Design & Studio","price":"$49","badge":"","isLock":true,"accent":"#C084FC","tagline":"Crafting digital experiences that inspire & convert.","tech":["React 19","Lenis Smooth Scroll","GSAP"],"features":["Fluid Aurora Glow & Volumetric Gradient Mesh","Silky Smooth Momentum Scrolling Engine","Interactive Case Studies Carousel with Video Support","Client Inquiry & Scope Estimator Drawer"],"previewHTML":"\n      <div class=\"mock-canvas mock-agency\">\n        <div class=\"agency-aurora-bg\"></div>\n        <div class=\"mock-nav dark\">\n          <div class=\"mock-logo purple\"><span></span></div>\n          <div class=\"mock-links dark\"><span></span><span></span><span></span></div>\n          <div class=\"mock-pill-sm\" style=\"background: rgba(255,255,255,0.15); color: #FFF;\">Let's Talk</div>\n        </div>\n        <div class=\"agency-hero-content\">\n          <div class=\"agency-title\">Crafting digital<br>experiences that<br>inspire &amp; convert.</div>\n          <div class=\"agency-sub\">We partner with ambitious brands to engineer category-defining digital products.</div>\n        </div>\n        <div class=\"agency-badge-float\">\n          <span>✦ AOTD 2026 WINNER</span>\n        </div>\n      </div>\n    "},{"id":"finance","title":"Finance","desc":"Fintech landing page with 3D backgrounds","category":"finance","categoryName":"Finance & B2B","price":"$49","badge":"","isLock":true,"accent":"#10B981","tagline":"Next-Gen Global Financial Infrastructure","tech":["React 19","Recharts","Tailwind CSS"],"features":["Real-time Currency & Treasury Balance Feed","Interactive 3D Metal Virtual Card Generator","Multi-currency Cross-border Settlement Engine","Enterprise SOC-2 / GDPR Compliance Badges"],"previewHTML":"\n      <div class=\"mock-canvas mock-finance\">\n        <div class=\"mock-nav\">\n          <div class=\"mock-logo green\"><span></span></div>\n          <div class=\"mock-links\"><span></span><span></span></div>\n          <div class=\"mock-pill-sm green\">Open Account</div>\n        </div>\n        <div class=\"fin-card-floating\">\n          <div class=\"fin-chip\"></div>\n          <div class=\"fin-num\">&bull;&bull;&bull;&bull; 8824</div>\n          <div class=\"fin-owner\">BELINTAN CORP</div>\n          <div class=\"fin-logo-visa\">VISA</div>\n        </div>\n        <div class=\"fin-hero-text\">\n          <div class=\"fin-title\">Smart global capital for high-growth ventures.</div>\n          <div class=\"fin-sub\">Multi-currency accounts, instant wire rails, and automated treasury yield.</div>\n        </div>\n        <div class=\"fin-stats-row\">\n          <div class=\"f-stat\"><div class=\"f-num\">$4.2B+</div><div class=\"f-lbl\">Processed</div></div>\n          <div class=\"f-stat\"><div class=\"f-num\">0.15s</div><div class=\"f-lbl\">Settlement</div></div>\n        </div>\n      </div>\n    "},{"id":"ai-saas","title":"AI SaaS","desc":"AI product landing page with a fluid cursor","category":"ai","categoryName":"AI & Agents","price":"$49","badge":"","isLock":true,"accent":"#6366F1","tagline":"Design with AI — the future of creativity.","tech":["Next.js 14","Framer Motion","Tailwind CSS"],"features":["Dynamic Fluid Ambient Mouse Light Cursor","Interactive Prompt Execution Sandbox","Dark Velvet Neubrutalist Glass UI","Automated Model Fallbacks & Token Pricing"],"previewHTML":"\n      <div class=\"mock-canvas mock-ai-saas\">\n        <div class=\"ai-glow-orb\"></div>\n        <div class=\"mock-nav dark\">\n          <div class=\"mock-logo purple\"><span></span></div>\n          <div class=\"mock-links dark\"><span></span><span></span></div>\n          <div class=\"mock-pill-sm purple\">Try Free</div>\n        </div>\n        <div class=\"ai-hero-center\">\n          <div class=\"ai-title\">Design with AI &mdash;<br>the future of creativity.</div>\n          <div class=\"ai-prompt-box\">\n            <span class=\"ai-icon\">✨</span>\n            <span class=\"ai-txt\">Generate a high-converting SaaS landing page...</span>\n            <button class=\"ai-btn-go\">&rarr;</button>\n          </div>\n        </div>\n        <div class=\"ai-chips-dock\">\n          <span class=\"ai-chip active\">Logo Gen</span>\n          <span class=\"ai-chip\">Color Palettes</span>\n          <span class=\"ai-chip\">Code Export</span>\n        </div>\n      </div>\n    "},{"id":"build-what-matters","title":"Build What Matters","desc":"Developer tools & API infrastructure template","category":"saas","categoryName":"SaaS & Tech","price":"$49","badge":"","isLock":true,"accent":"#F48936","tagline":"Developer-First APIs & High-Throughput Engines","tech":["React 19","Tailwind CSS","Prism.js"],"features":["Warm Orange / Amber Split Contrast Hero Layout","Interactive Live Code Sandbox with Syntax Highlighting","Comprehensive REST & GraphQL Docs Architecture","CLI Terminal Installation Helper & One-Click Deploy"],"previewHTML":"\n      <div class=\"mock-canvas mock-bwm\">\n        <div class=\"mock-nav\">\n          <div class=\"mock-logo orange\"><span></span></div>\n          <div class=\"mock-links\"><span></span><span></span><span></span></div>\n          <div class=\"mock-pill-sm orange\">Docs v1.2</div>\n        </div>\n        <div class=\"bwm-split-stage\">\n          <div class=\"bwm-left\">\n            <div class=\"bwm-h1\">Build what<br>matters.</div>\n            <div class=\"bwm-p\">Fast primitives for ambitious builders.</div>\n            <div class=\"bwm-cmd\">npm install @belintan/core</div>\n          </div>\n          <div class=\"bwm-right\">\n            <div class=\"code-header\">\n              <span class=\"dot r\"></span><span class=\"dot y\"></span><span class=\"dot g\"></span>\n              <span class=\"code-file\">api.config.ts</span>\n            </div>\n            <div class=\"code-lines\">\n              <div class=\"c-line blue\">import { Agent } from 'core';</div>\n              <div class=\"c-line orange\">export const worker = Agent({</div>\n              <div class=\"c-line green\">  runtime: 'edge',</div>\n              <div class=\"c-line purple\">  concurrency: 1000</div>\n              <div class=\"c-line orange\">});</div>\n            </div>\n          </div>\n        </div>\n      </div>\n    "},{"id":"hyperflow","title":"Hyperflow","desc":"Dynamic design system & studio landing page","category":"studio","categoryName":"Design & Studio","price":"$49","badge":"","isLock":true,"accent":"#E2E8F0","tagline":"Kinetic Motion & Interactive Digital Artistry","tech":["React 19","HTML5 Canvas","Tailwind CSS"],"features":["Retro Isometric Dot Matrix Mesh Background","Kinetic Audio-Visual Telemetry & Sound Feedback","Monospaced Engineering Typography Hierarchy","Full Project Pricing & Custom Deliverable Configurator"],"previewHTML":"\n      <div class=\"mock-canvas mock-hyperflow\">\n        <div class=\"hf-grid-bg\"></div>\n        <div class=\"mock-nav dark\">\n          <div class=\"mock-logo white\"><span></span></div>\n          <div class=\"mock-links dark\"><span></span><span></span></div>\n          <div class=\"mock-pill-sm\" style=\"background:#FFF; color:#000;\">Inquire</div>\n        </div>\n        <div class=\"hf-hero\">\n          <div class=\"hf-mono-tag\">[ 01 · CREATIVE ENGINEERING ]</div>\n          <div class=\"hf-title\">HIGH-PRECISION DIGITAL ARCHITECTURE.</div>\n          <div class=\"hf-stripes\">\n            <span></span><span></span><span></span><span></span><span></span>\n          </div>\n        </div>\n      </div>\n    "},{"id":"minimalist-commerce","title":"Minimalist Commerce","desc":"Clean, minimal e-commerce store layout","category":"free","categoryName":"Free Templates","price":"$0","badge":"Free","isLock":false,"accent":"#10B981","tagline":"High-Converting Headless E-Commerce Store","tech":["HTML5","Modern CSS","JavaScript"],"features":["Clean Product Gallery with Responsive Card Lift","Slide-out Cart Drawer with Live Subtotal","Instant Checkout & WhatsApp Order Dispatcher","100% Free Open-Source Template for Personal & Commercial Use"],"previewHTML":"\n      <div class=\"mock-canvas mock-commerce\">\n        <div class=\"mock-nav\">\n          <div class=\"mock-logo\"><span></span></div>\n          <div class=\"mock-links\"><span>Shop</span><span>Journal</span></div>\n          <div class=\"mock-cart-badge\">🛒 (2)</div>\n        </div>\n        <div class=\"commerce-store-grid\">\n          <div class=\"c-item\">\n            <div class=\"c-photo p1\"></div>\n            <div class=\"c-info\"><div class=\"c-name\">Studio Chair</div><div class=\"c-price\">$240</div></div>\n          </div>\n          <div class=\"c-item\">\n            <div class=\"c-photo p2\"></div>\n            <div class=\"c-info\"><div class=\"c-name\">Analog Lamp</div><div class=\"c-price\">$120</div></div>\n          </div>\n        </div>\n        <div class=\"commerce-free-banner\">\n          <span>✨ 100% Free Open-Source Download</span>\n        </div>\n      </div>\n    "}];
+
+    // Real-Time Filter & Search Logic
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const searchInput = document.getElementById('template-search');
+    const cards = document.querySelectorAll('.template-card');
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    function applyFilters() {
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        const name = card.getAttribute('data-name');
+        const desc = card.getAttribute('data-desc');
+
+        const matchesCat = (currentFilter === 'all') || (cat === currentFilter);
+        const matchesSearch = !searchQuery || name.includes(searchQuery) || desc.includes(searchQuery);
+
+        if (matchesCat && matchesSearch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        currentFilter = pill.getAttribute('data-filter');
+        applyFilters();
+      });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      applyFilters();
+    });
+
+    // 3D Parallax Tilt with Specular Glare Tracking
+    cards.forEach(card => {
+      let isHovered = false;
+      let rAF = null;
+
+      card.addEventListener('mouseenter', () => {
+        isHovered = true;
+      });
+
+      card.addEventListener('mousemove', (e) => {
+        if (!isHovered) return;
+        if (rAF) cancelAnimationFrame(rAF);
+
+        rAF = requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const percentX = (x - centerX) / centerX;
+          const percentY = (y - centerY) / centerY;
+
+          const rotX = -percentY * 8;
+          const rotY = percentX * 8;
+
+          card.style.transform = `perspective(850px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateY(-4px)`;
+
+          const glare = card.querySelector('.card-3d-glare');
+          if (glare) {
+            glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 65%)`;
+          }
+        });
+      });
+
+      card.addEventListener('mouseleave', () => {
+        isHovered = false;
+        if (rAF) cancelAnimationFrame(rAF);
+        card.style.transform = 'perspective(850px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      });
+    });
+
+    // Modal Controller
+    const modal = document.getElementById('tpl-modal');
+    const modalTitle = document.getElementById('modal-tpl-title');
+    const modalDesc = document.getElementById('modal-tpl-desc');
+    const modalCanvas = document.getElementById('modal-stage-canvas');
+    const modalFeaturesList = document.getElementById('modal-features-list');
+    const modalPriceTag = document.getElementById('modal-price-tag');
+    const modalCheckoutBtn = document.getElementById('modal-checkout-btn');
+    const modalWhatsappBtn = document.getElementById('modal-whatsapp-btn');
+
+    function openTemplateModal(tplId) {
+      const t = templates.find(item => item.id === tplId);
+      if (!t) return;
+
+      modalTitle.textContent = t.title;
+      modalDesc.textContent = t.desc;
+      modalCanvas.innerHTML = t.previewHTML;
+      modalPriceTag.textContent = t.price;
+
+      // Populate features
+      modalFeaturesList.innerHTML = t.features.map(f => `<li>${f}</li>`).join('');
+
+      // Update CTA buttons
+      const waText = encodeURIComponent(`Hi Belintan, I'm interested in purchasing the "${t.title}" template (${t.price}) from your templates collection.`);
+      modalWhatsappBtn.href = `https://wa.me/918610662871?text=${waText}`;
+      modalCheckoutBtn.href = `https://wa.me/918610662871?text=${waText}`;
+      modalCheckoutBtn.innerHTML = t.isLock ? `<span>Buy ${t.title} (${t.price}) &rarr;</span>` : `<span>Download ${t.title} (Free) &rarr;</span>`;
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeTemplateModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeTemplateModal();
+    });
+
+    // Device Switcher
+    const deviceBtns = document.querySelectorAll('.device-btn');
+    const stageCanvas = document.getElementById('modal-stage-canvas');
+
+    deviceBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        deviceBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const dev = btn.getAttribute('data-device');
+        if (dev === 'desktop') {
+          stageCanvas.style.maxWidth = '1000px';
+        } else if (dev === 'tablet') {
+          stageCanvas.style.maxWidth = '680px';
+        } else if (dev === 'mobile') {
+          stageCanvas.style.maxWidth = '375px';
+        }
+      });
+    });
+
+    // All Access Modal Controller
+    const allAccessModal = document.getElementById('all-access-modal');
+
+    function openAllAccessModal() {
+      allAccessModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAllAccessModal() {
+      allAccessModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    allAccessModal.addEventListener('click', (e) => {
+      if (e.target === allAccessModal) closeAllAccessModal();
+    });
+
+    function openCheckoutModal(tplId) {
+      openTemplateModal(tplId);
+    }
+
+    // Keyboard ESC to close modals
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeTemplateModal();
+        closeAllAccessModal();
+      }
+    });
+  </script>
+</body>
+</html>
