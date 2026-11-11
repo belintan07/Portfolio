@@ -8607,6 +8607,153 @@
       display: none !important;
     }
 
+    
+    /* ==========================================================================
+       MODERN VIBRANT SAAS CONSULTATION / PROJECT INQUIRY FORM
+       ========================================================================== */
+    .consultation-form-card {
+      background: #141B12 !important;
+      border: 1.5px solid rgba(163, 230, 53, 0.22) !important;
+      border-radius: 28px !important;
+      overflow: hidden !important;
+      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.6), 0 0 35px -10px rgba(163, 230, 53, 0.12) !important;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
+    }
+
+    .consultation-form-card:hover {
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.7), 0 0 45px -5px rgba(163, 230, 53, 0.18) !important;
+    }
+
+    .consultation-card-header {
+      background: rgba(18, 24, 16, 0.95) !important;
+      border-bottom: 1.5px solid rgba(163, 230, 53, 0.15) !important;
+      padding: 24px 26px !important;
+      text-align: left !important;
+    }
+
+    .consultation-card-header h3 {
+      font-family: var(--font-display, inherit) !important;
+      font-size: 1.45rem !important;
+      font-weight: 800 !important;
+      color: #FFFFFF !important;
+      margin: 8px 0 6px 0 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    .consultation-card-header p {
+      font-size: 0.88rem !important;
+      color: #94A3B8 !important;
+      margin: 0 !important;
+      line-height: 1.45 !important;
+    }
+
+    .consultation-card-body {
+      padding: 26px 24px !important;
+      background: transparent !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 14px !important;
+    }
+
+    .consultation-input,
+    .consultation-select,
+    .consultation-textarea {
+      width: 100% !important;
+      background: #090C0E !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+      border-radius: 14px !important;
+      padding: 13px 16px !important;
+      font-family: var(--font-body, inherit) !important;
+      font-size: 0.92rem !important;
+      color: #FFFFFF !important;
+      transition: all 0.2s ease !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    .consultation-input::placeholder,
+    .consultation-textarea::placeholder {
+      color: #64748B !important;
+    }
+
+    .consultation-input:focus,
+    .consultation-select:focus,
+    .consultation-textarea:focus {
+      border-color: #A3E635 !important;
+      box-shadow: 0 0 16px rgba(163, 230, 53, 0.25) !important;
+    }
+
+    .consultation-select option {
+      background: #090C0E !important;
+      color: #FFFFFF !important;
+    }
+
+    .consultation-submit-btn {
+      width: 100% !important;
+      height: 48px !important;
+      background: #A3E635 !important;
+      color: #0F172A !important;
+      font-family: var(--font-display, inherit) !important;
+      font-size: 0.95rem !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.01em !important;
+      text-transform: none !important;
+      border-radius: 9999px !important;
+      border: none !important;
+      cursor: pointer !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-shadow: 0 4px 15px rgba(163, 230, 53, 0.35) !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+      margin-top: 6px !important;
+    }
+
+    .consultation-submit-btn:hover {
+      background: #BEF264 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 22px rgba(163, 230, 53, 0.55) !important;
+    }
+
+    .consultation-wa-btn {
+      width: 100% !important;
+      height: 44px !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      color: #CBD5E1 !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      border-radius: 9999px !important;
+      font-family: var(--font-display, inherit) !important;
+      font-size: 0.88rem !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      box-shadow: none !important;
+      transition: all 0.2s ease !important;
+      text-decoration: none !important;
+      margin-top: 8px !important;
+    }
+
+    .consultation-wa-btn:hover {
+      background: rgba(163, 230, 53, 0.12) !important;
+      border-color: rgba(163, 230, 53, 0.35) !important;
+      color: #A3E635 !important;
+      transform: translateY(-2px) !important;
+    }
+
+    .consultation-disclaimer {
+      font-size: 0.78rem !important;
+      color: #94A3B8 !important;
+      text-align: center !important;
+      margin-top: 10px !important;
+    }
+
+    .consultation-trust-banner {
+      display: none !important;
+    }
+
     </style>
 
   <!-- Schema.org JSON-LD Structured Data for Full-Stack Freelance Software Engineer -->
@@ -10113,10 +10260,11 @@
           <div class="contact-side-col">
             
             <div class="consultation-form-card">
-              <!-- Deep Royal Blue Top Banner matching Jaro reference -->
+              <!-- Modern SaaS Inquiry Header -->
               <div class="consultation-card-header">
-                <h3>Get Free Upskilling Guidance</h3>
-                <p>Fill in the details for a free consultation &amp; quote</p>
+                <span class="sketch-chapter-badge" style="margin-bottom: 8px;">⚡ INSTANT DISCOVERY &amp; QUOTE</span>
+                <h3>Start Your Project</h3>
+                <p>Direct inquiry for SaaS architectures, web applications, or custom engineering.</p>
               </div>
 
               <!-- Form Body -->
@@ -10135,78 +10283,66 @@
                   <!-- Email Address* -->
                   <div>
                     <input type="email" id="user-email" name="email" class="consultation-input"
-                      placeholder="Email Address*" required autocomplete="email" aria-describedby="email-error" />
-                    <span class="field-error-msg" id="email-error">Please enter a valid work or personal email address</span>
+                      placeholder="Work / Personal Email*" required autocomplete="email" aria-describedby="email-error" />
+                    <span class="field-error-msg" id="email-error">Please enter a valid email address</span>
                   </div>
 
                   <!-- Mobile Number* -->
                   <div>
                     <input type="tel" id="user-phone" name="phone" class="consultation-input"
-                      placeholder="Mobile Number*" autocomplete="tel" aria-describedby="phone-error" />
+                      placeholder="WhatsApp / Phone Number*" autocomplete="tel" aria-describedby="phone-error" />
                     <span class="field-error-msg" id="phone-error">Please enter a valid phone or WhatsApp number</span>
                   </div>
 
-                  <!-- Dual Split Row: Timeline & City -->
+                  <!-- Dual Split Row: Timeline & Budget -->
                   <div class="consultation-dual-row">
                     <div>
                       <input type="text" id="user-timeline" name="timeline" class="consultation-input"
-                        placeholder="Work Exp*" />
+                        placeholder="Target Timeline (e.g. 2–4 Wks)*" />
                     </div>
                     <div>
                       <input type="text" id="user-city" name="city" class="consultation-input"
-                        placeholder="City*" />
+                        placeholder="Estimated Budget / City*" />
                     </div>
                   </div>
 
                   <!-- Select Your Domain* -->
                   <div>
                     <select id="project-type" name="projectType" class="consultation-select">
-                      <option value="" disabled selected>Select Your Domain*</option>
-                      <option value="Full-Stack Web App (React 19 + Node.js)">Full-Stack Web App (React 19 + Node.js)</option>
-                      <option value="Java &amp; Spring Boot Backend Systems">Java &amp; Spring Boot Backend Systems</option>
-                      <option value="Python AI &amp; Custom FastMCP Bridge">Python AI &amp; Custom FastMCP Bridge</option>
-                      <option value="Marketing &amp; Growth Bundle (₹14,999)">Marketing &amp; Growth Bundle (₹14,999)</option>
-                      <option value="Business Website (₹9,999)">Business Website (₹9,999)</option>
-                      <option value="Starter Landing Page (₹4,999)">Starter Landing Page (₹4,999)</option>
-                      <option value="Customer Care &amp; Technical Support Role">Customer Care &amp; Technical Support Role</option>
+                      <option value="" disabled selected>Select Project Scope / Domain*</option>
+                      <option value="Vibrant SaaS Platform &amp; Edge Architecture">Vibrant SaaS Platform &amp; Edge Architecture</option>
+                      <option value="Full-Stack Web App (React 19 + Node / Spring Boot)">Full-Stack Web App (React 19 + Node / Spring Boot)</option>
+                      <option value="High-Converting Website &amp; Headless CMS">High-Converting Website &amp; Headless CMS</option>
+                      <option value="Cloudflare Edge Stack (Pages + Workers + D1)">Cloudflare Edge Stack (Pages + Workers + D1)</option>
+                      <option value="Python AI, Telemetry &amp; Custom FastMCP Bridge">Python AI, Telemetry &amp; Custom FastMCP Bridge</option>
+                      <option value="Dedicated Engineering &amp; Client Support Retainer">Dedicated Engineering &amp; Client Support Retainer</option>
                     </select>
                   </div>
 
-                  <!-- Brief Project Scope (Optional) -->
+                  <!-- Brief Project Scope -->
                   <div>
                     <textarea id="user-message" name="message" class="consultation-textarea"
-                      placeholder="Brief project vision or key requirements (optional)..." aria-describedby="message-error"></textarea>
+                      placeholder="Briefly describe your project goals, technical requirements, or timeline..." aria-describedby="message-error" style="min-height: 85px;"></textarea>
                     <span class="field-error-msg" id="message-error">Please provide a brief message (at least 6 characters)</span>
                   </div>
 
-                  <!-- Submit Buttons -->
+                  <!-- Modern Action Buttons -->
                   <button type="submit" id="contact-submit-btn" class="consultation-submit-btn">
-                    <span id="btn-submit-text">SUBMIT</span>
+                    <span id="btn-submit-text">🚀 Send Project Request</span>
                   </button>
 
                   <button type="button" onclick="sendWhatsApp(event)" class="consultation-wa-btn">
-                    <span>💬 Instant Inquiry on WhatsApp &rarr;</span>
+                    <span>💬 Prefer WhatsApp? Chat Instantly &rarr;</span>
                   </button>
 
-                  <!-- Fine-Print Consent Disclaimer matching Jaro screenshot -->
                   <p class="consultation-disclaimer">
-                    *By clicking 'Submit Inquiry', you authorize Belintan B to call/email/SMS/WhatsApp you for your query.
+                    🔒 Zero spam. Direct reply within 24–48 hours from Belintan B.
                   </p>
                 </form>
               </div>
             </div>
 
-            <!-- Secondary Trust Banner matching Jaro screenshot's second card -->
-            <div class="consultation-trust-banner">
-              <span class="trust-banner-badge">⚡ Belintan B. &middot; Engineering &amp; Care</span>
-              <span class="trust-banner-sub">Verified Frontend Developer &amp; Spring Boot Specialist &middot; 100% On-Time Delivery Guarantee</span>
-              <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20checking%20your%20availability%20for%20a%20project" target="_blank" rel="noopener noreferrer" class="trust-banner-link">
-                Direct WhatsApp Hotline Available 10:00 AM &ndash; 9:00 PM IST &rarr;
-              </a>
-            </div>
-
           </div>
-
         </div>
 
         <!-- Bottom Expert Strip across contact section matching reference bottom bar -->
