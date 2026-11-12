@@ -244,7 +244,6 @@
     }
 
     [data-theme="dark"] .about-section,
-    [data-theme="dark"] .projects-section,
     [data-theme="dark"] .contact-section {
       background: #0E0F15;
       border-color: #2D303D;
@@ -2646,12 +2645,6 @@
     /* ==========================================================================
        6. PROJECTS SECTION
        ========================================================================== */
-    .projects-section {
-      background: var(--bg-alt);
-      border-top: 1.5px solid var(--border-light, #E9E9E9);
-      border-bottom: 1.5px solid var(--border-light, #E9E9E9);
-    }
-
     
     /* ==========================================================================
        VIBRANT SAAS PORTFOLIO FRAME & BENTO GRID (CIRCULAR RBP SPEC)
@@ -8778,7 +8771,6 @@
     .hero-section .container,
     .core-value-section .container,
     .chapter-two-unified-section .container,
-    .projects-section .container,
     .pricing-section .container,
     .contact-section .container {
       width: calc(100% - clamp(24px, 3.5vw, 56px)) !important;
@@ -8961,8 +8953,7 @@
       box-sizing: border-box !important;
     }
 
-    /* 6. PROJECTS / SAAS PLATFORM: Expansive Frame & Full View Bento Grid */
-    .vibrant-saas-frame {
+        .vibrant-saas-frame {
       width: 100% !important;
       box-sizing: border-box !important;
       margin-top: 24px !important;
@@ -9098,7 +9089,6 @@
       .hero-section .container,
       .core-value-section .container,
       .chapter-two-unified-section .container,
-      .projects-section .container,
       .pricing-section .container,
       .contact-section .container {
         width: calc(100% - 24px) !important;
@@ -10331,7 +10321,7 @@
                   <div>
                     <select id="project-type" name="projectType" class="consultation-select">
                       <option value="" disabled selected>Select Project Scope / Domain*</option>
-                      <option value="Vibrant SaaS Platform &amp; Edge Architecture">Vibrant SaaS Platform &amp; Edge Architecture</option>
+                      <option value="Modern Web &amp; Frontend Application">Modern Web &amp; Frontend Application</option>
                       <option value="Full-Stack Web App (React 19 + Node / Spring Boot)">Full-Stack Web App (React 19 + Node / Spring Boot)</option>
                       <option value="High-Converting Website &amp; Headless CMS">High-Converting Website &amp; Headless CMS</option>
                       <option value="Cloudflare Edge Stack (Pages + Workers + D1)">Cloudflare Edge Stack (Pages + Workers + D1)</option>
@@ -11282,7 +11272,7 @@
           title: 'HabiTrack Live — Sub-Millisecond Habit & Streak Engine',
           category: 'Performance & Local-First Application',
           tech: 'React · Modern JavaScript · Local-First IndexedDB · Canvas Confetti',
-          url: 'http://localhost:8000/#projects',
+          url: 'http://localhost:8000/#services',
           features: [
             'Zero network latency optimistic UI state management',
             'Sub-millisecond habit streak recalculation and recurring date filters',
@@ -11397,7 +11387,7 @@
           title: 'ResumeAI v2.0 — Intelligent Resume Analyzer & AST Scorer',
           category: 'AI Solutions & Developer Tools',
           tech: 'Gemini LLM · Web Workers · JavaScript AST Lexer · React',
-          url: 'http://localhost:8000/#projects',
+          url: 'http://localhost:8000/#services',
           features: [
             'Real-time client-side abstract syntax tree (AST) resume token parsing',
             'Sub-80ms semantic matching against technical job requirements',

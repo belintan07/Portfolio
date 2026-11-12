@@ -43,6 +43,9 @@ try {
                     ".ico"  { $response.ContentType = "image/x-icon" }
                     default { $response.ContentType = "application/octet-stream" }
                 }
+                $response.AddHeader("Cache-Control", "no-cache, no-store, must-revalidate")
+                $response.AddHeader("Pragma", "no-cache")
+                $response.AddHeader("Expires", "0")
                 $response.ContentLength64 = $bytes.Length
                 $response.OutputStream.Write($bytes, 0, $bytes.Length)
             } else {
