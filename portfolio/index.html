@@ -9413,6 +9413,186 @@
       box-shadow: 0 6px 28px rgba(163, 230, 53, 0.5) !important;
     }
 
+    
+    /* ==========================================================================
+       CONTACT UNIFORMITY & GMAIL / FORM ENHANCEMENTS
+       ========================================================================== */
+    .contact-channels-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+      margin-top: 18px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    @media (max-width: 640px) {
+      .contact-channels-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    .contact-item-card {
+      background: #141B12 !important;
+      border: 1px solid rgba(163, 230, 53, 0.18) !important;
+      border-radius: 18px !important;
+      padding: 13px 16px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      text-decoration: none !important;
+      transition: all 0.22s ease !important;
+      min-width: 0 !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+      box-sizing: border-box !important;
+    }
+
+    .contact-item-card:hover {
+      background: #16240D !important;
+      border-color: rgba(163, 230, 53, 0.4) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 20px rgba(163, 230, 53, 0.15) !important;
+    }
+
+    .contact-icon-bubble {
+      width: 38px !important;
+      height: 38px !important;
+      background: #090C0E !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      border-radius: 10px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 1.15rem !important;
+      flex-shrink: 0 !important;
+    }
+
+    .contact-meta {
+      min-width: 0 !important;
+      overflow: hidden !important;
+      flex: 1 !important;
+    }
+
+    .contact-meta h4 {
+      font-size: 0.72rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.06em !important;
+      color: #94A3B8 !important;
+      margin: 0 0 3px 0 !important;
+      font-family: var(--font-display, inherit) !important;
+      font-weight: 700 !important;
+    }
+
+    .contact-meta p {
+      font-size: 0.86rem !important;
+      font-weight: 600 !important;
+      color: #FFFFFF !important;
+      margin: 0 !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      font-family: var(--font-body, inherit) !important;
+    }
+
+    /* UNIFORM CONTACT BOTTOM EXPERT BAR (Matching Forest & Lime SaaS Bento Theme) */
+    .contact-bottom-expert-bar {
+      background: #141B12 !important;
+      border: 1px solid rgba(163, 230, 53, 0.22) !important;
+      border-radius: 9999px !important;
+      padding: 14px 28px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 25px rgba(163, 230, 53, 0.08) !important;
+      color: #CBD5E1 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 16px !important;
+      margin-top: 28px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+
+    .contact-bottom-expert-bar .expert-bar-info {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      font-size: 0.92rem !important;
+      flex-wrap: wrap !important;
+    }
+
+    .contact-bottom-expert-bar .expert-bar-info a {
+      color: #FFFFFF !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      transition: color 0.2s ease !important;
+    }
+
+    .contact-bottom-expert-bar .expert-bar-info a:hover {
+      color: #A3E635 !important;
+    }
+
+    .contact-bottom-expert-bar .expert-bar-cta-btn {
+      background: #A3E635 !important;
+      color: #0F172A !important;
+      border-radius: 9999px !important;
+      font-family: var(--font-display, inherit) !important;
+      font-weight: 800 !important;
+      font-size: 0.88rem !important;
+      padding: 10px 22px !important;
+      text-decoration: none !important;
+      box-shadow: 0 4px 15px rgba(163, 230, 53, 0.35) !important;
+      border: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease !important;
+      flex-shrink: 0 !important;
+    }
+
+    .contact-bottom-expert-bar .expert-bar-cta-btn:hover {
+      background: #BEF264 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 22px rgba(163, 230, 53, 0.5) !important;
+    }
+
+    @media (max-width: 768px) {
+      .contact-bottom-expert-bar {
+        border-radius: 20px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 18px 20px !important;
+      }
+      .contact-bottom-expert-bar .expert-bar-cta-btn {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+    }
+
+    /* MODERN HIGH-CONTRAST FORM FEEDBACK TOASTS */
+    .form-feedback-toast {
+      border-radius: 14px !important;
+      padding: 12px 18px !important;
+      font-family: var(--font-display, inherit) !important;
+      font-size: 0.9rem !important;
+      font-weight: 600 !important;
+      margin-bottom: 14px !important;
+      line-height: 1.4 !important;
+      transition: all 0.25s ease !important;
+    }
+
+    .form-feedback-toast.success {
+      background: rgba(163, 230, 53, 0.14) !important;
+      color: #A3E635 !important;
+      border: 1px solid rgba(163, 230, 53, 0.4) !important;
+      box-shadow: 0 4px 16px rgba(163, 230, 53, 0.2) !important;
+    }
+
+    .form-feedback-toast.error {
+      background: rgba(239, 68, 68, 0.14) !important;
+      color: #FCA5A5 !important;
+      border: 1px solid rgba(239, 68, 68, 0.4) !important;
+      box-shadow: 0 4px 16px rgba(239, 68, 68, 0.2) !important;
+    }
+  
     </style>
 
   <!-- Schema.org JSON-LD Structured Data for Full-Stack Freelance Software Engineer -->
@@ -9556,8 +9736,8 @@
         <div class="overlay-footer">
           <div class="overlay-contact-brief">
             <div>📞 <a href="tel:+918610662871">+91 8610662871</a></div>
-            <div>✉️ <a href="mailto:belintan07@gmail.com">belintan07@gmail.com</a></div>
-            <div>📍 Tuticorin, Tamil Nadu, India</div>
+            <div>✉️ <a href="https://mail.google.com/mail/?view=cm&fs=1&to=belintan07@gmail.com" target="_blank" rel="noopener noreferrer">belintan07@gmail.com</a></div>
+            <div>📍 Chennai, Tamil Nadu, India</div>
           </div>
           <div class="overlay-social-links">
             <a href="https://linkedin.com/in/belintanben" target="_blank" rel="noopener">LinkedIn &rarr;</a>
@@ -10860,10 +11040,10 @@
                   <a href="tel:+918610662871" class="shortcut-pill-btn">
                     <span>📞 Direct Phone Call</span>
                   </a>
-                  <a href="mailto:belintan07@gmail.com" class="shortcut-pill-btn">
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=belintan07@gmail.com" target="_blank" rel="noopener noreferrer" class="shortcut-pill-btn">
                     <span>✉️ Send Direct Email</span>
                   </a>
-                  <a href="#experience" class="shortcut-pill-btn">
+                  <a href="Belintan_B_Resume.pdf" target="_blank" download="Belintan_B_Resume.pdf" class="shortcut-pill-btn">
                     <span>📄 Single-Page Resume PDF</span>
                   </a>
                 </div>
@@ -10872,7 +11052,7 @@
 
             <!-- Direct Contact Info Channels -->
             <div class="contact-channels-grid">
-              <a href="mailto:belintan07@gmail.com" class="contact-item-card">
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=belintan07@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-item-card" title="Compose direct email in Gmail">
                 <div class="contact-icon-bubble">✉️</div>
                 <div class="contact-meta">
                   <h4>Direct Email</h4>
@@ -10880,15 +11060,15 @@
                 </div>
               </a>
 
-              <a href="https://wa.me/918610662871" target="_blank" rel="noopener" class="contact-item-card">
-                <div class="contact-icon-bubble">📞</div>
+              <a href="https://wa.me/918610662871" target="_blank" rel="noopener noreferrer" class="contact-item-card" title="Chat on WhatsApp">
+                <div class="contact-icon-bubble">💬</div>
                 <div class="contact-meta">
                   <h4>Phone &amp; WhatsApp</h4>
                   <p>+91 8610662871</p>
                 </div>
               </a>
 
-              <a href="https://linkedin.com/in/belintanben" target="_blank" rel="noopener" class="contact-item-card">
+              <a href="https://linkedin.com/in/belintanben" target="_blank" rel="noopener noreferrer" class="contact-item-card" title="Visit LinkedIn Profile">
                 <div class="contact-icon-bubble">💼</div>
                 <div class="contact-meta">
                   <h4>LinkedIn Profile</h4>
@@ -10896,7 +11076,7 @@
                 </div>
               </a>
 
-              <a href="https://github.com/belintan07" target="_blank" rel="noopener" class="contact-item-card">
+              <a href="https://github.com/belintan07" target="_blank" rel="noopener noreferrer" class="contact-item-card" title="Visit GitHub Repositories">
                 <div class="contact-icon-bubble">🐙</div>
                 <div class="contact-meta">
                   <h4>GitHub Repositories</h4>
@@ -10904,11 +11084,11 @@
                 </div>
               </a>
 
-              <div class="contact-item-card" style="grid-column: 1 / -1;">
+              <div class="contact-item-card contact-location-card" style="grid-column: 1 / -1;">
                 <div class="contact-icon-bubble">📍</div>
                 <div class="contact-meta">
                   <h4>Current Location &amp; Engagement Mode</h4>
-                  <p>Tuticorin, Tamil Nadu, India · Available Worldwide for Remote &amp; On-Site Projects</p>
+                  <p>Chennai, Tamil Nadu, India · Available Worldwide for Remote &amp; On-Site Projects</p>
                 </div>
               </div>
             </div>
@@ -11011,7 +11191,7 @@
             <span>&bull;</span>
             <a href="tel:+918610662871">📞 +91 8610662871</a>
             <span>&bull;</span>
-            <a href="mailto:belintan07@gmail.com">✉️ belintan07@gmail.com</a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=belintan07@gmail.com" target="_blank" rel="noopener noreferrer">✉️ belintan07@gmail.com</a>
           </div>
           <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20let's%20connect%20for%20a%20quick%20consultation" target="_blank" rel="noopener noreferrer" class="expert-bar-cta-btn">
             <span>💬 Chat on WhatsApp</span>
@@ -11062,7 +11242,7 @@
             </svg>
           </a>
           <!-- Direct Email -->
-          <a href="mailto:belintan07@gmail.com" class="biz-social-tile" aria-label="Email" title="Direct Email">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=belintan07@gmail.com" target="_blank" rel="noopener noreferrer" class="biz-social-tile" aria-label="Email" title="Direct Email">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -11156,7 +11336,7 @@
       <!-- Bottom Row: Copyright + Operational Status -->
       <div class="biz-footer-bottom">
         <div>
-          &copy; 2026 <strong>BELINTAN B.</strong> All rights reserved. Crafted with precision in Tuticorin, Tamil Nadu, India.
+          &copy; 2026 <strong>BELINTAN B.</strong> All rights reserved. Crafted with precision in Chennai, Tamil Nadu, India.
         </div>
         <div class="biz-status-pill">
           <span style="width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; display: inline-block;"></span>
@@ -11473,6 +11653,36 @@
       /* ------------------------------------------------------------------------
          6. Real-Time Form Validation with Inline Error States & Feedback
          ------------------------------------------------------------------------ */
+      
+      /* ==========================================================================
+         WHATSAPP INSTANT INQUIRY HANDLER (Global Scope)
+         ========================================================================== */
+      window.sendWhatsApp = function(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        const nameInp = document.getElementById('user-name');
+        const scopeInp = document.getElementById('project-type');
+        const msgInp = document.getElementById('user-message');
+        const timelineInp = document.getElementById('user-timeline');
+        const cityInp = document.getElementById('user-city');
+
+        const name = nameInp && nameInp.value.trim() ? nameInp.value.trim() : 'Prospective Client';
+        const scope = scopeInp && scopeInp.value ? scopeInp.value : 'Project Consultation';
+        const timeline = timelineInp && timelineInp.value.trim() ? timelineInp.value.trim() : '';
+        const city = cityInp && cityInp.value.trim() ? cityInp.value.trim() : '';
+        const msg = msgInp && msgInp.value.trim() ? msgInp.value.trim() : '';
+
+        let text = `Hi Belintan, my name is ${name}. I would like to discuss: ${scope}.`;
+        if (timeline || city) {
+          text += `\nTimeline/Budget: ${timeline || 'Flexible'} | City: ${city || 'Remote'}`;
+        }
+        if (msg) {
+          text += `\nProject brief: ${msg}`;
+        }
+
+        const waUrl = `https://wa.me/918610662871?text=${encodeURIComponent(text)}`;
+        window.open(waUrl, '_blank');
+      };
+  
       const contactForm = document.getElementById('portfolio-contact-form');
       const formToast = document.getElementById('form-toast');
       const nameInput = document.getElementById('user-name');
@@ -11584,17 +11794,27 @@
             formToast.style.display = 'block';
           }
 
+          const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=belintan07@gmail.com&su=${emailSubject}&body=${emailBody}`;
+          if (formToast) {
+            formToast.className = 'form-feedback-toast success';
+            formToast.innerHTML = '✦ Redirecting directly to Gmail with your project request...';
+            formToast.style.display = 'block';
+          }
+
           setTimeout(() => {
-            window.location.href = `mailto:belintan07@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+            const win = window.open(gmailComposeUrl, '_blank');
+            if (!win) {
+              window.location.href = gmailComposeUrl;
+            }
             contactForm.reset();
             [nameInput, emailInput, phoneInput, messageInput].forEach(inp => {
               if (inp) {
                 inp.classList.remove('input-valid', 'input-invalid');
               }
             });
-            if (btnSubmitText) btnSubmitText.textContent = 'SUBMIT INQUIRY';
+            if (btnSubmitText) btnSubmitText.textContent = '🚀 Send Project Request';
             if (submitBtn) submitBtn.disabled = false;
-          }, 700);
+          }, 600);
         });
       }
 
