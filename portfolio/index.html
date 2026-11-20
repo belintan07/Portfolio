@@ -9712,6 +9712,38 @@
       transform: translateY(-2px);
       background: #059669;
     }
+    /* Responsive Header Controls & Overflow Prevention (320px - 768px) */
+    @media (max-width: 768px) {
+      .clock-chip {
+        display: none !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .btn-wa-pill {
+        display: none !important;
+      }
+      .site-header {
+        padding: 0 0.5rem;
+      }
+      .nav-glass {
+        padding: 0.45rem 0.75rem;
+        gap: 0.75rem;
+      }
+    }
+    @media (max-width: 375px) {
+      .brand-group .brand-text {
+        display: none !important;
+      }
+      .nav-glass {
+        padding: 0.4rem 0.6rem;
+      }
+      .nav-actions {
+        gap: 0.4rem;
+      }
+      .navbar-13-menu-toggle {
+        padding: 6px 10px !important;
+      }
+    }
 
     /* Hero Section */
     .hero {
@@ -10399,8 +10431,13 @@
             <span class="overlay-item-text">Packages &amp; Pricing</span>
             <span class="overlay-item-sub">Fixed Tiers &amp; Scope Estimates</span>
           </a>
-          <a href="#contact" class="overlay-nav-item" data-index="04">
+          <a href="/templates/" class="overlay-nav-item" data-index="04">
             <span class="overlay-item-num">04</span>
+            <span class="overlay-item-text">Templates ✨</span>
+            <span class="overlay-item-sub">Production Web &amp; App UI Starter Kits</span>
+          </a>
+          <a href="#contact" class="overlay-nav-item" data-index="05">
+            <span class="overlay-item-num">05</span>
             <span class="overlay-item-text">Contact</span>
             <span class="overlay-item-sub">Direct WhatsApp, Inquiries &amp; Consultation Form</span>
           </a>
