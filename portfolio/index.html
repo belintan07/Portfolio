@@ -9586,29 +9586,153 @@
     
     
     /* ==========================================================================
-       EXACT RISHI-STYLE HERO & METALLIC DESK-CALENDAR FLIP ALBUM
+       EXACT RISHI-STYLE HERO & METALLIC DESK-CALENDAR FLIP ALBUM (POLISHED)
        ========================================================================== */
+    /* Floating Frosted Header */
+    .site-header {
+      position: sticky;
+      top: 0.75rem;
+      z-index: 100;
+      width: 100%;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 1rem;
+    }
+    .nav-glass-container {
+      max-width: 84rem;
+      margin: 0 auto;
+    }
+    .nav-glass {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(26, 24, 24, 0.08);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    [data-theme="dark"] .nav-glass {
+      background: rgba(26, 24, 24, 0.82);
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none !important;
+      color: #1A1818;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+    [data-theme="dark"] .brand-group {
+      color: #E8E4E0;
+    }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #1A1818;
+      color: #E8E4E0;
+      display: grid;
+      place-items: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+    [data-theme="dark"] .brand-mark {
+      background: #E8E4E0;
+      color: #1A1818;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+    }
+    .nav-link {
+      color: #1A1818;
+      text-decoration: none !important;
+      font-size: 0.875rem;
+      font-weight: 600;
+      opacity: 0.8;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    [data-theme="dark"] .nav-link {
+      color: #E8E4E0;
+    }
+    .nav-link:hover {
+      opacity: 1;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .clock-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.42rem 0.9rem;
+      border-radius: 9999px;
+      background: rgba(26, 24, 24, 0.05);
+      border: 1px solid rgba(26, 24, 24, 0.08);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: inherit;
+    }
+    [data-theme="dark"] .clock-chip {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    .btn-wa-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 1rem;
+      border-radius: 9999px;
+      background: #10B981;
+      color: #FFFFFF !important;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-decoration: none !important;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-wa-pill:hover {
+      transform: translateY(-2px);
+      background: #059669;
+    }
+
+    /* Hero Section */
     .hero {
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      border-radius: 0 0 2rem 2rem;
+      border-radius: 0 0 2.5rem 2.5rem;
       background: radial-gradient(120% 90% at 62% 30%, #EEEAE6 0%, #E8E4E0 48%, #D8CDCA 100%);
-      min-height: calc(100vh - 72px);
+      min-height: calc(100vh - 80px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       border-bottom: 1px solid rgba(26, 24, 24, 0.08);
-      box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 25px 50px -20px rgba(0, 0, 0, 0.08);
       transition: background 0.4s ease;
     }
-
     [data-theme="dark"] .hero {
       background: radial-gradient(120% 90% at 62% 30%, #2A2525 0%, #1F1C1C 48%, #141212 100%);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 25px 50px -20px rgba(0, 0, 0, 0.6);
     }
-
     .hero__vig {
       position: absolute;
       inset: 0;
@@ -9619,14 +9743,12 @@
     [data-theme="dark"] .hero__vig {
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), transparent 40%, rgba(0, 0, 0, 0.35));
     }
-
     .hero__stage {
       position: absolute;
       inset: 0;
       z-index: 2;
       pointer-events: none;
     }
-
     .fig {
       position: absolute;
       bottom: 3.5rem;
@@ -9638,46 +9760,21 @@
       align-items: flex-end;
       justify-content: center;
     }
-
     @media (max-width: 1023px) {
       .fig {
         position: relative;
         bottom: 0;
         right: auto;
         margin: 2rem auto 0;
-        height: 22rem;
+        height: 24rem;
         aspect-ratio: auto;
       }
     }
-
-    .fig__frame {
-      height: 100%;
-      display: flex;
-      align-items: flex-end;
-      border-radius: 2rem 2rem 0 0;
-      overflow: hidden;
-      -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-      mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    }
-
-    .fig__img {
-      height: 100%;
-      width: auto;
-      max-width: 100%;
-      object-fit: contain;
-      object-position: 50% 100%;
-      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.16));
-      transition: transform 0.4s cubic-bezier(.16, 1, .3, 1);
-    }
-    .fig:hover .fig__img {
-      transform: scale(1.02);
-    }
-
     .fig__wm {
       position: absolute;
       right: -2rem;
-      bottom: 20%;
-      font-size: 8.5rem;
+      bottom: 22%;
+      font-size: 9rem;
       font-weight: 900;
       letter-spacing: -0.04em;
       line-height: 1;
@@ -9688,39 +9785,88 @@
       text-transform: uppercase;
     }
     [data-theme="dark"] .fig__wm {
-      color: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.05);
     }
     @media (max-width: 1023px) {
-      .fig__wm { font-size: 4rem; bottom: 8%; right: 4%; }
+      .fig__wm { font-size: 4.5rem; bottom: 8%; right: 4%; }
     }
-
+    .fig__frame {
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      border-radius: 2.5rem 2.5rem 1rem 1rem;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.25);
+      -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+      transition: transform 0.4s cubic-bezier(.16, 1, .3, 1);
+    }
+    .fig:hover .fig__frame {
+      transform: scale(1.02);
+    }
+    .fig__img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: 50% 25%;
+    }
+    .fig__badge-top {
+      position: absolute;
+      right: -1rem;
+      top: 15%;
+      z-index: 4;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1.15rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #1A1818;
+      font-size: 0.75rem;
+      font-weight: 700;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.15);
+      animation: floatBadgeHero 4s ease-in-out infinite;
+    }
+    [data-theme="dark"] .fig__badge-top {
+      background: rgba(26, 24, 24, 0.85);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: #E8E4E0;
+    }
+    @keyframes floatBadgeHero {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
     .fig__card {
       position: absolute;
       left: -1rem;
       bottom: 18%;
-      z-index: 3;
+      z-index: 4;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      min-height: 42px;
-      padding: 0 1.25rem;
+      min-height: 44px;
+      padding: 0 1.35rem;
       border-radius: 9999px;
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       background: rgba(26, 24, 24, 0.85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       color: #F3EEEC !important;
       font-size: 0.8125rem;
       font-weight: 600;
       letter-spacing: 0.01em;
-      box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.5);
       transition: transform 0.3s cubic-bezier(.16, 1, .3, 1), background 0.2s;
       pointer-events: auto;
-      text-decoration: none;
+      text-decoration: none !important;
     }
     .fig__card:hover {
       transform: translateY(-3px);
-      background: rgba(26, 24, 24, 0.98);
+      background: #000000;
       color: #FFFFFF !important;
     }
     .fig__card svg {
@@ -9736,36 +9882,35 @@
       flex-direction: column;
       justify-content: center;
       flex: 1;
-      padding-top: 4.5rem;
-      padding-bottom: 2.5rem;
+      padding-top: 3.5rem;
+      padding-bottom: 2rem;
     }
-
     .hero__left {
-      max-width: 44rem;
+      max-width: 46rem;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 2rem;
+      gap: 1.85rem;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      padding: 0.4rem 1.1rem;
+      padding: 0.45rem 1.15rem;
       border-radius: 9999px;
-      background: rgba(242, 238, 235, 0.75);
-      border: 1px solid rgba(196, 176, 176, 0.45);
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(26, 24, 24, 0.1);
       font-size: 0.8125rem;
       font-weight: 600;
       letter-spacing: 0.02em;
       color: #1A1818;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
     [data-theme="dark"] .eyebrow {
-      background: rgba(196, 176, 176, 0.08);
-      border-color: rgba(196, 176, 176, 0.16);
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.12);
       color: #E8E4E0;
     }
     .eyebrow__dot {
@@ -9785,14 +9930,13 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
-
     .h1 {
-      font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.035em;
+      font-size: clamp(2.8rem, 5.8vw, 4.85rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
       color: #1A1818;
     }
     [data-theme="dark"] .h1 {
@@ -9808,22 +9952,21 @@
 
     /* Desk Calendar Album */
     .cal-line {
-      display: block;
-      perspective: 1000px;
-      margin-top: 0.25rem;
+      perspective: 1200px;
+      margin-top: 0.4rem;
     }
     .cal {
       position: relative;
       display: inline-block;
-      perspective: 800px;
+      perspective: 900px;
       perspective-origin: 30% 0;
       cursor: pointer;
       user-select: none;
       outline: none;
-      transition: transform 0.25s cubic-bezier(.16, 1, .3, 1);
+      transition: transform 0.3s cubic-bezier(.16, 1, .3, 1);
     }
     .cal:hover {
-      transform: translateY(-3px) scale(1.02);
+      transform: translateY(-4px) scale(1.02);
     }
     .cal:focus-visible {
       outline: 2px solid #6B5C5C;
@@ -9833,28 +9976,28 @@
     .cal__body {
       position: relative;
       display: block;
-      width: 330px;
-      height: 84px;
-      transform: rotateX(10deg) rotateY(-8deg);
+      width: 340px;
+      height: 90px;
+      transform: rotateX(11deg) rotateY(-8deg);
       transform-style: preserve-3d;
-      transition: width 0.35s ease;
+      transition: width 0.35s ease, transform 0.15s ease-out;
     }
     @media (max-width: 640px) {
       .cal__body {
-        width: 280px;
-        height: 76px;
+        width: 290px;
+        height: 80px;
       }
     }
     .cal__stand {
       position: absolute;
-      left: 6px;
-      right: -6px;
-      top: 10px;
-      bottom: -14px;
-      border-radius: 12px;
-      background: linear-gradient(165deg, #3d3a38 0%, #1a1818 42%, #080707 100%);
-      box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      transform: translateZ(-8px);
+      left: 8px;
+      right: -8px;
+      top: 12px;
+      bottom: -16px;
+      border-radius: 14px;
+      background: linear-gradient(165deg, #383432 0%, #171514 42%, #080707 100%);
+      box-shadow: 0 20px 36px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+      transform: translateZ(-10px);
     }
     .cal__stack {
       position: absolute;
@@ -9864,10 +10007,10 @@
     .cal__page, .cal__face, .cal__rear {
       position: absolute;
       inset: 0;
-      border-radius: 10px;
+      border-radius: 12px;
     }
     .cal__page {
-      background: linear-gradient(180deg, #fdfcf9 0%, #f1efe9 100%);
+      background: linear-gradient(180deg, #fdfcf9 0%, #f0ede6 100%);
       box-shadow:
         0 2px 0 #d8d4cb,
         0 4px 0 #f6f4ef,
@@ -9876,7 +10019,7 @@
         0 10px 0 #c8c3b8,
         0 12px 0 #e9e6df,
         0 14px 0 #aaa498,
-        0 20px 28px -8px rgba(0, 0, 0, 0.45);
+        0 24px 32px -8px rgba(0, 0, 0, 0.45);
     }
     .cal__leaf {
       position: absolute;
@@ -9886,7 +10029,7 @@
       transform: translateZ(1px);
     }
     .cal__face {
-      background: linear-gradient(180deg, #ffffff 0%, #f5f3ec 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #f6f4ec 100%);
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.08);
@@ -9894,7 +10037,7 @@
     .cal__back {
       position: absolute;
       inset: 0;
-      border-radius: 10px;
+      border-radius: 12px;
       transform-origin: 50% 0;
       transform: translateZ(-1px) rotateX(352deg) translateY(50%) rotateX(180deg) translateY(-50%);
       backface-visibility: hidden;
@@ -9913,44 +10056,44 @@
       inset: 0;
       display: flex;
       align-items: center;
-      padding: 10px 22px 0;
-      color: #0F0E0E !important;
-      font-size: 1.35rem;
+      padding: 12px 24px 0;
+      color: #0E0D0D !important;
+      font-size: 1.45rem;
       font-weight: 800;
       letter-spacing: -0.035em;
       line-height: 1;
       white-space: nowrap;
     }
     @media (max-width: 640px) {
-      .cal__word { font-size: 1.15rem; padding: 8px 18px 0; }
+      .cal__word { font-size: 1.25rem; padding: 10px 18px 0; }
     }
     .cal__no {
       position: absolute;
-      right: 18px;
-      bottom: 10px;
-      font-size: 0.75rem;
+      right: 20px;
+      bottom: 12px;
+      font-size: 0.8125rem;
       font-weight: 700;
       letter-spacing: 0.08em;
-      color: rgba(15, 14, 14, 0.45) !important;
+      color: rgba(15, 14, 14, 0.5) !important;
       font-variant-numeric: tabular-nums;
     }
     .cal__holes {
       position: absolute;
-      top: 6px;
-      left: 18px;
-      right: 18px;
-      height: 8px;
+      top: 8px;
+      left: 20px;
+      right: 20px;
+      height: 9px;
       display: flex;
       justify-content: space-between;
       z-index: 5;
     }
     .cal__holes i {
       display: block;
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background: #111111;
-      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.5), 0 1px 1px rgba(0, 0, 0, 0.3);
     }
     .cal__shade {
       position: absolute;
@@ -9960,53 +10103,48 @@
       opacity: 0;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.08) 70%, rgba(0, 0, 0, 0) 100%);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.08) 70%, rgba(0, 0, 0, 0) 100%);
     }
+
+    /* Twin-loop wire metallic spiral rings */
     .cal__rings {
       position: absolute;
-      top: -14px;
-      left: 18px;
-      right: 18px;
-      height: 28px;
+      top: -16px;
+      left: 20px;
+      right: 20px;
+      height: 32px;
       display: flex;
       justify-content: space-between;
-      transform: translateZ(25px);
+      transform: translateZ(26px);
       pointer-events: none;
-      z-index: 20;
+      z-index: 25;
     }
     .cal__rings i {
       display: block;
-      width: 10px;
-      height: 28px;
+      width: 11px;
+      height: 32px;
       position: relative;
     }
     .cal__rings i::before {
       content: "";
       position: absolute;
-      left: -2px;
-      right: -2px;
+      left: -3px;
+      right: -3px;
       top: 0;
       bottom: 0;
-      border-radius: 6px;
-      border: 3px solid #8e8e8e;
-      border-left-color: #f5f5f5;
+      border-radius: 8px;
+      border: 3.5px solid #8c8c8c;
+      border-left-color: #ffffff;
       border-top-color: #ffffff;
-      border-right-color: #555555;
-      border-bottom-color: #777777;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-    }
-    .cal__measure {
-      position: absolute;
-      visibility: hidden;
-      white-space: nowrap;
-      font-weight: 700;
-      letter-spacing: -0.035em;
-      pointer-events: none;
+      border-right-color: #444444;
+      border-bottom-color: #666666;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45);
+      background: transparent;
     }
     .cal__hint {
       position: absolute;
       right: 0;
-      top: -1.75em;
+      top: -1.75rem;
       font-size: 0.75rem;
       font-weight: 700;
       color: rgba(26, 24, 24, 0.55);
@@ -10014,13 +10152,25 @@
       letter-spacing: 0.05em;
       display: flex;
       align-items: center;
-      gap: 0.3em;
+      gap: 0.35rem;
       pointer-events: none;
     }
     [data-theme="dark"] .cal__hint {
       color: rgba(232, 228, 224, 0.55);
     }
 
+    /* Sub-lead value proposition */
+    .hero__lead {
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: rgba(26, 24, 24, 0.68);
+      max-width: 38rem;
+    }
+    [data-theme="dark"] .hero__lead {
+      color: rgba(232, 228, 224, 0.68);
+    }
+
+    /* CTAs */
     .ctas {
       display: flex;
       flex-wrap: wrap;
@@ -10031,7 +10181,7 @@
       display: inline-block;
       border-radius: 9999px;
       text-decoration: none !important;
-      transition: transform 0.2s cubic-bezier(.16, 1, .3, 1), box-shadow 0.2s;
+      transition: transform 0.25s cubic-bezier(.16, 1, .3, 1), box-shadow 0.25s;
     }
     .pill:hover {
       transform: translateY(-2px);
@@ -10043,20 +10193,20 @@
       border-radius: 9999px;
       font-size: 0.9375rem;
       font-weight: 600;
-      padding: 0.875rem 1.85rem;
+      padding: 0.85rem 1.85rem;
       white-space: nowrap;
     }
     .pill--arrow .pill__in {
-      padding: 0.4rem 0.4rem 0.4rem 1.6rem;
+      padding: 0.4rem 0.4rem 0.4rem 1.65rem;
     }
     .pill--dark .pill__in {
       background: #1A1818;
       color: #E8E4E0 !important;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     }
     .pill--dark:hover .pill__in {
       background: #000000;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
     [data-theme="dark"] .pill--dark .pill__in {
       background: #E8E4E0;
@@ -10066,16 +10216,18 @@
       background: #FFFFFF;
     }
     .pill--outline .pill__in {
-      border: 1.5px solid #D5CDCA;
-      background: transparent;
+      border: 1.5px solid rgba(26, 24, 24, 0.2);
+      background: rgba(255, 255, 255, 0.4);
       color: #1A1818 !important;
+      backdrop-filter: blur(8px);
     }
     [data-theme="dark"] .pill--outline .pill__in {
-      border-color: rgba(196, 176, 176, 0.25);
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
       color: #E8E4E0 !important;
     }
     .pill--outline:hover .pill__in {
-      background: rgba(196, 176, 176, 0.18);
+      background: rgba(255, 255, 255, 0.7);
       border-color: rgba(26, 24, 24, 0.4);
     }
     .pill__badge {
@@ -10117,7 +10269,6 @@
     @media (max-width: 640px) {
       .hero__bar .mid { display: none; }
     }
-
   </style>
 
   <!-- Schema.org JSON-LD Structured Data for Full-Stack Freelance Software Engineer -->
@@ -10155,88 +10306,83 @@
     <!-- ==========================================================================
        REACT BITS PRO NAVBAR 13: CENTERED LOGO NAVBAR WITH OVERLAY MENU
        ========================================================================== -->
-  <header class="site-header navbar-13-header" role="banner">
-    <div class="container navbar-13-inner">
-      
-      <!-- Left Column: Primary Navigation Links -->
-      <nav class="navbar-13-left" role="navigation" aria-label="Primary Left Navigation">
-        <a href="#hero" class="nav-13-link">Profile</a>
-        <a href="#services" class="nav-13-link">Services</a>
-      </nav>
-
-      <!-- Center Column: Mathematically Centered Brand Logo -->
-      <div class="navbar-13-center">
-        <a href="#hero" class="brand-logo-biz" aria-label="Belintan B. — Full-Stack &amp; Backend Software Engineer">
-          <span class="brand-icon-box">B</span>
-          <span class="brand-name">Belintan B.</span>
-        </a>
-      </div>
-
-      <!-- Right Column: Secondary Navigation, Theme Toggle, WhatsApp & Overlay Menu Trigger -->
-      <div class="navbar-13-right">
-        <!-- Live Header Clock -->
-        <div class="chip clock-chip-nav" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:6px 12px;border-radius:9999px;background:rgba(26,24,24,0.06);border:1px solid rgba(26,24,24,0.1);color:inherit;" aria-label="Local time">
-          <span style="opacity:0.65;">Local:</span>
-          <span class="tnum" data-header-time style="font-variant-numeric:tabular-nums;"></span>
-          <span style="opacity:0.4;">&bull;</span>
-          <span data-header-date></span>
-        </div>
+  <header class="site-header" role="banner">
+    <div class="nav-glass-container">
+      <div class="nav-glass">
         
-        <nav class="navbar-13-links-right" role="navigation" aria-label="Primary Right Navigation">
-          <a href="/templates/" class="nav-13-link" style="color: var(--accent-orange, #F48936); font-weight: 700;">Templates ✨</a>
-          <a href="#pricing" class="nav-13-link">Pricing</a>
-          <a href="#contact" class="nav-13-link">Contact</a>
+        <!-- Left: Brand Logo & Indicator -->
+        <a href="#hero" class="brand-group" aria-label="Belintan B. — Software Engineer &amp; UI/UX">
+          <span class="brand-mark">B</span>
+          <span class="brand-text">Belintan B.</span>
+        </a>
+
+        <!-- Center: Primary Navigation Links -->
+        <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
+          <a href="#hero" class="nav-link">Home</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#pricing" class="nav-link">Pricing</a>
+          <a href="/templates/" class="nav-link templates-link" style="color: var(--accent-orange, #F48936); font-weight: 700;">Templates ✨</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </nav>
 
-        <!-- Apple Dark / Light Mode Switcher -->
-        <button class="apple-theme-toggle" id="theme-toggle" aria-label="Toggle Dark / Light Mode" title="Toggle dark / light theme">
-          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-
-        <!-- Direct WhatsApp Action Pill -->
-        <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" class="nav-13-whatsapp-btn" title="Chat directly with Belintan on WhatsApp">
-          <span>WhatsApp &rarr;</span>
-        </a>
-
-        <!-- React Bits Pro Navbar 13 Overlay Menu Trigger Button -->
-        <button class="navbar-13-menu-toggle" id="overlay-menu-toggle" aria-label="Toggle Navigation Overlay" aria-expanded="false" aria-controls="navbar-13-overlay">
-          <span class="menu-toggle-label">Menu</span>
-          <div class="menu-burger-icon" aria-hidden="true">
-            <span class="burger-bar bar-top"></span>
-            <span class="burger-bar bar-bot"></span>
+        <!-- Right: Clock, WhatsApp, Theme Toggle & Menu -->
+        <div class="nav-actions">
+          
+          <!-- Live Header Clock Chip -->
+          <div class="clock-chip" aria-label="Local time">
+            <span style="opacity: 0.65;">Local:</span>
+            <span class="tnum" data-header-time style="font-variant-numeric: tabular-nums;"></span>
+            <span style="opacity: 0.4;">&bull;</span>
+            <span data-header-date></span>
           </div>
-        </button>
-      </div>
 
+          <!-- Direct WhatsApp Pill -->
+          <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener noreferrer" class="btn-wa-pill" title="Chat directly with Belintan on WhatsApp">
+            <span>WhatsApp 💬</span>
+          </a>
+
+          <!-- Apple Dark / Light Mode Switcher -->
+          <button class="apple-theme-toggle" id="theme-toggle" aria-label="Toggle Dark / Light Mode" title="Toggle dark / light theme">
+            <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <!-- Overlay Menu Trigger Button -->
+          <button class="navbar-13-menu-toggle" id="overlay-menu-toggle" aria-label="Toggle Navigation Overlay" aria-expanded="false" aria-controls="navbar-13-overlay">
+            <span class="menu-toggle-label">Menu</span>
+            <div class="menu-burger-icon" aria-hidden="true">
+              <span class="burger-bar bar-top"></span>
+              <span class="burger-bar bar-bot"></span>
+            </div>
+          </button>
+        </div>
+
+      </div>
     </div>
 
-    <!-- React Bits Pro Navbar 13 Full-Screen Overlay Menu -->
+    <!-- Full-Screen Navigation Overlay (Retained for Mobile & Deep Links) -->
     <div class="navbar-13-overlay" id="navbar-13-overlay" role="dialog" aria-modal="true" aria-label="Main Navigation Overlay">
       <div class="navbar-13-overlay-inner">
-        
-        <!-- Top Overlay Header -->
         <div class="overlay-top-bar">
           <span class="overlay-meta-brand">
-            <span class="brand-icon-box" style="width: 24px; height: 24px; font-size: 13px;">B</span>
+            <span class="brand-mark" style="width: 24px; height: 24px; font-size: 13px;">B</span>
             <span>Belintan B. &middot; Full-Stack &amp; AI Engineering</span>
           </span>
           <button class="overlay-close-btn" id="overlay-menu-close" aria-label="Close navigation overlay">✕</button>
         </div>
 
-        <!-- Big Staggered Navigation Links -->
         <nav class="overlay-nav-list" role="navigation" aria-label="Overlay Navigation Links">
           <a href="#hero" class="overlay-nav-item" data-index="01">
             <span class="overlay-item-num">01</span>
@@ -10260,11 +10406,10 @@
           </a>
         </nav>
 
-        <!-- Overlay Footer Info -->
         <div class="overlay-footer">
           <div class="overlay-contact-brief">
             <div>📞 <a href="tel:+918610662871">+91 8610662871</a></div>
-            <div>✉️ <a href="https://mail.google.com/mail/?view=cm&fs=1&to=belintan07@gmail.com" target="_blank" rel="noopener noreferrer">belintan07@gmail.com</a></div>
+            <div>✉️ <a href="mailto:belintan07@gmail.com">belintan07@gmail.com</a></div>
             <div>📍 Chennai, Tamil Nadu, India</div>
           </div>
           <div class="overlay-social-links">
@@ -10273,7 +10418,6 @@
             <a href="https://wa.me/918610662871" target="_blank" rel="noopener">WhatsApp &rarr;</a>
           </div>
         </div>
-
       </div>
     </div>
   </header>
@@ -10284,18 +10428,25 @@
   <main id="main-content"><section id="hero" class="hero" data-track="both" aria-label="Introduction">
       <div class="hero__vig" aria-hidden="true"></div>
 
-      <!-- Right Figure / Cutout Portrait -->
+      <!-- Right Figure / Cutout Portrait Stage -->
       <div class="hero__stage">
         <div class="fig" id="fig">
           <span class="fig__wm" aria-hidden="true">BELINTAN</span>
+          
+          <div class="fig__badge-top">
+            <span class="eyebrow__dot" aria-hidden="true"></span>
+            <span>100% Incident Resolution</span>
+          </div>
+
           <div class="fig__frame">
             <img class="fig__img" id="figBase" src="belintan-hero.jpg" alt="Belintan B. — Software Developer &amp; UI/UX Designer" />
           </div>
+
           <a class="fig__card" id="figCard" href="#contact" title="Direct contact &amp; availability">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
             </svg>
-            <span>Software Developer</span>
+            <span>Software Developer &middot; TICFIBER</span>
           </a>
         </div>
       </div>
@@ -10310,7 +10461,7 @@
             <span>Available for projects &middot; Full-Stack &amp; AI</span>
           </div>
 
-          <!-- Main Headline: Clean & Bold -->
+          <!-- Main Headline with 3D Flip Calendar Album -->
           <div class="hero__title-wrap">
             <h1 class="h1" id="hero-heading">
               <span class="line">Hi, I'm <span class="bold-name">Belintan.</span></span>
@@ -10361,7 +10512,12 @@
             </div>
           </div>
 
-          <!-- Action CTAs directly below the album -->
+          <!-- Value Proposition Sub-Lead -->
+          <p class="hero__lead">
+            Bridging high-velocity full-stack engineering with certified telecom &amp; network support. Building conversion-focused web applications with sub-100ms response times.
+          </p>
+
+          <!-- Action CTAs -->
           <div class="ctas">
             <a class="pill pill--dark pill--arrow" href="#contact">
               <span class="pill__in">Start a project
@@ -10372,6 +10528,9 @@
             </a>
             <a class="pill pill--outline" href="#services">
               <span class="pill__in">See my work</span>
+            </a>
+            <a class="pill pill--outline" href="Belintan_B_Resume.pdf" target="_blank" download="Belintan_B_Resume.pdf">
+              <span class="pill__in">Resume PDF &nearr;</span>
             </a>
           </div>
 
@@ -12790,6 +12949,27 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
         }
       });
     })();
+
+      
+      // 3D Parallax Tilt on Calendar Album
+      const calEl = document.getElementById('cal');
+      if (calEl) {
+        calEl.addEventListener('mousemove', (e) => {
+          const r = calEl.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5;
+          const y = (e.clientY - r.top) / r.height - 0.5;
+          const bodyEl = calEl.querySelector('.cal__body');
+          if (bodyEl) {
+            bodyEl.style.transform = `rotateX(${11 - y * 12}deg) rotateY(${-8 + x * 14}deg)`;
+          }
+        });
+        calEl.addEventListener('mouseleave', () => {
+          const bodyEl = calEl.querySelector('.cal__body');
+          if (bodyEl) {
+            bodyEl.style.transform = 'rotateX(11deg) rotateY(-8deg)';
+          }
+        });
+      }
 
       /* ------------------------------------------------------------------------
          Live Header Clock Updater
