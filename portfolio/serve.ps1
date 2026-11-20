@@ -1,4 +1,12 @@
 $port = 8000
+$hasNode = Get-Command node -ErrorAction SilentlyContinue
+
+if ($hasNode) {
+    Write-Host "Starting Node.js static server on port $port..."
+    & node "$PSScriptRoot\..\server.js"
+    exit
+}
+
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add("http://localhost:$port/")
 $listener.Prefixes.Add("http://127.0.0.1:$port/")
@@ -41,6 +49,9 @@ try {
                     ".ico"  { $response.ContentType = "image/x-icon" }
                     default { $response.ContentType = "application/octet-stream" }
                 }
+                $response.AddHeader("Cache-Control", "no-cache, no-store, must-revalidate")
+                $response.AddHeader("Pragma", "no-cache")
+                $response.AddHeader("Expires", "0")
                 $response.ContentLength64 = $bytes.Length
                 $response.OutputStream.Write($bytes, 0, $bytes.Length)
             } else {

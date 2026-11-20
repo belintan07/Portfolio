@@ -1,4 +1,12 @@
 $port = 8000
+$hasNode = Get-Command node -ErrorAction SilentlyContinue
+
+if ($hasNode) {
+    Write-Host "Starting Node.js static server on port $port..."
+    & node "$PSScriptRoot\server.js"
+    exit
+}
+
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add("http://localhost:$port/")
 $listener.Prefixes.Add("http://127.0.0.1:$port/")
