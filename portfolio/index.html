@@ -9584,23 +9584,15 @@
     }
   
     
+    
     /* ==========================================================================
-       EXACT RISHI-STYLE HERO & DESK-CALENDAR FLIP ALBUM
+       EXACT RISHI-STYLE HERO & METALLIC DESK-CALENDAR FLIP ALBUM
        ========================================================================== */
-    :root {
-      --hero-bg-light: #E8E4E0;
-      --hero-from-light: #EEEAE6;
-      --hero-mid-light: #E8E4E0;
-      --hero-to-light: #D8CDCA;
-      --hero-fg-light: #1A1818;
-      --hero-radius: 2rem;
-    }
-
     .hero {
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      border-radius: 0 0 var(--hero-radius) var(--hero-radius);
+      border-radius: 0 0 2rem 2rem;
       background: radial-gradient(120% 90% at 62% 30%, #EEEAE6 0%, #E8E4E0 48%, #D8CDCA 100%);
       min-height: calc(100vh - 72px);
       display: flex;
@@ -9658,6 +9650,16 @@
       }
     }
 
+    .fig__frame {
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      border-radius: 2rem 2rem 0 0;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    }
+
     .fig__img {
       height: 100%;
       width: auto;
@@ -9665,7 +9667,6 @@
       object-fit: contain;
       object-position: 50% 100%;
       filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.16));
-      border-radius: 1.5rem 1.5rem 0 0;
       transition: transform 0.4s cubic-bezier(.16, 1, .3, 1);
     }
     .fig:hover .fig__img {
@@ -9674,20 +9675,20 @@
 
     .fig__wm {
       position: absolute;
-      right: -1rem;
-      bottom: 22%;
-      font-size: 8rem;
-      font-weight: 800;
+      right: -2rem;
+      bottom: 20%;
+      font-size: 8.5rem;
+      font-weight: 900;
       letter-spacing: -0.04em;
       line-height: 1;
-      color: rgba(255, 255, 255, 0.45);
+      color: rgba(255, 255, 255, 0.55);
       pointer-events: none;
       user-select: none;
       z-index: -1;
       text-transform: uppercase;
     }
     [data-theme="dark"] .fig__wm {
-      color: rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.06);
     }
     @media (max-width: 1023px) {
       .fig__wm { font-size: 4rem; bottom: 8%; right: 4%; }
@@ -9705,7 +9706,7 @@
       padding: 0 1.25rem;
       border-radius: 9999px;
       border: 1px solid rgba(255, 255, 255, 0.28);
-      background: rgba(26, 24, 24, 0.82);
+      background: rgba(26, 24, 24, 0.85);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       color: #F3EEEC !important;
@@ -9719,7 +9720,7 @@
     }
     .fig__card:hover {
       transform: translateY(-3px);
-      background: rgba(26, 24, 24, 0.95);
+      background: rgba(26, 24, 24, 0.98);
       color: #FFFFFF !important;
     }
     .fig__card svg {
@@ -9744,7 +9745,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 1.75rem;
+      gap: 2rem;
     }
 
     .eyebrow {
@@ -9753,7 +9754,7 @@
       gap: 0.6rem;
       padding: 0.4rem 1.1rem;
       border-radius: 9999px;
-      background: rgba(242, 238, 235, 0.65);
+      background: rgba(242, 238, 235, 0.75);
       border: 1px solid rgba(196, 176, 176, 0.45);
       font-size: 0.8125rem;
       font-weight: 600;
@@ -9780,70 +9781,80 @@
       50% { transform: scale(1.25); opacity: 0.6; }
     }
 
+    .hero__title-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
     .h1 {
-      font-size: clamp(2.3rem, 5.2vw, 4.25rem);
+      font-size: clamp(2.5rem, 5.5vw, 4.5rem);
       font-weight: 700;
-      line-height: 1.12;
+      line-height: 1.1;
       letter-spacing: -0.035em;
       color: #1A1818;
     }
     [data-theme="dark"] .h1 {
       color: #E8E4E0;
     }
-    .h1 .soft {
-      color: rgba(26, 24, 24, 0.45);
-      font-weight: 600;
+    .h1 .bold-name {
+      color: #1A1818;
+      font-weight: 800;
     }
-    [data-theme="dark"] .h1 .soft {
-      color: rgba(232, 228, 224, 0.45);
+    [data-theme="dark"] .h1 .bold-name {
+      color: #FFFFFF;
     }
 
     /* Desk Calendar Album */
     .cal-line {
       display: block;
-      margin-top: 0.35em;
       perspective: 1000px;
+      margin-top: 0.25rem;
     }
     .cal {
-      --cal-w: 8.8em;
       position: relative;
       display: inline-block;
-      font-size: 0.78em;
-      perspective: 14em;
+      perspective: 800px;
       perspective-origin: 30% 0;
-      vertical-align: top;
       cursor: pointer;
       user-select: none;
       outline: none;
       transition: transform 0.25s cubic-bezier(.16, 1, .3, 1);
     }
     .cal:hover {
-      transform: translateY(-2px) scale(1.015);
+      transform: translateY(-3px) scale(1.02);
     }
     .cal:focus-visible {
       outline: 2px solid #6B5C5C;
       outline-offset: 4px;
-      border-radius: 0.4em;
+      border-radius: 0.5rem;
     }
     .cal__body {
       position: relative;
       display: block;
-      width: var(--cal-w);
-      height: 1.82em;
+      width: 330px;
+      height: 84px;
       transform: rotateX(10deg) rotateY(-8deg);
       transform-style: preserve-3d;
-      transition: width 0.45s cubic-bezier(.16, 1, .3, 1);
+      transition: width 0.35s ease;
+    }
+    @media (max-width: 640px) {
+      .cal__body {
+        width: 280px;
+        height: 76px;
+      }
     }
     .cal__stand {
       position: absolute;
-      left: 0.2em;
-      right: -0.16em;
-      top: 0.32em;
-      bottom: -0.42em;
-      border-radius: 0.3em;
+      left: 6px;
+      right: -6px;
+      top: 10px;
+      bottom: -14px;
+      border-radius: 12px;
       background: linear-gradient(165deg, #3d3a38 0%, #1a1818 42%, #080707 100%);
-      box-shadow: 0 0.55em 1em -0.3em rgba(0, 0, 0, 0.6), inset 0 0.03em 0 rgba(255, 255, 255, 0.16);
-      transform: translateZ(-0.14em);
+      box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transform: translateZ(-8px);
     }
     .cal__stack {
       position: absolute;
@@ -9853,39 +9864,39 @@
     .cal__page, .cal__face, .cal__rear {
       position: absolute;
       inset: 0;
-      border-radius: 0.22em;
+      border-radius: 10px;
     }
     .cal__page {
       background: linear-gradient(180deg, #fdfcf9 0%, #f1efe9 100%);
       box-shadow:
-        0 0.045em 0 #d8d4cb,
-        0 0.08em 0 #f6f4ef,
-        0 0.115em 0 #d0cbc1,
-        0 0.15em 0 #f2f0ea,
-        0 0.185em 0 #c8c3b8,
-        0 0.22em 0 #e9e6df,
-        0 0.255em 0 #aaa498,
-        0 0.48em 0.7em -0.2em rgba(0, 0, 0, 0.4);
+        0 2px 0 #d8d4cb,
+        0 4px 0 #f6f4ef,
+        0 6px 0 #d0cbc1,
+        0 8px 0 #f2f0ea,
+        0 10px 0 #c8c3b8,
+        0 12px 0 #e9e6df,
+        0 14px 0 #aaa498,
+        0 20px 28px -8px rgba(0, 0, 0, 0.45);
     }
     .cal__leaf {
       position: absolute;
       inset: 0;
       transform-origin: 50% 0;
       transform-style: preserve-3d;
-      transform: translateZ(0.004em);
+      transform: translateZ(1px);
     }
     .cal__face {
-      background: linear-gradient(180deg, #ffffff 0%, #f3f1eb 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #f5f3ec 100%);
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      box-shadow: inset 0 -0.02em 0 rgba(0, 0, 0, 0.06);
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.08);
     }
     .cal__back {
       position: absolute;
       inset: 0;
-      border-radius: 0.22em;
+      border-radius: 10px;
       transform-origin: 50% 0;
-      transform: translateZ(-0.004em) rotateX(352deg) translateY(50%) rotateX(180deg) translateY(-50%);
+      transform: translateZ(-1px) rotateX(352deg) translateY(50%) rotateX(180deg) translateY(-50%);
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       background: linear-gradient(0deg, #e9e6df 0%, #d9d5cc 100%);
@@ -9902,39 +9913,44 @@
       inset: 0;
       display: flex;
       align-items: center;
-      padding: 0.25em 0.55em 0;
-      color: #0d0c0c;
-      font-weight: 700;
+      padding: 10px 22px 0;
+      color: #0F0E0E !important;
+      font-size: 1.35rem;
+      font-weight: 800;
       letter-spacing: -0.035em;
       line-height: 1;
       white-space: nowrap;
     }
+    @media (max-width: 640px) {
+      .cal__word { font-size: 1.15rem; padding: 8px 18px 0; }
+    }
     .cal__no {
       position: absolute;
-      right: 0.45em;
-      bottom: 0.22em;
-      font-size: 0.16em;
-      font-weight: 600;
+      right: 18px;
+      bottom: 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
       letter-spacing: 0.08em;
-      color: rgba(13, 12, 12, 0.45);
+      color: rgba(15, 14, 14, 0.45) !important;
       font-variant-numeric: tabular-nums;
     }
     .cal__holes {
       position: absolute;
-      top: 0.1em;
-      left: 0.35em;
-      right: 0.35em;
-      height: 0.08em;
+      top: 6px;
+      left: 18px;
+      right: 18px;
+      height: 8px;
       display: flex;
       justify-content: space-between;
+      z-index: 5;
     }
     .cal__holes i {
       display: block;
-      width: 0.08em;
-      height: 0.08em;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      background: #1b1b1b;
-      box-shadow: inset 0 0.012em 0.015em rgba(255, 255, 255, 0.35);
+      background: #111111;
+      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
     }
     .cal__shade {
       position: absolute;
@@ -9948,35 +9964,36 @@
     }
     .cal__rings {
       position: absolute;
-      top: -0.28em;
-      left: 0.35em;
-      right: 0.35em;
-      height: 0.44em;
+      top: -14px;
+      left: 18px;
+      right: 18px;
+      height: 28px;
       display: flex;
       justify-content: space-between;
-      transform: translateZ(0.06em);
+      transform: translateZ(25px);
       pointer-events: none;
+      z-index: 20;
     }
     .cal__rings i {
       display: block;
-      width: 0.08em;
-      height: 0.44em;
+      width: 10px;
+      height: 28px;
       position: relative;
     }
     .cal__rings i::before {
       content: "";
       position: absolute;
-      left: -0.07em;
-      right: -0.07em;
+      left: -2px;
+      right: -2px;
       top: 0;
       bottom: 0;
-      border-radius: 0.2em;
-      border: 0.042em solid #a8a8a8;
-      border-left-color: #ededed;
+      border-radius: 6px;
+      border: 3px solid #8e8e8e;
+      border-left-color: #f5f5f5;
       border-top-color: #ffffff;
-      border-right-color: #6d6d6d;
-      border-bottom-color: #888888;
-      filter: drop-shadow(0.012em 0.03em 0.02em rgba(0, 0, 0, 0.4));
+      border-right-color: #555555;
+      border-bottom-color: #777777;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     }
     .cal__measure {
       position: absolute;
@@ -9989,10 +10006,10 @@
     .cal__hint {
       position: absolute;
       right: 0;
-      top: -1.6em;
-      font-size: 0.16em;
-      font-weight: 600;
-      color: rgba(26, 24, 24, 0.5);
+      top: -1.75em;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(26, 24, 24, 0.55);
       text-transform: uppercase;
       letter-spacing: 0.05em;
       display: flex;
@@ -10001,28 +10018,7 @@
       pointer-events: none;
     }
     [data-theme="dark"] .cal__hint {
-      color: rgba(232, 228, 224, 0.5);
-    }
-
-    .rating {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .stars {
-      display: flex;
-      gap: 0.15rem;
-      color: #F59E0B;
-      font-size: 1.15rem;
-    }
-    .rating p {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: rgba(26, 24, 24, 0.72);
-    }
-    [data-theme="dark"] .rating p {
-      color: rgba(232, 228, 224, 0.72);
+      color: rgba(232, 228, 224, 0.55);
     }
 
     .ctas {
@@ -10292,7 +10288,9 @@
       <div class="hero__stage">
         <div class="fig" id="fig">
           <span class="fig__wm" aria-hidden="true">BELINTAN</span>
-          <img class="fig__img" id="figBase" src="belintan-hero.jpg" alt="Belintan B. — Software Developer &amp; UI/UX Designer" />
+          <div class="fig__frame">
+            <img class="fig__img" id="figBase" src="belintan-hero.jpg" alt="Belintan B. — Software Developer &amp; UI/UX Designer" />
+          </div>
           <a class="fig__card" id="figCard" href="#contact" title="Direct contact &amp; availability">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
@@ -10312,50 +10310,58 @@
             <span>Available for projects &middot; Full-Stack &amp; AI</span>
           </div>
 
-          <!-- Main Headline with Flip Calendar Album -->
-          <h1 class="h1" id="hero-heading">
-            <span class="line">Hi, I'm <span class="soft">Belintan.</span></span>
-            <span class="line"><span class="soft">I am a</span></span>
+          <!-- Main Headline: Clean & Bold -->
+          <div class="hero__title-wrap">
+            <h1 class="h1" id="hero-heading">
+              <span class="line">Hi, I'm <span class="bold-name">Belintan.</span></span>
+            </h1>
             
-            <span class="cal-line">
-              <span class="cal" id="cal" tabindex="0" role="button" aria-label="Interactive album, click to flip role title" title="Click album to flip title">
+            <!-- Desk Calendar Flip Album -->
+            <div class="cal-line">
+              <div class="cal" id="cal" tabindex="0" role="button" aria-label="Interactive album, click to flip role title" title="Click album to flip title">
                 <span class="cal__hint">Click to flip &curren;</span>
-                <span class="cal__body">
-                  <span class="cal__stand"></span>
-                  <span class="cal__stack">
-                    <span class="cal__back"><span class="cal__holes"></span></span>
-                    <span class="cal__page" data-under>
-                      <span class="cal__holes"></span>
-                      <span class="cal__word"></span>
-                      <span class="cal__no"></span>
-                      <span class="cal__shade"></span>
-                    </span>
-                    <span class="cal__leaf">
-                      <span class="cal__face">
-                        <span class="cal__holes"></span>
-                        <span class="cal__word"></span>
-                        <span class="cal__no"></span>
-                        <span class="cal__shade"></span>
-                      </span>
-                      <span class="cal__rear"><span class="cal__holes"></span></span>
-                    </span>
-                  </span>
-                  <span class="cal__rings"></span>
-                </span>
-                <span class="cal__measure"></span>
-              </span>
-            </span>
-          </h1>
-
-          <!-- Rating & Trust Badge -->
-          <div class="rating">
-            <div class="stars" aria-label="5 out of 5 stars">
-              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                <div class="cal__body">
+                  <div class="cal__stand"></div>
+                  <div class="cal__stack">
+                    <div class="cal__back">
+                      <div class="cal__holes">
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                      </div>
+                    </div>
+                    <div class="cal__page" data-under>
+                      <div class="cal__holes">
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                      </div>
+                      <div class="cal__word">Full-Stack Developer</div>
+                      <div class="cal__no">02 / 05</div>
+                      <div class="cal__shade"></div>
+                    </div>
+                    <div class="cal__leaf">
+                      <div class="cal__face">
+                        <div class="cal__holes">
+                          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                        </div>
+                        <div class="cal__word">UI/UX Designer</div>
+                        <div class="cal__no">01 / 05</div>
+                        <div class="cal__shade"></div>
+                      </div>
+                      <div class="cal__rear">
+                        <div class="cal__holes">
+                          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cal__rings">
+                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                  </div>
+                </div>
+                <div class="cal__measure"></div>
+              </div>
             </div>
-            <p>Certified Web &amp; Software Engineer &middot; sub-100ms response &amp; clean code</p>
           </div>
 
-          <!-- Action CTAs -->
+          <!-- Action CTAs directly below the album -->
           <div class="ctas">
             <a class="pill pill--dark pill--arrow" href="#contact">
               <span class="pill__in">Start a project
@@ -12676,145 +12682,114 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
     const themeObserver = new MutationObserver(updateTheme);
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHeroSwarmCursor);
-  } else {
-    initHeroSwarmCursor();
-  }
-  window.initHeroSwarmCursor = initHeroSwarmCursor;
+  // Hero swarm cursor removed
 
-      /* ------------------------------------------------------------------------
-         Flip Calendar: Interactive Desk-Calendar Album (Flips ONLY when clicked)
-         ------------------------------------------------------------------------ */
-      (function initFlipCalendar(){
-        const SKILLS = [
-          'UI/UX Designer',
-          'Full-Stack Developer',
-          'React & Node Specialist',
-          'Backend & API Architect',
-          'AI Solutions Specialist'
-        ];
-        const FLIP_DURATION = 1100;
-        const cal = document.getElementById('cal');
-        if (!cal) return;
+      
+    /* ------------------------------------------------------------------------
+       Flip Calendar: Interactive Desk-Calendar Album (Flips ONLY when clicked)
+       ------------------------------------------------------------------------ */
+    (function initFlipCalendar(){
+      const SKILLS = [
+        'UI/UX Designer',
+        'Full-Stack Developer',
+        'React & Node Specialist',
+        'Backend & API Architect',
+        'AI Solutions Specialist'
+      ];
+      const FLIP_DURATION = 1000;
+      const cal = document.getElementById('cal');
+      if (!cal) return;
 
-        const body = cal.querySelector('.cal__body');
-        const leaf = cal.querySelector('.cal__leaf');
-        const under = cal.querySelector('[data-under]');
-        const face = cal.querySelector('.cal__face');
-        const measure = cal.querySelector('.cal__measure');
-        const rings = cal.querySelector('.cal__rings');
-        const n = SKILLS.length;
-        let currentIndex = 0;
-        let isFlipping = false;
+      const body = cal.querySelector('.cal__body');
+      const leaf = cal.querySelector('.cal__leaf');
+      const under = cal.querySelector('[data-under]');
+      const face = cal.querySelector('.cal__face');
+      const n = SKILLS.length;
+      let currentIndex = 0;
+      let isFlipping = false;
 
-        const paint = (page, k) => {
-          if (!page) return;
-          const wordEl = page.querySelector('.cal__word');
-          const noEl = page.querySelector('.cal__no');
-          if (wordEl) wordEl.textContent = SKILLS[k];
-          if (noEl) noEl.textContent = `${String(k + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`;
-        };
+      const paint = (page, k) => {
+        if (!page || typeof page.querySelector !== "function") return;
+        if (!page) return;
+        const wordEl = page.querySelector('.cal__word');
+        const noEl = page.querySelector('.cal__no');
+        if (wordEl) wordEl.textContent = SKILLS[k];
+        if (noEl) noEl.textContent = `${String(k + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`;
+      };
 
-        paint(face, 0);
-        paint(under, 1);
+      paint(face, 0);
+      paint(under, 1);
 
-        function fit(){
-          cal.style.fontSize = '';
-          const fs = parseFloat(getComputedStyle(cal).fontSize) || 16;
-          let max = 0;
-          for (const w of SKILLS){
-            measure.textContent = w;
-            max = Math.max(max, measure.getBoundingClientRect().width);
-          }
-          const wEm = max / fs + 1.1;
-          body.style.setProperty('--cal-w', wEm.toFixed(3) + 'em');
-          cal.style.setProperty('--cal-w', wEm.toFixed(3) + 'em');
+      // ONLY FLIP WHEN CLICKED
+      function flip(){
+        if (isFlipping) return;
+        isFlipping = true;
+        const next = (currentIndex + 1) % n;
 
-          const count = Math.max(5, Math.round((wEm - 0.6) / 0.7) + 1);
-          rings.innerHTML = '<i></i>'.repeat(count);
-          cal.querySelectorAll('.cal__holes').forEach(h => h.innerHTML = '<i></i>'.repeat(count));
+        const timing = { duration: FLIP_DURATION, easing: 'cubic-bezier(.5,.05,.2,1)', fill: 'forwards' };
+
+        face.animate([
+          { opacity: 1 },
+          { opacity: 1, offset: 0.285 },
+          { opacity: 0, offset: 0.295 },
+          { opacity: 0 }
+        ], { duration: FLIP_DURATION, easing: 'linear', fill: 'forwards' });
+
+        const rear = leaf.querySelector('.cal__rear');
+        if (rear) {
+          rear.animate([
+            { filter: 'brightness(1)' },
+            { filter: 'brightness(1.02)', offset: 0.29 },
+            { filter: 'brightness(.96)', offset: 0.45 },
+            { filter: 'brightness(.9)' }
+          ], { duration: FLIP_DURATION, easing: 'linear', fill: 'forwards' });
         }
 
-        fit();
-        if (document.fonts && document.fonts.ready) {
-          document.fonts.ready.then(fit);
-        }
-        window.addEventListener('resize', () => {
-          clearTimeout(fit._t);
-          fit._t = setTimeout(fit, 120);
-        });
+        const leafAnim = leaf.animate([
+          { transform: 'translateZ(1px) rotateX(0deg)' },
+          { transform: 'translateZ(1px) rotateX(352deg)' }
+        ], timing);
 
-        // ONLY FLIP WHEN CLICKED
-        function flip(){
-          if (isFlipping) return;
-          isFlipping = true;
-          const next = (currentIndex + 1) % n;
-
-          const timing = { duration: FLIP_DURATION, easing: 'cubic-bezier(.5,.05,.2,1)', fill: 'forwards' };
-
-          face.animate([
-            { opacity: 1 },
-            { opacity: 1, offset: 0.285 },
-            { opacity: 0, offset: 0.295 },
+        const faceShade = face.querySelector('.cal__shade');
+        if (faceShade) {
+          faceShade.animate([
+            { opacity: 0 },
+            { opacity: 0.45, offset: 0.2 },
+            { opacity: 0, offset: 0.275 },
             { opacity: 0 }
           ], { duration: FLIP_DURATION, easing: 'linear', fill: 'forwards' });
-
-          const rear = leaf.querySelector('.cal__rear');
-          if (rear) {
-            rear.animate([
-              { filter: 'brightness(1)' },
-              { filter: 'brightness(1.02)', offset: 0.29 },
-              { filter: 'brightness(.96)', offset: 0.45 },
-              { filter: 'brightness(.9)' }
-            ], { duration: FLIP_DURATION, easing: 'linear', fill: 'forwards' });
-          }
-
-          const leafAnim = leaf.animate([
-            { transform: 'translateZ(.004em) rotateX(0deg)' },
-            { transform: 'translateZ(.004em) rotateX(352deg)' }
-          ], timing);
-
-          const faceShade = face.querySelector('.cal__shade');
-          if (faceShade) {
-            faceShade.animate([
-              { opacity: 0 },
-              { opacity: 0.45, offset: 0.2 },
-              { opacity: 0, offset: 0.275 },
-              { opacity: 0 }
-            ], { duration: FLIP_DURATION, easing: 'linear', fill: 'forwards' });
-          }
-
-          const underShade = under.querySelector('.cal__shade');
-          if (underShade) {
-            underShade.animate([
-              { opacity: 0.7 },
-              { opacity: 0 }
-            ], { duration: FLIP_DURATION * 0.9, easing: 'cubic-bezier(.3,.6,.4,1)', fill: 'forwards' });
-          }
-
-          leafAnim.onfinish = () => {
-            currentIndex = next;
-            paint(face, currentIndex);
-            leaf.getAnimations({ subtree: true }).forEach(x => x.cancel());
-            cal.querySelectorAll('.cal__shade').forEach(sh => sh.getAnimations().forEach(x => x.cancel()));
-            paint(under, (currentIndex + 1) % n);
-            isFlipping = false;
-          };
         }
 
-        cal.addEventListener('click', (e) => {
+        const underShade = under.querySelector('.cal__shade');
+        if (underShade) {
+          underShade.animate([
+            { opacity: 0.7 },
+            { opacity: 0 }
+          ], { duration: FLIP_DURATION * 0.9, easing: 'cubic-bezier(.3,.6,.4,1)', fill: 'forwards' });
+        }
+
+        leafAnim.onfinish = () => {
+          currentIndex = next;
+          paint(face, currentIndex);
+          leaf.getAnimations({ subtree: true }).forEach(x => x.cancel());
+          cal.querySelectorAll('.cal__shade').forEach(sh => sh.getAnimations().forEach(x => x.cancel()));
+          paint(under, (currentIndex + 1) % n);
+          isFlipping = false;
+        };
+      }
+
+      cal.addEventListener('click', (e) => {
+        e.preventDefault();
+        flip();
+      });
+
+      cal.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           flip();
-        });
-
-        cal.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            flip();
-          }
-        });
-      })();
+        }
+      });
+    })();
 
       /* ------------------------------------------------------------------------
          Live Header Clock Updater
