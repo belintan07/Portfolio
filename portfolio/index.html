@@ -9944,6 +9944,72 @@
       }
     }
 
+    /* Merged Hero & About Section Styles */
+    .hero__status-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-open-projects-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+      color: #FFFFFF !important;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none !important;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .hero-open-projects-pill:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #60A5FA 0%, #1D4ED8 100%);
+    }
+    .hero-open-projects-pill .pill-spark-icon {
+      font-size: 0.95rem;
+      line-height: 1;
+      display: inline-block;
+      animation: sparkPulse 2.4s infinite ease-in-out;
+    }
+    .hero__about-merged {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 44rem;
+      margin-top: 0.15rem;
+    }
+    .hero__about-headline {
+      font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      color: #1A1818;
+    }
+    [data-theme="dark"] .hero__about-headline {
+      color: #FFFFFF;
+    }
+    .hero__about-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .hero__about-body p {
+      font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+      line-height: 1.6;
+      color: rgba(26, 24, 24, 0.72);
+      margin: 0;
+    }
+    [data-theme="dark"] .hero__about-body p {
+      color: rgba(232, 228, 224, 0.72);
+    }
+
     /* Shell / Container for Box Model & Grid Alignment */
     .shell {
       width: 100%;
@@ -10709,9 +10775,15 @@
         <div class="hero__left">
           
           <!-- Live Status Pill -->
-          <div class="eyebrow">
-            <span class="eyebrow__dot" aria-hidden="true"></span>
-            <span>Available for projects &middot; Frontend, Freelance &amp; Marketing</span>
+          <div class="hero__status-row">
+            <div class="eyebrow">
+              <span class="eyebrow__dot" aria-hidden="true"></span>
+              <span>Available for projects &middot; Frontend, Freelance &amp; Marketing</span>
+            </div>
+            <a href="#contact" class="hero-open-projects-pill" title="Open for projects — Click to connect">
+              <span class="pill-spark-icon" aria-hidden="true">✦</span>
+              <span>OPEN FOR PROJECTS</span>
+            </a>
           </div>
 
           <!-- Main Headline with 3D Flip Calendar Album -->
@@ -10766,9 +10838,20 @@
           </div>
 
           <!-- Value Proposition Sub-Lead -->
-          <p class="hero__lead">
-            Certified frontend developer, digital marketing strategist, content creator, professional model, freelance engineer, and dedicated customer support specialist.
-          </p>
+          <div class="hero__about-merged" id="about">
+            <div class="hero__about-tag" style="font-family: var(--font-mono, monospace); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; color: var(--accent-orange, #F48936); text-transform: uppercase;">( ABOUT )</div>
+            <h2 class="hero__about-headline">
+              Brands with a pulse, not just a logo.
+            </h2>
+            <div class="hero__about-body">
+              <p>
+                Hi, I’m Belintan — an MBA graduate, certified frontend developer, and backend Java developer. I build AI-powered web solutions that bring thoughtful ideas to life.
+              </p>
+              <p>
+                I’m open to freelance projects and new opportunities. I’d love to connect, learn about your goals, and explore how we can work together.
+              </p>
+            </div>
+          </div>
 
           <!-- Action CTAs -->
           <div class="ctas">
@@ -10800,45 +10883,7 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         ABOUT SECTION: BRANDS WITH A PULSE (AS REQUESTED)
-         ========================================================================== -->
-    <section class="section about-pulse-section" id="about" data-track="both" aria-labelledby="about-pulse-heading">
-      <div class="shell about-pulse-container">
-        <div class="about-pulse-grid">
-          
-          <!-- Left Column: Photo Card with Overlapping Blue Pill Badge -->
-          <div class="about-pulse-photo-col">
-            <div class="about-pulse-card">
-              <div class="about-pulse-img-wrap">
-                <img src="belintan-hero.jpg" alt="Belintan B. — MBA Graduate, Certified Frontend Developer &amp; Backend Engineer" class="about-pulse-img" />
-              </div>
-              <a href="#contact" class="about-open-projects-pill" title="Open for projects — Click to connect">
-                <span class="pill-spark-icon" aria-hidden="true">✦</span>
-                <span>OPEN FOR PROJECTS</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right Column: Editorial Typography -->
-          <div class="about-pulse-text-col">
-            <div class="about-pulse-tag">( ABOUT )</div>
-            <h2 class="about-pulse-headline" id="about-pulse-heading">
-              Brands with a pulse, not just a logo.
-            </h2>
-            <div class="about-pulse-body">
-              <p>
-                Hi, I’m Belintan — an MBA graduate, certified frontend developer, and backend Java developer. I build AI-powered web solutions that bring thoughtful ideas to life.
-              </p>
-              <p>
-                I’m open to freelance projects and new opportunities. I’d love to connect, learn about your goals, and explore how we can work together.
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
+    
 
 
 
@@ -10850,7 +10895,7 @@
       <div class="container">
 
         <!-- Chapter Badge -->
-        <div class="sketch-chapter-badge">[ 02 · FREELANCE SERVICES &amp; SOLUTIONS ]</div>
+        <div class="sketch-chapter-badge">[ 01 · FREELANCE SERVICES &amp; SOLUTIONS ]</div>
         <h2 class="section-title" id="services-heading">
           High-Impact Web Engineering &amp; Client Solutions
         </h2>
@@ -10956,7 +11001,7 @@
     <section class="section contact-section" id="contact" data-track="both" aria-labelledby="contact-heading">
       <div class="container">
 
-        <div class="sketch-chapter-badge">[ 03 · INQUIRIES &amp; ENGAGEMENTS ]</div>
+        <div class="sketch-chapter-badge">[ 02 · INQUIRIES &amp; ENGAGEMENTS ]</div>
         <h2 class="section-title" id="contact-heading">
           Let's Build Something Memorable
         </h2>
