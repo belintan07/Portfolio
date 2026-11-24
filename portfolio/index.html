@@ -10577,6 +10577,40 @@
     @media (max-width: 640px) {
       .hero__bar .mid { display: none; }
     }
+  
+    /* ==========================================================================
+       REACT BITS: NEON LOGO & FADE CONTENT ENGINES
+       ========================================================================== */
+    .hero-neon-wrap {
+      display: inline-block;
+      position: relative;
+      vertical-align: baseline;
+      line-height: inherit;
+    }
+    .hero-neon-canvas {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140%;
+      height: 220%;
+      pointer-events: auto;
+      z-index: 3;
+      cursor: pointer;
+    }
+    .hero-neon-wrap.webgl-active .neon-text-fallback {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .neon-text-fallback {
+      transition: opacity 0.3s ease;
+    }
+
+    /* React Bits: FadeContent */
+    [data-fade-content] {
+      will-change: opacity, filter, transform;
+    }
+
   </style>
 
   <!-- Schema.org JSON-LD Structured Data for Full-Stack Freelance Software Engineer -->
@@ -10789,7 +10823,7 @@
           <!-- Main Headline with 3D Flip Calendar Album -->
           <div class="hero__title-wrap">
             <h1 class="h1" id="hero-heading">
-              <span class="line">Hi, I'm <span class="bold-name">Belintan.</span></span>
+              <span class="line">Hi, I'm <span class="hero-neon-wrap" id="heroNeonName" data-text="Belintan."><canvas id="neonHeroCanvas" class="hero-neon-canvas" aria-hidden="true"></canvas><span class="bold-name neon-text-fallback">Belintan.</span></span></span>
             </h1>
             
             <!-- Desk Calendar Flip Album -->
@@ -10838,7 +10872,7 @@
           </div>
 
           <!-- Value Proposition Sub-Lead -->
-          <div class="hero__about-merged" id="about">
+          <div class="hero__about-merged" id="about" data-fade-content="mist" data-duration="1.6">
             <div class="hero__about-tag" style="font-family: var(--font-mono, monospace); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; color: var(--accent-orange, #F48936); text-transform: uppercase;">( ABOUT )</div>
             <h2 class="hero__about-headline">
               Brands with a pulse, not just a logo.
@@ -10891,7 +10925,7 @@
     <!-- ==========================================================================
          CHAPTER 02: SERVICES, SKILLS & CREDENTIALS (UNIFIED SINGLE 2ND PAGE)
          ========================================================================== -->
-    <section class="section chapter-two-unified-section" id="services" data-track="both" aria-labelledby="services-heading">
+    <section class="section chapter-two-unified-section" id="services" data-track="both" data-fade-content="focus" data-duration="1.4" aria-labelledby="services-heading">
       <div class="container">
 
         <!-- Chapter Badge -->
@@ -10904,7 +10938,7 @@
         </p>
 
         <!-- High-Converting Value Proposition Banner -->
-        <div class="service-value-proposition-card">
+        <div class="service-value-proposition-card" data-fade-content="develop" data-duration="1.4">
           <div class="svp-header">
             <span class="svp-eyebrow-pill">HIGH-CONVERTING DIGITAL PRESENCE</span>
             <h4 class="svp-headline">
@@ -10998,7 +11032,7 @@
          ========================================================================== -->
     
 
-    <section class="section contact-section" id="contact" data-track="both" aria-labelledby="contact-heading">
+    <section class="section contact-section" id="contact" data-track="both" data-fade-content="mist" data-duration="1.6" aria-labelledby="contact-heading">
       <div class="container">
 
         <div class="sketch-chapter-badge">[ 02 · INQUIRIES &amp; ENGAGEMENTS ]</div>
