@@ -9745,6 +9745,205 @@
       }
     }
 
+    /* ==========================================================================
+       ABOUT SECTION: BRANDS WITH A PULSE (PIXEL-PERFECT AS REQUESTED)
+       ========================================================================== */
+    .about-pulse-section {
+      position: relative;
+      background: var(--bg-primary, #0B0B0E);
+      padding: clamp(70px, 9vw, 130px) 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+    [data-theme="light"] .about-pulse-section {
+      background: #F8F5F2;
+      border-bottom: 1px solid rgba(26, 24, 24, 0.08);
+    }
+
+    .about-pulse-container {
+      width: 100%;
+      max-width: 84rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: clamp(1.25rem, 4vw, 2.5rem);
+      padding-right: clamp(1.25rem, 4vw, 2.5rem);
+      box-sizing: border-box;
+    }
+
+    .about-pulse-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 460px) 1fr;
+      gap: clamp(40px, 6vw, 90px);
+      align-items: center;
+    }
+
+    /* Left: Photo Card with Overlapping Blue Pill Badge */
+    .about-pulse-photo-col {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-pulse-card {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      aspect-ratio: 4 / 3;
+      border-radius: clamp(24px, 3.5vw, 36px);
+      overflow: visible;
+    }
+
+    .about-pulse-img-wrap {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 24px 50px -15px rgba(0, 0, 0, 0.5);
+      background: #171822;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    }
+    [data-theme="light"] .about-pulse-img-wrap {
+      border-color: rgba(26, 24, 24, 0.1);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.12);
+      background: #E8E4E0;
+    }
+    .about-pulse-card:hover .about-pulse-img-wrap {
+      transform: translateY(-4px) scale(1.015);
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.65);
+    }
+
+    .about-pulse-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .about-pulse-card:hover .about-pulse-img {
+      transform: scale(1.04);
+    }
+
+    /* Floating Blue Pill Badge: ✦ OPEN FOR PROJECTS */
+    .about-open-projects-pill {
+      position: absolute;
+      right: -14px;
+      bottom: 18px;
+      z-index: 10;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      border-radius: 9999px;
+      background: #3B82F6;
+      background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+      color: #FFFFFF !important;
+      font-family: var(--font-display, var(--font-sans));
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 25px -4px rgba(37, 99, 235, 0.55), 0 0 12px rgba(59, 130, 246, 0.35);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease;
+      cursor: pointer;
+    }
+    .about-open-projects-pill:hover {
+      transform: translateY(-3px) scale(1.04);
+      background: linear-gradient(135deg, #60A5FA 0%, #1D4ED8 100%);
+      box-shadow: 0 14px 30px -4px rgba(37, 99, 235, 0.7), 0 0 16px rgba(59, 130, 246, 0.5);
+    }
+    .about-open-projects-pill .pill-spark-icon {
+      font-size: 1rem;
+      line-height: 1;
+      display: inline-block;
+      animation: sparkPulse 2.4s infinite ease-in-out;
+    }
+    @keyframes sparkPulse {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+      50% { transform: scale(1.25) rotate(15deg); opacity: 0.8; }
+    }
+
+    /* Right: Editorial Typography */
+    .about-pulse-text-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 680px;
+    }
+
+    .about-pulse-tag {
+      font-family: var(--font-mono, 'JetBrains Mono', monospace);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 1.25rem;
+    }
+    [data-theme="light"] .about-pulse-tag {
+      color: rgba(26, 24, 24, 0.55);
+    }
+
+    .about-pulse-headline {
+      font-size: clamp(2.35rem, 4.4vw, 3.85rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      color: #FFFFFF;
+      margin-bottom: 1.75rem;
+    }
+    [data-theme="light"] .about-pulse-headline {
+      color: #111111;
+    }
+
+    .about-pulse-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .about-pulse-body p {
+      font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+      line-height: 1.68;
+      color: rgba(255, 255, 255, 0.72);
+      margin: 0;
+    }
+    [data-theme="light"] .about-pulse-body p {
+      color: rgba(26, 24, 24, 0.72);
+    }
+
+    /* Responsive overrides */
+    @media (max-width: 1023px) {
+      .about-pulse-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+      .about-pulse-photo-col {
+        justify-content: flex-start;
+      }
+      .about-pulse-card {
+        max-width: 100%;
+        aspect-ratio: 16 / 10;
+      }
+      .about-open-projects-pill {
+        right: 16px;
+        bottom: -14px;
+      }
+    }
+    @media (max-width: 480px) {
+      .about-pulse-card {
+        aspect-ratio: 4 / 3;
+      }
+      .about-open-projects-pill {
+        padding: 7px 15px;
+        font-size: 0.75rem;
+      }
+    }
+
     /* Shell / Container for Box Model & Grid Alignment */
     .shell {
       width: 100%;
@@ -10362,6 +10561,7 @@
         <!-- Center: Primary Navigation Links -->
         <nav class="nav-links" role="navigation" aria-label="Primary Navigation">
           <a href="#hero" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
           <a href="#services" class="nav-link">Services</a>
           <a href="pricing.html" class="nav-link">Pricing</a>
           <a href="/templates/" class="nav-link templates-link" style="color: var(--accent-orange, #F48936); font-weight: 700;">Templates ✨</a>
@@ -10430,25 +10630,30 @@
           <a href="#hero" class="overlay-nav-item" data-index="01">
             <span class="overlay-item-num">01</span>
             <span class="overlay-item-text">Profile</span>
-            <span class="overlay-item-sub">Identity, Background &amp; Bio</span>
+            <span class="overlay-item-sub">Identity &amp; Interactive Album</span>
           </a>
-          <a href="#services" class="overlay-nav-item" data-index="02">
+          <a href="#about" class="overlay-nav-item" data-index="02">
             <span class="overlay-item-num">02</span>
+            <span class="overlay-item-text">About</span>
+            <span class="overlay-item-sub">Brands with a Pulse &middot; Mission &amp; Background</span>
+          </a>
+          <a href="#services" class="overlay-nav-item" data-index="03">
+            <span class="overlay-item-num">03</span>
             <span class="overlay-item-text">Services &amp; Solutions</span>
             <span class="overlay-item-sub">Web Apps, APIs, Edge Hosting &amp; AI Tooling</span>
           </a>
-          <a href="pricing.html" class="overlay-nav-item" data-index="03">
-            <span class="overlay-item-num">03</span>
+          <a href="pricing.html" class="overlay-nav-item" data-index="04">
+            <span class="overlay-item-num">04</span>
             <span class="overlay-item-text">Packages &amp; Pricing</span>
             <span class="overlay-item-sub">Fixed Tiers &amp; Scope Estimates</span>
           </a>
-          <a href="/templates/" class="overlay-nav-item" data-index="04">
-            <span class="overlay-item-num">04</span>
+          <a href="/templates/" class="overlay-nav-item" data-index="05">
+            <span class="overlay-item-num">05</span>
             <span class="overlay-item-text">Templates ✨</span>
             <span class="overlay-item-sub">Production Web &amp; App UI Starter Kits</span>
           </a>
-          <a href="#contact" class="overlay-nav-item" data-index="05">
-            <span class="overlay-item-num">05</span>
+          <a href="#contact" class="overlay-nav-item" data-index="06">
+            <span class="overlay-item-num">06</span>
             <span class="overlay-item-text">Contact</span>
             <span class="overlay-item-sub">Direct WhatsApp, Inquiries &amp; Consultation Form</span>
           </a>
@@ -10595,6 +10800,47 @@
       </div>
     </section>
 
+    <!-- ==========================================================================
+         ABOUT SECTION: BRANDS WITH A PULSE (AS REQUESTED)
+         ========================================================================== -->
+    <section class="section about-pulse-section" id="about" data-track="both" aria-labelledby="about-pulse-heading">
+      <div class="shell about-pulse-container">
+        <div class="about-pulse-grid">
+          
+          <!-- Left Column: Photo Card with Overlapping Blue Pill Badge -->
+          <div class="about-pulse-photo-col">
+            <div class="about-pulse-card">
+              <div class="about-pulse-img-wrap">
+                <img src="belintan-hero.jpg" alt="Belintan B. — MBA Graduate, Certified Frontend Developer &amp; Backend Engineer" class="about-pulse-img" />
+              </div>
+              <a href="#contact" class="about-open-projects-pill" title="Open for projects — Click to connect">
+                <span class="pill-spark-icon" aria-hidden="true">✦</span>
+                <span>OPEN FOR PROJECTS</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Editorial Typography -->
+          <div class="about-pulse-text-col">
+            <div class="about-pulse-tag">( ABOUT )</div>
+            <h2 class="about-pulse-headline" id="about-pulse-heading">
+              Brands with a pulse, not just a logo.
+            </h2>
+            <div class="about-pulse-body">
+              <p>
+                Hi, I’m Belintan — an MBA graduate, certified frontend developer, and backend Java developer. I build AI-powered web solutions that bring thoughtful ideas to life.
+              </p>
+              <p>
+                I’m open to freelance projects and new opportunities. I’d love to connect, learn about your goals, and explore how we can work together.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
 
 
     <!-- ==========================================================================
@@ -10604,7 +10850,7 @@
       <div class="container">
 
         <!-- Chapter Badge -->
-        <div class="sketch-chapter-badge">[ 01 · FREELANCE SERVICES &amp; SOLUTIONS ]</div>
+        <div class="sketch-chapter-badge">[ 02 · FREELANCE SERVICES &amp; SOLUTIONS ]</div>
         <h2 class="section-title" id="services-heading">
           High-Impact Web Engineering &amp; Client Solutions
         </h2>
@@ -10710,7 +10956,7 @@
     <section class="section contact-section" id="contact" data-track="both" aria-labelledby="contact-heading">
       <div class="container">
 
-        <div class="sketch-chapter-badge">[ 02 · INQUIRIES &amp; ENGAGEMENTS ]</div>
+        <div class="sketch-chapter-badge">[ 03 · INQUIRIES &amp; ENGAGEMENTS ]</div>
         <h2 class="section-title" id="contact-heading">
           Let's Build Something Memorable
         </h2>
