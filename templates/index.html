@@ -1853,6 +1853,922 @@
       font-size: 0.76rem;
       color: var(--text-subtle);
     }
+
+    /* ==========================================================================
+       SOFTWARE BLUEPRINT STUDIO, IMAGE DUPLICATOR & GENERATOR WORKBENCH
+       ========================================================================== */
+    .studio-section {
+      max-width: 1240px;
+      margin: 0 auto 44px auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .studio-shell {
+      background: linear-gradient(145deg, rgba(19, 20, 30, 0.96), rgba(11, 12, 20, 0.98));
+      border: 1px solid rgba(146, 112, 251, 0.28);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(146, 112, 251, 0.08);
+    }
+
+    .studio-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .studio-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #A78BFA;
+      background: rgba(146, 112, 251, 0.14);
+      border: 1px solid rgba(146, 112, 251, 0.32);
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 10px;
+    }
+
+    .studio-title {
+      font-size: clamp(1.4rem, 2.4vw, 1.95rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+
+    .studio-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      line-height: 1.55;
+    }
+
+    .studio-blueprint-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 820px) {
+      .studio-blueprint-tabs {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .bp-selector-btn {
+      text-align: left;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: #FFFFFF;
+    }
+
+    .bp-selector-btn:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .bp-selector-btn.active {
+      background: rgba(146, 112, 251, 0.14);
+      border-color: #9270FB;
+      box-shadow: 0 0 20px rgba(146, 112, 251, 0.2);
+    }
+
+    .bp-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .bp-meta h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .bp-meta p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Duplicator Workbench Split */
+    .duplicator-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.25fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 960px) {
+      .duplicator-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .dup-panel {
+      background: #0A0B11;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .dup-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .dup-panel-label {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .dup-upload-btn {
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #7DD3FC;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .dup-upload-btn:hover {
+      background: rgba(56, 189, 248, 0.25);
+    }
+
+    .dup-specs-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .dup-spec-chip {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #E2E8F0;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+
+    .dup-preview-box {
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #06070B;
+      min-height: 250px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .dup-preview-box img {
+      max-width: 100%;
+      max-height: 290px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .dup-customizer-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1.2fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    @media (max-width: 600px) {
+      .dup-customizer-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .dup-input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      padding: 8px 12px;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .dup-input:focus {
+      border-color: var(--accent-lavender);
+    }
+
+    .dup-color-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .dup-color-wrap input[type="color"] {
+      width: 26px;
+      height: 26px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .dup-actions-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .btn-studio-primary {
+      flex: 1;
+      min-width: 165px;
+      background: linear-gradient(135deg, #9270FB 0%, #6366F1 100%);
+      color: #FFFFFF;
+      border: none;
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+      transition: var(--transition-smooth);
+    }
+
+    .btn-studio-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(99, 102, 241, 0.5);
+    }
+
+    .btn-studio-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-studio-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .btn-studio-emerald {
+      background: rgba(16, 185, 129, 0.18);
+      color: #6EE7B7;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 10px 14px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-studio-emerald:hover {
+      background: rgba(16, 185, 129, 0.3);
+      color: #FFFFFF;
+    }
+
+    /* Duplicated Shelf */
+    .duplicated-shelf {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      display: none;
+    }
+
+    .duplicated-shelf.has-items {
+      display: block;
+    }
+
+    .shelf-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .shelf-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .shelf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .shelf-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .shelf-item-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .shelf-item-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .shelf-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .shelf-item-meta {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .shelf-item-btns {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .shelf-mini-btn {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #E2E8F0;
+      cursor: pointer;
+    }
+
+    .shelf-mini-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: #FFFFFF;
+    }
+
+    .shelf-mini-btn.del {
+      color: #FCA5A5;
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+
+    /* Studio Toast */
+    .studio-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10B981;
+      color: #06281E;
+      font-weight: 800;
+      font-size: 0.84rem;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      z-index: 2000;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+
+    .studio-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+       3 SOFTWARE MOCKUPS IN CARD VIEWPORTS (IMAGES 1, 2 & 3 REPLICAS)
+       ========================================================================== */
+    /* 1. Flowzo CRM Software Mockup */
+    .mock-flowzo {
+      background: radial-gradient(circle at top right, #F3E8FF 0%, #FAF5FF 45%, #EEF2FF 100%);
+      color: #1E1B4B;
+      padding: 8px;
+    }
+    .fz-top-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .fz-logo-badge {
+      font-weight: 900;
+      font-size: 0.56rem;
+      color: #EA580C;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .fz-hero-title {
+      text-align: center;
+      font-weight: 900;
+      font-size: 0.68rem;
+      line-height: 1.05;
+      background: linear-gradient(90deg, #5B21B6, #EA580C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2px;
+    }
+    .fz-sub-line {
+      text-align: center;
+      font-size: 0.4rem;
+      font-weight: 800;
+      color: #312E81;
+      letter-spacing: 0.04em;
+      margin-bottom: 5px;
+    }
+    .fz-stage-row {
+      display: grid;
+      grid-template-columns: 0.9fr 1.25fr 0.9fr;
+      gap: 5px;
+      align-items: center;
+      flex: 1;
+    }
+    .fz-side-nodes {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .fz-node {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(109, 40, 217, 0.16);
+      border-radius: 6px;
+      padding: 4px;
+      text-align: center;
+      font-size: 0.4rem;
+      font-weight: 700;
+      color: #1E1B4B;
+      box-shadow: 0 2px 6px rgba(91, 33, 182, 0.08);
+    }
+    .fz-node-dot {
+      display: inline-flex;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #5B21B6;
+      color: #FFF;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.38rem;
+      margin-bottom: 2px;
+    }
+    .fz-phone-frame {
+      background: #FFFFFF;
+      border: 2px solid #1E293B;
+      border-radius: 10px;
+      padding: 4px;
+      box-shadow: 0 6px 14px rgba(30, 27, 75, 0.22);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .fz-kpi-teal {
+      background: linear-gradient(135deg, #0EA5E9, #2DD4BF);
+      color: #FFF;
+      border-radius: 4px;
+      padding: 3px 5px;
+      font-size: 0.42rem;
+      font-weight: 800;
+    }
+    .fz-kpi-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+    }
+    .fz-kpi-orange {
+      background: linear-gradient(135deg, #FB923C, #F97316);
+      color: #FFF;
+      border-radius: 4px;
+      padding: 2px 4px;
+      font-size: 0.36rem;
+      font-weight: 800;
+    }
+    .fz-kpi-pink {
+      background: linear-gradient(135deg, #EC4899, #8B5CF6);
+      color: #FFF;
+      border-radius: 4px;
+      padding: 2px 4px;
+      font-size: 0.36rem;
+      font-weight: 800;
+    }
+    .fz-kpi-indigo {
+      background: linear-gradient(135deg, #3B82F6, #7C3AED);
+      color: #FFF;
+      border-radius: 4px;
+      padding: 2px 5px;
+      font-size: 0.38rem;
+      font-weight: 800;
+    }
+    .fz-bottom-strip {
+      margin-top: 4px;
+      background: #FFFFFF;
+      border-radius: 99px;
+      padding: 2px 6px;
+      display: flex;
+      justify-content: space-around;
+      font-size: 0.38rem;
+      font-weight: 700;
+      color: #334155;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    /* 2. OfficePortal HRMS Software Mockup */
+    .mock-officeportal {
+      background: linear-gradient(180deg, #F8FAFC 0%, #ECFDF5 100%);
+      color: #0F172A;
+      padding: 8px;
+    }
+    .op-head {
+      text-align: center;
+      font-size: 0.54rem;
+      font-weight: 900;
+      line-height: 1.15;
+      color: #0F172A;
+      margin-bottom: 4px;
+    }
+    .op-head span { color: #0D9488; }
+    .op-pills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin-bottom: 5px;
+    }
+    .op-pill {
+      background: #FFFFFF;
+      border: 1px solid #CCFBF1;
+      border-radius: 4px;
+      padding: 2px 4px;
+      font-size: 0.38rem;
+      font-weight: 700;
+      color: #1E293B;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .op-devices {
+      display: grid;
+      grid-template-columns: 1.65fr 0.7fr;
+      gap: 5px;
+      flex: 1;
+      align-items: end;
+    }
+    .op-laptop {
+      background: #FFFFFF;
+      border: 2px solid #1E293B;
+      border-radius: 6px;
+      height: 74px;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      overflow: hidden;
+    }
+    .op-side {
+      background: #0F172A;
+      padding: 4px 3px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .op-side span {
+      height: 3px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.25);
+    }
+    .op-side span.on { background: #14B8A6; }
+    .op-dash {
+      padding: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .op-kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .op-k {
+      background: #F1F5F9;
+      border-radius: 3px;
+      padding: 2px;
+      font-size: 0.38rem;
+      font-weight: 800;
+      text-align: center;
+    }
+    .op-bars {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      padding-top: 2px;
+    }
+    .op-bars span {
+      flex: 1;
+      background: #14B8A6;
+      border-radius: 2px 2px 0 0;
+    }
+    .op-phone {
+      background: #FFFFFF;
+      border: 2px solid #0F172A;
+      border-radius: 8px;
+      height: 66px;
+      padding: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .op-avatar {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #14B8A6, #0EA5E9);
+    }
+    .op-check-btn {
+      width: 100%;
+      background: #0D9488;
+      color: #FFF;
+      font-size: 0.38rem;
+      font-weight: 800;
+      text-align: center;
+      padding: 2px;
+      border-radius: 3px;
+    }
+
+    /* 3. Healthray Healthcare OS Mockup */
+    .mock-healthray {
+      background: linear-gradient(160deg, #0284C7 0%, #1D4ED8 60%, #1E3A8A 100%);
+      color: #FFFFFF;
+      padding: 8px;
+    }
+    .hr-head-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3px;
+    }
+    .hr-brand {
+      background: #FFFFFF;
+      color: #DC2626;
+      font-size: 0.44rem;
+      font-weight: 900;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .hr-40-pill {
+      background: #FACC15;
+      color: #0F172A;
+      font-size: 0.44rem;
+      font-weight: 900;
+      padding: 2px 7px;
+      border-radius: 99px;
+    }
+    .hr-laptop {
+      background: #FFFFFF;
+      border: 2px solid #0F172A;
+      border-radius: 6px;
+      color: #0F172A;
+      padding: 4px;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 4px;
+      height: 62px;
+      margin-bottom: 5px;
+    }
+    .hr-side {
+      background: #0F172A;
+      border-radius: 3px;
+      padding: 3px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .hr-side span {
+      height: 3px;
+      background: rgba(255,255,255,0.28);
+      border-radius: 2px;
+    }
+    .hr-side span.on { background: #38BDF8; }
+    .hr-main {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .hr-kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .hr-k {
+      background: #EFF6FF;
+      border-radius: 3px;
+      padding: 2px;
+      text-align: center;
+      font-size: 0.38rem;
+      font-weight: 800;
+      color: #1E3A8A;
+    }
+    .hr-charts {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+    }
+    .hr-bars {
+      flex: 1;
+      height: 24px;
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+    }
+    .hr-bars span {
+      flex: 1;
+      background: #2563EB;
+      border-radius: 1px 1px 0 0;
+    }
+    .hr-donut {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 4px solid #2563EB;
+      border-top-color: #E2E8F0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.36rem;
+      font-weight: 900;
+      color: #1E3A8A;
+    }
+    .hr-modules-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+    .hr-mod-card {
+      background: #FFFFFF;
+      color: #0F172A;
+      border-radius: 5px;
+      padding: 3px;
+      text-align: center;
+      font-size: 0.42rem;
+      font-weight: 800;
+    }
+    .hr-abdm-strip {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 99px;
+      padding: 2px 6px;
+      font-size: 0.39rem;
+      font-weight: 800;
+      text-align: center;
+      color: #FDE047;
+    }
+
+    /* Modal Mode Tabs & Customizer Bar */
+    .modal-mode-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 12px 24px 0 24px;
+      background: #0E1017;
+    }
+    .mode-tab-btn {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .mode-tab-btn:hover { color: #FFFFFF; border-color: var(--border-hover); }
+    .mode-tab-btn.active {
+      background: linear-gradient(135deg, #9270FB, #6366F1);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(146, 112, 251, 0.35);
+    }
+    .modal-customizer-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+    .modal-iframe-live {
+      width: 100%;
+      height: 540px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+      background: #FFFFFF;
+    }
+    .modal-code-pre {
+      width: 100%;
+      max-height: 460px;
+      overflow: auto;
+      background: #07080D;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: #CBD5E1;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .bp-stage-full {
+      background: #FFFFFF;
+      color: #0F172A;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    }
+
   </style>
 </head>
 <body>
@@ -1873,19 +2789,19 @@
           </a>
         </li>
         <li class="nav-link-item">
-          <a href="#resources" class="nav-link-btn">
-            <span>Resources</span>
+          <a href="#software-studio" class="nav-link-btn">
+            <span>Software Studio</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </a>
         </li>
         <li class="nav-link-item">
-          <a href="#agents" class="nav-link-btn">
-            <span>Agents</span>
+          <a href="#duplicator" class="nav-link-btn">
+            <span>Duplicator</span>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </a>
         </li>
         <li class="nav-link-item">
-          <a href="#pricing" class="nav-link-btn" onclick="openAllAccessModal(); return false;">
+          <a href="#software-studio" class="nav-link-btn" onclick="openAllAccessModal(); return false;">
             <span>Pricing</span>
           </a>
         </li>
@@ -1906,7 +2822,7 @@
   <!-- Hero Header -->
   <header class="templates-hero">
     <div class="hero-eyebrow">
-      <span>✦ 12+ PRODUCTION-READY WEBPAGE TEMPLATES</span>
+      <span>✦ 15+ SOFTWARE SYSTEMS &amp; WEBPAGE TEMPLATES</span>
     </div>
     <h1 class="hero-main-title">
       <span>Curated Website Templates</span><br>For Modern Digital Builders
@@ -1916,10 +2832,129 @@
     </p>
   </header>
 
+
+  <!-- Software Blueprint Studio & Image Duplicator -->
+  <section class="studio-section" id="software-studio" aria-labelledby="studio-heading">
+    <div class="studio-shell">
+      <div class="studio-header">
+        <div>
+          <div class="studio-badge">
+            <span>⚡ Software Blueprint Generator &amp; Image Duplicator</span>
+          </div>
+          <h2 class="studio-title" id="studio-heading">Preview, Duplicate &amp; Generate Sample Software</h2>
+          <p class="studio-sub">
+            Built directly from the 3 software architecture images — preview the duplicated visual layouts, customize brand &amp; colors, upload any reference image, or generate and download working HTML5 sample software.
+          </p>
+        </div>
+        <button class="btn-studio-secondary" onclick="document.getElementById('ref-image-upload').click()">
+          <span>🖼️ Upload Reference Image to Preview &amp; Duplicate</span>
+        </button>
+        <input type="file" id="ref-image-upload" accept="image/*" style="display:none;" />
+      </div>
+
+      <!-- 3 Software Blueprint Selector Buttons (From Uploaded Images) -->
+      <div class="studio-blueprint-tabs" role="tablist" aria-label="Software Blueprints">
+        <button class="bp-selector-btn active" data-bp="flowzo-crm" onclick="selectStudioBlueprint('flowzo-crm')">
+          <div class="bp-icon-box" style="background: linear-gradient(135deg, #7C3AED, #F97316);">📱</div>
+          <div class="bp-meta">
+            <h4>1. Flowzo CRM Software</h4>
+            <p>All-in-one Lead Management, Call Sync, Top Performers, Analytics &amp; WhatsApp/Meta integrations.</p>
+          </div>
+        </button>
+        <button class="bp-selector-btn" data-bp="officeportal-hrms" onclick="selectStudioBlueprint('officeportal-hrms')">
+          <div class="bp-icon-box" style="background: linear-gradient(135deg, #0D9488, #0284C7);">💼</div>
+          <div class="bp-meta">
+            <h4>2. OfficePortal HRMS &amp; Payroll</h4>
+            <p>Indian Business HR (10–10,000 staff): PF/ESI/PT Payroll, Biometric, Geo-Fencing &amp; Mobile Check-Out.</p>
+          </div>
+        </button>
+        <button class="bp-selector-btn" data-bp="healthray-hms" onclick="selectStudioBlueprint('healthray-hms')">
+          <div class="bp-icon-box" style="background: linear-gradient(135deg, #2563EB, #EF4444);">🏥</div>
+          <div class="bp-meta">
+            <h4>3. Healthray Healthcare OS</h4>
+            <p>40+ Healthcare Modules: Hospital OPD/IPD, Lab, Pharmacy, AI Enabled + ABDM &amp; Bed Occupancy.</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- Side-by-Side Image Duplicator & Generator Controls -->
+      <div class="duplicator-grid" id="duplicator">
+        <!-- Left Panel: Extracted Instructions & Visual Image Preview -->
+        <div class="dup-panel">
+          <div class="dup-panel-head">
+            <span class="dup-panel-label" id="dup-source-label">REFERENCE VISUAL DUPLICATION</span>
+            <button class="dup-upload-btn" onclick="resetStudioImagePreview()">Use Selected Blueprint Visual</button>
+          </div>
+          <div class="dup-preview-box" id="dup-reference-stage">
+            <!-- Populated dynamically with either visual blueprint replica or uploaded image -->
+          </div>
+          <div>
+            <div style="font-size:0.74rem;font-weight:700;color:var(--text-muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em;">
+              Extracted Software Instructions &amp; Modules
+            </div>
+            <div class="dup-specs-list" id="dup-specs-chips"></div>
+          </div>
+        </div>
+
+        <!-- Right Panel: Duplicate Customizer & Live Sample Software Generator -->
+        <div class="dup-panel">
+          <div class="dup-panel-head">
+            <span class="dup-panel-label" style="color:#A78BFA;">LIVE SAMPLE SOFTWARE GENERATOR</span>
+            <span id="dup-live-badge" style="font-size:0.72rem;color:#6EE7B7;font-weight:700;">● Interactive Mode Ready</span>
+          </div>
+
+          <!-- Customize Before Duplicating / Generating -->
+          <div class="dup-customizer-row">
+            <input type="text" id="studio-brand-input" class="dup-input" placeholder="Brand Name (e.g. Flowzo.ai)" aria-label="Custom Brand Name" />
+            <input type="text" id="studio-tagline-input" class="dup-input" placeholder="Software Tagline / Industry" aria-label="Custom Tagline" />
+            <label class="dup-color-wrap" title="Primary Brand Color">
+              <span>Color</span>
+              <input type="color" id="studio-color-input" value="#7C3AED" />
+            </label>
+          </div>
+
+          <!-- Embedded Live Interactive Preview of Generated Sample Software -->
+          <div class="dup-preview-box" style="flex:1;min-height:290px;align-items:stretch;justify-content:stretch;">
+            <iframe id="studio-live-iframe" title="Live Generated Sample Software Preview" sandbox="allow-scripts allow-forms allow-modals" style="width:100%;height:300px;border:none;background:#FFF;"></iframe>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="dup-actions-bar">
+            <button class="btn-studio-primary" onclick="launchStudioFullWorkbench('software')">
+              <span>⚡ Open Full Interactive Sample Software</span>
+            </button>
+            <button class="btn-studio-secondary" onclick="launchStudioFullWorkbench('blueprint')">
+              <span>🎨 Full Visual Replica</span>
+            </button>
+            <button class="btn-studio-secondary" onclick="duplicateCurrentBlueprint()">
+              <span>📋 Duplicate Blueprint</span>
+            </button>
+            <button class="btn-studio-emerald" onclick="downloadCurrentSampleSoftware()">
+              <span>⬇️ Download Sample (.html)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Saved / Duplicated Blueprints Shelf -->
+      <div class="duplicated-shelf" id="duplicated-shelf">
+        <div class="shelf-header">
+          <div class="shelf-title">
+            <span>📋 Your Duplicated Blueprints &amp; Generated Apps</span>
+            <span id="shelf-count-badge" style="font-size:0.75rem;color:var(--accent-cyan);font-family:var(--font-mono);">(0)</span>
+          </div>
+          <button class="shelf-mini-btn del" onclick="clearAllDuplicates()">Clear All</button>
+        </div>
+        <div class="shelf-grid" id="duplicated-shelf-grid"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Controls: Category Filter Pills & Search -->
   <section class="controls-container" aria-label="Template Filters and Search">
     <div class="filter-pills-row" role="tablist">
-      <button class="filter-pill active" data-filter="all">All Templates (12)</button>
+      <button class="filter-pill active" data-filter="all">All Templates (15)</button>
+      <button class="filter-pill" data-filter="software">Software Systems (3)</button>
       <button class="filter-pill" data-filter="ai">AI &amp; Agents (3)</button>
       <button class="filter-pill" data-filter="saas">SaaS &amp; Tech (3)</button>
       <button class="filter-pill" data-filter="studio">Design &amp; Studio (4)</button>
@@ -1936,6 +2971,210 @@
   <!-- 3-Column Template Grid -->
   <main class="templates-grid-section" id="grid">
     <div class="templates-grid" id="templates-grid-container">
+
+      <!-- Software Card 1: Flowzo CRM Suite (From Image 1) -->
+      <article class="template-card" data-category="software" data-id="flowzo-crm" data-name="flowzo crm software lead management whatsapp api" data-desc="all-in-one crm software lead management automation call sync analytics">
+        <div class="card-3d-glare"></div>
+        <div class="tpl-preview-frame" onclick="openTemplateModal('flowzo-crm')" title="Preview visual blueprint &amp; run Flowzo CRM sample software">
+          <div class="tpl-badges-row">
+            <span class="tpl-badge new" style="background:#7C3AED;">Software App</span>
+            <span class="tpl-badge free">Sample Ready</span>
+          </div>
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">sample-app://flowzo-crm</div>
+          </div>
+          <div class="tpl-preview-viewport">
+            <div class="mock-canvas mock-flowzo">
+              <div class="fz-top-head">
+                <div class="fz-logo-badge">⚡ flowzo.ai</div>
+                <span style="font-size:0.38rem;font-weight:700;color:#475569;">CRM v4.0</span>
+              </div>
+              <div class="fz-hero-title">ALL-IN-ONE CRM SOFTWARE</div>
+              <div class="fz-sub-line">LEAD MANAGEMENT &nbsp;|&nbsp; LEAD AUTOMATION</div>
+              <div class="fz-stage-row">
+                <div class="fz-side-nodes">
+                  <div class="fz-node"><div class="fz-node-dot">⚡</div>Auto Lead Routing</div>
+                  <div class="fz-node"><div class="fz-node-dot">📊</div>Report Dashboards</div>
+                </div>
+                <div class="fz-phone-frame">
+                  <div class="fz-kpi-teal">TOTAL CALLS<br><strong style="font-size:0.65rem;">27</strong></div>
+                  <div class="fz-kpi-split">
+                    <div class="fz-kpi-orange">DURATION<br>00:09:51</div>
+                    <div class="fz-kpi-pink">CONNECTED<br>18</div>
+                  </div>
+                  <div class="fz-kpi-indigo">UNIQUE CLIENTS: 15</div>
+                </div>
+                <div class="fz-side-nodes">
+                  <div class="fz-node"><div class="fz-node-dot">📈</div>Sales Forecasting</div>
+                  <div class="fz-node"><div class="fz-node-dot">🔗</div>Social Integration</div>
+                </div>
+              </div>
+              <div class="fz-bottom-strip">
+                <span>💬 WhatsApp API</span><span>📞 Call Sync</span><span>📱 Mobile</span><span>∞ Meta CAP</span>
+              </div>
+            </div>
+          </div>
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">⚡ Preview &amp; Generate Software</span>
+          </div>
+        </div>
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">Flowzo CRM Suite</h3>
+            <span class="tpl-price-chip" style="color:#34D399;">Interactive</span>
+          </div>
+          <p class="tpl-desc">All-in-one CRM: Lead Distribution, Call Telemetry, Analytics &amp; WhatsApp/Meta sync</p>
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openTemplateModal('flowzo-crm', 'software')">
+              <span>⚡ Generate Sample Software</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="duplicateTemplateCard('flowzo-crm')">
+              <span>📋 Duplicate Image Layout</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Software Card 2: OfficePortal HRMS (From Image 2) -->
+      <article class="template-card" data-category="software" data-id="officeportal-hrms" data-name="officeportal hrms payroll pf esi pt biometric geo fencing" data-desc="all-in-one hr payroll employee management software for indian businesses">
+        <div class="card-3d-glare"></div>
+        <div class="tpl-preview-frame" onclick="openTemplateModal('officeportal-hrms')" title="Preview visual blueprint &amp; run OfficePortal HRMS sample software">
+          <div class="tpl-badges-row">
+            <span class="tpl-badge new" style="background:#0D9488;">Software App</span>
+            <span class="tpl-badge free">Sample Ready</span>
+          </div>
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">sample-app://officeportal-hrms</div>
+          </div>
+          <div class="tpl-preview-viewport">
+            <div class="mock-canvas mock-officeportal">
+              <div class="op-head">All-in-one <span>HR, Payroll</span> &amp; Employee Software</div>
+              <div class="op-pills-grid">
+                <div class="op-pill">✅ Payroll PF, ESI &amp; PT</div>
+                <div class="op-pill">✅ Leave &amp; Shift Rota</div>
+                <div class="op-pill">✅ Biometric Attendance</div>
+                <div class="op-pill">✅ Geo-Fencing Live Map</div>
+              </div>
+              <div class="op-devices">
+                <div class="op-laptop">
+                  <div class="op-side"><span class="on"></span><span></span><span></span><span></span></div>
+                  <div class="op-dash">
+                    <div class="op-kpis">
+                      <div class="op-k">1,248<br>Staff</div>
+                      <div class="op-k" style="color:#0D9488;">1,032<br>Present</div>
+                      <div class="op-k" style="color:#D97706;">142<br>Leave</div>
+                      <div class="op-k" style="color:#2563EB;">213<br>Shift</div>
+                    </div>
+                    <div class="op-bars">
+                      <span style="height:65%"></span><span style="height:82%"></span><span style="height:75%"></span><span style="height:92%"></span><span style="height:84%"></span><span style="height:78%"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="op-phone">
+                  <div class="op-avatar"></div>
+                  <div style="font-size:0.38rem;font-weight:800;text-align:center;">Priya Sharma<br><span style="color:#10B981;">● Online</span></div>
+                  <div class="op-check-btn">Check Out</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">⚡ Preview &amp; Generate Software</span>
+          </div>
+        </div>
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">OfficePortal HRMS</h3>
+            <span class="tpl-price-chip" style="color:#34D399;">Interactive</span>
+          </div>
+          <p class="tpl-desc">HR, PF/ESI/PT Payroll, Biometric Attendance, Geo-fencing &amp; Mobile Check-in</p>
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openTemplateModal('officeportal-hrms', 'software')">
+              <span>⚡ Generate Sample Software</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="duplicateTemplateCard('officeportal-hrms')">
+              <span>📋 Duplicate Image Layout</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Software Card 3: Healthray Healthcare OS (From Image 3) -->
+      <article class="template-card" data-category="software" data-id="healthray-hms" data-name="healthray healthcare modules hospital lab pharmacy abdm ai" data-desc="40+ healthcare modules hospital opd ipd lab pharmacy abdm integration">
+        <div class="card-3d-glare"></div>
+        <div class="tpl-preview-frame" onclick="openTemplateModal('healthray-hms')" title="Preview visual blueprint &amp; run Healthray Healthcare sample software">
+          <div class="tpl-badges-row">
+            <span class="tpl-badge new" style="background:#2563EB;">Software App</span>
+            <span class="tpl-badge free">Sample Ready</span>
+          </div>
+          <div class="tpl-browser-bar">
+            <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
+            <div class="tpl-browser-address">sample-app://healthray-hms</div>
+          </div>
+          <div class="tpl-preview-viewport">
+            <div class="mock-canvas mock-healthray">
+              <div class="hr-head-row">
+                <div class="hr-brand">❤️ HEALTHRAY</div>
+                <div class="hr-40-pill">40+ MODULES</div>
+              </div>
+              <div class="hr-laptop">
+                <div class="hr-side"><span class="on"></span><span></span><span></span><span></span><span></span></div>
+                <div class="hr-main">
+                  <div class="hr-kpis">
+                    <div class="hr-k">125<br>OPD</div>
+                    <div class="hr-k">32<br>Admit</div>
+                    <div class="hr-k">18<br>Disch.</div>
+                    <div class="hr-k" style="color:#059669;">₹4.85L<br>+12%</div>
+                  </div>
+                  <div class="hr-charts">
+                    <div class="hr-bars">
+                      <span style="height:40%"></span><span style="height:60%"></span><span style="height:55%"></span><span style="height:80%"></span><span style="height:95%"></span>
+                    </div>
+                    <div class="hr-donut">70%</div>
+                  </div>
+                </div>
+              </div>
+              <div class="hr-modules-row">
+                <div class="hr-mod-card">🏥 Hospital</div>
+                <div class="hr-mod-card">🔬 Lab</div>
+                <div class="hr-mod-card">🏪 Pharmacy</div>
+              </div>
+              <div class="hr-abdm-strip">⚡ AI Enabled + ABDM Integration · 25,000+ Facilities</div>
+            </div>
+          </div>
+          <div class="tpl-hover-overlay">
+            <span class="tpl-preview-btn">⚡ Preview &amp; Generate Software</span>
+          </div>
+        </div>
+        <div class="tpl-details">
+          <div class="tpl-header-row">
+            <h3 class="tpl-title">Healthray Suite</h3>
+            <span class="tpl-price-chip" style="color:#34D399;">Interactive</span>
+          </div>
+          <p class="tpl-desc">40+ Healthcare Modules: Hospital OPD/IPD, Lab, Pharmacy, AI &amp; ABDM Integration</p>
+          <div class="tpl-action-row">
+            <button class="btn-buy-template" onclick="openTemplateModal('healthray-hms', 'software')">
+              <span>⚡ Generate Sample Software</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+          <div class="tpl-unlock-row">
+            <button class="tpl-unlock-link" onclick="duplicateTemplateCard('healthray-hms')">
+              <span>📋 Duplicate Image Layout</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+
       
       <!-- Template Card: Agentframe -->
       <article class="template-card" data-category="ai" data-id="agentframe" data-name="agentframe" data-desc="ai agent website with a pixel landscape hero">
@@ -2856,19 +4095,40 @@
         <button class="modal-close-btn" onclick="closeTemplateModal()" aria-label="Close preview">✕</button>
       </div>
 
+      <!-- Mode Switcher Tabs -->
+      <div class="modal-mode-tabs" role="tablist" aria-label="Workbench Views">
+        <button class="mode-tab-btn active" id="tab-btn-blueprint" onclick="switchModalTab('blueprint')">🎨 Visual Blueprint (Duplicate Image)</button>
+        <button class="mode-tab-btn" id="tab-btn-software" onclick="switchModalTab('software')">⚡ Live Sample Software (Interactive)</button>
+        <button class="mode-tab-btn" id="tab-btn-code" onclick="switchModalTab('code')">💻 Generated Code &amp; Specs</button>
+      </div>
+
       <!-- Modal Body -->
       <div class="modal-body">
+        <!-- Live White-Label / Duplication Customizer -->
+        <div class="modal-customizer-bar">
+          <span style="font-size:0.78rem;font-weight:700;color:var(--accent-cyan);font-family:var(--font-mono);">CUSTOMIZE &amp; DUPLICATE:</span>
+          <input type="text" id="modal-custom-brand" class="dup-input" style="max-width:210px;" placeholder="Brand / App Name" />
+          <input type="text" id="modal-custom-tagline" class="dup-input" style="flex:1;min-width:180px;" placeholder="Custom Headline / Tagline" />
+          <label class="dup-color-wrap">
+            <span>Accent</span>
+            <input type="color" id="modal-custom-color" value="#7C3AED" />
+          </label>
+          <button class="btn-studio-secondary" onclick="applyModalCustomization()">Apply</button>
+          <button class="btn-studio-secondary" onclick="duplicateActiveModalBlueprint()">📋 Duplicate</button>
+          <button class="btn-studio-emerald" onclick="downloadActiveModalSoftware()">⬇️ Download .html</button>
+        </div>
+
         <!-- Interactive Viewport Stage -->
-        <div class="modal-stage-wrapper">
+        <div class="modal-stage-wrapper" id="modal-stage-wrapper">
           <div class="modal-stage-canvas" id="modal-stage-canvas">
-            <!-- Injected Preview -->
+            <!-- Injected Preview / Iframe / Code -->
           </div>
         </div>
 
         <!-- Spec Details & Checkout Card -->
         <div class="modal-specs-grid">
           <div class="modal-features-card">
-            <h4>✨ Included Features &amp; Architecture</h4>
+            <h4>✨ Included Features &amp; Software Modules</h4>
             <ul class="modal-features-list" id="modal-features-list">
               <!-- Dynamically populated -->
             </ul>
@@ -2877,14 +4137,14 @@
           <div class="modal-action-card">
             <div>
               <div class="modal-price-tag" id="modal-price-tag">$49</div>
-              <p class="modal-price-sub">Instant digital download · Commercial license included · Lifetime updates</p>
+              <p class="modal-price-sub" id="modal-price-sub">Instant digital download · Commercial license included · Lifetime updates</p>
             </div>
             <div>
               <a href="#" id="modal-checkout-btn" class="btn-modal-checkout">
                 <span>Buy Template Now &rarr;</span>
               </a>
               <a href="#" id="modal-whatsapp-btn" target="_blank" rel="noopener noreferrer" class="btn-modal-whatsapp">
-                <span>💬 Purchase via WhatsApp</span>
+                <span>💬 Purchase / Customize via WhatsApp</span>
               </a>
             </div>
           </div>
@@ -2918,6 +4178,8 @@
       </div>
     </div>
   </div>
+
+  <div id="studio-toast" class="studio-toast" role="status" aria-live="polite"></div>
 
   <!-- Footer -->
   <footer class="templates-footer">
@@ -3025,28 +4287,7 @@
     const modalPriceTag = document.getElementById('modal-price-tag');
     const modalCheckoutBtn = document.getElementById('modal-checkout-btn');
     const modalWhatsappBtn = document.getElementById('modal-whatsapp-btn');
-
-    function openTemplateModal(tplId) {
-      const t = templates.find(item => item.id === tplId);
-      if (!t) return;
-
-      modalTitle.textContent = t.title;
-      modalDesc.textContent = t.desc;
-      modalCanvas.innerHTML = t.previewHTML;
-      modalPriceTag.textContent = t.price;
-
-      // Populate features
-      modalFeaturesList.innerHTML = t.features.map(f => `<li>${f}</li>`).join('');
-
-      // Update CTA buttons
-      const waText = encodeURIComponent(`Hi Belintan, I'm interested in purchasing the "${t.title}" template (${t.price}) from your templates collection.`);
-      modalWhatsappBtn.href = `https://wa.me/918610662871?text=${waText}`;
-      modalCheckoutBtn.href = `https://wa.me/918610662871?text=${waText}`;
-      modalCheckoutBtn.innerHTML = t.isLock ? `<span>Buy ${t.title} (${t.price}) &rarr;</span>` : `<span>Download ${t.title} (Free) &rarr;</span>`;
-
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
+    // openTemplateModal defined below in Studio Workbench section
 
     function closeTemplateModal() {
       modal.classList.remove('active');
@@ -3104,6 +4345,956 @@
         closeAllAccessModal();
       }
     });
+
+    // ========================================================================
+    // SOFTWARE BLUEPRINTS (FROM THE 3 UPLOADED IMAGES) + GENERATORS
+    // ========================================================================
+    const softwareBlueprints = [
+      {
+        id: "flowzo-crm",
+        title: "Flowzo CRM Suite",
+        brandDefault: "flowzo.ai",
+        taglineDefault: "All-in-One CRM Software — Lead Management & Automation",
+        desc: "All-in-one CRM: Automated Lead Distribution, Call Analytics, Forecasting & WhatsApp/Meta integration",
+        category: "software",
+        categoryName: "Software Systems",
+        price: "Sample App",
+        badge: "Software App",
+        isLock: false,
+        accent: "#7C3AED",
+        secondaryAccent: "#F97316",
+        tagline: "Where Business Flows Intelligently",
+        tech: ["HTML5 App", "Interactive Telemetry", "Round-Robin Lead Engine", "WhatsApp / Meta Ready"],
+        features: [
+          "Automated Lead Distribution & Round-Robin Rep Assignment",
+          "Live Call Dashboard: Total Calls (27), Duration (00:09:51), Connected (18), Unique Clients (15)",
+          "Top Performers Leaderboard (deideepak, gdial) & Sales Forecasting",
+          "Multi-Channel Sync Strip: WhatsApp API, Call Sync, Mobile App & Meta CAP"
+        ],
+        previewHTML: `<div class="mock-canvas mock-flowzo"><div class="fz-top-head"><div class="fz-logo-badge">⚡ flowzo.ai</div></div><div class="fz-hero-title">ALL-IN-ONE CRM SOFTWARE</div><div class="fz-sub-line">LEAD MANAGEMENT | LEAD AUTOMATION</div></div>`
+      },
+      {
+        id: "officeportal-hrms",
+        title: "OfficePortal HRMS",
+        brandDefault: "OfficePortal",
+        taglineDefault: "All-in-one HR, Payroll & Employee Management (10–10,000 Staff)",
+        desc: "Indian Business HRMS: PF, ESI & PT Payroll, Biometric Attendance, Geo-Fencing & Mobile Check-Out",
+        category: "software",
+        categoryName: "Software Systems",
+        price: "Sample App",
+        badge: "Software App",
+        isLock: false,
+        accent: "#0D9488",
+        secondaryAccent: "#0EA5E9",
+        tagline: "Built for Indian businesses — 10 to 10,000 employees",
+        tech: ["HTML5 App", "PF/ESI/PT Payroll Engine", "Geo-Fence Tracker", "Dual Desktop + Mobile"],
+        features: [
+          "Payroll with PF (12%), ESI (0.75%) & Professional Tax (PT) live calculator",
+          "Biometric Attendance, Leave & Shift Rota (Casual, Sick, Privilege) + Assets",
+          "Geo-Fencing & Live Location Pins + Team Call Tracker & Employee Monitoring",
+          "Employee Mobile Companion Card (Priya Sharma Check-In / Check-Out toggle)"
+        ],
+        previewHTML: `<div class="mock-canvas mock-officeportal"><div class="op-head">All-in-one <span>HR, Payroll</span> &amp; Employee Software</div></div>`
+      },
+      {
+        id: "healthray-hms",
+        title: "Healthray Suite",
+        brandDefault: "HEALTHRAY",
+        taglineDefault: "40+ AI-Enabled Healthcare Modules · ABDM Integrated",
+        desc: "40+ Healthcare Modules: Hospital OPD/IPD, Lab, Pharmacy, AI Triage & ABDM Integration",
+        category: "software",
+        categoryName: "Software Systems",
+        price: "Sample App",
+        badge: "Software App",
+        isLock: false,
+        accent: "#2563EB",
+        secondaryAccent: "#FACC15",
+        tagline: "Where Care Meets Technology · Trusted by 25,000+ Healthcare Facilities",
+        tech: ["HTML5 App", "40+ Module Hub", "ABDM Health ID Simulator", "Bed Occupancy Gauge"],
+        features: [
+          "Hospital OPD/IPD Command Center: New OPD (125), Admitted (32), Discharged (18), Revenue (₹4,85,200)",
+          "Live Bed Occupancy Ring Gauge (70%) + Mon–Sun Visit Analytics Chart",
+          "Dedicated Modules for Hospital, Lab Diagnostics, Pharmacy, OT, Accounts & HRMS",
+          "AI Enabled Triage Assistant + ABDM National Health Stack Verification"
+        ],
+        previewHTML: `<div class="mock-canvas mock-healthray"><div class="hr-head-row"><div class="hr-brand">❤️ HEALTHRAY</div><div class="hr-40-pill">40+ MODULES</div></div></div>`
+      }
+    ];
+
+    // Prepend software blueprints into templates array so modals & filters handle all 15 items seamlessly
+    templates.unshift(...softwareBlueprints);
+
+    function esc(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function safeHex(hex, fallback) {
+      return /^#[0-9A-Fa-f]{6}$/.test(String(hex || '')) ? hex : (fallback || '#7C3AED');
+    }
+
+    function showStudioToast(msg) {
+      const el = document.getElementById('studio-toast');
+      if (!el) return;
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(window.__studioToastTimer);
+      window.__studioToastTimer = setTimeout(() => el.classList.remove('show'), 2800);
+    }
+
+    // ------------------------------------------------------------------------
+    // VISUAL BLUEPRINT REPLICA BUILDER (FAITHFUL DUPLICATES OF THE 3 IMAGES)
+    // ------------------------------------------------------------------------
+    function buildVisualBlueprintHTML(tplId, custom) {
+      const brand = esc(custom?.brand || (tplId === 'flowzo-crm' ? 'flowzo.ai' : tplId === 'officeportal-hrms' ? 'OfficePortal' : 'HEALTHRAY'));
+      const accent = safeHex(custom?.accent, tplId === 'flowzo-crm' ? '#7C3AED' : tplId === 'officeportal-hrms' ? '#0D9488' : '#2563EB');
+
+      if (tplId === 'flowzo-crm') {
+        const tagline = esc(custom?.tagline || 'ALL-IN-ONE CRM SOFTWARE');
+        return `
+          <div class="bp-stage-full" style="background: radial-gradient(circle at top right, #F3E8FF 0%, #FAF5FF 50%, #EEF2FF 100%); font-family: system-ui, sans-serif;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+              <div style="font-weight:900;font-size:1.15rem;color:#EA580C;">⚡ ${brand} <span style="display:block;font-size:0.65rem;color:#475569;font-weight:600;">Where Business Flows Intelligently</span></div>
+              <span style="background:${accent};color:#FFF;padding:4px 12px;border-radius:99px;font-size:0.72rem;font-weight:700;">Visual Blueprint Replica</span>
+            </div>
+            <div style="text-align:center;margin-bottom:18px;">
+              <div style="font-size:clamp(1.3rem,3vw,2rem);font-weight:900;color:${accent};letter-spacing:-0.02em;">${tagline}</div>
+              <div style="font-size:0.78rem;font-weight:800;color:#1E1B4B;letter-spacing:0.08em;margin-top:4px;">LEAD MANAGEMENT &nbsp;|&nbsp; LEAD AUTOMATION</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;align-items:center;">
+              <div style="display:flex;flex-direction:column;gap:14px;">
+                <div style="background:#FFF;padding:12px;border-radius:14px;border:1px solid #DDD6FE;box-shadow:0 4px 12px rgba(91,33,182,0.08);text-align:center;">
+                  <div style="width:36px;height:36px;margin:0 auto 6px;border-radius:50%;background:${accent};color:#FFF;display:flex;align-items:center;justify-content:center;">⚡</div>
+                  <strong style="font-size:0.85rem;color:#1E1B4B;">Automated Lead Distribution</strong>
+                </div>
+                <div style="background:#FFF;padding:12px;border-radius:14px;border:1px solid #DDD6FE;box-shadow:0 4px 12px rgba(91,33,182,0.08);text-align:center;">
+                  <div style="width:36px;height:36px;margin:0 auto 6px;border-radius:50%;background:${accent};color:#FFF;display:flex;align-items:center;justify-content:center;">📊</div>
+                  <strong style="font-size:0.85rem;color:#1E1B4B;">Report &amp; Analytics Dashboards</strong>
+                </div>
+              </div>
+              <div style="background:#FFF;border:5px solid #1E293B;border-radius:24px;padding:12px;box-shadow:0 20px 40px rgba(30,27,75,0.22);">
+                <div style="display:flex;justify-content:space-between;font-size:0.65rem;font-weight:700;color:#475569;margin-bottom:8px;"><span>10:24</span><span>5G · 82%</span></div>
+                <div style="background:linear-gradient(135deg,#0EA5E9,#2DD4BF);color:#FFF;padding:10px;border-radius:12px;margin-bottom:8px;"><div style="font-size:0.65rem;font-weight:700;">TOTAL CALLS</div><div style="font-size:1.5rem;font-weight:900;">27</div></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+                  <div style="background:linear-gradient(135deg,#FB923C,#F97316);color:#FFF;padding:8px;border-radius:12px;"><div style="font-size:0.58rem;font-weight:700;">TOTAL DURATION</div><div style="font-size:0.95rem;font-weight:900;">00:09:51</div></div>
+                  <div style="background:linear-gradient(135deg,#EC4899,#8B5CF6);color:#FFF;padding:8px;border-radius:12px;"><div style="font-size:0.58rem;font-weight:700;">CALL CONNECTED</div><div style="font-size:1.1rem;font-weight:900;">18</div></div>
+                </div>
+                <div style="background:linear-gradient(135deg,#3B82F6,${accent});color:#FFF;padding:10px;border-radius:12px;margin-bottom:8px;"><div style="font-size:0.65rem;font-weight:700;">UNIQUE CLIENTS</div><div style="font-size:1.3rem;font-weight:900;">15</div></div>
+                <div style="background:#F8FAFC;border-radius:10px;padding:8px;font-size:0.72rem;color:#0F172A;">
+                  <div style="font-weight:800;margin-bottom:4px;">TOP PERFORMERS</div>
+                  <div style="display:flex;justify-content:space-between;"><span>🥇 deideepak</span><strong style="color:#059669;">9m 20s</strong></div>
+                  <div style="display:flex;justify-content:space-between;margin-top:3px;"><span>🥈 gdial</span><strong style="color:#0284C7;">31s</strong></div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:14px;">
+                <div style="background:#FFF;padding:12px;border-radius:14px;border:1px solid #DDD6FE;box-shadow:0 4px 12px rgba(91,33,182,0.08);text-align:center;">
+                  <div style="width:36px;height:36px;margin:0 auto 6px;border-radius:50%;background:${accent};color:#FFF;display:flex;align-items:center;justify-content:center;">📈</div>
+                  <strong style="font-size:0.85rem;color:#1E1B4B;">Sales Analytics &amp; Forecasting</strong>
+                </div>
+                <div style="background:#FFF;padding:12px;border-radius:14px;border:1px solid #DDD6FE;box-shadow:0 4px 12px rgba(91,33,182,0.08);text-align:center;">
+                  <div style="width:36px;height:36px;margin:0 auto 6px;border-radius:50%;background:${accent};color:#FFF;display:flex;align-items:center;justify-content:center;">🔗</div>
+                  <strong style="font-size:0.85rem;color:#1E1B4B;">Social Media Integration</strong>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:16px;background:#FFF;border-radius:99px;padding:10px 18px;display:flex;flex-wrap:wrap;justify-content:space-around;gap:10px;font-size:0.78rem;font-weight:700;color:#334155;box-shadow:0 4px 14px rgba(0,0,0,0.06);">
+              <span>💬 WhatsApp API</span><span>📞 Call Sync</span><span>📱 Mobile App</span><span>∞ Meta CAP</span>
+            </div>
+          </div>
+        `;
+      }
+
+      if (tplId === 'officeportal-hrms') {
+        const tagline = esc(custom?.tagline || 'Built for Indian businesses — 10 to 10,000 employees');
+        return `
+          <div class="bp-stage-full" style="background:linear-gradient(180deg,#FFFFFF 0%,#ECFEFF 100%);font-family:system-ui,sans-serif;">
+            <div style="text-align:center;margin-bottom:14px;">
+              <div style="font-size:clamp(1.25rem,2.6vw,1.8rem);font-weight:900;color:#0F172A;line-height:1.15;">
+                All-in-one <span style="color:${accent};">HR, Payroll</span> &amp; Employee Management Software
+              </div>
+              <div style="font-size:0.84rem;color:#475569;margin-top:4px;font-weight:600;">${brand} · ${tagline}</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-bottom:16px;">
+              ${['Payroll with PF, ESI & PT','Leave & shift rota','Biometric attendance','Performance + assets','Geo-fencing & live location','Team call tracker & reports','Employee monitoring'].map(f => `<div style="background:#FFF;border:1px solid #CCFBF1;padding:7px 12px;border-radius:10px;font-size:0.78rem;font-weight:700;color:#1E293B;box-shadow:0 2px 6px rgba(0,0,0,0.03);">✅ ${f}</div>`).join('')}
+            </div>
+            <div style="display:grid;grid-template-columns:2fr 0.9fr;gap:14px;align-items:end;">
+              <div style="background:#FFF;border:4px solid #1E293B;border-radius:14px;display:grid;grid-template-columns:120px 1fr;overflow:hidden;box-shadow:0 14px 32px rgba(15,23,42,0.16);">
+                <div style="background:#0F172A;color:#CBD5E1;padding:12px 10px;font-size:0.72rem;display:flex;flex-direction:column;gap:6px;">
+                  <strong style="color:#FFF;font-size:0.82rem;margin-bottom:4px;">${brand}</strong>
+                  <span style="background:${accent};color:#FFF;padding:4px 8px;border-radius:6px;font-weight:700;">Dashboard</span>
+                  <span>Employees</span><span>Payroll</span><span>Attendance</span><span>Time Tracker</span><span>Geo-Fence</span>
+                </div>
+                <div style="padding:12px;">
+                  <div style="font-size:0.85rem;font-weight:800;margin-bottom:8px;">Welcome back, Admin 👋</div>
+                  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;">
+                    <div style="background:#F8FAFC;padding:6px;border-radius:8px;border:1px solid #E2E8F0;"><div style="font-size:0.6rem;color:#64748B;">Total Staff</div><strong style="font-size:0.9rem;">1,248</strong></div>
+                    <div style="background:#F0FDFA;padding:6px;border-radius:8px;border:1px solid #99F6E4;"><div style="font-size:0.6rem;color:#0F766E;">Present</div><strong style="font-size:0.9rem;color:${accent};">1,032</strong></div>
+                    <div style="background:#FFFBEB;padding:6px;border-radius:8px;border:1px solid #FDE68A;"><div style="font-size:0.6rem;color:#B45309;">On Leave</div><strong style="font-size:0.9rem;color:#D97706;">142</strong></div>
+                    <div style="background:#EEF2FF;padding:6px;border-radius:8px;border:1px solid #C7D2FE;"><div style="font-size:0.6rem;color:#4338CA;">On Shift</div><strong style="font-size:0.9rem;color:#4F46E5;">213</strong></div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:#475569;background:#F8FAFC;padding:8px;border-radius:8px;">
+                    <span>Top Dept: <strong>Engineering 89%</strong></span><span>Leave: <strong>Casual 45 · Sick 32</strong></span>
+                  </div>
+                </div>
+              </div>
+              <div style="background:#FFF;border:4px solid #0F172A;border-radius:18px;padding:10px;text-align:center;box-shadow:0 12px 26px rgba(15,23,42,0.18);">
+                <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,${accent},#0EA5E9);color:#FFF;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-weight:800;">PS</div>
+                <strong style="font-size:0.82rem;display:block;">Priya Sharma</strong>
+                <span style="font-size:0.68rem;color:#64748B;">Product Manager · ● Online</span>
+                <div style="text-align:left;font-size:0.68rem;background:#F8FAFC;padding:6px 8px;border-radius:8px;margin:8px 0;">
+                  <div>Check In: <strong>09:18 AM</strong></div>
+                  <div>Work Duration: <strong>07h 42m</strong></div>
+                  <div>Location: <strong>Bengaluru, IN</strong></div>
+                </div>
+                <div style="background:${accent};color:#FFF;padding:6px;border-radius:8px;font-size:0.75rem;font-weight:800;">Check Out &rarr;</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (tplId === 'healthray-hms') {
+        const tagline = esc(custom?.tagline || 'Join the Partner Network · 40+ Healthcare Modules');
+        return `
+          <div class="bp-stage-full" style="background:linear-gradient(160deg,#0284C7 0%,#1D4ED8 60%,#1E3A8A 100%);color:#FFF;font-family:system-ui,sans-serif;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+              <div style="background:#FFF;color:#DC2626;padding:6px 12px;border-radius:10px;font-weight:900;font-size:0.95rem;">❤️ ${brand}</div>
+              <span style="background:#FACC15;color:#0F172A;padding:5px 14px;border-radius:99px;font-weight:900;font-size:0.82rem;">SELL 40+ HEALTHCARE MODULES</span>
+            </div>
+            <div style="text-align:center;font-size:0.92rem;font-weight:700;color:#FEF08A;margin-bottom:14px;">${tagline}</div>
+            <div style="background:#FFF;border:5px solid #0F172A;border-radius:16px;color:#0F172A;display:grid;grid-template-columns:130px 1fr;overflow:hidden;margin-bottom:16px;box-shadow:0 18px 40px rgba(0,0,0,0.35);">
+              <div style="background:#0F172A;color:#CBD5E1;padding:12px;font-size:0.74rem;display:flex;flex-direction:column;gap:6px;">
+                <strong style="color:#FFF;">${brand}</strong>
+                <span style="background:${accent};color:#FFF;padding:4px 8px;border-radius:6px;font-weight:700;">Dashboard</span>
+                <span>OPD &amp; IPD</span><span>Lab</span><span>Pharmacy</span><span>OT &amp; Accounts</span><span>AI + ABDM</span>
+              </div>
+              <div style="padding:14px;">
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;">
+                  <div style="background:#EFF6FF;padding:8px;border-radius:8px;"><div style="font-size:0.65rem;color:#475569;">New OPD</div><strong style="font-size:1.1rem;color:#1E3A8A;">125</strong></div>
+                  <div style="background:#F3E8FF;padding:8px;border-radius:8px;"><div style="font-size:0.65rem;color:#475569;">Admitted</div><strong style="font-size:1.1rem;color:#6D28D9;">32</strong></div>
+                  <div style="background:#ECFDF5;padding:8px;border-radius:8px;"><div style="font-size:0.65rem;color:#475569;">Discharged</div><strong style="font-size:1.1rem;color:#047857;">18</strong></div>
+                  <div style="background:#FEFCE8;padding:8px;border-radius:8px;"><div style="font-size:0.65rem;color:#475569;">Revenue</div><strong style="font-size:1.05rem;color:#059669;">₹4,85,200</strong></div>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;background:#F8FAFC;padding:10px 14px;border-radius:10px;">
+                  <span style="font-size:0.78rem;font-weight:700;">Weekly OPD Graph (Mon–Sun Peak 500)</span>
+                  <span style="background:${accent};color:#FFF;padding:4px 10px;border-radius:99px;font-size:0.76rem;font-weight:800;">Bed Occupancy: 70%</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px;">
+              <div style="background:#FFF;color:#0F172A;border-radius:12px;padding:10px;text-align:center;font-weight:800;font-size:0.88rem;">🏥 Hospital</div>
+              <div style="background:#FFF;color:#0F172A;border-radius:12px;padding:10px;text-align:center;font-weight:800;font-size:0.88rem;">🔬 Lab</div>
+              <div style="background:#FFF;color:#0F172A;border-radius:12px;padding:10px;text-align:center;font-weight:800;font-size:0.88rem;">🏪 Pharmacy</div>
+            </div>
+            <div style="background:rgba(15,23,42,0.86);padding:8px 16px;border-radius:99px;text-align:center;font-size:0.78rem;font-weight:800;color:#FDE047;">
+              🤖 AI Enabled + 🇮🇳 ABDM Integration · Trusted by 25,000+ Healthcare Facilities
+            </div>
+          </div>
+        `;
+      }
+
+      // Fallback for non-software templates
+      const t = templates.find(x => x.id === tplId);
+      return t ? t.previewHTML : '';
+    }
+
+    // ------------------------------------------------------------------------
+    // GENERATE COMPLETE STANDALONE RUNNABLE HTML5 SAMPLE SOFTWARE
+    // ------------------------------------------------------------------------
+    function generateSampleSoftwareHTML(tplId, custom) {
+      const t = templates.find(item => item.id === tplId) || templates[0];
+      const brand = esc(custom?.brand || t.brandDefault || t.title);
+      const tagline = esc(custom?.tagline || t.taglineDefault || t.desc);
+      const accent = safeHex(custom?.accent, t.accent || '#7C3AED');
+
+      if (tplId === 'flowzo-crm') {
+        return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>${brand} — All-in-One CRM Sample Software</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,sans-serif;}
+  body{background:#F5F3FF;color:#1E1B4B;min-height:100vh;padding:18px;}
+  .app{max-width:1080px;margin:0 auto;background:#FFF;border-radius:20px;border:1px solid #E2E8F0;box-shadow:0 20px 50px rgba(30,27,75,0.1);overflow:hidden;}
+  .top{background:#FFFFFF;border-bottom:1px solid #E2E8F0;padding:14px 22px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;}
+  .brand{font-weight:900;font-size:1.15rem;color:#EA580C;display:flex;align-items:center;gap:8px;}
+  .brand small{color:#475569;font-size:0.72rem;font-weight:600;}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;}
+  .tab{padding:7px 14px;border-radius:99px;border:1px solid #E2E8F0;background:#F8FAFC;font-size:0.8rem;font-weight:700;cursor:pointer;color:#475569;}
+  .tab.active{background:${accent};color:#FFF;border-color:${accent};}
+  .main{padding:20px 22px;}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:20px;}
+  .kpi{padding:16px;border-radius:14px;color:#FFF;font-weight:800;}
+  .k-teal{background:linear-gradient(135deg,#0EA5E9,#2DD4BF);}
+  .k-orange{background:linear-gradient(135deg,#FB923C,#EA580C);}
+  .k-pink{background:linear-gradient(135deg,#EC4899,${accent});}
+  .k-indigo{background:linear-gradient(135deg,#3B82F6,#4F46E5);}
+  .kpi label{font-size:0.7rem;letter-spacing:0.04em;opacity:0.9;display:block;margin-bottom:4px;}
+  .kpi span{font-size:1.75rem;font-weight:900;}
+  .grid-2{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;}
+  @media(max-width:760px){.grid-2{grid-template-columns:1fr;}}
+  .card{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:16px;}
+  .card h3{font-size:0.95rem;font-weight:800;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:#FFF;border:1px solid #E2E8F0;border-radius:10px;margin-bottom:8px;font-size:0.82rem;}
+  .form-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+  input,select{padding:8px 10px;border:1px solid #CBD5E1;border-radius:8px;font-size:0.82rem;flex:1;min-width:130px;}
+  .btn{background:${accent};color:#FFF;border:none;padding:8px 16px;border-radius:8px;font-weight:700;font-size:0.82rem;cursor:pointer;}
+  .integrations{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid #E2E8F0;font-size:0.78rem;font-weight:700;}
+  .int-pill{padding:6px 12px;border-radius:99px;background:#EEF2FF;color:${accent};border:1px solid #DDD6FE;}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="brand">⚡ ${brand} <small>${tagline}</small></div>
+    <div class="tabs">
+      <button class="tab active" onclick="showView('dash',this)">Call Telemetry</button>
+      <button class="tab" onclick="showView('leads',this)">Auto Lead Distribution</button>
+      <button class="tab" onclick="showView('forecast',this)">Analytics &amp; Social Sync</button>
+    </div>
+  </div>
+  <div class="main">
+    <div class="kpis">
+      <div class="kpi k-teal"><label>TOTAL CALLS</label><span id="k-calls">27</span></div>
+      <div class="kpi k-orange"><label>TOTAL DURATION</label><span id="k-dur">00:09:51</span></div>
+      <div class="kpi k-pink"><label>CALL CONNECTED</label><span id="k-conn">18</span></div>
+      <div class="kpi k-indigo"><label>UNIQUE CLIENTS</label><span id="k-clients">15</span></div>
+    </div>
+
+    <div id="view-dash" class="grid-2">
+      <div class="card">
+        <h3>+ Log Call &amp; Distribute Lead</h3>
+        <div class="form-row">
+          <input id="lead-name" placeholder="Client / Lead Name" />
+          <select id="lead-source">
+            <option>WhatsApp API</option><option>Meta CAP Lead</option><option>Call Sync</option><option>Mobile App</option>
+          </select>
+          <select id="lead-status"><option value="connected">Connected</option><option value="missed">Follow-up</option></select>
+          <button class="btn" onclick="logNewCall()">+ Log &amp; Auto-Assign</button>
+        </div>
+        <div id="call-log-list">
+          <div class="row"><span><strong>Aarav Enterprises</strong> · WhatsApp API</span><span style="color:#059669;font-weight:700;">Connected → deideepak</span></div>
+          <div class="row"><span><strong>Nova Retail</strong> · Meta CAP Lead</span><span style="color:#0284C7;font-weight:700;">Connected → gdial</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🏆 Top Performers</h3>
+        <div id="performers-list">
+          <div class="row"><span>🥇 <strong>deideepak</strong></span><strong id="rep-0">9m 20s · 12 leads</strong></div>
+          <div class="row"><span>🥈 <strong>gdial</strong></span><strong id="rep-1">31s · 6 leads</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="view-leads" class="card" style="display:none;">
+      <h3>Automated Round-Robin Lead Distribution Rules</h3>
+      <p style="font-size:0.84rem;color:#475569;margin-bottom:10px;">Incoming leads from WhatsApp API &amp; Meta CAP automatically assign to active sales reps with lowest active queue.</p>
+      <div class="row"><span>Rule #1: WhatsApp Inbound → Instant Auto-Assign</span><strong style="color:#059669;">ACTIVE</strong></div>
+      <div class="row"><span>Rule #2: Meta Lead Ad Sync → Mobile Push Alert</span><strong style="color:#059669;">ACTIVE</strong></div>
+    </div>
+
+    <div id="view-forecast" class="card" style="display:none;">
+      <h3>Sales Analytics &amp; Forecasting</h3>
+      <div class="row"><span>Projected Monthly Pipeline Conversion</span><strong style="color:${accent};">66.7% Connected Rate</strong></div>
+      <div class="row"><span>WhatsApp API Response SLA</span><strong style="color:#059669;">&lt; 2 mins avg</strong></div>
+    </div>
+
+    <div class="integrations">
+      <span class="int-pill">💬 WhatsApp API: Connected</span>
+      <span class="int-pill">📞 Call Sync: Live</span>
+      <span class="int-pill">📱 Mobile App: Synced</span>
+      <span class="int-pill">∞ Meta CAP: Active</span>
+    </div>
+  </div>
+</div>
+${'<' + 'script>'}
+  let calls = 27, conn = 18, clients = 15, secs = 591, turn = 0;
+  const reps = [{name:'deideepak',count:12},{name:'gdial',count:6}];
+  function fmt(s){const m=Math.floor(s/60),r=s%60;return '00:'+String(m).padStart(2,'0')+':'+String(r).padStart(2,'0');}
+  function logNewCall(){
+    const n=document.getElementById('lead-name').value.trim()||('Lead #'+(calls+1));
+    const src=document.getElementById('lead-source').value;
+    const st=document.getElementById('lead-status').value;
+    calls++; clients++; secs+=45;
+    if(st==='connected') conn++;
+    const rep=reps[turn%reps.length]; rep.count++; turn++;
+    document.getElementById('k-calls').textContent=calls;
+    document.getElementById('k-conn').textContent=conn;
+    document.getElementById('k-clients').textContent=clients;
+    document.getElementById('k-dur').textContent=fmt(secs);
+    document.getElementById('rep-0').textContent='9m 20s · '+reps[0].count+' leads';
+    document.getElementById('rep-1').textContent='31s · '+reps[1].count+' leads';
+    const row=document.createElement('div'); row.className='row';
+    row.innerHTML='<span><strong>'+n.replace(/</g,'&lt;')+'</strong> · '+src+'</span><span style="color:#7C3AED;font-weight:700;">'+(st==='connected'?'Connected':'Follow-up')+' → '+rep.name+'</span>';
+    document.getElementById('call-log-list').prepend(row);
+    document.getElementById('lead-name').value='';
+  }
+  function showView(v,btn){
+    ['dash','leads','forecast'].forEach(id=>document.getElementById('view-'+id).style.display=(id===v?(v==='dash'?'grid':'block'):'none'));
+    document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+  }
+${'</' + 'script>'}
+</body></html>`;
+      }
+
+      if (tplId === 'officeportal-hrms') {
+        return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>${brand} — HR, Payroll &amp; Employee Management Sample</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,sans-serif;}
+  body{background:#F0FDFA;color:#0F172A;min-height:100vh;padding:16px;}
+  .shell{max-width:1120px;margin:0 auto;background:#FFF;border-radius:18px;border:1px solid #CCFBF1;box-shadow:0 18px 45px rgba(15,23,42,0.1);display:grid;grid-template-columns:200px 1fr;overflow:hidden;}
+  @media(max-width:760px){.shell{grid-template-columns:1fr;}}
+  .side{background:#0F172A;color:#94A3B8;padding:18px 12px;display:flex;flex-direction:column;gap:6px;}
+  .side h2{color:#FFF;font-size:1.05rem;font-weight:900;margin-bottom:12px;padding:0 8px;}
+  .nav-btn{text-align:left;background:transparent;border:none;color:#CBD5E1;padding:9px 12px;border-radius:8px;font-size:0.84rem;font-weight:600;cursor:pointer;}
+  .nav-btn.active{background:${accent};color:#FFF;font-weight:700;}
+  .main{padding:20px;}
+  .head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:16px;}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:18px;}
+  .kpi{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:12px;}
+  .kpi small{font-size:0.72rem;color:#64748B;display:block;}
+  .kpi strong{font-size:1.45rem;font-weight:900;color:#0F172A;}
+  .grid-2{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;}
+  @media(max-width:860px){.grid-2{grid-template-columns:1fr;}}
+  .card{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:14px;}
+  .card h3{font-size:0.9rem;font-weight:800;margin-bottom:10px;}
+  .bar-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:0.8rem;}
+  .track{height:7px;background:#E2E8F0;border-radius:99px;flex:1;margin:0 10px;overflow:hidden;}
+  .fill{height:100%;background:${accent};border-radius:99px;}
+  .phone{background:#FFF;border:3px solid #0F172A;border-radius:18px;padding:14px;text-align:center;}
+  .btn{background:${accent};color:#FFF;border:none;padding:9px 16px;border-radius:8px;font-weight:800;font-size:0.82rem;cursor:pointer;width:100%;margin-top:8px;}
+  input{padding:8px 10px;border:1px solid #CBD5E1;border-radius:8px;font-size:0.85rem;width:100%;margin-bottom:10px;}
+  .pay-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed #CBD5E1;font-size:0.84rem;}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <h2>${brand}</h2>
+    <button class="nav-btn active" onclick="tab('dash',this)">📊 Dashboard</button>
+    <button class="nav-btn" onclick="tab('payroll',this)">💳 Payroll (PF, ESI, PT)</button>
+    <button class="nav-btn" onclick="tab('geo',this)">📍 Biometric &amp; Geo-Fence</button>
+  </aside>
+  <main class="main">
+    <div class="head">
+      <div><h1 style="font-size:1.15rem;font-weight:900;">Welcome back, Admin 👋</h1><p style="font-size:0.78rem;color:#64748B;">${tagline}</p></div>
+      <span style="background:#CCFBF1;color:#0F766E;padding:5px 12px;border-radius:99px;font-size:0.74rem;font-weight:800;">May 25 – May 31, 2026</span>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><small>Total Employees</small><strong>1,248</strong></div>
+      <div class="kpi"><small>Present Today</small><strong id="present-count" style="color:${accent};">1,032</strong></div>
+      <div class="kpi"><small>On Leave (Casual/Sick/Priv)</small><strong style="color:#D97706;">142</strong></div>
+      <div class="kpi"><small>On Duty (Shift)</small><strong style="color:#2563EB;">213</strong></div>
+    </div>
+
+    <div id="tab-dash" class="grid-2">
+      <div class="card">
+        <h3>Top Departments Attendance</h3>
+        <div class="bar-row"><span>Engineering</span><div class="track"><div class="fill" style="width:89%"></div></div><strong>89%</strong></div>
+        <div class="bar-row"><span>Sales</span><div class="track"><div class="fill" style="width:82%"></div></div><strong>82%</strong></div>
+        <div class="bar-row"><span>Marketing</span><div class="track"><div class="fill" style="width:76%"></div></div><strong>76%</strong></div>
+        <div class="bar-row"><span>Support</span><div class="track"><div class="fill" style="width:71%"></div></div><strong>71%</strong></div>
+        <h3 style="margin-top:14px;">Leave Overview (Total 142)</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:0.76rem;font-weight:700;">
+          <span style="background:#DBEAFE;padding:4px 8px;border-radius:6px;">Casual: 45</span>
+          <span style="background:#FEE2E2;padding:4px 8px;border-radius:6px;">Sick: 32</span>
+          <span style="background:#DCFCE7;padding:4px 8px;border-radius:6px;">Privilege: 38</span>
+          <span style="background:#F3F4F6;padding:4px 8px;border-radius:6px;">Others: 27</span>
+        </div>
+      </div>
+      <div class="phone">
+        <div style="width:44px;height:44px;border-radius:50%;background:${accent};color:#FFF;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-weight:900;">PS</div>
+        <strong>Priya Sharma</strong>
+        <div style="font-size:0.72rem;color:#64748B;">Product Manager · <span id="emp-stat" style="color:#059669;font-weight:700;">● Online</span></div>
+        <div style="text-align:left;font-size:0.75rem;background:#F8FAFC;padding:10px;border-radius:10px;margin:10px 0;">
+          <div>Check In: <strong>09:18 AM</strong></div>
+          <div>Check Out: <strong id="co-time">--:--</strong></div>
+          <div>Duration: <strong>07h 42m</strong></div>
+          <div>Geo-Fence: <strong>Bengaluru, India</strong></div>
+        </div>
+        <button class="btn" id="co-btn" onclick="togglePunch()">Check Out &rarr;</button>
+      </div>
+    </div>
+
+    <div id="tab-payroll" class="card" style="display:none;">
+      <h3>Indian Statutory Payroll Calculator (PF, ESI &amp; PT)</h3>
+      <label style="font-size:0.78rem;font-weight:700;display:block;margin-bottom:4px;">Monthly Gross Salary (₹)</label>
+      <input type="number" id="gross-inp" value="45000" oninput="calcPay()" />
+      <div id="pay-out"></div>
+    </div>
+
+    <div id="tab-geo" class="card" style="display:none;">
+      <h3>Biometric Attendance &amp; Live Geo-Fencing Pins</h3>
+      <div class="pay-row"><span>📍 Bengaluru HQ Geo-Fence (200m radius)</span><strong style="color:#059669;">642 Verified Punches</strong></div>
+      <div class="pay-row"><span>📍 Chennai Tech Hub Biometric Gate</span><strong style="color:#059669;">218 Verified Punches</strong></div>
+      <div class="pay-row"><span>📍 Remote Field Sales Call Tracker</span><strong style="color:#0284C7;">172 Live GPS Check-ins</strong></div>
+    </div>
+  </main>
+</div>
+${'<' + 'script>'}
+  let online = true, present = 1032;
+  function togglePunch(){
+    online = !online;
+    present += online ? 1 : -1;
+    document.getElementById('present-count').textContent = present.toLocaleString();
+    document.getElementById('emp-stat').textContent = online ? '● Online' : '● Checked Out';
+    document.getElementById('emp-stat').style.color = online ? '#059669' : '#DC2626';
+    document.getElementById('co-time').textContent = online ? '--:--' : new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+    document.getElementById('co-btn').textContent = online ? 'Check Out →' : 'Check In Again →';
+  }
+  function calcPay(){
+    const g = Math.max(0, Number(document.getElementById('gross-inp').value) || 0);
+    const basic = Math.round(g * 0.5);
+    const pf = Math.round(Math.min(basic, 15000) * 0.12);
+    const esi = g <= 21000 ? Math.round(g * 0.0075) : 0;
+    const pt = g >= 15000 ? 200 : 0;
+    const net = Math.max(0, g - pf - esi - pt);
+    document.getElementById('pay-out').innerHTML =
+      '<div class="pay-row"><span>Basic Salary (50%)</span><strong>₹'+basic.toLocaleString()+'</strong></div>'+
+      '<div class="pay-row"><span>Employee PF Deduction (12%)</span><strong style="color:#DC2626;">- ₹'+pf.toLocaleString()+'</strong></div>'+
+      '<div class="pay-row"><span>ESI Contribution (0.75% up to ₹21k)</span><strong style="color:#DC2626;">- ₹'+esi.toLocaleString()+'</strong></div>'+
+      '<div class="pay-row"><span>Professional Tax (PT)</span><strong style="color:#DC2626;">- ₹'+pt.toLocaleString()+'</strong></div>'+
+      '<div class="pay-row" style="border:none;font-size:1rem;padding-top:10px;"><strong>Net Take-Home Pay</strong><strong style="color:#059669;">₹'+net.toLocaleString()+'</strong></div>';
+  }
+  function tab(name,btn){
+    ['dash','payroll','geo'].forEach(t=>document.getElementById('tab-'+t).style.display=(t===name?(t==='dash'?'grid':'block'):'none'));
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+    if(name==='payroll') calcPay();
+  }
+${'</' + 'script>'}
+</body></html>`;
+      }
+
+      if (tplId === 'healthray-hms') {
+        return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>${brand} — 40+ Modules Healthcare OS Sample</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,sans-serif;}
+  body{background:#EFF6FF;color:#0F172A;min-height:100vh;padding:16px;}
+  .shell{max-width:1120px;margin:0 auto;background:#FFF;border-radius:18px;border:1px solid #BFDBFE;box-shadow:0 18px 45px rgba(30,58,138,0.12);display:grid;grid-template-columns:200px 1fr;overflow:hidden;}
+  @media(max-width:760px){.shell{grid-template-columns:1fr;}}
+  .side{background:#0F172A;color:#CBD5E1;padding:18px 12px;display:flex;flex-direction:column;gap:6px;}
+  .side h2{color:#FFF;font-size:1rem;font-weight:900;margin-bottom:10px;padding:0 8px;}
+  .nav-btn{text-align:left;background:transparent;border:none;color:#CBD5E1;padding:9px 12px;border-radius:8px;font-size:0.84rem;font-weight:600;cursor:pointer;}
+  .nav-btn.active{background:${accent};color:#FFF;font-weight:700;}
+  .main{padding:20px;}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin-bottom:16px;}
+  .kpi{padding:12px;border-radius:12px;border:1px solid #E2E8F0;background:#F8FAFC;}
+  .kpi small{font-size:0.72rem;color:#64748B;display:block;}
+  .kpi strong{font-size:1.45rem;font-weight:900;color:#1E3A8A;}
+  .actions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .btn{background:${accent};color:#FFF;border:none;padding:8px 14px;border-radius:8px;font-weight:800;font-size:0.8rem;cursor:pointer;}
+  .btn.alt{background:#059669;}
+  .btn.warn{background:#D97706;}
+  .card{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:14px;margin-bottom:14px;}
+  .mod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:10px;}
+  .mod-pill{background:#FFF;border:1px solid #DBEAFE;border-radius:10px;padding:10px;text-align:center;font-size:0.8rem;font-weight:800;}
+  .row{display:flex;justify-content:space-between;padding:8px 10px;background:#FFF;border:1px solid #E2E8F0;border-radius:8px;margin-bottom:6px;font-size:0.82rem;}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <h2>❤️ ${brand}</h2>
+    <button class="nav-btn active" onclick="showTab('dash',this)">📊 Dashboard</button>
+    <button class="nav-btn" onclick="showTab('hospital',this)">🏥 Hospital (OPD/IPD)</button>
+    <button class="nav-btn" onclick="showTab('lab',this)">🔬 Lab Diagnostics</button>
+    <button class="nav-btn" onclick="showTab('pharmacy',this)">🏪 Pharmacy &amp; ABDM</button>
+  </aside>
+  <main class="main">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+      <div><h1 style="font-size:1.15rem;font-weight:900;">Healthcare Command Suite (40+ Modules)</h1><p style="font-size:0.78rem;color:#64748B;">${tagline}</p></div>
+      <span style="background:#FEF08A;color:#854D0E;padding:5px 12px;border-radius:99px;font-size:0.74rem;font-weight:900;">🤖 AI Enabled + 🇮🇳 ABDM Ready</span>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><small>New OPD</small><strong id="h-opd">125</strong></div>
+      <div class="kpi"><small>Admitted</small><strong id="h-adm" style="color:#7C3AED;">32</strong></div>
+      <div class="kpi"><small>Discharged</small><strong id="h-dis" style="color:#059669;">18</strong></div>
+      <div class="kpi"><small>Bed Occupancy</small><strong id="h-occ" style="color:${accent};">70%</strong></div>
+      <div class="kpi"><small>Revenue Today</small><strong id="h-rev" style="color:#059669;">₹4,85,200</strong></div>
+    </div>
+
+    <div class="actions">
+      <button class="btn" onclick="act('opd')">+ Register OPD Visit (+₹800)</button>
+      <button class="btn alt" onclick="act('admit')">+ Admit IPD Patient (+₹12,500)</button>
+      <button class="btn warn" onclick="act('discharge')">✓ Discharge Patient (-1 Bed)</button>
+    </div>
+
+    <div id="ht-dash" class="card">
+      <h3>Active Module Ecosystem</h3>
+      <div class="mod-grid">
+        <div class="mod-pill">🏥 OPD &amp; IPD Wards</div>
+        <div class="mod-pill">🔬 Pathology Lab</div>
+        <div class="mod-pill">🏪 Pharmacy Stock</div>
+        <div class="mod-pill">🩺 OT Scheduling</div>
+        <div class="mod-pill">💳 Billing &amp; TPA</div>
+        <div class="mod-pill">🇮🇳 ABDM Health ID</div>
+      </div>
+    </div>
+
+    <div id="ht-hospital" class="card" style="display:none;">
+      <h3>Recent Hospital OPD / IPD Queue</h3>
+      <div id="h-log">
+        <div class="row"><span><strong>Rohan Patel</strong> · Cardiology OPD</span><strong style="color:#2563EB;">Token #125</strong></div>
+        <div class="row"><span><strong>Meera Nair</strong> · ICU Ward Bed #14</span><strong style="color:#7C3AED;">Admitted</strong></div>
+      </div>
+    </div>
+
+    <div id="ht-lab" class="card" style="display:none;">
+      <h3>Lab Diagnostics &amp; Sample Sync</h3>
+      <div class="row"><span>CBC + Lipid Profile (#LAB-892)</span><button class="btn" style="padding:4px 10px;" onclick="this.textContent='✓ Verified & Sent to ABDM'">Verify Report</button></div>
+      <div class="row"><span>HbA1c Metabolic Screen (#LAB-893)</span><button class="btn" style="padding:4px 10px;" onclick="this.textContent='✓ Verified & Sent to ABDM'">Verify Report</button></div>
+    </div>
+
+    <div id="ht-pharmacy" class="card" style="display:none;">
+      <h3>Pharmacy Dispense &amp; ABDM Health ID Lookup</h3>
+      <div class="row"><span>Prescription #RX-409 (Amoxicillin + Paracetamol)</span><button class="btn alt" style="padding:4px 10px;" onclick="act('rx');this.textContent='✓ Dispensed (+₹650)';">Dispense (+₹650)</button></div>
+      <div class="row"><span>ABDM Health ID Verification (14-XXXX-XXXX-2219)</span><strong style="color:#059669;">✓ ABHA Linked</strong></div>
+    </div>
+  </main>
+</div>
+${'<' + 'script>'}
+  let opd=125, adm=32, dis=18, rev=485200, cap=46;
+  function render(){
+    document.getElementById('h-opd').textContent=opd;
+    document.getElementById('h-adm').textContent=adm;
+    document.getElementById('h-dis').textContent=dis;
+    document.getElementById('h-occ').textContent=Math.min(100,Math.round((adm/cap)*100))+'%';
+    document.getElementById('h-rev').textContent='₹'+rev.toLocaleString('en-IN');
+  }
+  function act(type){
+    if(type==='opd'){opd++;rev+=800;}
+    if(type==='admit'){adm++;rev+=12500;}
+    if(type==='discharge' && adm>0){adm--;dis++;}
+    if(type==='rx'){rev+=650;}
+    render();
+  }
+  function showTab(name,btn){
+    ['dash','hospital','lab','pharmacy'].forEach(x=>document.getElementById('ht-'+x).style.display=(x===name?'block':'none'));
+    document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+  }
+${'</' + 'script>'}
+</body></html>`;
+      }
+
+      // Generic Clean Starter App Generator for any duplicated/other template
+      return `<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>${brand} — Generated Sample App</title>
+<style>*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif;}body{background:#090A0F;color:#FFF;min-height:100vh;padding:32px;}
+.wrap{max-width:920px;margin:0 auto;background:#13141E;border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:36px;}
+.tag{display:inline-block;padding:4px 12px;border-radius:99px;background:${accent}22;color:${accent};border:1px solid ${accent};font-size:0.75rem;font-weight:700;margin-bottom:14px;}
+h1{font-size:2.2rem;font-weight:900;margin-bottom:10px;}p{color:#94A3B8;margin-bottom:24px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.card{background:#0E1017;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:18px;}</style></head>
+<body><div class="wrap"><span class="tag">GENERATED SAMPLE · ${esc(t.categoryName)}</span><h1>${brand}</h1><p>${tagline}</p>
+<div class="grid">${t.features.map(f=>`<div class="card"><strong>✓ Feature</strong><p style="margin:6px 0 0;font-size:0.85rem;">${esc(f)}</p></div>`).join('')}</div>
+</div></body></html>`;
+    }
+
+    // ------------------------------------------------------------------------
+    // STUDIO CONTROLLER & IMAGE UPLOAD DUPLICATOR
+    // ------------------------------------------------------------------------
+    let activeStudioBpId = 'flowzo-crm';
+    let customUploadedImgDataUrl = null;
+    let activeModalTplId = 'flowzo-crm';
+    let activeModalTab = 'blueprint';
+
+    function getStudioConfig() {
+      const t = templates.find(x => x.id === activeStudioBpId) || templates[0];
+      return {
+        brand: document.getElementById('studio-brand-input')?.value.trim() || t.brandDefault || t.title,
+        tagline: document.getElementById('studio-tagline-input')?.value.trim() || t.taglineDefault || t.desc,
+        accent: document.getElementById('studio-color-input')?.value || t.accent
+      };
+    }
+
+    function renderStudioWorkbench() {
+      const t = templates.find(x => x.id === activeStudioBpId);
+      if (!t) return;
+      const cfg = getStudioConfig();
+
+      // Update left preview stage
+      const refStage = document.getElementById('dup-reference-stage');
+      if (refStage) {
+        if (customUploadedImgDataUrl) {
+          document.getElementById('dup-source-label').textContent = 'UPLOADED REFERENCE IMAGE';
+          refStage.innerHTML = `<img src="${customUploadedImgDataUrl}" alt="Uploaded Reference Preview" />`;
+        } else {
+          document.getElementById('dup-source-label').textContent = 'VISUAL BLUEPRINT DUPLICATION (' + t.title.toUpperCase() + ')';
+          refStage.innerHTML = `<div style="width:100%;height:100%;transform:scale(0.95);transform-origin:center;">${buildVisualBlueprintHTML(activeStudioBpId, cfg)}</div>`;
+        }
+      }
+
+      // Extracted specs chips
+      const chips = document.getElementById('dup-specs-chips');
+      if (chips) {
+        chips.innerHTML = t.features.map(f => `<span class="dup-spec-chip">${esc(f)}</span>`).join('');
+      }
+
+      // Live Sample Software Iframe
+      const iframe = document.getElementById('studio-live-iframe');
+      if (iframe) {
+        iframe.srcdoc = generateSampleSoftwareHTML(activeStudioBpId, cfg);
+      }
+    }
+
+    function selectStudioBlueprint(bpId) {
+      activeStudioBpId = bpId;
+      customUploadedImgDataUrl = null;
+      const t = templates.find(x => x.id === bpId);
+      if (t) {
+        document.getElementById('studio-brand-input').value = t.brandDefault || t.title;
+        document.getElementById('studio-tagline-input').value = t.taglineDefault || t.desc;
+        document.getElementById('studio-color-input').value = safeHex(t.accent, '#7C3AED');
+      }
+      document.querySelectorAll('.bp-selector-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-bp') === bpId));
+      renderStudioWorkbench();
+    }
+
+    function resetStudioImagePreview() {
+      customUploadedImgDataUrl = null;
+      renderStudioWorkbench();
+      showStudioToast('Switched back to visual blueprint layout');
+    }
+
+    document.getElementById('ref-image-upload')?.addEventListener('change', (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        customUploadedImgDataUrl = ev.target.result;
+        renderStudioWorkbench();
+        showStudioToast('Image loaded for side-by-side preview & duplication!');
+      };
+      reader.readAsDataURL(file);
+    });
+
+    ['studio-brand-input', 'studio-tagline-input', 'studio-color-input'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', renderStudioWorkbench);
+    });
+
+    // Duplicate Blueprints Persistence Shelf
+    function getDuplicates() {
+      try { return JSON.parse(localStorage.getItem('belintan_duplicated_blueprints') || '[]'); } catch { return []; }
+    }
+    function saveDuplicates(list) {
+      try { localStorage.setItem('belintan_duplicated_blueprints', JSON.stringify(list)); } catch {}
+      renderDuplicatedShelf();
+    }
+
+    function addDuplicateEntry(tplId, cfg) {
+      const list = getDuplicates();
+      const t = templates.find(x => x.id === tplId) || templates[0];
+      list.unshift({
+        uid: 'dup-' + Date.now(),
+        tplId,
+        baseTitle: t.title,
+        brand: cfg.brand || t.brandDefault || t.title,
+        tagline: cfg.tagline || t.taglineDefault || t.desc,
+        accent: safeHex(cfg.accent, t.accent),
+        createdAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      });
+      saveDuplicates(list.slice(0, 12));
+      showStudioToast('📋 Duplicated "' + (cfg.brand || t.title) + '" to your workspace shelf!');
+    }
+
+    function duplicateCurrentBlueprint() {
+      addDuplicateEntry(activeStudioBpId, getStudioConfig());
+    }
+
+    function duplicateTemplateCard(tplId) {
+      const t = templates.find(x => x.id === tplId);
+      if (!t) return;
+      addDuplicateEntry(tplId, { brand: t.brandDefault || t.title, tagline: t.taglineDefault || t.desc, accent: t.accent });
+      document.getElementById('duplicated-shelf')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function removeDuplicateEntry(uid) {
+      saveDuplicates(getDuplicates().filter(d => d.uid !== uid));
+    }
+
+    function clearAllDuplicates() {
+      saveDuplicates([]);
+      showStudioToast('Cleared duplicated shelf');
+    }
+
+    function loadDuplicateIntoWorkbench(uid, mode) {
+      const item = getDuplicates().find(d => d.uid === uid);
+      if (!item) return;
+      openTemplateModal(item.tplId, mode || 'software', item);
+    }
+
+    function downloadHTMLFile(filename, content) {
+      const blob = new Blob([content], { type: 'text/html;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 100);
+      showStudioToast('⬇️ Downloaded ' + filename);
+    }
+
+    function downloadCurrentSampleSoftware() {
+      const cfg = getStudioConfig();
+      const slug = cfg.brand.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'sample-software';
+      downloadHTMLFile(slug + '-sample.html', generateSampleSoftwareHTML(activeStudioBpId, cfg));
+    }
+
+    function downloadDuplicateSample(uid) {
+      const item = getDuplicates().find(d => d.uid === uid);
+      if (!item) return;
+      const slug = item.brand.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'sample';
+      downloadHTMLFile(slug + '-sample.html', generateSampleSoftwareHTML(item.tplId, item));
+    }
+
+    function renderDuplicatedShelf() {
+      const list = getDuplicates();
+      const shelf = document.getElementById('duplicated-shelf');
+      const grid = document.getElementById('duplicated-shelf-grid');
+      const count = document.getElementById('shelf-count-badge');
+      if (!shelf || !grid) return;
+      if (count) count.textContent = '(' + list.length + ')';
+      shelf.classList.toggle('has-items', list.length > 0);
+      grid.innerHTML = list.map(d => `
+        <div class="shelf-item">
+          <div class="shelf-item-top">
+            <div class="shelf-item-name"><span class="shelf-dot" style="background:${safeHex(d.accent)}"></span><span>${esc(d.brand)}</span></div>
+            <span style="font-size:0.68rem;color:var(--text-subtle);">${esc(d.createdAt)}</span>
+          </div>
+          <div class="shelf-item-meta">Base: ${esc(d.baseTitle)} · ${esc(d.tagline)}</div>
+          <div class="shelf-item-btns">
+            <button class="shelf-mini-btn" onclick="loadDuplicateIntoWorkbench('${d.uid}','software')">⚡ Run App</button>
+            <button class="shelf-mini-btn" onclick="loadDuplicateIntoWorkbench('${d.uid}','blueprint')">🎨 Preview</button>
+            <button class="shelf-mini-btn" onclick="downloadDuplicateSample('${d.uid}')">⬇️ .html</button>
+            <button class="shelf-mini-btn del" onclick="removeDuplicateEntry('${d.uid}')">✕</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function launchStudioFullWorkbench(mode) {
+      openTemplateModal(activeStudioBpId, mode, getStudioConfig());
+    }
+
+    // Override openTemplateModal to support tabs, customizer, blueprint & sample software generation
+    function openTemplateModal(tplId, initialTab, customOverrides) {
+      const t = templates.find(item => item.id === tplId);
+      if (!t) return;
+      activeModalTplId = tplId;
+      activeModalTab = initialTab || 'blueprint';
+
+      document.getElementById('modal-custom-brand').value = customOverrides?.brand || t.brandDefault || t.title;
+      document.getElementById('modal-custom-tagline').value = customOverrides?.tagline || t.taglineDefault || t.desc;
+      document.getElementById('modal-custom-color').value = safeHex(customOverrides?.accent || t.accent, '#7C3AED');
+
+      modalTitle.textContent = t.title;
+      modalDesc.textContent = t.desc;
+      modalPriceTag.textContent = t.price;
+      const subEl = document.getElementById('modal-price-sub');
+      if (subEl) {
+        subEl.textContent = t.category === 'software'
+          ? 'Interactive Sample Software Ready · Downloadable standalone HTML5 · Full commercial build available'
+          : 'Instant digital download · Commercial license included · Lifetime updates';
+      }
+
+      modalFeaturesList.innerHTML = t.features.map(f => `<li>${esc(f)}</li>`).join('');
+
+      const waText = encodeURIComponent(`Hi Belintan, I'd like a custom build based on "${t.title}" (${document.getElementById('modal-custom-brand').value}).`);
+      modalWhatsappBtn.href = `https://wa.me/918610662871?text=${waText}`;
+      modalCheckoutBtn.href = `https://wa.me/918610662871?text=${waText}`;
+      modalCheckoutBtn.innerHTML = t.category === 'software'
+        ? `<span>Request Custom Deployment &rarr;</span>`
+        : (t.isLock ? `<span>Buy ${t.title} (${t.price}) &rarr;</span>` : `<span>Download ${t.title} (Free) &rarr;</span>`);
+
+      switchModalTab(activeModalTab);
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function getModalCustomConfig() {
+      const t = templates.find(item => item.id === activeModalTplId) || templates[0];
+      return {
+        brand: document.getElementById('modal-custom-brand').value.trim() || t.brandDefault || t.title,
+        tagline: document.getElementById('modal-custom-tagline').value.trim() || t.taglineDefault || t.desc,
+        accent: document.getElementById('modal-custom-color').value || t.accent
+      };
+    }
+
+    function switchModalTab(tabName) {
+      activeModalTab = tabName;
+      ['blueprint', 'software', 'code'].forEach(k => {
+        document.getElementById('tab-btn-' + k)?.classList.toggle('active', k === tabName);
+      });
+      renderActiveModalStage();
+    }
+
+    function renderActiveModalStage() {
+      const cfg = getModalCustomConfig();
+      const stage = document.getElementById('modal-stage-canvas');
+      if (!stage) return;
+
+      if (activeModalTab === 'blueprint') {
+        stage.innerHTML = buildVisualBlueprintHTML(activeModalTplId, cfg);
+      } else if (activeModalTab === 'software') {
+        const code = generateSampleSoftwareHTML(activeModalTplId, cfg);
+        const ifr = document.createElement('iframe');
+        ifr.className = 'modal-iframe-live';
+        ifr.setAttribute('sandbox', 'allow-scripts allow-forms allow-modals');
+        ifr.srcdoc = code;
+        stage.innerHTML = '';
+        stage.appendChild(ifr);
+      } else if (activeModalTab === 'code') {
+        const code = generateSampleSoftwareHTML(activeModalTplId, cfg);
+        stage.innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:0.82rem;font-weight:700;color:#A78BFA;">Standalone HTML5 Sample Software Source</span>
+            <button class="btn-studio-secondary" onclick="copyGeneratedCode()">📋 Copy Source Code</button>
+          </div>
+          <pre class="modal-code-pre" id="modal-generated-code-pre">${esc(code)}</pre>
+        `;
+      }
+    }
+
+    function applyModalCustomization() {
+      renderActiveModalStage();
+      showStudioToast('✨ Updated preview & sample software for ' + getModalCustomConfig().brand);
+    }
+
+    function duplicateActiveModalBlueprint() {
+      addDuplicateEntry(activeModalTplId, getModalCustomConfig());
+    }
+
+    function downloadActiveModalSoftware() {
+      const cfg = getModalCustomConfig();
+      const slug = cfg.brand.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'sample-software';
+      downloadHTMLFile(slug + '-sample.html', generateSampleSoftwareHTML(activeModalTplId, cfg));
+    }
+
+    function copyGeneratedCode() {
+      const cfg = getModalCustomConfig();
+      const code = generateSampleSoftwareHTML(activeModalTplId, cfg);
+      navigator.clipboard?.writeText(code).then(() => showStudioToast('📋 Copied standalone HTML source!'));
+    }
+
+    // Initialize Software Studio & Duplicator Shelf on load
+    selectStudioBlueprint('flowzo-crm');
+    renderDuplicatedShelf();
+
   </script>
 </body>
 </html>
