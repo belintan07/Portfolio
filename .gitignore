@@ -4,3 +4,15 @@
 **/dist/
 *.log
 
+# Local TLS Certificates & Environment Secrets
+.certs/
+*.pfx
+*.pem
+*.key
+*.crt
+*.cer
+.env
+.env.*
+!.env.example
+
+
