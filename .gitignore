@@ -2,6 +2,7 @@
 # Node / React Vite Apps
 **/node_modules/
 **/dist/
+**/.vercel/
 *.log
 
 # Local TLS Certificates & Environment Secrets
