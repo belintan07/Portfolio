@@ -2618,8 +2618,8 @@
     /* ==========================================================================
        3 SOFTWARE MOCKUPS IN CARD VIEWPORTS (IMAGES 1, 2 & 3 REPLICAS)
        ========================================================================== */
-    /* 1. Flowzo CRM Software Mockup */
-    .mock-flowzo {
+    /* 1. Enterprise CRM Software Mockup */
+    .mock-crm {
       background: radial-gradient(circle at top right, #F3E8FF 0%, #FAF5FF 45%, #EEF2FF 100%);
       color: #1E1B4B;
       padding: 8px;
@@ -3746,11 +3746,11 @@
 
       <!-- 3 Software Blueprint Selector Buttons (From Uploaded Images) -->
       <div class="studio-blueprint-tabs" role="tablist" aria-label="Software Blueprints">
-        <button type="button" class="bp-selector-btn active" id="bp-tab-flowzo-crm" role="tab" aria-selected="true"
-          aria-controls="duplicator" tabindex="0" data-bp="flowzo-crm" onclick="selectStudioBlueprint('flowzo-crm')">
+        <button type="button" class="bp-selector-btn active" id="bp-tab-enterprise-crm" role="tab" aria-selected="true"
+          aria-controls="duplicator" tabindex="0" data-bp="enterprise-crm" onclick="selectStudioBlueprint('enterprise-crm')">
           <div class="bp-icon-box" style="background: linear-gradient(135deg, #7C3AED, #F97316);">📱</div>
           <div class="bp-meta">
-            <h4>1. Flowzo CRM Software</h4>
+            <h4>1. Enterprise CRM Suite</h4>
             <p>All-in-one Lead Management, Call Sync, Top Performers, Analytics &amp; WhatsApp/Meta integrations.</p>
           </div>
         </button>
@@ -3776,7 +3776,7 @@
       </div>
 
       <!-- Side-by-Side Image Duplicator & Generator Controls -->
-      <div class="duplicator-grid" id="duplicator" role="tabpanel" aria-labelledby="bp-tab-flowzo-crm">
+      <div class="duplicator-grid" id="duplicator" role="tabpanel" aria-labelledby="bp-tab-enterprise-crm">
         <!-- Left Panel: Blueprint Visual & Reference Image Preview -->
         <div class="dup-panel">
           <div class="dup-panel-head">
@@ -3806,7 +3806,7 @@
 
           <!-- Customize Before Duplicating / Generating -->
           <div class="dup-customizer-row">
-            <input type="text" id="studio-brand-input" class="dup-input" placeholder="Brand Name (e.g. Flowzo.ai)"
+            <input type="text" id="studio-brand-input" class="dup-input" placeholder="Brand Name (e.g. clientflow.io)"
               aria-label="Custom Brand Name" />
             <input type="text" id="studio-tagline-input" class="dup-input" placeholder="Software Tagline / Industry"
               aria-label="Custom Tagline" />
@@ -3889,25 +3889,25 @@
   <main class="templates-grid-section" id="grid">
     <div class="templates-grid" id="templates-grid-container" role="tabpanel" aria-labelledby="filter-tab-all">
 
-      <!-- Software Card 1: Flowzo CRM Suite (From Image 1) -->
-      <article class="template-card" data-category="software" data-id="flowzo-crm"
-        data-name="flowzo crm software lead management whatsapp api"
+      <!-- Software Card 1: Enterprise CRM Suite (From Image 1) -->
+      <article class="template-card" data-category="software" data-id="enterprise-crm"
+        data-name="enterprise crm software lead management whatsapp api"
         data-desc="all-in-one crm software lead management automation call sync analytics">
         <div class="card-3d-glare"></div>
-        <div class="tpl-preview-frame" onclick="openTemplateModal('flowzo-crm')"
-          title="Preview visual blueprint &amp; run Flowzo CRM sample software">
+        <div class="tpl-preview-frame" onclick="openTemplateModal('enterprise-crm')"
+          title="Preview visual blueprint &amp; run Enterprise CRM sample software">
           <div class="tpl-badges-row">
             <span class="tpl-badge new" style="background:#7C3AED;">Software App</span>
             <span class="tpl-badge free">Sample Ready</span>
           </div>
           <div class="tpl-browser-bar">
             <div class="tpl-browser-dots"><span></span><span></span><span></span></div>
-            <div class="tpl-browser-address">sample-app://flowzo-crm</div>
+            <div class="tpl-browser-address">sample-app://enterprise-crm</div>
           </div>
           <div class="tpl-preview-viewport">
-            <div class="mock-canvas mock-flowzo">
+            <div class="mock-canvas mock-crm">
               <div class="fz-top-head">
-                <div class="fz-logo-badge">⚡ flowzo.ai</div>
+                <div class="fz-logo-badge">⚡ clientflow.io</div>
                 <span style="font-size:0.38rem;font-weight:700;color:#475569;">CRM v4.0</span>
               </div>
               <div class="fz-hero-title">ALL-IN-ONE CRM SOFTWARE</div>
@@ -3949,12 +3949,12 @@
         </div>
         <div class="tpl-details">
           <div class="tpl-header-row">
-            <h3 class="tpl-title">Flowzo CRM Suite</h3>
+            <h3 class="tpl-title">Enterprise CRM Suite</h3>
             <span class="tpl-price-chip" style="color:#34D399;">Interactive</span>
           </div>
           <p class="tpl-desc">All-in-one CRM: Lead Distribution, Call Telemetry, Analytics &amp; WhatsApp/Meta sync</p>
           <div class="tpl-action-row">
-            <button class="btn-buy-template" onclick="openTemplateModal('flowzo-crm', 'software')">
+            <button class="btn-buy-template" onclick="openTemplateModal('enterprise-crm', 'software')">
               <span>⚡ Generate Sample Software</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <polyline points="9 18 15 12 9 6"></polyline>
@@ -3962,7 +3962,7 @@
             </button>
           </div>
           <div class="tpl-unlock-row">
-            <button class="tpl-unlock-link" onclick="duplicateTemplateCard('flowzo-crm')">
+            <button class="tpl-unlock-link" onclick="duplicateTemplateCard('enterprise-crm')">
               <span>📋 Duplicate Image Layout</span>
             </button>
           </div>
@@ -5536,9 +5536,9 @@
     // ========================================================================
     const softwareBlueprints = [
       {
-        id: "flowzo-crm",
-        title: "Flowzo CRM Suite",
-        brandDefault: "flowzo.ai",
+        id: "enterprise-crm",
+        title: "Enterprise CRM Suite",
+        brandDefault: "clientflow.io",
         taglineDefault: "All-in-One CRM Software — Lead Management & Automation",
         desc: "All-in-one CRM: Automated Lead Distribution, Call Analytics, Forecasting & WhatsApp/Meta integration",
         category: "software",
@@ -5556,7 +5556,7 @@
           "Top Performers Leaderboard (deideepak, gdial) & Sales Forecasting",
           "Multi-Channel Sync Strip: WhatsApp API, Call Sync, Mobile App & Meta CAP"
         ],
-        previewHTML: `<div class="mock-canvas mock-flowzo"><div class="fz-top-head"><div class="fz-logo-badge">⚡ flowzo.ai</div></div><div class="fz-hero-title">ALL-IN-ONE CRM SOFTWARE</div><div class="fz-sub-line">LEAD MANAGEMENT | LEAD AUTOMATION</div></div>`
+        previewHTML: `<div class="mock-canvas mock-crm"><div class="fz-top-head"><div class="fz-logo-badge">⚡ clientflow.io</div></div><div class="fz-hero-title">ALL-IN-ONE CRM SOFTWARE</div><div class="fz-sub-line">LEAD MANAGEMENT | LEAD AUTOMATION</div></div>`
       },
       {
         id: "officeportal-hrms",
@@ -5660,10 +5660,11 @@
     }
 
     function buildVisualBlueprintStageHTML(tplId, custom) {
-      const brand = esc(custom?.brand || (tplId === 'flowzo-crm' ? 'flowzo.ai' : tplId === 'officeportal-hrms' ? 'OfficePortal' : 'HEALTHRAY'));
-      const accent = safeHex(custom?.accent, tplId === 'flowzo-crm' ? '#7C3AED' : tplId === 'officeportal-hrms' ? '#0D9488' : '#2563EB');
+      const isCrm = (tplId === 'enterprise-crm' || tplId === 'flowzo-crm');
+      const brand = esc(custom?.brand || (isCrm ? 'clientflow.io' : tplId === 'officeportal-hrms' ? 'OfficePortal' : 'HEALTHRAY'));
+      const accent = safeHex(custom?.accent, isCrm ? '#7C3AED' : tplId === 'officeportal-hrms' ? '#0D9488' : '#2563EB');
 
-      if (tplId === 'flowzo-crm') {
+      if (isCrm) {
         const tagline = esc(custom?.tagline || 'ALL-IN-ONE CRM SOFTWARE');
         return `
           <div class="bp-stage-full" style="background: radial-gradient(circle at top right, #F3E8FF 0%, #FAF5FF 50%, #EEF2FF 100%); font-family: system-ui, sans-serif;">
@@ -5817,7 +5818,7 @@
     // ------------------------------------------------------------------------
     function generateSampleSoftwareHTML(tplId, custom) {
       const refImg = safeImageDataUrl(custom?.refImage);
-      const isCustomSoftware = ['flowzo-crm', 'officeportal-hrms', 'healthray-hms'].includes(tplId);
+      const isCustomSoftware = ['enterprise-crm', 'flowzo-crm', 'officeportal-hrms', 'healthray-hms'].includes(tplId);
       const refBanner = buildRefAssetBannerHTML(
         refImg,
         'Duplicated Reference Visual',
@@ -5835,7 +5836,7 @@
       const tagline = esc(custom?.tagline || t.taglineDefault || t.desc);
       const accent = safeHex(custom?.accent, t.accent || '#7C3AED');
 
-      if (tplId === 'flowzo-crm') {
+      if (tplId === 'enterprise-crm' || tplId === 'flowzo-crm') {
         return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6236,11 +6237,11 @@ h1{font-size:2.2rem;font-weight:900;margin-bottom:10px;}p{color:#94A3B8;margin-b
     // ------------------------------------------------------------------------
     // STUDIO CONTROLLER & IMAGE UPLOAD DUPLICATOR
     // ------------------------------------------------------------------------
-    let activeStudioBpId = 'flowzo-crm';
+    let activeStudioBpId = 'enterprise-crm';
     let customUploadedImgDataUrl = null;
     let uploadReadToken = 0;
     let activeUploadReader = null;
-    let activeModalTplId = 'flowzo-crm';
+    let activeModalTplId = 'enterprise-crm';
     let activeModalTab = 'blueprint';
     let activeModalRefImage = null;
 
@@ -6622,7 +6623,7 @@ h1{font-size:2.2rem;font-weight:900;margin-bottom:10px;}p{color:#94A3B8;margin-b
     wireTablistKeyboardNav('.bp-selector-btn');
     wireTablistKeyboardNav('.filter-pill');
     wireTablistKeyboardNav('.mode-tab-btn');
-    selectStudioBlueprint('flowzo-crm');
+    selectStudioBlueprint('enterprise-crm');
     renderDuplicatedShelf();
 
   </script>

@@ -1940,8 +1940,8 @@ const erf = (x) => {
   const y =
     1 -
     ((((1.061405429 * t - 1.453152027) * t + 1.421413741) * t - 0.284496736) * t + 0.254829592) *
-      t *
-      Math.exp(-a * a);
+    t *
+    Math.exp(-a * a);
   return x < 0 ? -y : y;
 };
 
@@ -2403,9 +2403,8 @@ const createEngine = (root, track, config, setLayout) => {
       const along = x - u;
       const t = hidden
         ? ''
-        : `${cfg.vertical ? `translate3d(${y.toFixed(2)}px, ${along.toFixed(2)}px, 0px)` : `translate3d(${along.toFixed(2)}px, ${y.toFixed(2)}px, 0px)`}${
-            rot ? ` rotate(${(cfg.vertical ? -rot : rot).toFixed(2)}deg)` : ''
-          }`;
+        : `${cfg.vertical ? `translate3d(${y.toFixed(2)}px, ${along.toFixed(2)}px, 0px)` : `translate3d(${along.toFixed(2)}px, ${y.toFixed(2)}px, 0px)`}${rot ? ` rotate(${(cfg.vertical ? -rot : rot).toFixed(2)}deg)` : ''
+        }`;
       write(it, 't', 'transform', t, it.el);
       write(it, 'o', 'opacity', hidden ? '0' : opacity > 0.999 ? '' : opacity.toFixed(3), it.el);
       const keepFocusable = it.copy === st.layout.primary;
@@ -2607,7 +2606,7 @@ const createEngine = (root, track, config, setLayout) => {
         st.velocity = 0;
         try {
           root.setPointerCapture(e.pointerId);
-        } catch {}
+        } catch { }
         root.setAttribute('data-dragging', '');
       }
       const next = d.offset - (along - d.anchor) * d.scale;
@@ -2629,7 +2628,7 @@ const createEngine = (root, track, config, setLayout) => {
     root.removeAttribute('data-dragging');
     try {
       root.releasePointerCapture(e.pointerId);
-    } catch {}
+    } catch { }
     const cfg = config.current;
     const now = performance.now();
     st.suppressUntil = now + 400;
@@ -3573,9 +3572,9 @@ const StarBorder = ({
     const visibility =
       typeof IntersectionObserver !== 'undefined'
         ? new IntersectionObserver((entries) => {
-            state.visible = entries.some((entry) => entry.isIntersecting);
-            if (state.visible) wake();
-          })
+          state.visible = entries.some((entry) => entry.isIntersecting);
+          if (state.visible) wake();
+        })
         : null;
     visibility?.observe(root);
     root.addEventListener('pointerenter', onEnter);
@@ -3905,7 +3904,7 @@ function ServicesInsightsSection({ onNavigatePage }) {
               </span>
               <div>
                 <h3 style={{ fontSize: '1.5rem', margin: '0 0 8px' }}>
-                  Flowzo CRM &middot; OfficePortal HRMS &middot; Healthray HMS
+                  Enterprise CRM &middot; OfficePortal HRMS &middot; Healthray HMS
                 </h3>
               </div>
               <div className="cg-metric-box">
@@ -4244,11 +4243,11 @@ function PricingSection({ onBackHome, headingRef }) {
    9. Templates & Software Studio Section
    ========================================================================== */
 const BLUEPRINTS = {
-  'flowzo-crm': {
-    id: 'flowzo-crm',
-    name: '1. Flowzo CRM Software',
+  'enterprise-crm': {
+    id: 'enterprise-crm',
+    name: '1. Enterprise CRM Suite',
     desc: 'All-in-one Lead Management, Call Sync, Top Performers, Analytics & WhatsApp/Meta integrations.',
-    defaultBrand: 'flowzo.ai',
+    defaultBrand: 'clientflow.io',
     defaultTagline: 'All-in-One CRM Software — Lead Management & Automation',
     defaultColor: '#0070AD',
     specs: [
@@ -4287,9 +4286,10 @@ const BLUEPRINTS = {
     ]
   }
 };
+BLUEPRINTS['flowzo-crm'] = BLUEPRINTS['enterprise-crm'];
 
 const TEMPLATES_CATALOG = [
-  { id: 'flowzo-crm', title: 'Flowzo CRM Software', category: 'software', price: 'Included', tag: 'CRM Suite', desc: 'Lead distribution, call sync & unique client tracking SaaS.' },
+  { id: 'enterprise-crm', title: 'Enterprise CRM Suite', category: 'software', price: 'Included', tag: 'CRM Suite', desc: 'Lead distribution, call sync & unique client tracking SaaS.' },
   { id: 'officeportal-hrms', title: 'OfficePortal HRMS', category: 'software', price: 'Included', tag: 'HRMS & Payroll', desc: 'Attendance, PF/ESI payroll, and live geo-fencing portal.' },
   { id: 'healthray-hms', title: 'Healthray Healthcare OS', category: 'software', price: 'Included', tag: 'Healthcare OS', desc: 'OPD/IPD dashboard, bed occupancy & ABDM integration.' },
   { id: 'agentframe', title: 'Agentframe AI', category: 'ai', price: '$49', tag: 'AI & Agents', desc: 'Autonomous AI agent console with telemetry & prompt simulator.' },
@@ -4324,7 +4324,7 @@ function buildSampleAppHTML(bpId, cfg) {
     ? `<div style="margin-bottom:14px;padding:10px;border-radius:8px;background:#F8FAFC;border:1px solid #DDE3EA;display:flex;align-items:center;gap:12px;"><img src="${refImg}" alt="Duplicated reference" style="width:68px;height:44px;object-fit:cover;border-radius:4px;" /><div><strong style="font-size:12px;color:#0F172A;display:block;">Reference Image Attached</strong><span style="font-size:11px;color:#475569;">Synced from duplicator preview</span></div></div>`
     : '';
 
-  if (bpId === 'flowzo-crm') {
+  if (bpId === 'enterprise-crm' || bpId === 'flowzo-crm') {
     return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${brand} — CRM</title><style>body{margin:0;font-family:'Segoe UI',system-ui,sans-serif;background:#F1F5F9;color:#0F172A;padding:16px}.card{background:#fff;border:1px solid #DDE3EA;border-radius:8px;padding:16px;max-width:780px;margin:0 auto}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}.kpi{background:${accent};color:#fff;padding:12px;border-radius:6px}.kpi span{font-size:11px;opacity:.88;display:block}.kpi strong{font-size:20px}.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}input,select{padding:8px 10px;border:1px solid #CBD5E1;border-radius:4px;font:inherit}button{background:${accent};color:#fff;border:none;border-radius:6px;padding:8px 14px;font-weight:700;cursor:pointer}.log{margin-top:12px;font-size:12px;color:#334155}</style></head><body><div class="card"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;"><div><strong style="font-size:17px;">${brand}</strong><div style="font-size:12px;color:#475569;">${tagline}</div></div><span style="background:#E0F2FE;color:#0369A1;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;">LIVE CRM</span></div>${refBanner}<div class="kpis"><div class="kpi"><span>TOTAL CALLS</span><strong id="k-calls">27</strong></div><div class="kpi"><span>DURATION</span><strong id="k-dur">00:09:51</strong></div><div class="kpi"><span>CONNECTED</span><strong id="k-conn">18</strong></div><div class="kpi"><span>UNIQUE CLIENTS</span><strong id="k-clients">15</strong></div></div><div class="row"><input id="lead-name" placeholder="Client name (e.g. Acme Corp)" /><select id="lead-status"><option value="connected">Connected</option><option value="follow-up">Follow-Up</option></select><button type="button" onclick="logNewCall()">+ Log &amp; Auto-Assign</button></div><div id="call-log" class="log">Pre-seeded 15 unique client accounts tracked.</div></div><script>let calls=27,conn=18,clients=15,secs=591;const seenClients=new Set(['nova retail','skyline infra','metro clinic','zenith logistics','aurora textiles','crestview homes','pulse diagnostics','verve studio','kaveri foods','atlas mobility','brightpath edu','harbor fintech','lotus pharma','peak saas','orion global']);function logNewCall(){const nameEl=document.getElementById('lead-name');const stEl=document.getElementById('lead-status');const raw=(nameEl.value||'').trim()||('New Client #'+(calls+1));const key=raw.toLowerCase();calls++;if(stEl.value==='connected')conn++;if(!seenClients.has(key)){seenClients.add(key);clients++;}secs+=45;const mm=String(Math.floor(secs/60)).padStart(2,'0'),ss=String(secs%60).padStart(2,'0');document.getElementById('k-calls').textContent=calls;document.getElementById('k-conn').textContent=conn;document.getElementById('k-clients').textContent=clients;document.getElementById('k-dur').textContent='00:'+mm+':'+ss;document.getElementById('call-log').textContent='Logged call for '+raw+' ('+stEl.value+') — '+clients+' unique clients';nameEl.value='';}</script></body></html>`;
   }
 
@@ -4348,10 +4348,10 @@ function readStoredDuplicates() {
 }
 
 function TemplatesStudioSection({ onBackHome, headingRef }) {
-  const [activeBp, setActiveBp] = useState('flowzo-crm');
-  const [brand, setBrand] = useState(BLUEPRINTS['flowzo-crm'].defaultBrand);
-  const [tagline, setTagline] = useState(BLUEPRINTS['flowzo-crm'].defaultTagline);
-  const [accent, setAccent] = useState(BLUEPRINTS['flowzo-crm'].defaultColor);
+  const [activeBp, setActiveBp] = useState('enterprise-crm');
+  const [brand, setBrand] = useState(BLUEPRINTS['enterprise-crm'].defaultBrand);
+  const [tagline, setTagline] = useState(BLUEPRINTS['enterprise-crm'].defaultTagline);
+  const [accent, setAccent] = useState(BLUEPRINTS['enterprise-crm'].defaultColor);
   const [uploadedImg, setUploadedImg] = useState('');
   const [isLoadingImg, setIsLoadingImg] = useState(false);
   const [statusMsg, setStatusMsg] = useState('');
@@ -4379,7 +4379,7 @@ function TemplatesStudioSection({ onBackHome, headingRef }) {
     readTokenRef.current += 1;
     try {
       activeReaderRef.current?.abort?.();
-    } catch {}
+    } catch { }
     activeReaderRef.current = null;
     setIsLoadingImg(false);
   };
@@ -4396,11 +4396,11 @@ function TemplatesStudioSection({ onBackHome, headingRef }) {
       readTokenRef.current += 1;
       try {
         activeReaderRef.current?.abort?.();
-      } catch {}
+      } catch { }
     };
   }, []);
 
-  const currentBlueprint = BLUEPRINTS[activeBp] || BLUEPRINTS['flowzo-crm'];
+  const currentBlueprint = BLUEPRINTS[activeBp] || BLUEPRINTS['enterprise-crm'];
 
   const selectBlueprint = (bpId, opts = {}) => {
     const bp = BLUEPRINTS[bpId];
@@ -4606,7 +4606,7 @@ function TemplatesStudioSection({ onBackHome, headingRef }) {
               Enterprise Software Blueprint Studio &amp; Templates
             </h1>
             <p style={{ margin: 0, color: 'var(--text-secondary)', maxWidth: '720px' }}>
-              Switch between Flowzo CRM, OfficePortal HRMS, and Healthray OS, upload a reference screenshot to
+              Switch between Enterprise CRM, OfficePortal HRMS, and Healthray OS, upload a reference screenshot to
               duplicate with your branding, and download standalone deliverables.
             </p>
           </div>
@@ -4829,7 +4829,7 @@ function TemplatesStudioSection({ onBackHome, headingRef }) {
                     onClick={() => {
                       invalidatePendingUpload();
                       if (fileInputRef.current) fileInputRef.current.value = '';
-                      const nextBpId = BLUEPRINTS[dup?.bpId] ? dup.bpId : 'flowzo-crm';
+                      const nextBpId = BLUEPRINTS[dup?.bpId] ? dup.bpId : 'enterprise-crm';
                       setActiveBp(nextBpId);
                       setBrand(dup.brand || BLUEPRINTS[nextBpId].defaultBrand);
                       setTagline(dup.tagline || BLUEPRINTS[nextBpId].defaultTagline);
@@ -5504,7 +5504,7 @@ export default function App() {
     document.documentElement.setAttribute('data-theme', theme);
     try {
       localStorage.setItem('belintan_theme', theme);
-    } catch {}
+    } catch { }
   }, [theme]);
 
   const toggleTheme = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
