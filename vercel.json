@@ -4,6 +4,17 @@
   "installCommand": "npm --prefix portfolio-react install",
   "buildCommand": "npm --prefix portfolio-react run build",
   "outputDirectory": "portfolio-react/dist",
+  "redirects": [
+    { "source": "/portfolio/pricing.html", "destination": "/?view=pricing", "permanent": false },
+    { "source": "/pricing.html", "destination": "/?view=pricing", "permanent": false },
+    { "source": "/templates", "destination": "/?view=templates", "permanent": false },
+    { "source": "/templates/", "destination": "/?view=templates", "permanent": false },
+    { "source": "/templates/index.html", "destination": "/?view=templates", "permanent": false },
+    { "source": "/templates.html", "destination": "/?view=templates", "permanent": false },
+    { "source": "/portfolio", "destination": "/", "permanent": false },
+    { "source": "/portfolio/", "destination": "/", "permanent": false },
+    { "source": "/portfolio/index.html", "destination": "/", "permanent": false }
+  ],
   "rewrites": [
     {
       "source": "/((?!.*\\.).*)",

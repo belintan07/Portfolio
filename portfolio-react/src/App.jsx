@@ -58,6 +58,53 @@ body {
   overflow-x: clip;
 }
 
+#hero,
+#about,
+#tech-stack,
+#services,
+#skills,
+#insights,
+#pricing,
+#templates-studio,
+#contact {
+  scroll-margin-top: 84px;
+}
+
+@media (max-width: 960px) {
+  #hero,
+  #about,
+  #tech-stack,
+  #services,
+  #skills,
+  #insights,
+  #pricing,
+  #templates-studio,
+  #contact {
+    scroll-margin-top: 132px;
+  }
+}
+
+.cg-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.cg-loop-stage > .logoloop {
+  flex: 1 1 100%;
+  width: 100%;
+  min-width: 0;
+}
+
+.cg-btn-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
 .cg-container {
   max-width: 1280px;
   margin: 0 auto;
@@ -1656,6 +1703,11 @@ button,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+
   .cg-cursor-aura,
   .cg-cursor-ring,
   .cg-cursor-dot,
@@ -1837,6 +1889,29 @@ const TECH_LOGOS = [
 /* ==========================================================================
    3. React Bits <LogoLoop /> Engine & Component
    ========================================================================== */
+const getScrollBehavior = () =>
+  typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+
+const parseViewFromLocation = () => {
+  if (typeof window === 'undefined') return 'home';
+  const params = new URLSearchParams(window.location.search);
+  const v = params.get('view');
+  if (v === 'pricing' || v === 'templates') return v;
+  return 'home';
+};
+
+const buildViewUrl = (page) => {
+  if (typeof window === 'undefined') return page === 'home' ? '/' : `/?view=${page}`;
+  const url = new URL(window.location.href);
+  url.hash = '';
+  if (page === 'pricing' || page === 'templates') {
+    url.searchParams.set('view', page);
+  } else {
+    url.searchParams.delete('view');
+  }
+  return url.pathname + url.search;
+};
+
 const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
 const SMOOTH_TAU = 0.25;
@@ -1964,6 +2039,7 @@ const createEngine = (root, track, config, setLayout) => {
           t: '',
           o: '',
           v: '',
+          pe: '',
           z: '',
           s: '',
           p: ''
@@ -1979,10 +2055,11 @@ const createEngine = (root, track, config, setLayout) => {
       it.el.style.transform = '';
       it.el.style.opacity = '';
       it.el.style.visibility = '';
+      it.el.style.pointerEvents = '';
       it.el.style.zIndex = '';
       if (it.content) it.content.style.transform = '';
       if (it.tip) it.tip.style.transform = '';
-      it.t = it.o = it.v = it.z = it.s = it.p = '';
+      it.t = it.o = it.v = it.pe = it.z = it.s = it.p = '';
     }
   };
 
@@ -2322,7 +2399,9 @@ const createEngine = (root, track, config, setLayout) => {
           }`;
       write(it, 't', 'transform', t, it.el);
       write(it, 'o', 'opacity', hidden ? '0' : opacity > 0.999 ? '' : opacity.toFixed(3), it.el);
-      write(it, 'v', 'visibility', hidden ? 'hidden' : '', it.el);
+      const keepFocusable = it.copy === st.layout.primary;
+      write(it, 'v', 'visibility', hidden && !keepFocusable ? 'hidden' : '', it.el);
+      write(it, 'pe', 'pointerEvents', hidden ? 'none' : '', it.el);
       write(it, 'z', 'zIndex', z, it.el);
       if (it.content) {
         write(it, 's', 'transform', Math.abs(scale - 1) < 0.0005 ? '' : `scale(${scale.toFixed(4)})`, it.content);
@@ -2380,8 +2459,10 @@ const createEngine = (root, track, config, setLayout) => {
     let target = st.reduced ? 0 : paused ? pausedSpeed * travel * cfg.dirSign : cfg.speed * cfg.dirSign;
     if (cfg.scrollBoost > 0 && !st.reduced) {
       st.scrollVel *= Math.exp(-dt / 0.18);
-      if (Math.abs(st.scrollVel) > 1) busy = true;
-      target += clamp(st.scrollVel * cfg.scrollBoost, -3000, 3000) * travel * cfg.dirSign;
+      if (!st.focused) {
+        if (Math.abs(st.scrollVel) > 1) busy = true;
+        target += clamp(st.scrollVel * cfg.scrollBoost, -3000, 3000) * travel * cfg.dirSign;
+      }
     }
     if (st.drag?.active) {
       busy = true;
@@ -2484,8 +2565,8 @@ const createEngine = (root, track, config, setLayout) => {
   };
 
   const onDown = (e) => {
+    if (st.drag || !config.current.draggable || (e.pointerType === 'mouse' && e.button !== 0)) return;
     st.pressedAt = performance.now();
-    if (!config.current.draggable || (e.pointerType === 'mouse' && e.button !== 0)) return;
     const [x, y] = local(e);
     if (e.pointerType !== 'touch') st.pointer = [x, y];
     st.drag = { id: e.pointerId, x, y, active: false, samples: [], scale: dragScale(), anchor: 0, offset: 0 };
@@ -2550,7 +2631,10 @@ const createEngine = (root, track, config, setLayout) => {
       const [t1, a1] = s[s.length - 1];
       if (t1 > t0 && now - t1 < 80) v = clamp((-(a1 - a0) / (t1 - t0)) * 1000 * d.scale, -MAX_FLING, MAX_FLING);
     }
-    if (cfg.step && !st.reduced) {
+    if (st.reduced) {
+      st.velocity = 0;
+      st.glide = false;
+    } else if (cfg.step) {
       const target = nearestSnap(st.offset + v * 0.35);
       startMove(target, clamp(0.3 + Math.abs(target - st.offset) / 1800, 0.3, 0.8));
       st.velocity = 0;
@@ -2580,13 +2664,21 @@ const createEngine = (root, track, config, setLayout) => {
     const target = e.target;
     if (performance.now() - st.pressedAt < 800) return;
     st.focused = true;
+    st.seek = null;
+    st.move = null;
     const it = st.items.find((item) => item.el.contains(target));
     if (it && st.geo) {
       const u = -st.offset - st.geo.lead + it.center - st.length / 2;
       const comfortable = st.geo.mode === 'orbit' ? 1 : Math.max(0, st.length / 2 - it.size);
       if (Math.abs(u) > comfortable) {
-        st.move = null;
-        st.seek = { from: st.offset, delta: u, t: 0, dur: clamp(0.35 + Math.abs(u) / 2000, 0.35, 0.8) };
+        if (st.reduced) {
+          const P = st.period || 1;
+          st.offset = (((st.offset + u) % P) + P) % P;
+          st.velocity = 0;
+          st.glide = false;
+        } else {
+          st.seek = { from: st.offset, delta: u, t: 0, dur: clamp(0.35 + Math.abs(u) / 2000, 0.35, 0.8) };
+        }
       }
     }
     wake();
@@ -2619,6 +2711,17 @@ const createEngine = (root, track, config, setLayout) => {
 
   const onMotion = () => {
     st.reduced = !!query?.matches;
+    if (st.reduced) {
+      st.velocity = 0;
+      st.glide = false;
+      st.seek = null;
+      st.move = null;
+      st.scrollVel = 0;
+      st.introStart = -2;
+      st.introDone = true;
+      st.mag = 0;
+      root.removeAttribute('data-intro');
+    }
     wake();
   };
 
@@ -3090,7 +3193,8 @@ const StarBorder = ({
     const ctx = canvas?.getContext('2d');
     if (!root || !canvas || !ctx) return undefined;
 
-    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+    const reduceQuery = typeof window.matchMedia === 'function' ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+    let reduce = !!reduceQuery?.matches;
     const point = { x: 0, y: 0, nx: 0, ny: -1 };
     const state = {
       width: 0,
@@ -3410,7 +3514,7 @@ const StarBorder = ({
       wake();
     };
     const pulse = (origin) => {
-      if (!settingsRef.current.clickPulse) return;
+      if (!settingsRef.current.clickPulse || reduce) return;
       pulses.push({ origin, age: 0 });
       if (pulses.length > 4) pulses.shift();
       state.flash = 1;
@@ -3435,6 +3539,26 @@ const StarBorder = ({
       wake();
     };
 
+    const onReduceChange = () => {
+      reduce = !!reduceQuery?.matches;
+      if (reduce) {
+        state.velocity = 0;
+        state.motion = 0;
+        state.lap = -1;
+        state.flash = 0;
+        state.emit = 0;
+        pulses.length = 0;
+        dust.length = 0;
+        cancelAnimationFrame(raf);
+        raf = 0;
+        const s = settingsRef.current;
+        if (state.width >= 2 && state.height >= 2) draw(s, shapeFor(s));
+      } else {
+        wake();
+      }
+    };
+    reduceQuery?.addEventListener?.('change', onReduceChange);
+
     const resizeObserver = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(measure) : null;
     resizeObserver?.observe(root);
     const visibility =
@@ -3457,6 +3581,7 @@ const StarBorder = ({
       alive = false;
       wakeRef.current = null;
       cancelAnimationFrame(raf);
+      reduceQuery?.removeEventListener?.('change', onReduceChange);
       resizeObserver?.disconnect();
       visibility?.disconnect();
       root.removeEventListener('pointerenter', onEnter);
@@ -3496,12 +3621,23 @@ const StarBorder = ({
 /* ==========================================================================
    4. Clean Enterprise Navigation Bar
    ========================================================================== */
-function Navbar({ activePage, setActivePage, theme, toggleTheme }) {
+function Navbar({ activePage, onNavigatePage, theme, toggleTheme }) {
   const goSection = (id) => {
-    setActivePage('home');
-    setTimeout(() => {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    }, 30);
+    const scrollTarget = () => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'auto' });
+    };
+    if (activePage !== 'home') {
+      onNavigatePage('home', { revealHeading: false });
+      setTimeout(scrollTarget, 40);
+    } else {
+      scrollTarget();
+    }
+  };
+
+  const handleViewLinkClick = (e, page) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    e.preventDefault();
+    onNavigatePage(page);
   };
 
   return (
@@ -3544,26 +3680,22 @@ function Navbar({ activePage, setActivePage, theme, toggleTheme }) {
           <button type="button" className="cg-nav-link" onClick={() => goSection('insights')}>
             Insights
           </button>
-          <button
-            type="button"
+          <a
+            href="?view=pricing"
             className={`cg-nav-link ${activePage === 'pricing' ? 'active' : ''}`}
-            onClick={() => {
-              setActivePage('pricing');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+            aria-current={activePage === 'pricing' ? 'page' : undefined}
+            onClick={(e) => handleViewLinkClick(e, 'pricing')}
           >
             Pricing
-          </button>
-          <button
-            type="button"
+          </a>
+          <a
+            href="?view=templates"
             className={`cg-nav-link ${activePage === 'templates' ? 'active' : ''}`}
-            onClick={() => {
-              setActivePage('templates');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+            aria-current={activePage === 'templates' ? 'page' : undefined}
+            onClick={(e) => handleViewLinkClick(e, 'templates')}
           >
             Templates
-          </button>
+          </a>
           <button type="button" className="cg-nav-link" onClick={() => goSection('contact')}>
             Contact
           </button>
@@ -3961,6 +4093,8 @@ function ServicesInsightsSection({ onNavigatePage }) {
                 </p>
               </div>
               <StarBorder
+                as="a"
+                href="?view=templates"
                 color="#FFFFFF"
                 trailColor="#12ABDB"
                 duration={4}
@@ -3976,9 +4110,10 @@ function ServicesInsightsSection({ onNavigatePage }) {
                 backgroundColor="#0070AD"
                 textColor="#FFFFFF"
                 borderColor="rgba(18, 171, 219, 0.5)"
-                onClick={() => {
+                onClick={(e) => {
+                  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                  e.preventDefault();
                   onNavigatePage('templates');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
               >
                 <span>Launch Software Studio</span>
@@ -4014,17 +4149,18 @@ function ServicesInsightsSection({ onNavigatePage }) {
                   Clear delivery packages starting from &#8377;4,499 with responsive UI, SEO setup, and maintenance options.
                 </p>
               </div>
-              <button
-                type="button"
+              <a
+                href="?view=pricing"
                 className="cg-arrow-btn"
-                onClick={() => {
+                onClick={(e) => {
+                  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                  e.preventDefault();
                   onNavigatePage('pricing');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
               >
                 <span>View Pricing &amp; Packages</span>
                 <ArrowRight size={15} />
-              </button>
+              </a>
             </article>
 
             <article className="cg-card">
@@ -4037,17 +4173,18 @@ function ServicesInsightsSection({ onNavigatePage }) {
                   Switch straight to the built-in Templates Studio view with search, filters, and live previews.
                 </p>
               </div>
-              <button
-                type="button"
+              <a
+                href="?view=templates"
                 className="cg-arrow-btn"
-                onClick={() => {
+                onClick={(e) => {
+                  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                  e.preventDefault();
                   onNavigatePage('templates');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
               >
                 <span>Explore Templates Gallery</span>
                 <ArrowRight size={15} />
-              </button>
+              </a>
             </article>
           </div>
         </div>
@@ -4126,24 +4263,28 @@ const TIERS = [
   }
 ];
 
-function PricingSection({ onBackHome }) {
+function PricingSection({ onBackHome, headingRef }) {
   return (
     <section className="cg-section" id="pricing" style={{ paddingTop: '108px' }} aria-labelledby="pricing-heading">
       <div className="cg-container">
         {onBackHome && (
-          <button
-            type="button"
+          <a
+            href="?"
             className="cg-arrow-btn"
             style={{ marginBottom: '18px' }}
-            onClick={onBackHome}
+            onClick={(e) => {
+              if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+              e.preventDefault();
+              onBackHome();
+            }}
           >
             <ArrowLeft size={15} />
             <span>Back to Home Portfolio</span>
-          </button>
+          </a>
         )}
 
         <span className="cg-badge">[ PACKAGES &amp; PRICING ]</span>
-        <h1 className="cg-section-title" id="pricing-heading">
+        <h1 className="cg-section-title" id="pricing-heading" ref={headingRef} tabIndex={-1}>
           Transparent Packages &amp; Development Plans
         </h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', margin: '0 0 28px', maxWidth: '700px' }}>
@@ -4404,18 +4545,31 @@ function buildSampleAppHTML(bpId, cfg) {
   }
 
   if (bpId === 'officeportal-hrms') {
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${brand}</title><style>body{margin:0;font-family:'Segoe UI',system-ui,sans-serif;background:#F1F5F9;color:#0F172A;padding:16px}.card{background:#fff;border:1px solid #DDE3EA;border-radius:8px;padding:16px;max-width:780px;margin:0 auto}.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.kpi{background:#F8FAFC;border:1px solid #E2E8F0;border-top:3px solid ${accent};padding:12px;border-radius:6px}button{background:${accent};color:#fff;border:none;border-radius:6px;padding:8px 14px;font-weight:700;cursor:pointer}</style></head><body><div class="card"><strong style="font-size:17px;">${brand}</strong><div style="font-size:12px;color:#475569;">${tagline}</div>${refBanner}<div class="kpis"><div class="kpi"><span style="font-size:11px;color:#64748B;">ACTIVE STAFF</span><strong id="hr-staff" style="display:block;font-size:20px;">1,248</strong></div><div class="kpi"><span style="font-size:11px;color:#64748B;">PRESENT TODAY</span><strong id="hr-present" style="display:block;font-size:20px;">1,032</strong></div><div class="kpi"><span style="font-size:11px;color:#64748B;">ON LEAVE</span><strong style="display:block;font-size:20px;">142</strong></div></div><button type="button" onclick="let p=document.getElementById('hr-present');p.textContent=Number(p.textContent)+1;">+ Check-In Biometric Punch</button></div></body></html>`;
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${brand}</title><style>body{margin:0;font-family:'Segoe UI',system-ui,sans-serif;background:#F1F5F9;color:#0F172A;padding:16px}.card{background:#fff;border:1px solid #DDE3EA;border-radius:8px;padding:16px;max-width:780px;margin:0 auto}.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.kpi{background:#F8FAFC;border:1px solid #E2E8F0;border-top:3px solid ${accent};padding:12px;border-radius:6px}button{background:${accent};color:#fff;border:none;border-radius:6px;padding:8px 14px;font-weight:700;cursor:pointer}</style></head><body><div class="card"><strong style="font-size:17px;">${brand}</strong><div style="font-size:12px;color:#475569;">${tagline}</div>${refBanner}<div class="kpis"><div class="kpi"><span style="font-size:11px;color:#64748B;">ACTIVE STAFF</span><strong id="hr-staff" style="display:block;font-size:20px;">1,248</strong></div><div class="kpi"><span style="font-size:11px;color:#64748B;">PRESENT TODAY</span><strong id="hr-present" style="display:block;font-size:20px;">1,032</strong></div><div class="kpi"><span style="font-size:11px;color:#64748B;">ON LEAVE</span><strong style="display:block;font-size:20px;">142</strong></div></div><button type="button" onclick="checkInBiometricPunch()">+ Check-In Biometric Punch</button></div><script>let presentCount=1032;function checkInBiometricPunch(){presentCount++;const el=document.getElementById('hr-present');if(el)el.textContent=presentCount.toLocaleString('en-US');}</script></body></html>`;
   }
 
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${brand}</title><style>body{margin:0;font-family:'Segoe UI',system-ui,sans-serif;background:#EFF6FF;color:#0F172A;padding:16px}.card{background:#fff;border:1px solid #BFDBFE;border-radius:8px;padding:16px;max-width:780px;margin:0 auto}.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.kpi{background:${accent};color:#fff;padding:12px;border-radius:6px}button{background:${accent};color:#fff;border:none;border-radius:6px;padding:8px 14px;font-weight:700;cursor:pointer}</style></head><body><div class="card"><strong style="font-size:17px;">${brand}</strong><div style="font-size:12px;color:#475569;">${tagline}</div>${refBanner}<div class="kpis"><div class="kpi"><span style="font-size:11px;opacity:.9;">NEW OPD</span><strong id="opd-val" style="display:block;font-size:20px;">125</strong></div><div class="kpi"><span style="font-size:11px;opacity:.9;">BED OCCUPANCY</span><strong style="display:block;font-size:20px;">70%</strong></div><div class="kpi"><span style="font-size:11px;opacity:.9;">MODULES</span><strong style="display:block;font-size:20px;">40+</strong></div></div><button type="button" onclick="let e=document.getElementById('opd-val');e.textContent=Number(e.textContent)+1;">+ Register OPD Patient</button></div></body></html>`;
 }
 
-function TemplatesStudioSection({ onBackHome }) {
+const DUPLICATES_STORAGE_KEY = 'belintan_studio_duplicates_v1';
+
+function readStoredDuplicates() {
+  try {
+    const raw = localStorage.getItem(DUPLICATES_STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function TemplatesStudioSection({ onBackHome, headingRef }) {
   const [activeBp, setActiveBp] = useState('flowzo-crm');
   const [brand, setBrand] = useState(BLUEPRINTS['flowzo-crm'].defaultBrand);
   const [tagline, setTagline] = useState(BLUEPRINTS['flowzo-crm'].defaultTagline);
   const [accent, setAccent] = useState(BLUEPRINTS['flowzo-crm'].defaultColor);
   const [uploadedImg, setUploadedImg] = useState('');
+  const [isLoadingImg, setIsLoadingImg] = useState(false);
   const [statusMsg, setStatusMsg] = useState('');
   const [savedDuplicates, setSavedDuplicates] = useState(() => {
     try {
@@ -4432,9 +4586,29 @@ function TemplatesStudioSection({ onBackHome }) {
   const readTokenRef = useRef(0);
   const activeReaderRef = useRef(null);
   const fileInputRef = useRef(null);
+  const workbenchHeadingRef = useRef(null);
+  const bpTabRefs = useRef({});
+  const uploadedImgRef = useRef(uploadedImg);
+  uploadedImgRef.current = uploadedImg;
+
+  const invalidatePendingUpload = () => {
+    readTokenRef.current += 1;
+    try {
+      activeReaderRef.current?.abort?.();
+    } catch {}
+    activeReaderRef.current = null;
+    setIsLoadingImg(false);
+  };
 
   useEffect(() => {
+    const onStorage = (e) => {
+      if (e.key === DUPLICATES_STORAGE_KEY) {
+        setSavedDuplicates(readStoredDuplicates());
+      }
+    };
+    window.addEventListener('storage', onStorage);
     return () => {
+      window.removeEventListener('storage', onStorage);
       readTokenRef.current += 1;
       try {
         activeReaderRef.current?.abort?.();
@@ -4442,51 +4616,99 @@ function TemplatesStudioSection({ onBackHome }) {
     };
   }, []);
 
-  const currentBlueprint = BLUEPRINTS[activeBp];
+  const currentBlueprint = BLUEPRINTS[activeBp] || BLUEPRINTS['flowzo-crm'];
 
-  const selectBlueprint = (bpId) => {
+  const selectBlueprint = (bpId, opts = {}) => {
     const bp = BLUEPRINTS[bpId];
     if (!bp) return;
-    readTokenRef.current += 1;
-    try {
-      activeReaderRef.current?.abort?.();
-    } catch {}
+    invalidatePendingUpload();
     setActiveBp(bpId);
     setBrand(bp.defaultBrand);
     setTagline(bp.defaultTagline);
     setAccent(bp.defaultColor);
     setUploadedImg('');
+    if (fileInputRef.current) fileInputRef.current.value = '';
     setStatusMsg('');
+    if (opts.focusWorkbench) {
+      requestAnimationFrame(() => {
+        workbenchHeadingRef.current?.scrollIntoView({ behavior: 'auto', block: 'nearest' });
+        workbenchHeadingRef.current?.focus({ preventScroll: true });
+      });
+    }
   };
 
   const handleUploadImage = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    readTokenRef.current += 1;
+    const hadPrevImg = Boolean(uploadedImgRef.current);
+    invalidatePendingUpload();
     const myToken = readTokenRef.current;
-    try {
-      activeReaderRef.current?.abort?.();
-    } catch {}
+    setIsLoadingImg(true);
+    setStatusMsg('Verifying reference image...');
+
     const reader = new FileReader();
     activeReaderRef.current = reader;
+    reader.onerror = () => {
+      if (myToken !== readTokenRef.current) return;
+      activeReaderRef.current = null;
+      setIsLoadingImg(false);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      setStatusMsg(
+        hadPrevImg
+          ? 'Could not read replacement image. The previously displayed image remains selected.'
+          : 'Could not read selected image file.'
+      );
+    };
     reader.onload = (ev) => {
       if (myToken !== readTokenRef.current) return;
+      activeReaderRef.current = null;
       const safe = safeImageDataUrl(ev.target?.result);
-      if (safe) {
-        setUploadedImg(safe);
-        setStatusMsg('Reference image loaded into preview & sample generator.');
-      } else {
-        setStatusMsg('Please choose a valid PNG, JPG, GIF, or WebP image.');
+      if (!safe) {
+        setIsLoadingImg(false);
+        if (fileInputRef.current) fileInputRef.current.value = '';
+        setStatusMsg(
+          hadPrevImg
+            ? 'Invalid image format. The previously displayed image remains selected.'
+            : 'Please choose a valid PNG, JPG, GIF, or WebP image.'
+        );
+        return;
       }
+
+      const failDecode = () => {
+        if (myToken !== readTokenRef.current) return;
+        setIsLoadingImg(false);
+        if (fileInputRef.current) fileInputRef.current.value = '';
+        setStatusMsg(
+          hadPrevImg
+            ? 'Replacement image data could not be decoded. The previously displayed image remains selected.'
+            : 'Selected image data is invalid or truncated.'
+        );
+      };
+
+      const commitDecoded = () => {
+        if (myToken !== readTokenRef.current) return;
+        setUploadedImg(safe);
+        setIsLoadingImg(false);
+        setStatusMsg('Reference image loaded into preview & sample generator.');
+      };
+
+      const probe = new Image();
+      probe.onload = () => {
+        if (myToken !== readTokenRef.current) return;
+        if (typeof probe.decode === 'function') {
+          probe.decode().then(commitDecoded, failDecode);
+        } else {
+          commitDecoded();
+        }
+      };
+      probe.onerror = failDecode;
+      probe.src = safe;
     };
     reader.readAsDataURL(file);
   };
 
   const resetReference = () => {
-    readTokenRef.current += 1;
-    try {
-      activeReaderRef.current?.abort?.();
-    } catch {}
+    invalidatePendingUpload();
     setUploadedImg('');
     if (fileInputRef.current) fileInputRef.current.value = '';
   };
@@ -4496,10 +4718,13 @@ function TemplatesStudioSection({ onBackHome }) {
     [activeBp, brand, tagline, accent, uploadedImg]
   );
 
-  const persistShelf = (nextItems) => {
+  const mutateShelf = (updater) => {
     try {
-      localStorage.setItem('belintan_studio_duplicates_v1', JSON.stringify(nextItems));
-      setSavedDuplicates(nextItems);
+      const committed = readStoredDuplicates();
+      const nextItems = updater(committed);
+      localStorage.setItem(DUPLICATES_STORAGE_KEY, JSON.stringify(nextItems));
+      const verified = readStoredDuplicates();
+      setSavedDuplicates(verified);
       return true;
     } catch {
       return false;
@@ -4507,19 +4732,17 @@ function TemplatesStudioSection({ onBackHome }) {
   };
 
   const duplicateBlueprint = () => {
-    const next = [
-      {
-        id: 'dup-' + Date.now(),
-        bpId: activeBp,
-        brand,
-        tagline,
-        accent,
-        refImage: uploadedImg,
-        createdAt: new Date().toLocaleTimeString()
-      },
-      ...savedDuplicates.slice(0, 11)
-    ];
-    if (persistShelf(next)) {
+    if (isLoadingImg) return;
+    const entry = {
+      id: 'dup-' + Date.now(),
+      bpId: activeBp,
+      brand,
+      tagline,
+      accent,
+      refImage: uploadedImg,
+      createdAt: new Date().toLocaleTimeString()
+    };
+    if (mutateShelf((committed) => [entry, ...committed.slice(0, 11)])) {
       setStatusMsg(`Saved duplicated blueprint for "${brand}".`);
     } else {
       setStatusMsg('Could not save to localStorage (storage quota or permissions error).');
@@ -4527,7 +4750,7 @@ function TemplatesStudioSection({ onBackHome }) {
   };
 
   const clearShelf = () => {
-    if (persistShelf([])) {
+    if (mutateShelf(() => [])) {
       setStatusMsg('Cleared duplicated blueprints shelf.');
     } else {
       setStatusMsg('Could not update localStorage.');
@@ -4535,6 +4758,7 @@ function TemplatesStudioSection({ onBackHome }) {
   };
 
   const downloadSampleHtml = () => {
+    if (isLoadingImg) return;
     const slug = (brand || 'sample-software').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     const blob = new Blob([sampleDoc], { type: 'text/html;charset=utf-8' });
     const url = URL.createObjectURL(blob);
@@ -4543,6 +4767,26 @@ function TemplatesStudioSection({ onBackHome }) {
     a.download = `${slug}-sample.html`;
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
+
+  const blueprintIds = Object.keys(BLUEPRINTS);
+
+  const handleBlueprintKeyDown = (e, currentIndex) => {
+    let targetIndex = -1;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      targetIndex = (currentIndex + 1) % blueprintIds.length;
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      targetIndex = (currentIndex - 1 + blueprintIds.length) % blueprintIds.length;
+    } else if (e.key === 'Home') {
+      targetIndex = 0;
+    } else if (e.key === 'End') {
+      targetIndex = blueprintIds.length - 1;
+    }
+    if (targetIndex < 0) return;
+    e.preventDefault();
+    const nextId = blueprintIds[targetIndex];
+    selectBlueprint(nextId);
+    bpTabRefs.current[nextId]?.focus();
   };
 
   const filteredTemplates = TEMPLATES_CATALOG.filter((tpl) => {
@@ -4556,16 +4800,25 @@ function TemplatesStudioSection({ onBackHome }) {
     <section className="cg-section" id="templates-studio" style={{ paddingTop: '108px' }}>
       <div className="cg-container">
         {onBackHome && (
-          <button type="button" className="cg-arrow-btn" style={{ marginBottom: '18px' }} onClick={onBackHome}>
+          <a
+            href="?"
+            className="cg-arrow-btn"
+            style={{ marginBottom: '18px' }}
+            onClick={(e) => {
+              if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+              e.preventDefault();
+              onBackHome();
+            }}
+          >
             <ArrowLeft size={15} />
             <span>Back to Home Portfolio</span>
-          </button>
+          </a>
         )}
 
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '16px', marginBottom: '26px' }}>
           <div>
             <span className="cg-badge">[ SOFTWARE STUDIO &amp; TEMPLATES ]</span>
-            <h1 className="cg-section-title" style={{ marginBottom: '8px' }}>
+            <h1 className="cg-section-title" id="templates-studio-heading" ref={headingRef} tabIndex={-1} style={{ marginBottom: '8px' }}>
               Enterprise Software Blueprint Studio &amp; Templates
             </h1>
             <p style={{ margin: 0, color: 'var(--text-secondary)', maxWidth: '720px' }}>
@@ -4613,15 +4866,22 @@ function TemplatesStudioSection({ onBackHome }) {
 
         {/* Blueprint Selector Tabs */}
         <div className="cg-grid-3" role="tablist" aria-label="Software Blueprints" style={{ marginBottom: '20px' }}>
-          {Object.values(BLUEPRINTS).map((bp) => {
+          {Object.values(BLUEPRINTS).map((bp, idx) => {
             const isSelected = bp.id === activeBp;
             return (
               <button
                 key={bp.id}
+                ref={(el) => {
+                  bpTabRefs.current[bp.id] = el;
+                }}
+                id={`bp-tab-${bp.id}`}
                 type="button"
                 role="tab"
                 aria-selected={isSelected}
+                aria-controls="studio-workbench-panel"
+                tabIndex={isSelected ? 0 : -1}
                 onClick={() => selectBlueprint(bp.id)}
+                onKeyDown={(e) => handleBlueprintKeyDown(e, idx)}
                 className="cg-card"
                 style={{
                   textAlign: 'left',
@@ -4641,10 +4901,21 @@ function TemplatesStudioSection({ onBackHome }) {
         </div>
 
         {/* Dual Workbench: Left Reference + Specs, Right Customizer + Live Preview */}
-        <div className="cg-contact-grid" style={{ marginBottom: '36px' }}>
+        <div
+          id="studio-workbench-panel"
+          role="tabpanel"
+          aria-labelledby={`bp-tab-${activeBp}`}
+          className="cg-contact-grid"
+          style={{ marginBottom: '36px' }}
+        >
           <div className="cg-card">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
-              <strong style={{ fontSize: '0.82rem', color: '#0070AD', letterSpacing: '0.06em' }}>
+              <strong
+                id="studio-workbench-heading"
+                ref={workbenchHeadingRef}
+                tabIndex={-1}
+                style={{ fontSize: '0.82rem', color: '#0070AD', letterSpacing: '0.06em' }}
+              >
                 REFERENCE VISUAL &amp; MODULES
               </strong>
               <button type="button" className="cg-arrow-btn" style={{ fontSize: '0.78rem' }} onClick={resetReference}>
@@ -4731,6 +5002,7 @@ function TemplatesStudioSection({ onBackHome }) {
                 textColor="#FFFFFF"
                 borderColor="rgba(18, 171, 219, 0.5)"
                 style={{ padding: '10px 18px', fontSize: '0.85rem' }}
+                disabled={isLoadingImg}
                 onClick={duplicateBlueprint}
               >
                 <Copy size={14} />
@@ -4740,6 +5012,7 @@ function TemplatesStudioSection({ onBackHome }) {
                 type="button"
                 className="cg-btn-primary"
                 style={{ background: '#047857', color: '#FFFFFF', padding: '10px 18px', fontSize: '0.85rem' }}
+                disabled={isLoadingImg}
                 onClick={downloadSampleHtml}
               >
                 <Download size={14} />
@@ -4770,11 +5043,15 @@ function TemplatesStudioSection({ onBackHome }) {
                     type="button"
                     className="cg-arrow-btn"
                     onClick={() => {
-                      setActiveBp(dup.bpId);
-                      setBrand(dup.brand);
-                      setTagline(dup.tagline);
-                      setAccent(dup.accent);
-                      setUploadedImg(dup.refImage || '');
+                      invalidatePendingUpload();
+                      if (fileInputRef.current) fileInputRef.current.value = '';
+                      const nextBpId = BLUEPRINTS[dup?.bpId] ? dup.bpId : 'flowzo-crm';
+                      setActiveBp(nextBpId);
+                      setBrand(dup.brand || BLUEPRINTS[nextBpId].defaultBrand);
+                      setTagline(dup.tagline || BLUEPRINTS[nextBpId].defaultTagline);
+                      setAccent(dup.accent || BLUEPRINTS[nextBpId].defaultColor);
+                      setUploadedImg(safeImageDataUrl(dup.refImage));
+                      setStatusMsg('');
                     }}
                   >
                     <span>Load into Workbench</span>
@@ -4788,7 +5065,7 @@ function TemplatesStudioSection({ onBackHome }) {
 
         {/* Filterable 15-Template Catalog */}
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '12px', marginBottom: '20px' }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }} role="tablist" aria-label="Template Categories">
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }} role="group" aria-label="Template Categories">
             {[
               { id: 'all', label: 'All Templates (15)' },
               { id: 'software', label: 'Software Systems' },
@@ -4801,8 +5078,7 @@ function TemplatesStudioSection({ onBackHome }) {
               <button
                 key={tab.id}
                 type="button"
-                role="tab"
-                aria-selected={filterCat === tab.id}
+                aria-pressed={filterCat === tab.id}
                 onClick={() => setFilterCat(tab.id)}
                 className={`cg-mode-btn ${filterCat === tab.id ? 'active' : ''}`}
                 style={{ border: '1px solid var(--border-color)' }}
@@ -4838,7 +5114,11 @@ function TemplatesStudioSection({ onBackHome }) {
                 <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>{tpl.desc}</p>
               </div>
               {BLUEPRINTS[tpl.id] ? (
-                <button type="button" className="cg-arrow-btn" onClick={() => selectBlueprint(tpl.id)}>
+                <button
+                  type="button"
+                  className="cg-arrow-btn"
+                  onClick={() => selectBlueprint(tpl.id, { focusWorkbench: true })}
+                >
                   <span>Load in Software Studio</span>
                   <ArrowRight size={14} />
                 </button>
@@ -4863,6 +5143,8 @@ function TemplatesStudioSection({ onBackHome }) {
 /* ==========================================================================
    10. Contact & Footer Section
    ========================================================================== */
+const EMAIL_VALIDATION_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 function ContactFooter({ onNavigatePage }) {
   const [form, setForm] = useState({
     name: '',
@@ -4874,11 +5156,16 @@ function ContactFooter({ onNavigatePage }) {
     message: ''
   });
   const [toast, setToast] = useState('');
+  const emailInputRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (form.name.trim().length < 2 || !form.email.includes('@') || !form.scope) {
+    const emailEl = emailInputRef.current;
+    const isNativeEmailValid = emailEl ? emailEl.checkValidity() : true;
+    const isEmailValid = isNativeEmailValid && EMAIL_VALIDATION_REGEX.test(form.email.trim());
+    if (form.name.trim().length < 2 || !isEmailValid || !form.scope) {
       setToast('Please enter your name, valid email, and select a project scope.');
+      if (!isEmailValid && emailEl) emailEl.focus();
       return;
     }
     setToast('Thank you! Opening direct inquiry draft and WhatsApp option.');
@@ -4892,6 +5179,12 @@ function ContactFooter({ onNavigatePage }) {
   const openWhatsApp = () => {
     const text = `Hi Belintan! Name: ${form.name || 'Client'}, Scope: ${form.scope || 'Web / Full-Stack Project'}, Timeline: ${form.timeline || 'Flexible'}`;
     window.open(`https://wa.me/918610662871?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleFooterViewClick = (e, page) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    e.preventDefault();
+    onNavigatePage(page);
   };
 
   return (
@@ -4936,28 +5229,22 @@ function ContactFooter({ onNavigatePage }) {
               </div>
 
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                <button
-                  type="button"
+                <a
+                  href="?view=pricing"
                   className="cg-btn-outline"
                   style={{ padding: '8px 16px', fontSize: '0.84rem' }}
-                  onClick={() => {
-                    onNavigatePage('pricing');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
+                  onClick={(e) => handleFooterViewClick(e, 'pricing')}
                 >
                   <span>View Pricing Tiers &rarr;</span>
-                </button>
-                <button
-                  type="button"
+                </a>
+                <a
+                  href="?view=templates"
                   className="cg-btn-outline"
                   style={{ padding: '8px 16px', fontSize: '0.84rem' }}
-                  onClick={() => {
-                    onNavigatePage('templates');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
+                  onClick={(e) => handleFooterViewClick(e, 'templates')}
                 >
                   <span>Open Software Studio &rarr;</span>
-                </button>
+                </a>
               </div>
             </div>
 
@@ -4987,7 +5274,7 @@ function ContactFooter({ onNavigatePage }) {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }} noValidate>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <input
                   type="text"
                   className="cg-input"
@@ -4997,6 +5284,7 @@ function ContactFooter({ onNavigatePage }) {
                   required
                 />
                 <input
+                  ref={emailInputRef}
                   type="email"
                   className="cg-input"
                   placeholder="Work / Personal Email *"
@@ -5012,20 +5300,32 @@ function ContactFooter({ onNavigatePage }) {
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 />
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                  <input
-                    type="text"
-                    className="cg-input"
-                    placeholder="Timeline (e.g. 2–4 Wks)"
-                    value={form.timeline}
-                    onChange={(e) => setForm({ ...form, timeline: e.target.value })}
-                  />
-                  <input
-                    type="text"
-                    className="cg-input"
-                    placeholder="Estimated Budget / City"
-                    value={form.city}
-                    onChange={(e) => setForm({ ...form, city: e.target.value })}
-                  />
+                  <div>
+                    <label htmlFor="contact-timeline" className="cg-label">
+                      Target Timeline
+                    </label>
+                    <input
+                      id="contact-timeline"
+                      type="text"
+                      className="cg-input"
+                      placeholder="e.g. 2–4 weeks"
+                      value={form.timeline}
+                      onChange={(e) => setForm({ ...form, timeline: e.target.value })}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="contact-city" className="cg-label">
+                      Estimated Budget / City
+                    </label>
+                    <input
+                      id="contact-city"
+                      type="text"
+                      className="cg-input"
+                      placeholder="e.g. ₹15,000 / Chennai"
+                      value={form.city}
+                      onChange={(e) => setForm({ ...form, city: e.target.value })}
+                    />
+                  </div>
                 </div>
                 <select
                   className="cg-input"
@@ -5098,9 +5398,13 @@ function ContactFooter({ onNavigatePage }) {
               </h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, lineHeight: 1.9, fontSize: '0.9rem' }}>
                 <li>
-                  <button type="button" className="cg-arrow-btn" onClick={() => onNavigatePage('templates')}>
+                  <a
+                    href="?view=templates"
+                    className="cg-arrow-btn"
+                    onClick={(e) => handleFooterViewClick(e, 'templates')}
+                  >
                     Templates &amp; Studio
-                  </button>
+                  </a>
                 </li>
                 <li>
                   <a href="#services" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>
@@ -5155,9 +5459,13 @@ function ContactFooter({ onNavigatePage }) {
               </h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, lineHeight: 1.9, fontSize: '0.9rem' }}>
                 <li>
-                  <button type="button" className="cg-arrow-btn" onClick={() => onNavigatePage('pricing')}>
+                  <a
+                    href="?view=pricing"
+                    className="cg-arrow-btn"
+                    onClick={(e) => handleFooterViewClick(e, 'pricing')}
+                  >
                     Packages &amp; Pricing
-                  </button>
+                  </a>
                 </li>
                 <li>
                   <a href="https://www.linkedin.com/in/belintanben" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>
@@ -5342,7 +5650,7 @@ function CursorEffects() {
    12. Unified Root Application
    ========================================================================== */
 export default function App() {
-  const [activePage, setActivePage] = useState('home');
+  const [activePage, setActivePage] = useState(() => parseViewFromLocation());
   const [theme, setTheme] = useState(() => {
     try {
       return localStorage.getItem('belintan_theme') || 'light';
@@ -5350,6 +5658,63 @@ export default function App() {
       return 'light';
     }
   });
+  const pricingHeadingRef = useRef(null);
+  const templatesHeadingRef = useRef(null);
+  const pendingRevealRef = useRef(null);
+
+  useEffect(() => {
+    const onPopState = () => {
+      const next = parseViewFromLocation();
+      pendingRevealRef.current = next === 'pricing' || next === 'templates' ? next : null;
+      setActivePage(next);
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+
+  useEffect(() => {
+    if (pendingRevealRef.current !== activePage) return;
+    pendingRevealRef.current = null;
+    const targetHeading =
+      activePage === 'pricing'
+        ? pricingHeadingRef.current
+        : activePage === 'templates'
+          ? templatesHeadingRef.current
+          : null;
+    if (targetHeading) {
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+        targetHeading.scrollIntoView({ behavior: 'auto', block: 'start' });
+        targetHeading.focus({ preventScroll: true });
+      });
+    } else if (activePage === 'home') {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }, [activePage]);
+
+  const navigateToPage = (nextPage, options = {}) => {
+    const { revealHeading = true } = options;
+    const targetUrl = buildViewUrl(nextPage);
+    if (typeof window !== 'undefined' && window.location.pathname + window.location.search !== targetUrl) {
+      window.history.pushState({ view: nextPage }, '', targetUrl);
+    }
+    pendingRevealRef.current = revealHeading ? nextPage : null;
+    setActivePage(nextPage);
+    if (revealHeading && nextPage === activePage) {
+      const targetHeading =
+        nextPage === 'pricing'
+          ? pricingHeadingRef.current
+          : nextPage === 'templates'
+            ? templatesHeadingRef.current
+            : null;
+      if (targetHeading) {
+        pendingRevealRef.current = null;
+        window.scrollTo({ top: 0, behavior: 'auto' });
+        targetHeading.scrollIntoView({ behavior: 'auto', block: 'start' });
+        targetHeading.focus({ preventScroll: true });
+      }
+    }
+  };
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -5364,37 +5729,27 @@ export default function App() {
     <div>
       <style id="portfolio-unified-css">{APP_CSS}</style>
       <CursorEffects />
-      <Navbar activePage={activePage} setActivePage={setActivePage} theme={theme} toggleTheme={toggleTheme} />
+      <Navbar activePage={activePage} onNavigatePage={navigateToPage} theme={theme} toggleTheme={toggleTheme} />
 
       <main id="main-content">
         {activePage === 'pricing' && (
-          <PricingSection
-            onBackHome={() => {
-              setActivePage('home');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
+          <PricingSection headingRef={pricingHeadingRef} onBackHome={() => navigateToPage('home')} />
         )}
 
         {activePage === 'templates' && (
-          <TemplatesStudioSection
-            onBackHome={() => {
-              setActivePage('home');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
+          <TemplatesStudioSection headingRef={templatesHeadingRef} onBackHome={() => navigateToPage('home')} />
         )}
 
         {activePage === 'home' && (
           <>
             <HeroSection />
             <TechStackSection />
-            <ServicesInsightsSection onNavigatePage={setActivePage} />
+            <ServicesInsightsSection onNavigatePage={navigateToPage} />
             <PricingSection />
           </>
         )}
 
-        <ContactFooter onNavigatePage={setActivePage} />
+        <ContactFooter onNavigatePage={navigateToPage} />
       </main>
     </div>
   );

@@ -12072,6 +12072,19 @@
       color: #F8FAFC !important;
     }
 
+    [data-theme="dark"] .consultation-input.input-invalid,
+    [data-theme="dark"] .consultation-textarea.input-invalid,
+    [data-theme="dark"] .consultation-select.input-invalid {
+      background-color: rgba(239, 68, 68, 0.14) !important;
+      border-color: #EF4444 !important;
+    }
+
+    [data-theme="dark"] .consultation-input.input-valid,
+    [data-theme="dark"] .consultation-textarea.input-valid,
+    [data-theme="dark"] .consultation-select.input-valid {
+      border-color: #22C55E !important;
+    }
+
     .consultation-input:focus,
     .consultation-textarea:focus,
     .consultation-select:focus {
@@ -12351,6 +12364,12 @@
       display: flex;
       align-items: center;
       overflow: hidden;
+    }
+
+    #tech-logo-loop {
+      flex: 1 1 100%;
+      width: 100%;
+      min-width: 0;
     }
 
     [data-theme="dark"] .cg-tech-loop-stage {
@@ -15764,7 +15783,7 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
                   content: el.children[0] || null,
                   tip: el.children[1] || null,
                   center: 0, size: 0, cross: 0,
-                  t: '', o: '', v: '', z: '', s: '', p: ''
+                  t: '', o: '', v: '', pe: '', z: '', s: '', p: ''
                 });
               });
             });
@@ -15777,10 +15796,11 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
               it.el.style.transform = '';
               it.el.style.opacity = '';
               it.el.style.visibility = '';
+              it.el.style.pointerEvents = '';
               it.el.style.zIndex = '';
               if (it.content) it.content.style.transform = '';
               if (it.tip) it.tip.style.transform = '';
-              it.t = it.o = it.v = it.z = it.s = it.p = '';
+              it.t = it.o = it.v = it.pe = it.z = it.s = it.p = '';
             }
           };
 
@@ -16039,7 +16059,9 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
                 (rot ? ' rotate(' + (cfg.vertical ? -rot : rot).toFixed(2) + 'deg)' : '');
               write(it, 't', 'transform', tStr, it.el);
               write(it, 'o', 'opacity', hidden ? '0' : (opacity > 0.999 ? '' : opacity.toFixed(3)), it.el);
-              write(it, 'v', 'visibility', hidden ? 'hidden' : '', it.el);
+              const keepFocusable = it.copy === currentPrimary && geo.mode === 'orbit';
+              write(it, 'v', 'visibility', hidden && !keepFocusable ? 'hidden' : '', it.el);
+              write(it, 'pe', 'pointerEvents', hidden ? 'none' : '', it.el);
               write(it, 'z', 'zIndex', z, it.el);
               if (it.content) write(it, 's', 'transform', Math.abs(scale - 1) < 0.0005 ? '' : 'scale(' + scale.toFixed(4) + ')', it.content);
               if (it.tip) {
@@ -16082,8 +16104,10 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
             let target = st.reduced ? 0 : (paused ? pausedSpeed * travel * cfg.dirSign : cfg.speed * cfg.dirSign);
             if (cfg.scrollBoost > 0 && !st.reduced) {
               st.scrollVel *= Math.exp(-dt / 0.18);
-              if (Math.abs(st.scrollVel) > 1) busy = true;
-              target += clamp(st.scrollVel * cfg.scrollBoost, -3000, 3000) * travel * cfg.dirSign;
+              if (!st.focused) {
+                if (Math.abs(st.scrollVel) > 1) busy = true;
+                target += clamp(st.scrollVel * cfg.scrollBoost, -3000, 3000) * travel * cfg.dirSign;
+              }
             }
             if (st.drag && st.drag.active) {
               busy = true;
@@ -16162,8 +16186,8 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
             wake();
           };
           const onDown = e => {
+            if (st.drag || !configRef.current.draggable || (e.pointerType === 'mouse' && e.button !== 0)) return;
             st.pressedAt = performance.now();
-            if (!configRef.current.draggable || (e.pointerType === 'mouse' && e.button !== 0)) return;
             const pt = local(e);
             if (e.pointerType !== 'touch') st.pointer = pt;
             st.drag = { id: e.pointerId, x: pt[0], y: pt[1], active: false, samples: [], scale: dragScale(), anchor: 0, offset: 0 };
@@ -16216,8 +16240,13 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
               const t1 = s[s.length - 1][0], a1 = s[s.length - 1][1];
               if (t1 > t0 && now - t1 < 80) v = clamp((-(a1 - a0) / (t1 - t0)) * 1000 * d.scale, -MAX_FLING, MAX_FLING);
             }
-            st.velocity = v;
-            st.glide = Math.abs(v) > 30;
+            if (st.reduced) {
+              st.velocity = 0;
+              st.glide = false;
+            } else {
+              st.velocity = v;
+              st.glide = Math.abs(v) > 30;
+            }
             wake();
           };
 
@@ -16239,12 +16268,20 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
           root.addEventListener('focusin', e => {
             if (performance.now() - st.pressedAt < 800) return;
             st.focused = true;
+            st.seek = null;
             const it = st.items.find(item => item.el.contains(e.target));
             if (it && st.geo) {
               const u = -st.offset - st.geo.lead + it.center - st.length / 2;
               const comfortable = st.geo.mode === 'orbit' ? 1 : Math.max(0, st.length / 2 - it.size);
               if (Math.abs(u) > comfortable) {
-                st.seek = { from: st.offset, delta: u, t: 0, dur: clamp(0.35 + Math.abs(u) / 2000, 0.35, 0.8) };
+                if (st.reduced) {
+                  const P = st.period || 1;
+                  st.offset = (((st.offset + u) % P) + P) % P;
+                  st.velocity = 0;
+                  st.glide = false;
+                } else {
+                  st.seek = { from: st.offset, delta: u, t: 0, dur: clamp(0.35 + Math.abs(u) / 2000, 0.35, 0.8) };
+                }
               }
             }
             wake();
@@ -16298,6 +16335,26 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
           }
 
           document.addEventListener('visibilitychange', () => { if (!document.hidden) wake(); });
+
+          const onMotionChange = () => {
+            st.reduced = !!query?.matches;
+            if (st.reduced) {
+              st.velocity = 0;
+              st.glide = false;
+              st.seek = null;
+              st.scrollVel = 0;
+              st.introStart = -2;
+              st.introDone = true;
+              st.mag = 0;
+              root.removeAttribute('data-intro');
+              if (st.raf) {
+                cancelAnimationFrame(st.raf);
+                st.raf = 0;
+              }
+            }
+            wake();
+          };
+          query?.addEventListener?.('change', onMotionChange);
 
           refresh();
 
