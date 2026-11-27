@@ -60,9 +60,7 @@ body {
 
 #hero,
 #about,
-#tech-stack,
 #services,
-#skills,
 #insights,
 #pricing,
 #templates-studio,
@@ -73,9 +71,7 @@ body {
 @media (max-width: 960px) {
   #hero,
   #about,
-  #tech-stack,
   #services,
-  #skills,
   #insights,
   #pricing,
   #templates-studio,
@@ -684,7 +680,7 @@ body {
 
 .cg-svp-features {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
   margin-top: 22px;
 }
@@ -821,6 +817,18 @@ body {
   padding: 12px;
 }
 
+.cg-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 820px) {
+  .cg-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
 .cg-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -828,6 +836,7 @@ body {
 }
 
 @media (max-width: 880px) {
+  .cg-grid-2,
   .cg-grid-3 {
     grid-template-columns: 1fr;
   }
@@ -3646,7 +3655,7 @@ function Navbar({ activePage, onNavigatePage, theme, toggleTheme }) {
         <a
           href="#hero"
           className="cg-brand"
-          aria-label="Belintan B. — Enterprise Engineering & Cloud Consultancy"
+          aria-label="Belintan B. — Corporate Websites, Digital Marketing &amp; Business Portals"
           onClick={(e) => {
             e.preventDefault();
             goSection('hero');
@@ -3670,9 +3679,6 @@ function Navbar({ activePage, onNavigatePage, theme, toggleTheme }) {
             onClick={() => goSection('hero')}
           >
             Home
-          </button>
-          <button type="button" className="cg-nav-link" onClick={() => goSection('tech-stack')}>
-            Tech Stack
           </button>
           <button type="button" className="cg-nav-link" onClick={() => goSection('services')}>
             Services
@@ -3741,10 +3747,6 @@ function HeroSection() {
         <div className="cg-hero-grid">
           <div>
             <div className="cg-hero-pills">
-              <div className="cg-eyebrow-chip">
-                <span className="cg-dot" aria-hidden="true" />
-                <span>Available for projects &middot; Frontend, Full-Stack &amp; AI</span>
-              </div>
               <a href="#contact" className="cg-open-pill">
                 OPEN FOR PROJECTS
               </a>
@@ -3846,111 +3848,7 @@ function HeroSection() {
       <div className="cg-hero-bar">
         <div className="cg-container cg-hero-bar-inner">
           <span>Chennai, Tamil Nadu, India</span>
-          <span>Sub-100ms API response &middot; React, Vue, Java, Supabase &amp; SQL</span>
           <span>Scroll to explore &darr;</span>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ==========================================================================
-   6. Core Technologies Section (React Bits <LogoLoop />)
-   ========================================================================== */
-const PRESETS = {
-  stream: {
-    layout: 'line',
-    speed: 95,
-    bend: 0,
-    focus: 0,
-    magnify: 0.35,
-    labels: 'inline',
-    muted: 0.3,
-    logoHeight: 34,
-    gap: 44
-  },
-  wave: {
-    layout: 'wave',
-    speed: 85,
-    bend: 0.55,
-    focus: 0,
-    magnify: 0.45,
-    labels: 'hover',
-    muted: 0.15,
-    logoHeight: 38,
-    gap: 48
-  },
-  orbit: {
-    layout: 'orbit',
-    speed: 80,
-    bend: 0.52,
-    focus: 0.45,
-    magnify: 0.3,
-    labels: 'hover',
-    muted: 0.25,
-    logoHeight: 36,
-    gap: 46
-  }
-};
-
-function TechStackSection() {
-  const [mode, setMode] = useState('stream');
-  const activeProps = PRESETS[mode];
-
-  return (
-    <section className="cg-tech-band" id="tech-stack" aria-labelledby="tech-stack-heading">
-      <div className="cg-container">
-        <div className="cg-tech-head">
-          <div>
-            <span className="cg-badge">[ CORE STACK &middot; REACT BITS LOGOLOOP ]</span>
-            <h2 className="cg-section-title" id="tech-stack-heading" style={{ marginBottom: 8 }}>
-              Core Technologies &amp; Delivery Toolchain
-            </h2>
-            <p className="cg-tech-sub">
-              Full-stack engineering across HTML5, CSS3, JavaScript, React, Vue.js, Java, Supabase, SQL, GitHub, and VS
-              Code &mdash; drag, swipe, hover to magnify, or switch React Bits motion presets.
-            </p>
-          </div>
-
-          <div className="cg-mode-switch" role="group" aria-label="LogoLoop motion layout modes">
-            {[
-              { id: 'stream', label: 'Stream' },
-              { id: 'wave', label: 'Wave' },
-              { id: 'orbit', label: '3D Orbit' }
-            ].map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                className={`cg-mode-btn ${mode === item.id ? 'active' : ''}`}
-                aria-pressed={mode === item.id}
-                onClick={() => setMode(item.id)}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="cg-loop-stage">
-          <LogoLoop
-            logos={TECH_LOGOS}
-            speed={activeProps.speed}
-            direction="left"
-            logoHeight={activeProps.logoHeight}
-            gap={activeProps.gap}
-            hoverSpeed={0}
-            scaleOnHover
-            layout={activeProps.layout}
-            bend={activeProps.bend}
-            focus={activeProps.focus}
-            magnify={activeProps.magnify}
-            muted={activeProps.muted}
-            labels={activeProps.labels}
-            scrollBoost={0.25}
-            fadeOut
-            fadeOutWidth={0.1}
-            ariaLabel="Belintan Tech Stack Logos"
-          />
         </div>
       </div>
     </section>
@@ -3967,7 +3865,7 @@ function ServicesInsightsSection({ onNavigatePage }) {
         <div className="cg-container">
           <span className="cg-badge">[ 01 &middot; CAPABILITIES &amp; SERVICES ]</span>
           <h2 className="cg-section-title" id="services-heading">
-            High-Impact Web Engineering &amp; Client Solutions
+            Corporate Websites, Digital Growth &amp; Business Solutions
           </h2>
 
           <div className="cg-svp-banner">
@@ -3976,79 +3874,30 @@ function ServicesInsightsSection({ onNavigatePage }) {
               We build premium, high-converting websites and web applications for businesses that want to grow.
             </h3>
             <p style={{ color: '#DCEBF7', margin: 0, maxWidth: '760px', lineHeight: 1.6 }}>
-              Without a modern web presence, businesses lose trust. Get enterprise UI quality, fast backend APIs, and
-              clear market positioning from launch.
+              Without a modern web presence, businesses lose trust. Get enterprise UI quality and clear market
+              positioning from launch.
             </p>
 
             <div className="cg-svp-features">
               <div className="cg-svp-feature">
                 <strong>Enterprise Bespoke UI/UX</strong>
                 <p style={{ margin: '6px 0 0', fontSize: '0.88rem', color: '#DCEBF7' }}>
-                  Custom modern React &amp; Vue interfaces designed for authority and conversion.
+                  Custom modern business interfaces designed for brand authority and customer conversion.
                 </p>
               </div>
               <div className="cg-svp-feature">
                 <strong>Direct Lead Conversion</strong>
                 <p style={{ margin: '6px 0 0', fontSize: '0.88rem', color: '#DCEBF7' }}>
-                  Structured contact funnels, direct WhatsApp triggers, and CRM webhook integrations.
-                </p>
-              </div>
-              <div className="cg-svp-feature">
-                <strong>Database &amp; Core Web Vitals</strong>
-                <p style={{ margin: '6px 0 0', fontSize: '0.88rem', color: '#DCEBF7' }}>
-                  Sub-second performance backed by indexed PostgreSQL, Java APIs, and clean state architecture.
+                  Structured contact funnels, direct WhatsApp triggers, and seamless client inquiry workflows.
                 </p>
               </div>
             </div>
           </div>
-
-          <div className="cg-grid-3" id="skills" style={{ marginTop: '28px' }}>
-            <article className="cg-service-card is-featured">
-              <div>
-                <span className="cg-num-badge">01</span>
-                <h3 style={{ margin: '0 0 10px', fontSize: '1.18rem' }}>Modern Web &amp; Frontend Apps</h3>
-                <p style={{ margin: 0, fontSize: '0.92rem', lineHeight: 1.6, color: '#E2EEF7' }}>
-                  High-performance interfaces engineered with HTML5, CSS3, JavaScript, React 18+, Vue.js, and Tailwind
-                  CSS. Clean architecture and accessible responsive layouts.
-                </p>
-              </div>
-              <div className="cg-tech-pill">HTML5 &bull; CSS3 &bull; JavaScript &bull; React &bull; Vue.js</div>
-            </article>
-
-            <article className="cg-service-card">
-              <div>
-                <span className="cg-num-badge">02</span>
-                <h3 style={{ margin: '0 0 10px', fontSize: '1.18rem' }}>Java, Supabase &amp; SQL Systems</h3>
-                <p style={{ margin: 0, fontSize: '0.92rem', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
-                  Scalable REST backends in Java Spring Boot, Supabase real-time PostgreSQL auth, structured SQL
-                  schemas, and clean GitHub version control.
-                </p>
-              </div>
-              <div className="cg-tech-pill">Java &bull; Spring Boot &bull; Supabase &bull; SQL &bull; GitHub</div>
-            </article>
-
-            <article className="cg-service-card">
-              <div>
-                <span className="cg-num-badge">03</span>
-                <h3 style={{ margin: '0 0 10px', fontSize: '1.18rem' }}>AI Tooling &amp; VS Code Workflows</h3>
-                <p style={{ margin: 0, fontSize: '0.92rem', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
-                  Custom AI integrations, FastMCP automations, Node.js tooling, and developer-friendly VS Code
-                  codebases ready for handover.
-                </p>
-              </div>
-              <div className="cg-tech-pill">Node.js &bull; VS Code &bull; Python AI &bull; Automation</div>
-            </article>
-          </div>
         </div>
       </section>
 
-      <section className="cg-section-alt" id="insights" aria-labelledby="insights-heading">
+      <section className="cg-section-alt" id="insights" aria-label="Business Portals and Packages">
         <div className="cg-container">
-          <span className="cg-badge">[ 02 &middot; LATEST INSIGHTS &amp; FLAGSHIP SOLUTIONS ]</span>
-          <h2 className="cg-section-title" id="insights-heading">
-            Inside Engineering &amp; Enterprise Accelerators
-          </h2>
-
           <div className="cg-featured-split">
             <div className="cg-featured-visual">
               <span className="cg-svp-pill" style={{ width: 'fit-content' }}>
@@ -4058,38 +3907,24 @@ function ServicesInsightsSection({ onNavigatePage }) {
                 <h3 style={{ fontSize: '1.5rem', margin: '0 0 8px' }}>
                   Flowzo CRM &middot; OfficePortal HRMS &middot; Healthray HMS
                 </h3>
-                <p style={{ margin: 0, color: '#DCEBF7', fontSize: '0.92rem', lineHeight: 1.55 }}>
-                  Live blueprint previewer, reference-image duplicator, and instant downloadable sample software inside
-                  the Templates Studio tab.
-                </p>
               </div>
-              <div className="cg-metrics-3">
-                <div className="cg-metric-box">
-                  <strong style={{ display: 'block', fontSize: '1.2rem' }}>15+</strong>
-                  <span style={{ fontSize: '0.75rem', color: '#DCEBF7' }}>UI &amp; App Kits</span>
-                </div>
-                <div className="cg-metric-box">
-                  <strong style={{ display: 'block', fontSize: '1.2rem' }}>&lt;100ms</strong>
-                  <span style={{ fontSize: '0.75rem', color: '#DCEBF7' }}>API Latency</span>
-                </div>
-                <div className="cg-metric-box">
-                  <strong style={{ display: 'block', fontSize: '1.2rem' }}>100%</strong>
-                  <span style={{ fontSize: '0.75rem', color: '#DCEBF7' }}>Code Ownership</span>
-                </div>
+              <div className="cg-metric-box">
+                <strong style={{ display: 'block', fontSize: '1.2rem' }}>100%</strong>
+                <span style={{ fontSize: '0.75rem', color: '#DCEBF7' }}>Business Ownership</span>
               </div>
             </div>
 
             <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '18px' }}>
               <div>
                 <span style={{ fontSize: '0.74rem', fontWeight: 700, letterSpacing: '0.1em', color: '#0070AD', textTransform: 'uppercase' }}>
-                  Software Architecture &middot; Live Workbench
+                  Business Portals &middot; Live Studio
                 </span>
                 <h3 style={{ fontSize: '1.45rem', margin: '8px 0 10px' }}>
                   Generate, Duplicate &amp; Ship Production Web Portals at Enterprise Speed
                 </h3>
                 <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                  Explore live enterprise SaaS blueprints, upload reference layouts to preview and duplicate with custom
-                  brand colors, and export standalone HTML5 deliverables.
+                  Explore live CRM, HRMS, and Healthcare business portals, upload reference layouts to preview with
+                  custom brand colors, and prepare standalone client deliverables.
                 </p>
               </div>
               <StarBorder
@@ -4122,31 +3957,16 @@ function ServicesInsightsSection({ onNavigatePage }) {
             </div>
           </div>
 
-          <div className="cg-grid-3">
-            <article className="cg-card">
-              <div>
-                <span style={{ fontSize: '0.74rem', fontWeight: 700, letterSpacing: '0.09em', color: '#0070AD', textTransform: 'uppercase' }}>
-                  Backend &amp; Data Architecture
-                </span>
-                <h3 style={{ margin: '8px 0', fontSize: '1.15rem' }}>Supabase, PostgreSQL &amp; Java Spring Boot</h3>
-                <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.58 }}>
-                  Normalized relational SQL design, JWT authentication, and clean microservices ready for scale.
-                </p>
-              </div>
-              <a href="#contact" className="cg-arrow-btn">
-                <span>Request Architecture Brief</span>
-                <ArrowRight size={15} />
-              </a>
-            </article>
-
+          <div className="cg-grid-2">
             <article className="cg-card">
               <div>
                 <span style={{ fontSize: '0.74rem', fontWeight: 700, letterSpacing: '0.09em', color: '#0070AD', textTransform: 'uppercase' }}>
                   Commercial Transparency
                 </span>
-                <h3 style={{ margin: '8px 0', fontSize: '1.15rem' }}>Fixed-Sprint Packages &mdash; 10% Less Active</h3>
+                <h3 style={{ margin: '8px 0', fontSize: '1.15rem' }}>Fixed-Scope Packages &mdash; 10% Less Active</h3>
                 <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.58 }}>
-                  Clear delivery packages starting from &#8377;4,499 with responsive UI, SEO setup, and maintenance options.
+                  Clear delivery packages starting from &#8377;4,499 with responsive business websites, SEO setup, and
+                  ongoing digital marketing growth options.
                 </p>
               </div>
               <a
@@ -4166,11 +3986,11 @@ function ServicesInsightsSection({ onNavigatePage }) {
             <article className="cg-card">
               <div>
                 <span style={{ fontSize: '0.74rem', fontWeight: 700, letterSpacing: '0.09em', color: '#0070AD', textTransform: 'uppercase' }}>
-                  Templates &amp; Accelerators
+                  Templates &amp; Business Portals
                 </span>
-                <h3 style={{ margin: '8px 0', fontSize: '1.15rem' }}>15+ Interactive Templates &amp; Duplicator</h3>
+                <h3 style={{ margin: '8px 0', fontSize: '1.15rem' }}>Interactive Templates &amp; Portal Studio</h3>
                 <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.58 }}>
-                  Switch straight to the built-in Templates Studio view with search, filters, and live previews.
+                  Switch straight to the built-in Templates Studio view with industry filters and live business previews.
                 </p>
               </div>
               <a
@@ -4244,28 +4064,18 @@ const TIERS = [
     ],
     cta: 'Book Growth Bundle',
     waText: "Hi Belintan, I'd like to book the Marketing & SEO Bundle (₹13,499)"
-  },
-  {
-    tagline: 'Enterprise Scale',
-    name: 'Full-Stack & AI Suite',
-    price: 'Custom',
-    oldPrice: '₹19,999',
-    subPrefix: 'From ₹17,999 ',
-    subSuffix: ' / ~$216 USD',
-    features: [
-      'React + Java / Node.js APIs',
-      'Supabase & SQL Database',
-      'AI FastMCP & LLM Workflows',
-      'Stripe & CRM Webhooks'
-    ],
-    cta: 'Discuss Custom Scope',
-    waText: "Hi Belintan, I'd like to discuss an Enterprise Full-Stack & AI Suite"
   }
 ];
 
 function PricingSection({ onBackHome, headingRef }) {
+  const HeadingTag = onBackHome ? 'h1' : 'h2';
   return (
-    <section className="cg-section" id="pricing" style={{ paddingTop: '108px' }} aria-labelledby="pricing-heading">
+    <section
+      className="cg-section"
+      id="pricing"
+      style={onBackHome ? { paddingTop: '108px' } : undefined}
+      aria-labelledby="pricing-heading"
+    >
       <div className="cg-container">
         {onBackHome && (
           <a
@@ -4283,15 +4093,6 @@ function PricingSection({ onBackHome, headingRef }) {
           </a>
         )}
 
-        <span className="cg-badge">[ PACKAGES &amp; PRICING ]</span>
-        <h1 className="cg-section-title" id="pricing-heading" ref={headingRef} tabIndex={-1}>
-          Transparent Packages &amp; Development Plans
-        </h1>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', margin: '0 0 28px', maxWidth: '700px' }}>
-          Transparent sprint packages with 10% seasonal reduction active, fixed deliverables, and 100% source code
-          ownership.
-        </p>
-
         {/* 50% OFF Promotional Banner */}
         <div className="cg-svp-banner" style={{ marginBottom: '36px' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
@@ -4306,9 +4107,14 @@ function PricingSection({ onBackHome, headingRef }) {
               EXCLUSIVE WEB PACKAGE
             </span>
           </div>
-          <h2 style={{ fontSize: 'clamp(1.35rem, 2.5vw, 1.9rem)', margin: '0 0 8px' }}>
+          <HeadingTag
+            id="pricing-heading"
+            ref={headingRef}
+            tabIndex={-1}
+            style={{ fontSize: 'clamp(1.35rem, 2.5vw, 1.9rem)', margin: '0 0 8px' }}
+          >
             50% OFF on your website <span style={{ color: '#8CE2FF' }}>GUARANTEED*</span>
-          </h2>
+          </HeadingTag>
           <p style={{ color: '#DCEBF7', margin: '0 0 18px', maxWidth: '760px', lineHeight: 1.6 }}>
             Turnkey website launch bundle including custom responsive UI, domain &amp; hosting guidance, database setup,
             and 1 year of maintenance support.
@@ -4339,8 +4145,8 @@ function PricingSection({ onBackHome, headingRef }) {
           </StarBorder>
         </div>
 
-        {/* 4 Tier Grid */}
-        <div className="cg-grid-4">
+        {/* 3 Tier Grid */}
+        <div className="cg-grid-3">
           {TIERS.map((tier) => (
             <article key={tier.name} className={`cg-pricing-card ${tier.featured ? 'featured' : ''}`}>
               <div>
@@ -4428,28 +4234,6 @@ function PricingSection({ onBackHome, headingRef }) {
               </StarBorder>
             </article>
           ))}
-        </div>
-
-        {/* Trust Pillars */}
-        <div className="cg-grid-3" style={{ marginTop: '44px' }}>
-          <div className="cg-card" style={{ borderTop: '3px solid #0070AD' }}>
-            <h3 style={{ margin: 0, fontSize: '1.1rem' }}>100% Code &amp; IP Ownership</h3>
-            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-              Full copyright and clean GitHub repository delivery with zero vendor lock-in.
-            </p>
-          </div>
-          <div className="cg-card" style={{ borderTop: '3px solid #0070AD' }}>
-            <h3 style={{ margin: 0, fontSize: '1.1rem' }}>Milestone-Based Billing</h3>
-            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-              Transparent deliverables tied to verifiable sprint milestones.
-            </p>
-          </div>
-          <div className="cg-card" style={{ borderTop: '3px solid #0070AD' }}>
-            <h3 style={{ margin: 0, fontSize: '1.1rem' }}>Supabase &amp; CI/CD Handover</h3>
-            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-              Every build supports Supabase PostgreSQL schemas, Java REST APIs, and clean CI/CD handover.
-            </p>
-          </div>
         </div>
       </div>
     </section>
@@ -5211,19 +4995,19 @@ function ContactFooter({ onNavigatePage }) {
             >
               <div>
                 <span className="cg-svp-pill">CHENNAI, INDIA &middot; GLOBAL DELIVERY</span>
-                <h3 style={{ fontSize: '1.5rem', margin: '12px 0 8px' }}>Enterprise Rigor Meets Boutique Agility</h3>
-                <p style={{ margin: 0, color: '#DCEBF7', fontSize: '0.93rem', lineHeight: 1.6 }}>
-                  Share your roadmap or full-stack brief using React, Vue.js, Java, Supabase, SQL, or AI workflows.
-                </p>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <div style={{ background: 'rgba(255,255,255,0.08)', borderLeft: '3px solid #12ABDB', padding: '12px 14px', borderRadius: '4px' }}>
-                  <strong style={{ display: 'block', fontSize: '0.9rem' }}>100% Source Code &amp; IP Ownership</strong>
-                  <span style={{ fontSize: '0.8rem', color: '#CFE4F5' }}>Clean GitHub repositories and VS Code structure.</span>
+                  <strong style={{ display: 'block', fontSize: '0.9rem' }}>Corporate Websites &amp; Growth Marketing</strong>
+                  <span style={{ fontSize: '0.8rem', color: '#CFE4F5' }}>High-converting business sites, SEO, and campaigns.</span>
                 </div>
                 <div style={{ background: 'rgba(255,255,255,0.08)', borderLeft: '3px solid #12ABDB', padding: '12px 14px', borderRadius: '4px' }}>
-                  <strong style={{ display: 'block', fontSize: '0.9rem' }}>Direct Engineering Consultation</strong>
+                  <strong style={{ display: 'block', fontSize: '0.9rem' }}>Tailored Business Portals</strong>
+                  <span style={{ fontSize: '0.8rem', color: '#CFE4F5' }}>CRM, HRMS, and Healthcare clinic management portals.</span>
+                </div>
+                <div style={{ background: 'rgba(255,255,255,0.08)', borderLeft: '3px solid #12ABDB', padding: '12px 14px', borderRadius: '4px' }}>
+                  <strong style={{ display: 'block', fontSize: '0.9rem' }}>Direct Business Consultation</strong>
                   <span style={{ fontSize: '0.8rem', color: '#CFE4F5' }}>+91 8610662871 &middot; belintan07@gmail.com</span>
                 </div>
               </div>
@@ -5252,7 +5036,7 @@ function ContactFooter({ onNavigatePage }) {
               <div>
                 <h3 style={{ margin: '0 0 6px', fontSize: '1.35rem' }}>Start Your Project</h3>
                 <p style={{ margin: '0 0 16px', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-                  Direct inquiry for web applications, SaaS architectures, or backend engineering.
+                  Direct inquiry for corporate websites, digital marketing campaigns, or business portals.
                 </p>
               </div>
 
@@ -5334,17 +5118,17 @@ function ContactFooter({ onNavigatePage }) {
                   required
                 >
                   <option value="" disabled>
-                    Select Project Scope / Domain *
+                    Select Business Scope / Service *
                   </option>
-                  <option value="React / Vue Frontend Web App">React / Vue Frontend Web App</option>
-                  <option value="Java Spring Boot & Supabase Full-Stack">Java Spring Boot &amp; Supabase Full-Stack</option>
-                  <option value="Enterprise CRM / HRMS / Healthcare Suite">Enterprise CRM / HRMS / Healthcare Suite</option>
-                  <option value="AI Automation & Custom Tooling">AI Automation &amp; Custom Tooling</option>
+                  <option value="Starter Landing Page">Starter Landing Page (&#8377;4,499)</option>
+                  <option value="Corporate Business Website">Corporate Business Website (&#8377;8,999)</option>
+                  <option value="Digital Marketing & SEO Bundle">Digital Marketing &amp; SEO Bundle (&#8377;13,499)</option>
+                  <option value="CRM / HRMS / Clinic Business Portal">Business Portal (CRM / HRMS / Clinic System)</option>
                 </select>
                 <textarea
                   className="cg-input"
                   rows={3}
-                  placeholder="Briefly describe your goals, stack, or timeline..."
+                  placeholder="Briefly describe your business goals, service requirements, or timeline..."
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                 />
@@ -5408,12 +5192,12 @@ function ContactFooter({ onNavigatePage }) {
                 </li>
                 <li>
                   <a href="#services" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>
-                    React &amp; Vue Apps
+                    Corporate Websites
                   </a>
                 </li>
                 <li>
-                  <a href="#services" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>
-                    Java &amp; Supabase APIs
+                  <a href="#insights" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>
+                    Business Portals
                   </a>
                 </li>
               </ul>
@@ -5421,12 +5205,12 @@ function ContactFooter({ onNavigatePage }) {
 
             <div>
               <h4 style={{ textTransform: 'uppercase', fontSize: '0.88rem', letterSpacing: '0.06em', margin: '0 0 12px' }}>
-                Core Stack
+                Business Focus
               </h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, lineHeight: 1.9, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                <li>HTML5 &middot; CSS3 &middot; JavaScript</li>
-                <li>React &middot; Vue.js &middot; Java</li>
-                <li>Supabase &middot; SQL &middot; GitHub</li>
+                <li>Corporate Brand Presence</li>
+                <li>Digital Marketing &amp; SEO</li>
+                <li>CRM &middot; HRMS &middot; Clinic Systems</li>
               </ul>
             </div>
 
@@ -5473,8 +5257,8 @@ function ContactFooter({ onNavigatePage }) {
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com/belintan07" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>
-                    GitHub Repositories ↗
+                  <a href="#contact" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>
+                    Request Business Quote
                   </a>
                 </li>
               </ul>
@@ -5483,7 +5267,7 @@ function ContactFooter({ onNavigatePage }) {
 
           <div className="cg-footer-bottom">
             <div>&copy; 2026 BELINTAN B. All rights reserved. Crafted in Chennai, Tamil Nadu, India.</div>
-            <div style={{ color: '#8CE2FF', fontWeight: 600 }}>● React + Vite Unified Single-File App</div>
+            <div style={{ color: '#8CE2FF', fontWeight: 600 }}>● Available for Corporate Websites, Marketing &amp; Business Portals</div>
           </div>
         </div>
       </footer>
@@ -5743,7 +5527,6 @@ export default function App() {
         {activePage === 'home' && (
           <>
             <HeroSection />
-            <TechStackSection />
             <ServicesInsightsSection onNavigatePage={navigateToPage} />
             <PricingSection />
           </>
