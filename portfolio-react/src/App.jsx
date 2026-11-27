@@ -60,6 +60,7 @@ body {
 
 #hero,
 #about,
+#tech-stack,
 #services,
 #insights,
 #pricing,
@@ -71,6 +72,7 @@ body {
 @media (max-width: 960px) {
   #hero,
   #about,
+  #tech-stack,
   #services,
   #insights,
   #pricing,

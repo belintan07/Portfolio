@@ -15263,7 +15263,7 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
       /* ------------------------------------------------------------------------
          REACT BITS <LogoLoop /> VANILLA JS ADAPTER + TECH STACK SHOWCASE
          ------------------------------------------------------------------------ */
-      (function initTechLogoLoop() {
+      function initTechLogoLoop() {
         const host = document.getElementById('tech-logo-loop');
         if (!host) return;
 
@@ -16291,7 +16291,13 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
             loopInstance.update(preset);
           });
         });
-      })();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTechLogoLoop);
+      } else {
+        initTechLogoLoop();
+      }
 
     })();
   </script>
