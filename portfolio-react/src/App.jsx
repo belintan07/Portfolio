@@ -635,17 +635,94 @@ body {
   color: #07192e;
 }
 
+.cg-tech-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  box-shadow: 0 2px 8px rgba(13, 43, 78, 0.04);
+}
+
+[data-theme='dark'] .cg-tech-indicator {
+  border-color: rgba(18, 171, 219, 0.28);
+  color: #cbd5e1;
+}
+
+.cg-live-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  display: inline-block;
+  animation: cg-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes cg-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.9); }
+}
+
+.cg-indicator-text {
+  letter-spacing: -0.01em;
+}
+
 .cg-loop-stage {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-top: 3px solid #0070ad;
-  border-radius: 6px;
-  padding: 20px 8px;
-  min-height: 118px;
+  border-radius: 8px;
+  padding: 22px 8px;
+  min-height: 120px;
   display: flex;
   align-items: center;
   overflow: hidden;
   box-shadow: 0 10px 28px rgba(13, 43, 78, 0.06);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cg-loop-stage:hover {
+  box-shadow: 0 14px 36px rgba(13, 43, 78, 0.09);
+}
+
+[data-theme='dark'] .cg-loop-stage {
+  border-color: rgba(18, 171, 219, 0.24);
+  border-top-color: #12abdb;
+}
+
+.cg-tech-tags-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 16px;
+  margin-top: 18px;
+  padding: 12px 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+}
+
+.cg-tech-metric-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cg-tech-metric-item strong {
+  color: var(--text-primary);
+}
+
+.cg-metric-icon {
+  font-size: 1rem;
 }
 
 /* Services & Capabilities */
@@ -1074,11 +1151,26 @@ body {
   border-radius: 6px;
   color: inherit;
   text-decoration: none;
+  border: 1px solid transparent;
   transition:
     opacity 0.35s ease,
     filter 0.35s ease,
     color 0.35s ease,
-    background-color 0.25s ease;
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.logoloop__content:hover {
+  background-color: rgba(0, 112, 173, 0.06);
+  border-color: rgba(0, 112, 173, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 112, 173, 0.08);
+}
+
+[data-theme='dark'] .logoloop__content:hover {
+  background-color: rgba(18, 171, 219, 0.08);
+  border-color: rgba(18, 171, 219, 0.3);
+  box-shadow: 0 4px 14px rgba(18, 171, 219, 0.12);
 }
 
 .logoloop[data-labels='below'] .logoloop__content {
@@ -3862,46 +3954,20 @@ function HeroSection() {
 /* ==========================================================================
    6. Core Technologies Section (React Bits <LogoLoop />)
    ========================================================================== */
-const PRESETS = {
-  stream: {
-    layout: 'line',
-    speed: 95,
-    bend: 0,
-    focus: 0,
-    magnify: 0.35,
-    labels: 'inline',
-    muted: 0.3,
-    logoHeight: 34,
-    gap: 44
-  },
-  wave: {
-    layout: 'wave',
-    speed: 85,
-    bend: 0.55,
-    focus: 0,
-    magnify: 0.45,
-    labels: 'hover',
-    muted: 0.15,
-    logoHeight: 38,
-    gap: 48
-  },
-  orbit: {
-    layout: 'orbit',
-    speed: 80,
-    bend: 0.52,
-    focus: 0.45,
-    magnify: 0.3,
-    labels: 'hover',
-    muted: 0.25,
-    logoHeight: 36,
-    gap: 46
-  }
+const STREAM_CONFIG = {
+  layout: 'line',
+  speed: 80,
+  logoHeight: 36,
+  gap: 46,
+  magnify: 0.28,
+  labels: 'inline',
+  muted: 0.2,
+  fadeOut: true,
+  fadeOutWidth: 0.12,
+  scrollBoost: 0.25
 };
 
 function TechStackSection() {
-  const [mode, setMode] = useState('stream');
-  const activeProps = PRESETS[mode];
-
   return (
     <section className="cg-tech-band" id="tech-stack" aria-labelledby="tech-stack-heading">
       <div className="cg-container">
@@ -3912,50 +3978,49 @@ function TechStackSection() {
               Core Technologies &amp; Delivery Toolchain
             </h2>
             <p className="cg-tech-sub">
-              Full-stack engineering across HTML5, CSS3, JavaScript, React, Vue.js, Java, Supabase, SQL, GitHub, and VS
-              Code &mdash; drag, swipe, hover to magnify, or switch React Bits motion presets.
+              Full-stack production engineering across modern frontend frameworks, scalable Java backends, Supabase real-time databases, and automated Git workflows &mdash; interactive linear showcase with smooth drag, hover magnification, and keyboard navigation.
             </p>
           </div>
 
-          <div className="cg-mode-switch" role="group" aria-label="LogoLoop motion layout modes">
-            {[
-              { id: 'stream', label: 'Stream' },
-              { id: 'wave', label: 'Wave' },
-              { id: 'orbit', label: '3D Orbit' }
-            ].map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                className={`cg-mode-btn ${mode === item.id ? 'active' : ''}`}
-                aria-pressed={mode === item.id}
-                onClick={() => setMode(item.id)}
-              >
-                {item.label}
-              </button>
-            ))}
+          <div className="cg-tech-indicator" aria-label="Live Technology Pipeline">
+            <span className="cg-live-dot" aria-hidden="true" />
+            <span className="cg-indicator-text">Continuous Production Pipeline &bull; 14 Modern Technologies</span>
           </div>
         </div>
 
         <div className="cg-loop-stage">
           <LogoLoop
             logos={TECH_LOGOS}
-            speed={activeProps.speed}
+            speed={STREAM_CONFIG.speed}
             direction="left"
-            logoHeight={activeProps.logoHeight}
-            gap={activeProps.gap}
+            logoHeight={STREAM_CONFIG.logoHeight}
+            gap={STREAM_CONFIG.gap}
             hoverSpeed={0}
             scaleOnHover
-            layout={activeProps.layout}
-            bend={activeProps.bend}
-            focus={activeProps.focus}
-            magnify={activeProps.magnify}
-            muted={activeProps.muted}
-            labels={activeProps.labels}
-            scrollBoost={0.25}
-            fadeOut
-            fadeOutWidth={0.1}
+            layout={STREAM_CONFIG.layout}
+            magnify={STREAM_CONFIG.magnify}
+            muted={STREAM_CONFIG.muted}
+            labels={STREAM_CONFIG.labels}
+            scrollBoost={STREAM_CONFIG.scrollBoost}
+            fadeOut={STREAM_CONFIG.fadeOut}
+            fadeOutWidth={STREAM_CONFIG.fadeOutWidth}
             ariaLabel="Belintan Tech Stack Logos"
           />
+        </div>
+
+        <div className="cg-tech-tags-summary">
+          <div className="cg-tech-metric-item">
+            <span className="cg-metric-icon" aria-hidden="true">&#x26A1;</span>
+            <span><strong>Sub-100ms</strong> Edge &amp; API Response</span>
+          </div>
+          <div className="cg-tech-metric-item">
+            <span className="cg-metric-icon" aria-hidden="true">&#x1F6E1;&#xFE0F;</span>
+            <span><strong>100% Code Ownership</strong> &amp; Zero Lock-in</span>
+          </div>
+          <div className="cg-tech-metric-item">
+            <span className="cg-metric-icon" aria-hidden="true">&#x1F527;</span>
+            <span><strong>Production-Ready</strong> CI/CD &amp; Testing</span>
+          </div>
         </div>
       </div>
     </section>

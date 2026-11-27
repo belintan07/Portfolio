@@ -12301,56 +12301,43 @@
       max-width: 680px;
     }
 
-    .cg-loop-controls {
+    .cg-tech-indicator {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       background: #FFFFFF;
       border: 1px solid #DDE3EA;
-      padding: 4px;
-      border-radius: 6px;
+      border-radius: 9999px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      box-shadow: 0 2px 8px rgba(13, 43, 78, 0.04);
     }
 
-    [data-theme="dark"] .cg-loop-controls {
+    [data-theme="dark"] .cg-tech-indicator {
       background: #101B2E;
       border-color: rgba(18, 171, 219, 0.28);
-    }
-
-    .cg-loop-mode-btn {
-      background: transparent;
-      border: none;
-      color: #475569;
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 7px 14px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    [data-theme="dark"] .cg-loop-mode-btn {
       color: #CBD5E1;
     }
 
-    .cg-loop-mode-btn:hover {
-      color: #0070AD;
-      background: #F0F7FC;
+    .cg-live-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+      display: inline-block;
+      animation: cg-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
 
-    [data-theme="dark"] .cg-loop-mode-btn:hover {
-      color: #12ABDB;
-      background: rgba(18, 171, 219, 0.14);
+    @keyframes cg-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(0.9); }
     }
 
-    .cg-loop-mode-btn.is-active {
-      background: #0070AD;
-      color: #FFFFFF;
-    }
-
-    [data-theme="dark"] .cg-loop-mode-btn.is-active {
-      background: #12ABDB;
-      color: #07192E;
+    .cg-indicator-text {
+      letter-spacing: -0.01em;
     }
 
     .cg-tech-loop-stage {
@@ -12382,11 +12369,35 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 14px;
-      font-size: 0.8rem;
+      justify-content: space-around;
+      gap: 16px;
+      margin-top: 18px;
+      padding: 12px 18px;
+      background: #FFFFFF;
+      border: 1px solid #DDE3EA;
+      border-radius: 8px;
+      font-size: 0.86rem;
       color: var(--text-secondary);
+    }
+
+    [data-theme="dark"] .cg-tech-tags-summary {
+      background: #101B2E;
+      border-color: rgba(18, 171, 219, 0.24);
+      color: #CBD5E1;
+    }
+
+    .cg-tech-metric-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cg-tech-metric-item strong {
+      color: var(--text-primary);
+    }
+
+    .cg-metric-icon {
+      font-size: 1rem;
     }
 
     /* React Bits LogoLoop Official CSS Rules */
@@ -12481,11 +12492,26 @@
       border-radius: 6px;
       color: inherit;
       text-decoration: none;
+      border: 1px solid transparent;
       transition:
         opacity 0.35s ease,
         filter 0.35s ease,
         color 0.35s ease,
-        background-color 0.25s ease;
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .logoloop__content:hover {
+      background-color: rgba(0, 112, 173, 0.06);
+      border-color: rgba(0, 112, 173, 0.25);
+      box-shadow: 0 4px 14px rgba(0, 112, 173, 0.08);
+    }
+
+    [data-theme="dark"] .logoloop__content:hover {
+      background-color: rgba(18, 171, 219, 0.08);
+      border-color: rgba(18, 171, 219, 0.3);
+      box-shadow: 0 4px 14px rgba(18, 171, 219, 0.12);
     }
 
     .logoloop[data-labels='below'] .logoloop__content {
@@ -12921,15 +12947,12 @@
               Core Technologies &amp; Delivery Toolchain
             </h2>
             <p class="cg-tech-sub">
-              Full-stack mastery across HTML5, CSS3, JavaScript, React, Vue.js, Java, Supabase, SQL, GitHub, and VS Code
-              &mdash; drag, swipe, hover to magnify, or switch paths.
+              Full-stack production engineering across modern frontend frameworks, scalable Java backends, Supabase real-time databases, and automated Git workflows &mdash; interactive linear showcase with smooth drag, hover magnification, and keyboard navigation.
             </p>
           </div>
-          <div class="cg-loop-controls" role="group" aria-label="LogoLoop motion layout modes">
-            <button type="button" class="cg-loop-mode-btn is-active" data-loop-mode="stream"
-              aria-pressed="true">Stream</button>
-            <button type="button" class="cg-loop-mode-btn" data-loop-mode="wave" aria-pressed="false">Wave</button>
-            <button type="button" class="cg-loop-mode-btn" data-loop-mode="orbit" aria-pressed="false">3D Orbit</button>
+          <div class="cg-tech-indicator" aria-label="Live Technology Pipeline">
+            <span class="cg-live-dot" aria-hidden="true"></span>
+            <span class="cg-indicator-text">Continuous Production Pipeline &bull; 14 Modern Technologies</span>
           </div>
         </div>
 
@@ -12938,8 +12961,18 @@
         </div>
 
         <div class="cg-tech-tags-summary">
-          <span>Interactive React Bits <code>&lt;LogoLoop /&gt;</code> Engine &middot; Drag / Fling / Keyboard Focus</span>
-          <span>14 Production Tools &amp; Frameworks</span>
+          <div class="cg-tech-metric-item">
+            <span class="cg-metric-icon" aria-hidden="true">&#x26A1;</span>
+            <span><strong>Sub-100ms</strong> Edge &amp; API Response</span>
+          </div>
+          <div class="cg-tech-metric-item">
+            <span class="cg-metric-icon" aria-hidden="true">&#x1F6E1;&#xFE0F;</span>
+            <span><strong>100% Code Ownership</strong> &amp; Zero Lock-in</span>
+          </div>
+          <div class="cg-tech-metric-item">
+            <span class="cg-metric-icon" aria-hidden="true">&#x1F527;</span>
+            <span><strong>Production-Ready</strong> CI/CD &amp; Testing</span>
+          </div>
         </div>
       </div>
     </section>
@@ -16254,42 +16287,22 @@ Server-Timing: redis;dur=2.1, timescale;dur=10.5`
           };
         }
 
-        const loopInstance = createLogoLoop(host, {
+        createLogoLoop(host, {
           logos: techLogos,
-          speed: 95,
+          speed: 80,
           direction: 'left',
-          logoHeight: 34,
-          gap: 42,
+          logoHeight: 36,
+          gap: 46,
           hoverSpeed: 0,
           scaleOnHover: true,
           layout: 'line',
-          magnify: 0.35,
-          muted: 0.3,
+          magnify: 0.28,
+          muted: 0.2,
           labels: 'inline',
           scrollBoost: 0.25,
           fadeOut: true,
-          fadeOutWidth: 0.1,
+          fadeOutWidth: 0.12,
           ariaLabel: 'Belintan Tech Stack Logos'
-        });
-
-        const modePresets = {
-          stream: { layout: 'line', speed: 95, bend: 0, focus: 0, magnify: 0.35, labels: 'inline', muted: 0.3, logoHeight: 34, gap: 42 },
-          wave: { layout: 'wave', speed: 85, bend: 0.55, focus: 0, magnify: 0.45, labels: 'hover', muted: 0.15, logoHeight: 38, gap: 48 },
-          orbit: { layout: 'orbit', speed: 80, bend: 0.52, focus: 0.45, magnify: 0.3, labels: 'hover', muted: 0.25, logoHeight: 36, gap: 46 }
-        };
-
-        const modeButtons = document.querySelectorAll('.cg-loop-mode-btn');
-        modeButtons.forEach(btn => {
-          btn.addEventListener('click', () => {
-            const preset = modePresets[btn.getAttribute('data-loop-mode')];
-            if (!preset) return;
-            modeButtons.forEach(b => {
-              const active = b === btn;
-              b.classList.toggle('is-active', active);
-              b.setAttribute('aria-pressed', String(active));
-            });
-            loopInstance.update(preset);
-          });
         });
       }
 
