@@ -3682,6 +3682,9 @@ function Navbar({ activePage, onNavigatePage, theme, toggleTheme }) {
           <button type="button" className="cg-nav-link" onClick={() => goSection('services')}>
             Services
           </button>
+          <button type="button" className="cg-nav-link" onClick={() => goSection('tech-stack')}>
+            Tech Stack
+          </button>
           <button type="button" className="cg-nav-link" onClick={() => goSection('insights')}>
             Insights
           </button>
@@ -3848,6 +3851,109 @@ function HeroSection() {
         <div className="cg-container cg-hero-bar-inner">
           <span>Chennai, Tamil Nadu, India</span>
           <span>Scroll to explore &darr;</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ==========================================================================
+   6. Core Technologies Section (React Bits <LogoLoop />)
+   ========================================================================== */
+const PRESETS = {
+  stream: {
+    layout: 'line',
+    speed: 95,
+    bend: 0,
+    focus: 0,
+    magnify: 0.35,
+    labels: 'inline',
+    muted: 0.3,
+    logoHeight: 34,
+    gap: 44
+  },
+  wave: {
+    layout: 'wave',
+    speed: 85,
+    bend: 0.55,
+    focus: 0,
+    magnify: 0.45,
+    labels: 'hover',
+    muted: 0.15,
+    logoHeight: 38,
+    gap: 48
+  },
+  orbit: {
+    layout: 'orbit',
+    speed: 80,
+    bend: 0.52,
+    focus: 0.45,
+    magnify: 0.3,
+    labels: 'hover',
+    muted: 0.25,
+    logoHeight: 36,
+    gap: 46
+  }
+};
+
+function TechStackSection() {
+  const [mode, setMode] = useState('stream');
+  const activeProps = PRESETS[mode];
+
+  return (
+    <section className="cg-tech-band" id="tech-stack" aria-labelledby="tech-stack-heading">
+      <div className="cg-container">
+        <div className="cg-tech-head">
+          <div>
+            <span className="cg-badge">[ CORE STACK &middot; REACT BITS LOGOLOOP ]</span>
+            <h2 className="cg-section-title" id="tech-stack-heading" style={{ marginBottom: 8 }}>
+              Core Technologies &amp; Delivery Toolchain
+            </h2>
+            <p className="cg-tech-sub">
+              Full-stack engineering across HTML5, CSS3, JavaScript, React, Vue.js, Java, Supabase, SQL, GitHub, and VS
+              Code &mdash; drag, swipe, hover to magnify, or switch React Bits motion presets.
+            </p>
+          </div>
+
+          <div className="cg-mode-switch" role="group" aria-label="LogoLoop motion layout modes">
+            {[
+              { id: 'stream', label: 'Stream' },
+              { id: 'wave', label: 'Wave' },
+              { id: 'orbit', label: '3D Orbit' }
+            ].map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                className={`cg-mode-btn ${mode === item.id ? 'active' : ''}`}
+                aria-pressed={mode === item.id}
+                onClick={() => setMode(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="cg-loop-stage">
+          <LogoLoop
+            logos={TECH_LOGOS}
+            speed={activeProps.speed}
+            direction="left"
+            logoHeight={activeProps.logoHeight}
+            gap={activeProps.gap}
+            hoverSpeed={0}
+            scaleOnHover
+            layout={activeProps.layout}
+            bend={activeProps.bend}
+            focus={activeProps.focus}
+            magnify={activeProps.magnify}
+            muted={activeProps.muted}
+            labels={activeProps.labels}
+            scrollBoost={0.25}
+            fadeOut
+            fadeOutWidth={0.1}
+            ariaLabel="Belintan Tech Stack Logos"
+          />
         </div>
       </div>
     </section>
@@ -5533,6 +5639,7 @@ export default function App() {
         {activePage === 'home' && (
           <>
             <HeroSection />
+            <TechStackSection />
             <ServicesInsightsSection onNavigatePage={navigateToPage} />
             <PricingSection />
           </>
