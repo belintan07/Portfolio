@@ -5659,10 +5659,15 @@
       return refBanner + buildVisualBlueprintStageHTML(tplId, custom);
     }
 
+    function resolveTemplateId(id) {
+      return id === 'flowzo-crm' ? 'enterprise-crm' : id;
+    }
+
     function buildVisualBlueprintStageHTML(tplId, custom) {
-      const isCrm = (tplId === 'enterprise-crm' || tplId === 'flowzo-crm');
-      const brand = esc(custom?.brand || (isCrm ? 'clientflow.io' : tplId === 'officeportal-hrms' ? 'OfficePortal' : 'HEALTHRAY'));
-      const accent = safeHex(custom?.accent, isCrm ? '#7C3AED' : tplId === 'officeportal-hrms' ? '#0D9488' : '#2563EB');
+      const canonicalId = resolveTemplateId(tplId);
+      const isCrm = canonicalId === 'enterprise-crm';
+      const brand = esc(custom?.brand || (isCrm ? 'clientflow.io' : canonicalId === 'officeportal-hrms' ? 'OfficePortal' : 'HEALTHRAY'));
+      const accent = safeHex(custom?.accent, isCrm ? '#7C3AED' : canonicalId === 'officeportal-hrms' ? '#0D9488' : '#2563EB');
 
       if (isCrm) {
         const tagline = esc(custom?.tagline || 'ALL-IN-ONE CRM SOFTWARE');
@@ -5817,26 +5822,28 @@
     // GENERATE COMPLETE STANDALONE RUNNABLE HTML5 SAMPLE SOFTWARE
     // ------------------------------------------------------------------------
     function generateSampleSoftwareHTML(tplId, custom) {
+      const canonicalId = resolveTemplateId(tplId);
       const refImg = safeImageDataUrl(custom?.refImage);
-      const isCustomSoftware = ['enterprise-crm', 'flowzo-crm', 'officeportal-hrms', 'healthray-hms'].includes(tplId);
+      const isCustomSoftware = ['enterprise-crm', 'officeportal-hrms', 'healthray-hms'].includes(canonicalId);
       const refBanner = buildRefAssetBannerHTML(
         refImg,
         'Duplicated Reference Visual',
         'Preserved reference asset from Blueprint Studio',
         !isCustomSoftware
       );
-      const rawHtml = buildSampleSoftwareDocumentHTML(tplId, custom);
+      const rawHtml = buildSampleSoftwareDocumentHTML(canonicalId, custom);
       if (!refBanner) return rawHtml;
       return rawHtml.replace(/(<(?:div class="(?:main|wrap)"|main class="main")>)/, (m) => m + refBanner);
     }
 
     function buildSampleSoftwareDocumentHTML(tplId, custom) {
-      const t = templates.find(item => item.id === tplId) || templates[0];
+      const canonicalId = resolveTemplateId(tplId);
+      const t = templates.find(item => item.id === canonicalId) || templates[0];
       const brand = esc(custom?.brand || t.brandDefault || t.title);
       const tagline = esc(custom?.tagline || t.taglineDefault || t.desc);
       const accent = safeHex(custom?.accent, t.accent || '#7C3AED');
 
-      if (tplId === 'enterprise-crm' || tplId === 'flowzo-crm') {
+      if (canonicalId === 'enterprise-crm') {
         return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6305,24 +6312,25 @@ h1{font-size:2.2rem;font-weight:900;margin-bottom:10px;}p{color:#94A3B8;margin-b
     }
 
     function selectStudioBlueprint(bpId) {
-      activeStudioBpId = bpId;
+      const canonicalId = resolveTemplateId(bpId);
+      activeStudioBpId = canonicalId;
       invalidatePendingImageRead();
       customUploadedImgDataUrl = null;
       const uploadInput = document.getElementById('ref-image-upload');
       if (uploadInput) uploadInput.value = '';
-      const t = templates.find(x => x.id === bpId);
+      const t = templates.find(x => x.id === canonicalId);
       if (t) {
         document.getElementById('studio-brand-input').value = t.brandDefault || t.title;
         document.getElementById('studio-tagline-input').value = t.taglineDefault || t.desc;
         document.getElementById('studio-color-input').value = safeHex(t.accent, '#7C3AED');
       }
       document.querySelectorAll('.bp-selector-btn').forEach(b => {
-        const isActive = b.getAttribute('data-bp') === bpId;
+        const isActive = b.getAttribute('data-bp') === canonicalId;
         b.classList.toggle('active', isActive);
         b.setAttribute('aria-selected', String(isActive));
         b.setAttribute('tabindex', isActive ? '0' : '-1');
       });
-      document.getElementById('duplicator')?.setAttribute('aria-labelledby', 'bp-tab-' + bpId);
+      document.getElementById('duplicator')?.setAttribute('aria-labelledby', 'bp-tab-' + canonicalId);
       renderStudioWorkbench();
     }
 
@@ -6387,12 +6395,13 @@ h1{font-size:2.2rem;font-weight:900;margin-bottom:10px;}p{color:#94A3B8;margin-b
     }
 
     function addDuplicateEntry(tplId, cfg) {
+      const canonicalId = resolveTemplateId(tplId);
       const list = getDuplicates();
-      const t = templates.find(x => x.id === tplId) || templates[0];
+      const t = templates.find(x => x.id === canonicalId) || templates[0];
       const safeRefImg = safeImageDataUrl(cfg?.refImage);
       const entry = {
         uid: 'dup-' + Date.now(),
-        tplId,
+        tplId: canonicalId,
         baseTitle: t.title,
         brand: cfg.brand || t.brandDefault || t.title,
         tagline: cfg.tagline || t.taglineDefault || t.desc,
@@ -6416,9 +6425,10 @@ h1{font-size:2.2rem;font-weight:900;margin-bottom:10px;}p{color:#94A3B8;margin-b
     }
 
     function duplicateTemplateCard(tplId) {
-      const t = templates.find(x => x.id === tplId);
+      const canonicalId = resolveTemplateId(tplId);
+      const t = templates.find(x => x.id === canonicalId);
       if (!t) return;
-      if (addDuplicateEntry(tplId, { brand: t.brandDefault || t.title, tagline: t.taglineDefault || t.desc, accent: t.accent })) {
+      if (addDuplicateEntry(canonicalId, { brand: t.brandDefault || t.title, tagline: t.taglineDefault || t.desc, accent: t.accent })) {
         document.getElementById('duplicated-shelf')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
     }
@@ -6463,8 +6473,9 @@ h1{font-size:2.2rem;font-weight:900;margin-bottom:10px;}p{color:#94A3B8;margin-b
     function downloadDuplicateSample(uid) {
       const item = getDuplicates().find(d => d.uid === uid);
       if (!item) return;
+      const canonicalId = resolveTemplateId(item.tplId);
       const slug = item.brand.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'sample';
-      downloadHTMLFile(slug + '-sample.html', generateSampleSoftwareHTML(item.tplId, item));
+      downloadHTMLFile(slug + '-sample.html', generateSampleSoftwareHTML(canonicalId, item));
     }
 
     function renderDuplicatedShelf() {
@@ -6505,9 +6516,10 @@ h1{font-size:2.2rem;font-weight:900;margin-bottom:10px;}p{color:#94A3B8;margin-b
 
     // Override openTemplateModal to support tabs, customizer, blueprint & sample software generation
     function openTemplateModal(tplId, initialTab, customOverrides) {
-      const t = templates.find(item => item.id === tplId);
+      const canonicalId = resolveTemplateId(tplId);
+      const t = templates.find(item => item.id === canonicalId);
       if (!t) return;
-      activeModalTplId = tplId;
+      activeModalTplId = canonicalId;
       activeModalTab = initialTab || 'blueprint';
       activeModalRefImage = safeImageDataUrl(customOverrides?.refImage);
 
@@ -6540,7 +6552,8 @@ h1{font-size:2.2rem;font-weight:900;margin-bottom:10px;}p{color:#94A3B8;margin-b
     }
 
     function getModalCustomConfig() {
-      const t = templates.find(item => item.id === activeModalTplId) || templates[0];
+      const canonicalId = resolveTemplateId(activeModalTplId);
+      const t = templates.find(item => item.id === canonicalId) || templates[0];
       return {
         brand: document.getElementById('modal-custom-brand').value.trim() || t.brandDefault || t.title,
         tagline: document.getElementById('modal-custom-tagline').value.trim() || t.taglineDefault || t.desc,

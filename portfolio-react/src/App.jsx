@@ -4286,7 +4286,12 @@ const BLUEPRINTS = {
     ]
   }
 };
-BLUEPRINTS['flowzo-crm'] = BLUEPRINTS['enterprise-crm'];
+Object.defineProperty(BLUEPRINTS, 'flowzo-crm', {
+  value: BLUEPRINTS['enterprise-crm'],
+  enumerable: false,
+  writable: true,
+  configurable: true
+});
 
 const TEMPLATES_CATALOG = [
   { id: 'enterprise-crm', title: 'Enterprise CRM Suite', category: 'software', price: 'Included', tag: 'CRM Suite', desc: 'Lead distribution, call sync & unique client tracking SaaS.' },
@@ -4406,7 +4411,7 @@ function TemplatesStudioSection({ onBackHome, headingRef }) {
     const bp = BLUEPRINTS[bpId];
     if (!bp) return;
     invalidatePendingUpload();
-    setActiveBp(bpId);
+    setActiveBp(bp.id);
     setBrand(bp.defaultBrand);
     setTagline(bp.defaultTagline);
     setAccent(bp.defaultColor);
@@ -4829,11 +4834,12 @@ function TemplatesStudioSection({ onBackHome, headingRef }) {
                     onClick={() => {
                       invalidatePendingUpload();
                       if (fileInputRef.current) fileInputRef.current.value = '';
-                      const nextBpId = BLUEPRINTS[dup?.bpId] ? dup.bpId : 'enterprise-crm';
+                      const resolvedBp = BLUEPRINTS[dup?.bpId] || BLUEPRINTS['enterprise-crm'];
+                      const nextBpId = resolvedBp.id;
                       setActiveBp(nextBpId);
-                      setBrand(dup.brand || BLUEPRINTS[nextBpId].defaultBrand);
-                      setTagline(dup.tagline || BLUEPRINTS[nextBpId].defaultTagline);
-                      setAccent(dup.accent || BLUEPRINTS[nextBpId].defaultColor);
+                      setBrand(dup.brand || resolvedBp.defaultBrand);
+                      setTagline(dup.tagline || resolvedBp.defaultTagline);
+                      setAccent(dup.accent || resolvedBp.defaultColor);
                       setUploadedImg(safeImageDataUrl(dup.refImage));
                       setStatusMsg('');
                     }}
