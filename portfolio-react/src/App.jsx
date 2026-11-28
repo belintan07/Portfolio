@@ -1063,6 +1063,109 @@ body {
   border-color: #12abdb;
 }
 
+.cg-price-reveal-btn.is-active {
+  background: #0070ad;
+  color: #ffffff;
+  border-color: #0070ad;
+  box-shadow: 0 4px 14px rgba(0, 112, 173, 0.28);
+}
+
+.cg-pricing-card.featured .cg-price-reveal-btn.is-active {
+  background: #ffffff;
+  color: #0070ad;
+  border-color: #ffffff;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25);
+}
+
+[data-theme='dark'] .cg-price-reveal-btn.is-active {
+  background: #12abdb;
+  color: #0d2b4e;
+  border-color: #12abdb;
+}
+
+.cg-price-chevron-wrap {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cg-price-chevron-wrap.is-flipped {
+  transform: rotate(180deg);
+}
+
+.cg-price-teaser {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px 14px;
+  background: var(--bg-soft);
+  border: 1px dashed var(--border-color);
+  border-radius: 6px;
+  margin: 12px 0 8px;
+  transition: all 0.3s ease;
+}
+
+.cg-pricing-card.featured .cg-price-teaser {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.cg-price-teaser-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0070ad;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cg-pricing-card.featured .cg-price-teaser-badge {
+  color: #8ce2ff;
+}
+
+.cg-price-teaser-desc {
+  font-size: 0.81rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.cg-pricing-card.featured .cg-price-teaser-desc {
+  color: #dcebf7;
+}
+
+.cg-pricing-card.is-expanded .cg-price-teaser {
+  display: none;
+}
+
+.cg-price-details-drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.32s ease,
+              visibility 0.45s ease;
+}
+
+.cg-price-details-drawer.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+}
+
+.cg-price-details-inner {
+  min-height: 0;
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(-10px);
+}
+
+.cg-price-details-drawer.is-open .cg-price-details-inner {
+  transform: translateY(0);
+}
+
 .cg-price-details-box {
   animation: cg-fade-in 0.25s ease-out;
 }
@@ -4532,9 +4635,19 @@ function PricingSection({ onBackHome, headingRef }) {
                     {tier.summary}
                   </p>
 
+                  <div className={`cg-price-teaser ${isExpanded ? 'is-hidden' : ''}`}>
+                    <span className="cg-price-teaser-badge">
+                      <Zap size={12} />
+                      Commercial Breakdown Hidden
+                    </span>
+                    <span className="cg-price-teaser-desc">
+                      Tap below to slide open pricing, milestones &amp; technical deliverables.
+                    </span>
+                  </div>
+
                   <button
                     type="button"
-                    className="cg-price-reveal-btn"
+                    className={`cg-price-reveal-btn ${isExpanded ? 'is-active' : ''}`}
                     onClick={(e) => {
                       e.stopPropagation();
                       toggleTier(tier.name);
@@ -4543,74 +4656,82 @@ function PricingSection({ onBackHome, headingRef }) {
                     aria-controls={detailsId}
                   >
                     {isExpanded ? <EyeOff size={15} /> : <Eye size={15} />}
-                    <span>{isExpanded ? 'Hide Price Details' : 'View Price & Details'}</span>
-                    {isExpanded ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
+                    <span>{isExpanded ? 'Slide To Hide Price & Scope' : 'Slide To Reveal Price & Scope'}</span>
+                    <span className={`cg-price-chevron-wrap ${isExpanded ? 'is-flipped' : ''}`}>
+                      <ChevronDown size={15} />
+                    </span>
                   </button>
 
-                  {isExpanded && (
-                    <div id={detailsId} className="cg-price-details-box" style={{ marginTop: '16px' }}>
-                      <div style={{ marginBottom: '16px' }}>
-                        <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap' }}>
-                          <span style={{ fontSize: '2rem', fontWeight: 800, lineHeight: 1.1 }}>{tier.price}</span>
-                          {!tier.subPrefix && (
-                            <del aria-label={`Original price ${tier.oldPrice}`} style={{ opacity: 0.65, fontSize: '0.95rem' }}>
-                              {tier.oldPrice}
-                            </del>
-                          )}
-                          <span className="cg-discount-pill">10% LESS</span>
+                  <div
+                    id={detailsId}
+                    className={`cg-price-details-drawer ${isExpanded ? 'is-open' : ''}`}
+                    aria-hidden={!isExpanded}
+                  >
+                    <div className="cg-price-details-inner">
+                      <div className="cg-price-details-box" style={{ paddingTop: '16px' }}>
+                        <div style={{ marginBottom: '16px' }}>
+                          <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap' }}>
+                            <span style={{ fontSize: '2rem', fontWeight: 800, lineHeight: 1.1 }}>{tier.price}</span>
+                            {!tier.subPrefix && (
+                              <del aria-label={`Original price ${tier.oldPrice}`} style={{ opacity: 0.65, fontSize: '0.95rem' }}>
+                                {tier.oldPrice}
+                              </del>
+                            )}
+                            <span className="cg-discount-pill">10% LESS</span>
+                          </div>
+                          <div
+                            style={{
+                              fontSize: '0.84rem',
+                              marginTop: '6px',
+                              color: tier.featured ? '#DCEBF7' : 'var(--text-secondary)'
+                            }}
+                          >
+                            {tier.subPrefix ? (
+                              <>
+                                {tier.subPrefix}
+                                <del aria-label={`Original base price ${tier.oldPrice}`}>{tier.oldPrice}</del>
+                                {tier.subSuffix}
+                              </>
+                            ) : (
+                              tier.sub
+                            )}
+                          </div>
                         </div>
-                        <div
-                          style={{
-                            fontSize: '0.84rem',
-                            marginTop: '6px',
-                            color: tier.featured ? '#DCEBF7' : 'var(--text-secondary)'
-                          }}
+
+                        <ul className="cg-price-list" style={{ marginBottom: '20px' }}>
+                          {tier.features.map((feat) => (
+                            <li key={feat}>{feat}</li>
+                          ))}
+                        </ul>
+
+                        <StarBorder
+                          as="a"
+                          href={`https://wa.me/918610662871?text=${encodeURIComponent(tier.waText)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          color={tier.featured ? '#12ABDB' : '#0070AD'}
+                          trailColor={tier.featured ? '#FFFFFF' : '#12ABDB'}
+                          duration={4}
+                          stars={tier.featured ? 2 : 1}
+                          trailLength={0.3}
+                          thickness={tier.featured ? 1.5 : 1.25}
+                          radius={999}
+                          glow={tier.featured ? 0.75 : 0.45}
+                          sparkle={!!tier.featured}
+                          hover="lap"
+                          clickPulse
+                          theme="light"
+                          backgroundColor={tier.featured ? '#FFFFFF' : '#F0F7FC'}
+                          textColor="#0070AD"
+                          borderColor={tier.featured ? 'rgba(18, 171, 219, 0.45)' : '#0070AD'}
+                          style={{ width: '100%' }}
                         >
-                          {tier.subPrefix ? (
-                            <>
-                              {tier.subPrefix}
-                              <del aria-label={`Original base price ${tier.oldPrice}`}>{tier.oldPrice}</del>
-                              {tier.subSuffix}
-                            </>
-                          ) : (
-                            tier.sub
-                          )}
-                        </div>
+                          <span>{tier.cta}</span>
+                          <ArrowRight size={15} />
+                        </StarBorder>
                       </div>
-
-                      <ul className="cg-price-list" style={{ marginBottom: '20px' }}>
-                        {tier.features.map((feat) => (
-                          <li key={feat}>{feat}</li>
-                        ))}
-                      </ul>
-
-                      <StarBorder
-                        as="a"
-                        href={`https://wa.me/918610662871?text=${encodeURIComponent(tier.waText)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        color={tier.featured ? '#12ABDB' : '#0070AD'}
-                        trailColor={tier.featured ? '#FFFFFF' : '#12ABDB'}
-                        duration={4}
-                        stars={tier.featured ? 2 : 1}
-                        trailLength={0.3}
-                        thickness={tier.featured ? 1.5 : 1.25}
-                        radius={999}
-                        glow={tier.featured ? 0.75 : 0.45}
-                        sparkle={!!tier.featured}
-                        hover="lap"
-                        clickPulse
-                        theme="light"
-                        backgroundColor={tier.featured ? '#FFFFFF' : '#F0F7FC'}
-                        textColor="#0070AD"
-                        borderColor={tier.featured ? 'rgba(18, 171, 219, 0.45)' : '#0070AD'}
-                        style={{ width: '100%' }}
-                      >
-                        <span>{tier.cta}</span>
-                        <ArrowRight size={15} />
-                      </StarBorder>
                     </div>
-                  )}
+                  </div>
                 </div>
               </article>
             );

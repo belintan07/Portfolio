@@ -11348,6 +11348,113 @@
       border: 1px solid rgba(18, 171, 219, 0.35) !important;
       color: #8CE2FF !important;
     }
+  
+    /* Smooth CSS Grid Accordion Sliding for Hidden Pricing */
+    .pricing-teaser {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 10px 14px;
+      background: rgba(0, 112, 173, 0.05);
+      border: 1px dashed rgba(0, 112, 173, 0.25);
+      border-radius: 6px;
+      margin: 12px 0 8px;
+      transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] .pricing-teaser {
+      background: rgba(18, 171, 219, 0.08);
+      border-color: rgba(18, 171, 219, 0.3);
+    }
+
+    .featured-card .pricing-teaser {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .pricing-teaser-badge {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0070AD;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .featured-card .pricing-teaser-badge {
+      color: #8CE2FF;
+    }
+
+    .pricing-teaser-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    .featured-card .pricing-teaser-desc {
+      color: #DCEBF7;
+    }
+
+    .pricing-card.is-expanded .pricing-teaser {
+      display: none;
+    }
+
+    .pricing-collapsible-drawer {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      visibility: hidden;
+      transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 0.32s ease,
+                  visibility 0.45s ease;
+    }
+
+    .pricing-collapsible-drawer.is-open {
+      grid-template-rows: 1fr;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .pricing-collapsible-inner {
+      min-height: 0;
+      overflow: hidden;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(-10px);
+    }
+
+    .pricing-collapsible-drawer.is-open .pricing-collapsible-inner {
+      transform: translateY(0);
+    }
+
+    .btn-price-reveal {
+      transition: all 0.25s ease;
+    }
+
+    .btn-price-reveal.is-active {
+      background: #0070AD;
+      color: #FFFFFF;
+      border-color: #0070AD;
+      box-shadow: 0 4px 14px rgba(0, 112, 173, 0.25);
+    }
+
+    .featured-card .btn-price-reveal.is-active {
+      background: #FFFFFF;
+      color: #0070AD;
+      border-color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-price-reveal .reveal-icon {
+      display: inline-block;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .pricing-card.is-expanded .btn-price-reveal .reveal-icon {
+      transform: rotate(180deg);
+    }
+
   </style>
 
   <!-- Schema.org JSON-LD Structured Data for Full-Stack Freelance Software Engineer -->
@@ -11610,13 +11717,19 @@
               <span class="pricing-tagline">Fast Launch</span>
               <h3 class="pricing-tier-name">Starter Landing Page</h3>
               <p class="pricing-tier-summary" style="font-size: 0.86rem; color: var(--text-secondary); margin: 0 0 14px; line-height: 1.5;">Single high-converting page engineered for fast turnaround and direct client WhatsApp inquiries.</p>
+              <div class="pricing-teaser">
+                <span class="pricing-teaser-badge">&bull; Commercial Breakdown Hidden</span>
+                <span class="pricing-teaser-desc">Click below or tap card to slide open pricing, milestones &amp; technical deliverables.</span>
+              </div>
 
               <button type="button" class="btn-price-reveal" aria-expanded="false" onclick="togglePriceCard(this)">
-                <span class="reveal-text">View Price &amp; Details</span>
+                <span class="reveal-text">Slide To Reveal Price &amp; Scope</span>
                 <span class="reveal-icon">&darr;</span>
               </button>
 
-              <div class="pricing-collapsible-content" style="display: none; margin-top: 16px;">
+              <div class="pricing-collapsible-drawer" aria-hidden="true">
+                <div class="pricing-collapsible-inner">
+                  <div class="pricing-collapsible-content" style="padding-top: 16px;">
                 <div class="pricing-amount-box">
                   <span class="pricing-price-main">₹4,499</span>
                   <del class="pricing-price-old" aria-label="Original price ₹4,999">₹4,999</del>
@@ -11633,6 +11746,8 @@
                   <span>Book Starter Page &rarr;</span>
                 </a>
               </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -11642,13 +11757,19 @@
               <span class="pricing-tagline">Multi-Page</span>
               <h3 class="pricing-tier-name">Business Website</h3>
               <p class="pricing-tier-summary" style="font-size: 0.86rem; color: var(--text-secondary); margin: 0 0 14px; line-height: 1.5;">Multi-page corporate website with structured on-page SEO, custom quote forms, and brand credibility.</p>
+              <div class="pricing-teaser">
+                <span class="pricing-teaser-badge">&bull; Commercial Breakdown Hidden</span>
+                <span class="pricing-teaser-desc">Click below or tap card to slide open pricing, milestones &amp; technical deliverables.</span>
+              </div>
 
               <button type="button" class="btn-price-reveal" aria-expanded="false" onclick="togglePriceCard(this)">
-                <span class="reveal-text">View Price &amp; Details</span>
+                <span class="reveal-text">Slide To Reveal Price &amp; Scope</span>
                 <span class="reveal-icon">&darr;</span>
               </button>
 
-              <div class="pricing-collapsible-content" style="display: none; margin-top: 16px;">
+              <div class="pricing-collapsible-drawer" aria-hidden="true">
+                <div class="pricing-collapsible-inner">
+                  <div class="pricing-collapsible-content" style="padding-top: 16px;">
                 <div class="pricing-amount-box">
                   <span class="pricing-price-main">₹8,999</span>
                   <del class="pricing-price-old" aria-label="Original price ₹9,999">₹9,999</del>
@@ -11665,6 +11786,8 @@
                   <span>Book Business Site &rarr;</span>
                 </a>
               </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -11675,13 +11798,19 @@
               <span class="pricing-tagline" style="color: var(--accent-orange);">Complete Promotion</span>
               <h3 class="pricing-tier-name">Marketing &amp; SEO Bundle</h3>
               <p class="pricing-tier-summary" style="font-size: 0.86rem; color: rgba(255, 255, 255, 0.85); margin: 0 0 14px; line-height: 1.5;">Comprehensive growth marketing accelerator with ad creatives, social reels, and active SEO ranking.</p>
+              <div class="pricing-teaser">
+                <span class="pricing-teaser-badge">&bull; Commercial Breakdown Hidden</span>
+                <span class="pricing-teaser-desc">Click below or tap card to slide open pricing, milestones &amp; technical deliverables.</span>
+              </div>
 
               <button type="button" class="btn-price-reveal" aria-expanded="false" onclick="togglePriceCard(this)">
-                <span class="reveal-text">View Price &amp; Details</span>
+                <span class="reveal-text">Slide To Reveal Price &amp; Scope</span>
                 <span class="reveal-icon">&darr;</span>
               </button>
 
-              <div class="pricing-collapsible-content" style="display: none; margin-top: 16px;">
+              <div class="pricing-collapsible-drawer" aria-hidden="true">
+                <div class="pricing-collapsible-inner">
+                  <div class="pricing-collapsible-content" style="padding-top: 16px;">
                 <div class="pricing-amount-box">
                   <span class="pricing-price-main">₹13,499</span>
                   <del class="pricing-price-old" aria-label="Original price ₹14,999">₹14,999</del>
@@ -11698,6 +11827,8 @@
                 <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Marketing%20and%20Growth%20Bundle" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta featured">
                   <span>Book Growth Bundle &rarr;</span>
                 </a>
+              </div>
+                </div>
               </div>
             </div>
           </div>
@@ -11933,45 +12064,68 @@
       window.togglePriceCard = function (btn) {
         const card = btn.closest('.pricing-card');
         if (!card) return;
-        const content = card.querySelector('.pricing-collapsible-content');
+        const drawer = card.querySelector('.pricing-collapsible-drawer');
         const textSpan = btn.querySelector('.reveal-text');
         const iconSpan = btn.querySelector('.reveal-icon');
-        const isHidden = !content || content.style.display === 'none';
-        if (content) {
-          content.style.display = isHidden ? 'block' : 'none';
+        const isCurrentlyOpen = card.classList.contains('is-expanded');
+        const willOpen = !isCurrentlyOpen;
+
+        card.classList.toggle('is-expanded', willOpen);
+        btn.classList.toggle('is-active', willOpen);
+        btn.setAttribute('aria-expanded', String(willOpen));
+
+        if (drawer) {
+          drawer.classList.toggle('is-open', willOpen);
+          drawer.setAttribute('aria-hidden', String(!willOpen));
         }
-        card.classList.toggle('is-expanded', isHidden);
-        btn.setAttribute('aria-expanded', String(isHidden));
+
         if (textSpan) {
-          textSpan.textContent = isHidden ? 'Hide Price Details' : 'View Price & Details';
+          textSpan.textContent = willOpen ? 'Slide To Hide Price & Scope' : 'Slide To Reveal Price & Scope';
         }
         if (iconSpan) {
-          iconSpan.innerHTML = isHidden ? '&uarr;' : '&darr;';
+          iconSpan.innerHTML = willOpen ? '&uarr;' : '&darr;';
         }
       };
 
       window.toggleAllPriceCards = function (btn) {
         const cards = document.querySelectorAll('.pricing-card');
-        const anyHidden = Array.from(cards).some(c => {
-          const content = c.querySelector('.pricing-collapsible-content');
-          return !content || content.style.display === 'none';
-        });
+        const anyCollapsed = Array.from(cards).some(c => !c.classList.contains('is-expanded'));
+        const willOpen = anyCollapsed;
+
         cards.forEach(c => {
-          const content = c.querySelector('.pricing-collapsible-content');
+          const drawer = c.querySelector('.pricing-collapsible-drawer');
           const cardBtn = c.querySelector('.btn-price-reveal');
           const textSpan = cardBtn ? cardBtn.querySelector('.reveal-text') : null;
           const iconSpan = cardBtn ? cardBtn.querySelector('.reveal-icon') : null;
-          if (content) content.style.display = anyHidden ? 'block' : 'none';
-          c.classList.toggle('is-expanded', anyHidden);
-          if (cardBtn) cardBtn.setAttribute('aria-expanded', String(anyHidden));
-          if (textSpan) textSpan.textContent = anyHidden ? 'Hide Price Details' : 'View Price & Details';
-          if (iconSpan) iconSpan.innerHTML = anyHidden ? '&uarr;' : '&darr;';
+
+          c.classList.toggle('is-expanded', willOpen);
+          if (cardBtn) {
+            cardBtn.classList.toggle('is-active', willOpen);
+            cardBtn.setAttribute('aria-expanded', String(willOpen));
+            if (textSpan) textSpan.textContent = willOpen ? 'Slide To Hide Price & Scope' : 'Slide To Reveal Price & Scope';
+            if (iconSpan) iconSpan.innerHTML = willOpen ? '&uarr;' : '&darr;';
+          }
+          if (drawer) {
+            drawer.classList.toggle('is-open', willOpen);
+            drawer.setAttribute('aria-hidden', String(!willOpen));
+          }
         });
+
         const allText = btn.querySelector('.all-text');
         if (allText) {
-          allText.textContent = anyHidden ? 'Hide All Price Details' : 'Show All Price Details';
+          allText.textContent = willOpen ? 'Hide All Price Details' : 'Show All Price Details';
         }
       };
+
+      // Card click delegation
+      document.querySelectorAll('.pricing-card').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function (e) {
+          if (e.target.closest('a, button, input, select')) return;
+          const btn = card.querySelector('.btn-price-reveal');
+          if (btn) togglePriceCard(btn);
+        });
+      });
 
     })();
   </script>
