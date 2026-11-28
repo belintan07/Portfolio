@@ -11055,6 +11055,86 @@
       font-weight: 800 !important;
     }
 
+    .btn-price-reveal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 10px 16px;
+      background: #FFFFFF;
+      border: 1.5px solid #0070AD;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #0070AD;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin: 12px 0 6px;
+    }
+
+    .btn-price-reveal:hover {
+      background: #F0F7FC;
+      transform: translateY(-1px);
+    }
+
+    [data-theme="dark"] .btn-price-reveal {
+      background: rgba(18, 171, 219, 0.1);
+      border-color: rgba(18, 171, 219, 0.4);
+      color: #12ABDB;
+    }
+
+    [data-theme="dark"] .btn-price-reveal:hover {
+      background: rgba(18, 171, 219, 0.2);
+    }
+
+    .pricing-card.featured-card .btn-price-reveal {
+      background: rgba(255, 255, 255, 0.15) !important;
+      border-color: rgba(255, 255, 255, 0.4) !important;
+      color: #FFFFFF !important;
+    }
+
+    .pricing-card.featured-card .btn-price-reveal:hover {
+      background: rgba(255, 255, 255, 0.25) !important;
+      border-color: #FFFFFF !important;
+    }
+
+    .btn-toggle-all-prices {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      background: #FFFFFF;
+      border: 1px solid #DDE3EA;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-toggle-all-prices:hover {
+      color: #0070AD;
+      border-color: #0070AD;
+    }
+
+    [data-theme="dark"] .btn-toggle-all-prices {
+      background: #101B2E;
+      border-color: rgba(18, 171, 219, 0.3);
+      color: #CBD5E1;
+    }
+
+    [data-theme="dark"] .btn-toggle-all-prices:hover {
+      color: #12ABDB;
+      border-color: #12ABDB;
+    }
+
+    .pricing-collapsible-content {
+      animation: fadeIn 0.25s ease-out;
+    }
+
     .pricing-price-sub {
       color: #525B6B !important;
     }
@@ -11508,76 +11588,114 @@
           </div>
         </div>
 
-        <div class="pricing-grid">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 36px; margin-bottom: 20px;">
+          <div>
+            <div class="sketch-chapter-badge" style="margin-bottom: 6px;">[ PACKAGES &amp; COMMERCIAL TIERS ]</div>
+            <h3 style="margin: 0; font-size: 1.45rem; font-weight: 800; color: var(--text-primary);">Transparent Development Plans</h3>
+            <p style="margin: 4px 0 0; font-size: 0.88rem; color: var(--text-secondary);">Prices and deliverables are hidden by default &mdash; click any package to reveal commercial details.</p>
+          </div>
+          <button type="button" class="btn-toggle-all-prices" onclick="toggleAllPriceCards(this)">
+            <span class="all-text">Show All Price Details</span>
+          </button>
+        </div>
+
+        <div class="pricing-grid" style="margin-top: 0 !important;">
           <!-- Tier 1 -->
-          <div class="pricing-card">
+          <div class="pricing-card" data-tier="starter">
             <div>
               <span class="pricing-tagline">Fast Launch</span>
               <h3 class="pricing-tier-name">Starter Landing Page</h3>
-              <div class="pricing-amount-box">
-                <span class="pricing-price-main">₹4,499</span>
-                <del class="pricing-price-old" aria-label="Original price ₹4,999">₹4,999</del>
-                <span class="pricing-discount-pill">10% LESS</span>
-                <span class="pricing-price-sub">(~$54 USD)</span>
+              <p class="pricing-tier-summary" style="font-size: 0.86rem; color: var(--text-secondary); margin: 0 0 14px; line-height: 1.5;">Single high-converting page engineered for fast turnaround and direct client WhatsApp inquiries.</p>
+
+              <button type="button" class="btn-price-reveal" aria-expanded="false" onclick="togglePriceCard(this)">
+                <span class="reveal-text">View Price &amp; Details</span>
+                <span class="reveal-icon">&darr;</span>
+              </button>
+
+              <div class="pricing-collapsible-content" style="display: none; margin-top: 16px;">
+                <div class="pricing-amount-box">
+                  <span class="pricing-price-main">₹4,499</span>
+                  <del class="pricing-price-old" aria-label="Original price ₹4,999">₹4,999</del>
+                  <span class="pricing-discount-pill">10% LESS</span>
+                  <span class="pricing-price-sub">(~$54 USD)</span>
+                </div>
+                <ul class="pricing-features-list">
+                  <li>1 High-Converting Page</li>
+                  <li>WhatsApp Lead Triggers</li>
+                  <li>Mobile Responsive</li>
+                  <li>3-5 Days Turnaround</li>
+                </ul>
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Starter%20Landing%20Page" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta">
+                  <span>Book Starter Page &rarr;</span>
+                </a>
               </div>
-              <ul class="pricing-features-list">
-                <li>1 High-Converting Page</li>
-                <li>WhatsApp Lead Triggers</li>
-                <li>Mobile Responsive</li>
-                <li>3-5 Days Turnaround</li>
-              </ul>
             </div>
-            <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Starter%20Landing%20Page" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta">
-              <span>Book Starter Page &rarr;</span>
-            </a>
           </div>
 
           <!-- Tier 2 -->
-          <div class="pricing-card">
+          <div class="pricing-card" data-tier="business">
             <div>
               <span class="pricing-tagline">Multi-Page</span>
               <h3 class="pricing-tier-name">Business Website</h3>
-              <div class="pricing-amount-box">
-                <span class="pricing-price-main">₹8,999</span>
-                <del class="pricing-price-old" aria-label="Original price ₹9,999">₹9,999</del>
-                <span class="pricing-discount-pill">10% LESS</span>
-                <span class="pricing-price-sub">(~$108 USD)</span>
+              <p class="pricing-tier-summary" style="font-size: 0.86rem; color: var(--text-secondary); margin: 0 0 14px; line-height: 1.5;">Multi-page corporate website with structured on-page SEO, custom quote forms, and brand credibility.</p>
+
+              <button type="button" class="btn-price-reveal" aria-expanded="false" onclick="togglePriceCard(this)">
+                <span class="reveal-text">View Price &amp; Details</span>
+                <span class="reveal-icon">&darr;</span>
+              </button>
+
+              <div class="pricing-collapsible-content" style="display: none; margin-top: 16px;">
+                <div class="pricing-amount-box">
+                  <span class="pricing-price-main">₹8,999</span>
+                  <del class="pricing-price-old" aria-label="Original price ₹9,999">₹9,999</del>
+                  <span class="pricing-discount-pill">10% LESS</span>
+                  <span class="pricing-price-sub">(~$108 USD)</span>
+                </div>
+                <ul class="pricing-features-list">
+                  <li>Up to 6 Custom Pages</li>
+                  <li>Complete On-Page SEO</li>
+                  <li>Contact &amp; Quote Forms</li>
+                  <li>7-10 Days Turnaround</li>
+                </ul>
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Business%20Website" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta">
+                  <span>Book Business Site &rarr;</span>
+                </a>
               </div>
-              <ul class="pricing-features-list">
-                <li>Up to 6 Custom Pages</li>
-                <li>Complete On-Page SEO</li>
-                <li>Contact &amp; Quote Forms</li>
-                <li>7-10 Days Turnaround</li>
-              </ul>
             </div>
-            <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Business%20Website" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta">
-              <span>Book Business Site &rarr;</span>
-            </a>
           </div>
 
           <!-- Tier 3: Growth Bundle -->
-          <div class="pricing-card featured-card">
+          <div class="pricing-card featured-card" data-tier="marketing">
             <div class="pricing-card-badge">GROWTH BUNDLE</div>
             <div>
               <span class="pricing-tagline" style="color: var(--accent-orange);">Complete Promotion</span>
               <h3 class="pricing-tier-name">Marketing &amp; SEO Bundle</h3>
-              <div class="pricing-amount-box">
-                <span class="pricing-price-main">₹13,499</span>
-                <del class="pricing-price-old" aria-label="Original price ₹14,999">₹14,999</del>
-                <span class="pricing-discount-pill">10% LESS</span>
-                <span class="pricing-price-sub">(~$162 USD • 1 Month)</span>
+              <p class="pricing-tier-summary" style="font-size: 0.86rem; color: rgba(255, 255, 255, 0.85); margin: 0 0 14px; line-height: 1.5;">Comprehensive growth marketing accelerator with ad creatives, social reels, and active SEO ranking.</p>
+
+              <button type="button" class="btn-price-reveal" aria-expanded="false" onclick="togglePriceCard(this)">
+                <span class="reveal-text">View Price &amp; Details</span>
+                <span class="reveal-icon">&darr;</span>
+              </button>
+
+              <div class="pricing-collapsible-content" style="display: none; margin-top: 16px;">
+                <div class="pricing-amount-box">
+                  <span class="pricing-price-main">₹13,499</span>
+                  <del class="pricing-price-old" aria-label="Original price ₹14,999">₹14,999</del>
+                  <span class="pricing-discount-pill">10% LESS</span>
+                  <span class="pricing-price-sub">(~$162 USD • 1 Month)</span>
+                </div>
+                <ul class="pricing-features-list">
+                  <li>10 Advertising Posters</li>
+                  <li>10 Video Reels (9:16)</li>
+                  <li>2 Meta Ad Campaigns</li>
+                  <li>1 Month Off-Site SEO</li>
+                  <li>Weekly Rank Reports</li>
+                </ul>
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Marketing%20and%20Growth%20Bundle" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta featured">
+                  <span>Book Growth Bundle &rarr;</span>
+                </a>
               </div>
-              <ul class="pricing-features-list">
-                <li>10 Advertising Posters</li>
-                <li>10 Video Reels (9:16)</li>
-                <li>2 Meta Ad Campaigns</li>
-                <li>1 Month Off-Site SEO</li>
-                <li>Weekly Rank Reports</li>
-              </ul>
             </div>
-            <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Marketing%20and%20Growth%20Bundle" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta featured">
-              <span>Book Growth Bundle &rarr;</span>
-            </a>
           </div>
         </div>
 
@@ -11807,6 +11925,49 @@
           closeNavbarOverlay();
         }
       });
+
+      window.togglePriceCard = function (btn) {
+        const card = btn.closest('.pricing-card');
+        if (!card) return;
+        const content = card.querySelector('.pricing-collapsible-content');
+        const textSpan = btn.querySelector('.reveal-text');
+        const iconSpan = btn.querySelector('.reveal-icon');
+        const isHidden = !content || content.style.display === 'none';
+        if (content) {
+          content.style.display = isHidden ? 'block' : 'none';
+        }
+        card.classList.toggle('is-expanded', isHidden);
+        btn.setAttribute('aria-expanded', String(isHidden));
+        if (textSpan) {
+          textSpan.textContent = isHidden ? 'Hide Price Details' : 'View Price & Details';
+        }
+        if (iconSpan) {
+          iconSpan.innerHTML = isHidden ? '&uarr;' : '&darr;';
+        }
+      };
+
+      window.toggleAllPriceCards = function (btn) {
+        const cards = document.querySelectorAll('.pricing-card');
+        const anyHidden = Array.from(cards).some(c => {
+          const content = c.querySelector('.pricing-collapsible-content');
+          return !content || content.style.display === 'none';
+        });
+        cards.forEach(c => {
+          const content = c.querySelector('.pricing-collapsible-content');
+          const cardBtn = c.querySelector('.btn-price-reveal');
+          const textSpan = cardBtn ? cardBtn.querySelector('.reveal-text') : null;
+          const iconSpan = cardBtn ? cardBtn.querySelector('.reveal-icon') : null;
+          if (content) content.style.display = anyHidden ? 'block' : 'none';
+          c.classList.toggle('is-expanded', anyHidden);
+          if (cardBtn) cardBtn.setAttribute('aria-expanded', String(anyHidden));
+          if (textSpan) textSpan.textContent = anyHidden ? 'Hide Price Details' : 'View Price & Details';
+          if (iconSpan) iconSpan.innerHTML = anyHidden ? '&uarr;' : '&darr;';
+        });
+        const allText = btn.querySelector('.all-text');
+        if (allText) {
+          allText.textContent = anyHidden ? 'Hide All Price Details' : 'Show All Price Details';
+        }
+      };
 
     })();
   </script>

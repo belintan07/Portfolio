@@ -2,8 +2,12 @@ import React, { memo, useEffect, useLayoutEffect, useMemo, useRef, useState } fr
 import {
   ArrowLeft,
   ArrowRight,
+  ChevronDown,
+  ChevronUp,
   Copy,
   Download,
+  Eye,
+  EyeOff,
   Moon,
   RotateCcw,
   Search,
@@ -1009,6 +1013,94 @@ body {
 
 .cg-pricing-card.featured .cg-price-list li::before {
   color: #8ce2ff;
+}
+
+.cg-price-reveal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0070ad;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin: 12px 0 6px;
+}
+
+.cg-price-reveal-btn:hover {
+  background: #f0f7fc;
+  border-color: #0070ad;
+  transform: translateY(-1px);
+}
+
+.cg-pricing-card.featured .cg-price-reveal-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
+.cg-pricing-card.featured .cg-price-reveal-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #ffffff;
+}
+
+[data-theme='dark'] .cg-price-reveal-btn {
+  background: rgba(18, 171, 219, 0.1);
+  border-color: rgba(18, 171, 219, 0.3);
+  color: #12abdb;
+}
+
+[data-theme='dark'] .cg-price-reveal-btn:hover {
+  background: rgba(18, 171, 219, 0.2);
+  border-color: #12abdb;
+}
+
+.cg-price-details-box {
+  animation: cg-fade-in 0.25s ease-out;
+}
+
+@keyframes cg-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cg-price-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cg-price-all-btn:hover {
+  color: #0070ad;
+  border-color: #0070ad;
+  background: var(--surface);
+}
+
+[data-theme='dark'] .cg-price-all-btn:hover {
+  color: #12abdb;
+  border-color: #12abdb;
 }
 
 /* Contact & Footer */
@@ -4192,6 +4284,7 @@ const TIERS = [
   {
     tagline: 'Fast Launch',
     name: 'Starter Landing Page',
+    summary: 'Single high-converting page engineered for fast turnaround and direct client WhatsApp inquiries.',
     price: '₹4,499',
     oldPrice: '₹4,999',
     sub: '(~$54 USD)',
@@ -4207,6 +4300,7 @@ const TIERS = [
   {
     tagline: 'Multi-Page',
     name: 'Business Website',
+    summary: 'Multi-page corporate website with structured on-page SEO, custom quote forms, and brand credibility.',
     price: '₹8,999',
     oldPrice: '₹9,999',
     sub: '(~$108 USD)',
@@ -4224,6 +4318,7 @@ const TIERS = [
     badge: 'GROWTH BUNDLE',
     featured: true,
     name: 'Marketing & SEO Bundle',
+    summary: 'Comprehensive growth marketing accelerator with ad creatives, social reels, and active SEO ranking.',
     price: '₹13,499',
     oldPrice: '₹14,999',
     sub: '(~$162 USD · 1 Month)',
@@ -4241,6 +4336,28 @@ const TIERS = [
 
 function PricingSection({ onBackHome, headingRef }) {
   const HeadingTag = onBackHome ? 'h1' : 'h2';
+  const [expandedTiers, setExpandedTiers] = useState({});
+
+  const toggleTier = (name) => {
+    setExpandedTiers((prev) => ({
+      ...prev,
+      [name]: !prev[name]
+    }));
+  };
+
+  const allExpanded = TIERS.every((t) => expandedTiers[t.name]);
+  const toggleAll = () => {
+    if (allExpanded) {
+      setExpandedTiers({});
+    } else {
+      const next = {};
+      TIERS.forEach((t) => {
+        next[t.name] = true;
+      });
+      setExpandedTiers(next);
+    }
+  };
+
   return (
     <section
       className="cg-section"
@@ -4317,95 +4434,159 @@ function PricingSection({ onBackHome, headingRef }) {
           </StarBorder>
         </div>
 
+        {/* Section Header Controls */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '24px' }}>
+          <div>
+            <span className="cg-badge">[ PACKAGES &amp; COMMERCIAL TIERS ]</span>
+            <h3 style={{ margin: '6px 0 0', fontSize: '1.45rem', fontWeight: 800 }}>
+              Transparent Development Plans
+            </h3>
+            <p style={{ margin: '4px 0 0', fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+              Prices and deliverables are hidden by default &mdash; click any package to reveal commercial details.
+            </p>
+          </div>
+          <button
+            type="button"
+            className="cg-price-all-btn"
+            onClick={toggleAll}
+            aria-expanded={allExpanded}
+          >
+            {allExpanded ? <EyeOff size={14} /> : <Eye size={14} />}
+            <span>{allExpanded ? 'Hide All Price Details' : 'Show All Price Details'}</span>
+          </button>
+        </div>
+
         {/* 3 Tier Grid */}
         <div className="cg-grid-3">
-          {TIERS.map((tier) => (
-            <article key={tier.name} className={`cg-pricing-card ${tier.featured ? 'featured' : ''}`}>
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <span
-                    style={{
-                      fontSize: '0.74rem',
-                      fontWeight: 700,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      color: tier.featured ? '#CFE9F7' : '#0070AD'
-                    }}
-                  >
-                    {tier.tagline}
-                  </span>
-                  {tier.badge && (
-                    <span className="cg-svp-pill" style={{ fontSize: '0.68rem', padding: '3px 8px' }}>
-                      {tier.badge}
+          {TIERS.map((tier) => {
+            const isExpanded = Boolean(expandedTiers[tier.name]);
+            const detailsId = `tier-details-${tier.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+            return (
+              <article
+                key={tier.name}
+                className={`cg-pricing-card ${tier.featured ? 'featured' : ''} ${isExpanded ? 'is-expanded' : ''}`}
+                style={{ cursor: 'pointer' }}
+                onClick={(e) => {
+                  if (e.target.closest('a, button')) return;
+                  toggleTier(tier.name);
+                }}
+              >
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                    <span
+                      style={{
+                        fontSize: '0.74rem',
+                        fontWeight: 700,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.08em',
+                        color: tier.featured ? '#CFE9F7' : '#0070AD'
+                      }}
+                    >
+                      {tier.tagline}
                     </span>
-                  )}
-                </div>
-
-                <h3 style={{ margin: '0 0 14px', fontSize: '1.26rem' }}>{tier.name}</h3>
-
-                <div style={{ marginBottom: '16px' }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap' }}>
-                    <span style={{ fontSize: '2rem', fontWeight: 800, lineHeight: 1.1 }}>{tier.price}</span>
-                    {!tier.subPrefix && (
-                      <del aria-label={`Original price ${tier.oldPrice}`} style={{ opacity: 0.65, fontSize: '0.95rem' }}>
-                        {tier.oldPrice}
-                      </del>
+                    {tier.badge && (
+                      <span className="cg-svp-pill" style={{ fontSize: '0.68rem', padding: '3px 8px' }}>
+                        {tier.badge}
+                      </span>
                     )}
-                    <span className="cg-discount-pill">10% LESS</span>
                   </div>
-                  <div
+
+                  <h3 style={{ margin: '0 0 10px', fontSize: '1.26rem' }}>{tier.name}</h3>
+
+                  <p
                     style={{
-                      fontSize: '0.84rem',
-                      marginTop: '6px',
+                      fontSize: '0.86rem',
+                      margin: '0 0 14px',
+                      lineHeight: 1.5,
                       color: tier.featured ? '#DCEBF7' : 'var(--text-secondary)'
                     }}
                   >
-                    {tier.subPrefix ? (
-                      <>
-                        {tier.subPrefix}
-                        <del aria-label={`Original base price ${tier.oldPrice}`}>{tier.oldPrice}</del>
-                        {tier.subSuffix}
-                      </>
-                    ) : (
-                      tier.sub
-                    )}
-                  </div>
+                    {tier.summary}
+                  </p>
+
+                  <button
+                    type="button"
+                    className="cg-price-reveal-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleTier(tier.name);
+                    }}
+                    aria-expanded={isExpanded}
+                    aria-controls={detailsId}
+                  >
+                    {isExpanded ? <EyeOff size={15} /> : <Eye size={15} />}
+                    <span>{isExpanded ? 'Hide Price Details' : 'View Price & Details'}</span>
+                    {isExpanded ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
+                  </button>
+
+                  {isExpanded && (
+                    <div id={detailsId} className="cg-price-details-box" style={{ marginTop: '16px' }}>
+                      <div style={{ marginBottom: '16px' }}>
+                        <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', flexWrap: 'wrap' }}>
+                          <span style={{ fontSize: '2rem', fontWeight: 800, lineHeight: 1.1 }}>{tier.price}</span>
+                          {!tier.subPrefix && (
+                            <del aria-label={`Original price ${tier.oldPrice}`} style={{ opacity: 0.65, fontSize: '0.95rem' }}>
+                              {tier.oldPrice}
+                            </del>
+                          )}
+                          <span className="cg-discount-pill">10% LESS</span>
+                        </div>
+                        <div
+                          style={{
+                            fontSize: '0.84rem',
+                            marginTop: '6px',
+                            color: tier.featured ? '#DCEBF7' : 'var(--text-secondary)'
+                          }}
+                        >
+                          {tier.subPrefix ? (
+                            <>
+                              {tier.subPrefix}
+                              <del aria-label={`Original base price ${tier.oldPrice}`}>{tier.oldPrice}</del>
+                              {tier.subSuffix}
+                            </>
+                          ) : (
+                            tier.sub
+                          )}
+                        </div>
+                      </div>
+
+                      <ul className="cg-price-list" style={{ marginBottom: '20px' }}>
+                        {tier.features.map((feat) => (
+                          <li key={feat}>{feat}</li>
+                        ))}
+                      </ul>
+
+                      <StarBorder
+                        as="a"
+                        href={`https://wa.me/918610662871?text=${encodeURIComponent(tier.waText)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        color={tier.featured ? '#12ABDB' : '#0070AD'}
+                        trailColor={tier.featured ? '#FFFFFF' : '#12ABDB'}
+                        duration={4}
+                        stars={tier.featured ? 2 : 1}
+                        trailLength={0.3}
+                        thickness={tier.featured ? 1.5 : 1.25}
+                        radius={999}
+                        glow={tier.featured ? 0.75 : 0.45}
+                        sparkle={!!tier.featured}
+                        hover="lap"
+                        clickPulse
+                        theme="light"
+                        backgroundColor={tier.featured ? '#FFFFFF' : '#F0F7FC'}
+                        textColor="#0070AD"
+                        borderColor={tier.featured ? 'rgba(18, 171, 219, 0.45)' : '#0070AD'}
+                        style={{ width: '100%' }}
+                      >
+                        <span>{tier.cta}</span>
+                        <ArrowRight size={15} />
+                      </StarBorder>
+                    </div>
+                  )}
                 </div>
-
-                <ul className="cg-price-list">
-                  {tier.features.map((feat) => (
-                    <li key={feat}>{feat}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <StarBorder
-                as="a"
-                href={`https://wa.me/918610662871?text=${encodeURIComponent(tier.waText)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                color={tier.featured ? '#12ABDB' : '#0070AD'}
-                trailColor={tier.featured ? '#FFFFFF' : '#12ABDB'}
-                duration={4}
-                stars={tier.featured ? 2 : 1}
-                trailLength={0.3}
-                thickness={tier.featured ? 1.5 : 1.25}
-                radius={999}
-                glow={tier.featured ? 0.75 : 0.45}
-                sparkle={!!tier.featured}
-                hover="lap"
-                clickPulse
-                theme="light"
-                backgroundColor={tier.featured ? '#FFFFFF' : '#F0F7FC'}
-                textColor="#0070AD"
-                borderColor={tier.featured ? 'rgba(18, 171, 219, 0.45)' : '#0070AD'}
-                style={{ width: '100%' }}
-              >
-                <span>{tier.cta}</span>
-                <ArrowRight size={15} />
-              </StarBorder>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
