@@ -11727,7 +11727,7 @@
                 <span class="reveal-icon">&darr;</span>
               </button>
 
-              <div class="pricing-collapsible-drawer" aria-hidden="true">
+              <div class="pricing-collapsible-drawer" aria-hidden="true" inert>
                 <div class="pricing-collapsible-inner">
                   <div class="pricing-collapsible-content" style="padding-top: 16px;">
                 <div class="pricing-amount-box">
@@ -11742,7 +11742,7 @@
                   <li>Mobile Responsive</li>
                   <li>3-5 Days Turnaround</li>
                 </ul>
-                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Starter%20Landing%20Page" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta">
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Starter%20Landing%20Page" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta" tabindex="-1">
                   <span>Book Starter Page &rarr;</span>
                 </a>
               </div>
@@ -11767,7 +11767,7 @@
                 <span class="reveal-icon">&darr;</span>
               </button>
 
-              <div class="pricing-collapsible-drawer" aria-hidden="true">
+              <div class="pricing-collapsible-drawer" aria-hidden="true" inert>
                 <div class="pricing-collapsible-inner">
                   <div class="pricing-collapsible-content" style="padding-top: 16px;">
                 <div class="pricing-amount-box">
@@ -11782,7 +11782,7 @@
                   <li>Contact &amp; Quote Forms</li>
                   <li>7-10 Days Turnaround</li>
                 </ul>
-                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Business%20Website" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta">
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Business%20Website" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta" tabindex="-1">
                   <span>Book Business Site &rarr;</span>
                 </a>
               </div>
@@ -11808,7 +11808,7 @@
                 <span class="reveal-icon">&darr;</span>
               </button>
 
-              <div class="pricing-collapsible-drawer" aria-hidden="true">
+              <div class="pricing-collapsible-drawer" aria-hidden="true" inert>
                 <div class="pricing-collapsible-inner">
                   <div class="pricing-collapsible-content" style="padding-top: 16px;">
                 <div class="pricing-amount-box">
@@ -11824,7 +11824,7 @@
                   <li>1 Month Off-Site SEO</li>
                   <li>Weekly Rank Reports</li>
                 </ul>
-                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Marketing%20and%20Growth%20Bundle" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta featured">
+                <a href="https://wa.me/918610662871?text=Hi%20Belintan,%20I%20want%20to%20book%20the%20Marketing%20and%20Growth%20Bundle" target="_blank" rel="noopener noreferrer" class="btn-pricing-cta featured" tabindex="-1">
                   <span>Book Growth Bundle &rarr;</span>
                 </a>
               </div>
@@ -12077,6 +12077,14 @@
         if (drawer) {
           drawer.classList.toggle('is-open', willOpen);
           drawer.setAttribute('aria-hidden', String(!willOpen));
+          if (willOpen) {
+            drawer.removeAttribute('inert');
+          } else {
+            drawer.setAttribute('inert', '');
+          }
+          drawer.querySelectorAll('a, button').forEach(el => {
+            el.setAttribute('tabindex', willOpen ? '0' : '-1');
+          });
         }
 
         if (textSpan) {
@@ -12106,9 +12114,17 @@
             if (iconSpan) iconSpan.innerHTML = willOpen ? '&uarr;' : '&darr;';
           }
           if (drawer) {
-            drawer.classList.toggle('is-open', willOpen);
-            drawer.setAttribute('aria-hidden', String(!willOpen));
+          drawer.classList.toggle('is-open', willOpen);
+          drawer.setAttribute('aria-hidden', String(!willOpen));
+          if (willOpen) {
+            drawer.removeAttribute('inert');
+          } else {
+            drawer.setAttribute('inert', '');
           }
+          drawer.querySelectorAll('a, button').forEach(el => {
+            el.setAttribute('tabindex', willOpen ? '0' : '-1');
+          });
+        }
         });
 
         const allText = btn.querySelector('.all-text');

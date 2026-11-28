@@ -4666,6 +4666,7 @@ function PricingSection({ onBackHome, headingRef }) {
                     id={detailsId}
                     className={`cg-price-details-drawer ${isExpanded ? 'is-open' : ''}`}
                     aria-hidden={!isExpanded}
+                    inert={!isExpanded ? '' : undefined}
                   >
                     <div className="cg-price-details-inner">
                       <div className="cg-price-details-box" style={{ paddingTop: '16px' }}>
@@ -4709,6 +4710,7 @@ function PricingSection({ onBackHome, headingRef }) {
                           href={`https://wa.me/918610662871?text=${encodeURIComponent(tier.waText)}`}
                           target="_blank"
                           rel="noopener noreferrer"
+                          tabIndex={isExpanded ? 0 : -1}
                           color={tier.featured ? '#12ABDB' : '#0070AD'}
                           trailColor={tier.featured ? '#FFFFFF' : '#12ABDB'}
                           duration={4}
