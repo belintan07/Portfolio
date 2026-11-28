@@ -16,6 +16,7 @@ import {
   Upload,
   Zap
 } from 'lucide-react';
+import GradientText from './components/GradientText';
 
 /* ==========================================================================
    1. Unified Styles (Capgemini Enterprise Theme + React Bits LogoLoop)
@@ -3847,14 +3848,33 @@ function Navbar({ activePage, onNavigatePage, theme, toggleTheme }) {
           }}
         >
           <span className="cg-brand-mark" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 2.5C7.2 7 4 11.2 4 14.8c0 2.9 2.2 4.9 5 4.9 1.3 0 2.4-.5 3-1.4-.1 1.4-.6 2.5-1.5 3.4h3c-.9-.9-1.4-2-1.5-3.4.6.9 1.7 1.4 3 1.4 2.8 0 5-2 5-4.9C20 11.2 16.8 7 12 2.5z"
-                fill="#FFFFFF"
-              />
+            <svg width="22" height="16" viewBox="0 0 40 26" fill="none">
+              <g transform="skewX(-10) translate(2, 0)">
+                <path
+                  d="M10 4C5.6 4 2 7.8 2 13C2 18.2 5.6 22 10 22C12.2 22 14.1 21.1 15.3 19.7L13.2 16.8C12.4 17.6 11.3 18.2 10 18.2C7.7 18.2 5.8 15.9 5.8 13C5.8 10.1 7.7 7.8 10 7.8C11.3 7.8 12.4 8.4 13.2 9.2L15.3 6.3C14.1 4.9 12.2 4 10 4Z"
+                  fill="#FFFFFF"
+                />
+                <path
+                  d="M17 4H22.8C25.7 4 27.8 5.9 27.8 8.8C27.8 11 26.3 12.8 24.3 13.4L28 22H24.1L21 14.2H20.7V22H17V4ZM20.7 7.5V11H22.6C23.7 11 24.3 10.2 24.3 9.3C24.3 8.3 23.7 7.5 22.6 7.5H20.7Z"
+                  fill="#FFFFFF"
+                />
+                <path
+                  d="M28.8 4H37.5V7.5L32.8 22H29L33.4 7.5H28.8V4Z"
+                  fill="#FFFFFF"
+                />
+              </g>
             </svg>
           </span>
-          <span className="cg-brand-text">Belintan B.</span>
+          <span className="cg-brand-text">
+            <GradientText
+              colors={['#5227FF', '#FF9FFC', '#B497CF']}
+              animationSpeed={8}
+              variant="flow"
+              glow={0.4}
+            >
+              Belintan B.
+            </GradientText>
+          </span>
         </a>
 
         <nav className="cg-nav-links" aria-label="Primary Navigation">
@@ -3941,7 +3961,15 @@ function HeroSection() {
             </div>
 
             <h1 className="cg-hero-h1">
-              Hi, I&apos;m <span>Belintan.</span>
+              Hi, I&apos;m{' '}
+              <GradientText
+                colors={['#5227FF', '#FF9FFC', '#B497CF']}
+                animationSpeed={8}
+                variant="flow"
+                glow={0.4}
+              >
+                Belintan.
+              </GradientText>
             </h1>
 
             <div className="cg-role-card-wrap">
